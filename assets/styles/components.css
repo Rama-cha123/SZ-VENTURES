@@ -1,0 +1,322 @@
+/* =====================================================================
+   SZ VENTURES — COMPONENTS
+   Nav, buttons, footer, cards, reveal animation, badges.
+   ===================================================================== */
+
+/* ---------- Reveal on scroll ----------
+   Hidden state is scoped to .js so that, without JavaScript, all
+   content remains fully visible (progressive enhancement). */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  will-change: opacity, transform;
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+[data-reveal][data-delay="1"] { transition-delay: 0.08s; }
+[data-reveal][data-delay="2"] { transition-delay: 0.16s; }
+[data-reveal][data-delay="3"] { transition-delay: 0.24s; }
+[data-reveal][data-delay="4"] { transition-delay: 0.32s; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  --b-bg: var(--ink);
+  --b-fg: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-400);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border-radius: 100px;
+  background: var(--b-bg);
+  color: var(--b-fg);
+  border: 1px solid transparent;
+  transition: transform 0.25s var(--ease), background 0.25s var(--ease),
+              color 0.25s var(--ease), border-color 0.25s var(--ease),
+              box-shadow 0.25s var(--ease);
+}
+.btn svg { width: 18px; height: 18px; transition: transform 0.3s var(--ease); }
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn:hover svg { transform: translateX(3px); }
+
+.btn-primary { --b-bg: var(--ink); --b-fg: var(--paper); }
+.btn-primary:hover { --b-bg: var(--accent); --b-fg: var(--accent-contrast); }
+
+.btn-secondary {
+  --b-bg: transparent; --b-fg: var(--ink);
+  border-color: var(--line);
+}
+.btn-secondary:hover { border-color: var(--ink); --b-bg: var(--ink); --b-fg: var(--paper); }
+
+.btn-ghost {
+  --b-bg: transparent; --b-fg: var(--ink);
+  padding-inline: 0.4rem;
+}
+.btn-ghost:hover { --b-bg: transparent; transform: translateX(3px); box-shadow: none; color: var(--accent); }
+.btn-ghost:hover svg { transform: translateX(3px); }
+
+.btn-accent { --b-bg: var(--accent); --b-fg: var(--accent-contrast); }
+
+.btn-block { width: 100%; }
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+/* ---------- Navigation ---------- */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  background: color-mix(in srgb, var(--paper) 80%, transparent);
+  backdrop-filter: saturate(150%) blur(12px);
+  -webkit-backdrop-filter: saturate(150%) blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease),
+              height 0.3s var(--ease);
+}
+.nav.is-scrolled {
+  border-bottom-color: var(--line);
+  height: 60px;
+}
+.nav-container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.1rem, 5vw, 2.25rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+.nav-logo svg { width: 26px; height: 26px; color: var(--ink); }
+.nav-logo-text { white-space: nowrap; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.nav-link {
+  padding: 0.5rem 0.85rem;
+  font-size: var(--fs-400);
+  color: var(--muted);
+  border-radius: 100px;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.nav-link:hover { color: var(--ink); }
+.nav-cta {
+  color: var(--paper);
+  background: var(--ink);
+  font-weight: 500;
+  font-family: var(--font-display);
+}
+.nav-cta:hover { background: var(--accent); color: var(--accent-contrast); }
+
+.nav-toggle {
+  display: none;
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+}
+.hamburger, .hamburger::before, .hamburger::after {
+  content: "";
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--ink);
+  transition: transform 0.3s var(--ease), opacity 0.2s var(--ease);
+}
+.hamburger { position: relative; }
+.hamburger::before { position: absolute; top: -6px; }
+.hamburger::after  { position: absolute; top: 6px; }
+.nav-toggle[aria-expanded="true"] .hamburger { background: transparent; }
+.nav-toggle[aria-expanded="true"] .hamburger::before { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .hamburger::after  { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 860px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-links {
+    position: fixed;
+    inset: var(--header-h) 0 auto 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+    padding: 1rem clamp(1.1rem, 5vw, 2.25rem) 1.5rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  }
+  .nav-links.is-open { transform: none; opacity: 1; pointer-events: auto; }
+  .nav-link { padding: 0.85rem 0.5rem; font-size: 1.05rem; }
+  .nav-cta { text-align: center; margin-top: 0.5rem; }
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.4rem, 3vw, 2rem);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease),
+              border-color 0.35s var(--ease);
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--line-soft); }
+
+.card-eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--fs-300);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---------- Badge / pill ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: var(--fs-300);
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--card);
+}
+.pill-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--ink);
+  color: var(--ink-soft);
+  padding-block: clamp(3rem, 7vw, var(--sp-7)) 2rem;
+}
+.footer .container { color: var(--muted); }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 2fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-bottom: var(--sp-6);
+  border-bottom: 1px solid var(--line);
+}
+.footer-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-display); font-weight: 600; font-size: 1.1rem;
+  color: var(--white);
+}
+.footer-logo svg { width: 28px; height: 28px; color: var(--white); }
+.footer-tagline { margin-top: 1rem; max-width: 34ch; color: var(--muted); }
+.footer-social { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+.social-link {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.social-link svg { width: 18px; height: 18px; }
+.social-link:hover { color: var(--white); border-color: var(--muted); transform: translateY(-2px); }
+
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.footer-nav-col h4 {
+  font-size: var(--fs-300);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--muted-2);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.footer-nav-col a {
+  display: block;
+  padding: 0.32rem 0;
+  color: var(--muted);
+  font-size: var(--fs-400);
+  transition: color 0.2s var(--ease);
+}
+.footer-nav-col a:hover { color: var(--white); }
+
+.footer-bottom {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  font-size: var(--fs-300);
+  color: var(--muted-2);
+}
+
+@media (max-width: 760px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-nav { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+  .footer-nav { grid-template-columns: 1fr; }
+}
+
+/* ---------- Tippy.js — SZ theme (matches design tokens) ----------
+   tippy.css (in libs.bundle.css) provides base structure; this only
+   recolors to the SZ palette so tooltips feel native to the site. */
+.tippy-box[data-theme~='sz'] {
+  background-color: var(--ink);
+  color: var(--paper);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--fs-300);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  box-shadow: var(--shadow-md);
+}
+.tippy-box[data-theme~='sz'] > .tippy-content {
+  padding: 0.45rem 0.7rem;
+}
+.tippy-box[data-theme~='sz'] > .tippy-arrow {
+  color: var(--ink);
+}
+
+/* ---------- Odometer — match SZ typography + align suffix ----------
+   odometer-theme-default.css (in libs.bundle.css) provides the rolling
+   animation; override its hard-coded Helvetica font and tune the timing. */
+.odometer.odometer-theme-default {
+  font-family: var(--font-display);
+  line-height: 1;
+}
+.odometer.odometer-theme-default.odometer-animating-up.odometer-animating .odometer-ribbon-inner,
+.odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+  transition: transform 1.2s;
+}

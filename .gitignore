@@ -1,0 +1,9 @@
+# Vendored library source clones — reference only, not part of the site.
+# The actual library files live in assets/js/libs and assets/styles/libs.
+vendor-aos/
+vendor-lenis/
+vendor-tippy/
+vendor-odometer/
+
+# Unrelated Claude plugin repo (separate git project).
+ui-ux-pro-max-skill/
