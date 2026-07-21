@@ -1,33 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <script>document.documentElement.classList.add("js")</script>
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
   <title>SZ Ventures — A Venture Studio Building Companies That Matter</title>
-  <meta name="description" content="SZ Ventures is a venture studio operating at the intersection of technology, hospitality, sustainability, and advanced manufacturing. We don't consult — we co-found, fund, and operate category-defining companies.">
-  <meta name="theme-color" content="#0e0e10">
+  <meta name="description" content="SZ Ventures is a venture studio operating at the intersection of technology, hospitality, sustainability, and advanced manufacturing. We co-found, fund, and operate category-defining companies.">
+  <meta name="theme-color" content="#0a0a0b">
   <link rel="canonical" href="https://szventures.com/">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="SZ Ventures — Venture Studio">
-  <meta property="og:description" content="We build companies that matter. A venture studio operating at the intersection of technology, hospitality, sustainability, and advanced manufacturing.">
+  <meta property="og:description" content="We build companies that matter.">
   <meta property="og:url" content="https://szventures.com/">
-  <meta property="og:image" content="assets/img/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SZ Ventures — Venture Studio">
-  <meta name="twitter:description" content="We build companies that matter.">
-  <meta name="twitter:image" content="assets/img/og-image.svg">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap"></noscript>
 
-  <!-- Styles -->
+  <!-- Project styles -->
   <link rel="stylesheet" href="assets/styles/tokens.css">
   <link rel="stylesheet" href="assets/styles/base.css">
   <link rel="stylesheet" href="assets/styles/components.css">
@@ -36,308 +30,342 @@
 
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 </head>
-<body>
-  <a class="visually-hidden" href="#main">Skip to content</a>
+<body class="is-loading">
 
-  <!-- ============ NAV ============ -->
-  <nav class="nav" id="nav" aria-label="Main navigation">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo" aria-label="SZ Ventures home" data-tippy-content="SZ Ventures — Home">
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 4 L12 24 L12 44 L32 64 L52 44 L52 24 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M32 16 L32 48" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M16 32 L48 32" stroke="currentColor" stroke-width="1.5"/>
-        </svg>
-        <span class="nav-logo-text">SZ Ventures</span>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__mark">SZ Ventures</div>
+    <div class="preloader__count" id="preCount">0</div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
+  </div>
+
+  <!-- Navigation (persistent — outside Swup container) -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__brand" data-cursor data-tippy-content="Back to top">
+        <svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M32 4 L12 24 L12 44 L32 64 L52 44 L52 24 Z"/><path d="M32 16 L32 48"/><path d="M16 32 L48 32"/></svg>
+        SZ Ventures
       </a>
-      <div class="nav-links" id="nav-links">
-        <a href="portfolio.html" class="nav-link" data-tippy-content="See our portfolio">Portfolio</a>
-        <a href="philosophy.html" class="nav-link" data-tippy-content="Our philosophy">Philosophy</a>
-        <a href="achievements.html" class="nav-link" data-tippy-content="Our milestones">Milestones</a>
-        <a href="contact.html" class="nav-link nav-cta" data-tippy-content="Partner with us">Partner With Us</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#philosophy" class="nav__link" data-tippy-content="How we operate">Philosophy</a>
+        <a href="#portfolio" class="nav__link" data-tippy-content="Our companies">Portfolio</a>
+        <a href="#milestones" class="nav__link" data-tippy-content="Proof of traction">Milestones</a>
+        <a href="#pathways" class="nav__link" data-tippy-content="Ways to work with us">Pathways</a>
+      </nav>
+      <div class="nav__right">
+        <a href="#contact" class="btn btn--accent" data-magnetic data-cursor><span>Partner With Us</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation" data-tippy-content="Menu">
-        <span class="hamburger"></span>
-      </button>
     </div>
-  </nav>
+  </header>
 
-  <main id="main">
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="hero" aria-labelledby="hero-title">
-      <div class="container hero-inner">
-        <span class="hero-badge" data-reveal>
-          <span class="badge-dot" aria-hidden="true"></span>
-          Venture Studio
-        </span>
-        <h1 id="hero-title" data-reveal>
-          We build <span class="hl">companies</span> that <span class="hl">matter</span>.
+  <!-- Mobile menu -->
+  <div class="menu" id="menu">
+    <a href="#philosophy" data-menu-link>Philosophy <span>01</span></a>
+    <a href="#portfolio" data-menu-link>Portfolio <span>02</span></a>
+    <a href="#milestones" data-menu-link>Milestones <span>03</span></a>
+    <a href="#pathways" data-menu-link>Pathways <span>04</span></a>
+    <a href="#contact" data-menu-link>Partner With Us <span>05</span></a>
+    <div class="menu__meta"><span>San Francisco</span><span>Singapore</span><span>Est. 2018</span></div>
+  </div>
+
+  <!-- ================= SWUP MAIN CONTAINER ================= -->
+  <main id="swup" class="transition-fade">
+
+    <!-- HERO -->
+    <section class="hero glass" id="top">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
+      <div class="hero__inner">
+        <div class="hero__meta" data-aos="fade">
+          <span>Venture Studio</span>
+          <span>San Francisco · Singapore</span>
+          <span>Est. 2018</span>
+        </div>
+        <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900">
+          <span class="line"><span>We build</span></span>
+          <span class="line"><span>companies that</span></span>
+          <span class="line"><span><em class="serif-accent">matter.</em></span></span>
         </h1>
-        <p class="hero-sub" data-reveal data-delay="1">
-          SZ Ventures is a venture studio operating at the intersection of technology,
-          hospitality, sustainability, and advanced manufacturing. We don't consult —
-          we co-found, fund, and operate.
+        <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+          A venture studio operating at the intersection of technology, hospitality,
+          sustainability, and advanced manufacturing. We don't consult — we co-found,
+          fund, and operate category-defining companies.
         </p>
-        <div class="btn-row hero-cta" data-reveal data-delay="2">
-          <a href="portfolio.html" class="btn btn-primary">
-            <span>Explore our companies</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-          </a>
-          <a href="contact.html" class="btn btn-secondary"><span>Start a conversation</span></a>
+        <div class="hero__actions" data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
+          <a href="#portfolio" class="btn btn--accent" data-magnetic data-cursor><span>View our portfolio</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a href="#philosophy" class="btn btn--ghost" data-cursor><span>Our philosophy</span></a>
         </div>
-        <div class="hero-scroll" data-reveal data-delay="3" aria-hidden="true">
-          <span>Scroll to discover</span>
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        <div class="hero__foot">
+          <div class="hero__scroll"><i></i> Scroll to explore</div>
+          <div class="hero__index display">01 — Studio</div>
         </div>
       </div>
     </section>
 
-    <!-- ============ PHILOSOPHY ============ -->
-    <section class="section" id="philosophy" aria-labelledby="philosophy-title">
+    <!-- PHILOSOPHY -->
+    <section class="section philosophy glass" id="philosophy">
       <div class="container">
-        <header class="section-head" data-reveal>
-          <span class="eyebrow">Our Philosophy</span>
-          <h2 id="philosophy-title" class="section-title">Execution over advice.<br>Building over consulting.</h2>
-          <p class="section-subtitle">A venture studio is structurally different from a consultancy. We take the risk, sit in the seat, and own the outcome.</p>
-        </header>
-        <div class="philosophy-grid">
-          <article class="card value-card" data-reveal>
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
-            </span>
-            <h3>Skin in the game</h3>
-            <p>We invest our own capital alongside our founders. Every company in our portfolio has SZ Ventures as a committed, aligned partner — not an advisor collecting fees.</p>
-          </article>
-          <article class="card value-card" data-reveal data-delay="1">
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2" fill="none"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
-            </span>
-            <h3>Operational depth</h3>
-            <p>Our team has founded, scaled, and exited companies. We provide hands-on support — recruiting, go-to-market, product, finance — not strategic decks.</p>
-          </article>
-          <article class="card value-card" data-reveal data-delay="2">
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
-            </span>
-            <h3>Long-term vision</h3>
-            <p>We build for decades, not quarters. Our holding period is indefinite. We compound value by solving hard problems that require patience and conviction.</p>
-          </article>
-          <article class="card value-card" data-reveal data-delay="3">
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-            </span>
-            <h3>Ecosystem synergy</h3>
-            <p>Our companies share infrastructure, talent, and insight. A breakthrough in manufacturing accelerates hospitality. AI in operations powers sustainability. The whole exceeds the parts.</p>
-          </article>
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">Operating Model</span>
+          <h2 data-aos="fade-up">A studio, not a fund.</h2>
+        </div>
+        <p class="philosophy__statement display" data-aos="fade-up" data-aos-duration="900">
+          We embed as <em>co-founders</em>, not bystanders — and we stay until the
+          company stands on its own.
+        </p>
+        <div class="principles">
+          <div class="principle" data-aos="fade-up">
+            <div class="principle__num">01</div>
+            <h3>Conviction over consensus</h3>
+            <p>We back sharp theses and commit fully. Few bets, held with intensity, compounded over a decade.</p>
+          </div>
+          <div class="principle" data-aos="fade-up" data-aos-delay="100">
+            <div class="principle__num">02</div>
+            <h3>Operators, not observers</h3>
+            <p>We recruit the team, ship the first product, and run the company until it earns its independence.</p>
+          </div>
+          <div class="principle" data-aos="fade-up" data-aos-delay="200">
+            <div class="principle__num">03</div>
+            <h3>Capital with craft</h3>
+            <p>Patient, structured capital paired with the design, brand, and engineering discipline of a studio.</p>
+          </div>
+          <div class="principle" data-aos="fade-up" data-aos-delay="300">
+            <div class="principle__num">04</div>
+            <h3>Built to endure</h3>
+            <p>We optimise for permanence — durable moats, real margins, and companies that outlive the cycle.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ PORTFOLIO PREVIEW ============ -->
-    <section class="section section--tight" id="portfolio" aria-labelledby="portfolio-title">
+    <!-- PORTFOLIO -->
+    <section class="section portfolio glass" id="portfolio">
       <div class="container">
-        <header class="section-head" data-reveal>
-          <span class="eyebrow">Portfolio</span>
-          <h2 id="portfolio-title" class="section-title">Five companies. One ecosystem.</h2>
-          <p class="section-subtitle">Each a category leader in its domain — united by a shared operating system and long-term conviction.</p>
-        </header>
-        <div class="portfolio-grid">
-          <a class="venture-card" href="snapops.html" data-reveal style="--v-accent: var(--v-snapops);">
-            <span class="vc-sector">Operations · AI</span>
-            <h3>SnapOps</h3>
-            <p class="vc-desc">Intelligent operations software that runs the back office of modern hospitality and retail.</p>
-            <span class="vc-link">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></span>
-          </a>
-          <a class="venture-card" href="bowl-sip.html" data-reveal data-delay="1" style="--v-accent: var(--v-bowlsip);">
-            <span class="vc-sector">Hospitality</span>
-            <h3>Bowl &amp; Sip Co.</h3>
-            <p class="vc-desc">A fast-casual brand rethinking everyday food — nourishing bowls and craft beverages, built to scale.</p>
-            <span class="vc-link">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></span>
-          </a>
-          <a class="venture-card" href="terramuse.html" data-reveal data-delay="2" style="--v-accent: var(--v-terramuse);">
-            <span class="vc-sector">Sustainability</span>
-            <h3>TerraMuse</h3>
-            <p class="vc-desc">Carbon and nature-tech infrastructure helping organizations measure, verify, and restore.</p>
-            <span class="vc-link">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></span>
-          </a>
-          <a class="venture-card" href="mirai.html" data-reveal style="--v-accent: var(--v-mirai);">
-            <span class="vc-sector">Engineering</span>
-            <h3>Mirai Engineering</h3>
-            <p class="vc-desc">Deep-tech engineering across robotics, controls, and applied AI for the physical world.</p>
-            <span class="vc-link">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></span>
-          </a>
-          <a class="venture-card" href="sz-manufacturing.html" data-reveal data-delay="1" style="--v-accent: var(--v-manufacturing);">
-            <span class="vc-sector">Manufacturing</span>
-            <h3>SZ Manufacturing</h3>
-            <p class="vc-desc">Advanced manufacturing and fabrication — the production backbone behind the ecosystem.</p>
-            <span class="vc-link">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></span>
-          </a>
+        <div class="sec-head sec-head--row">
+          <div>
+            <span class="eyebrow" data-aos="fade">Portfolio</span>
+            <h2 data-aos="fade-up">Companies we've built.</h2>
+          </div>
+          <p data-aos="fade">A curated set of ventures across four sectors — each one co‑founded, funded, and operated by the studio.</p>
         </div>
-        <div class="section-cta" data-reveal>
-          <a href="portfolio.html" class="btn btn-secondary">
-            <span>View all companies</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        <div class="portfolio__list">
+          <a class="company" href="#contact" data-aos="fade-up" data-cursor
+             data-tippy-content="Hospitality · 40 stores across 3 regions. A modern teahouse concept redefining the grab-and-go ritual.">
+            <div class="company__name">Bowl & Sip</div>
+            <div class="company__thesis">A modern teahouse system rethinking the daily ritual.</div>
+            <div class="company__sector">Hospitality</div>
+            <div class="company__metric">40 <span style="color:var(--bone-faint);font-size:0.5em">stores</span></div>
+            <div class="company__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+          </a>
+          <a class="company" href="#contact" data-aos="fade-up" data-cursor
+             data-tippy-content="Engineering · 3 live pilots. Autonomy stack for light industrial and warehouse robotics.">
+            <div class="company__name">Mirai</div>
+            <div class="company__thesis">Autonomy and control systems for physical-world machines.</div>
+            <div class="company__sector">Engineering</div>
+            <div class="company__metric">3 <span style="color:var(--bone-faint);font-size:0.5em">pilots</span></div>
+            <div class="company__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+          </a>
+          <a class="company" href="#contact" data-aos="fade-up" data-cursor
+             data-tippy-content="Operations · 2,000+ locations live. Back-of-house OS replacing paper and legacy tooling.">
+            <div class="company__name">SnapOps</div>
+            <div class="company__thesis">The operating system for multi‑location operations.</div>
+            <div class="company__sector">Technology</div>
+            <div class="company__metric">2,000<span style="color:var(--bone-faint);font-size:0.5em">+ loc</span></div>
+            <div class="company__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+          </a>
+          <a class="company" href="#contact" data-aos="fade-up" data-cursor
+             data-tippy-content="Manufacturing · 1.2M units / year. Precision production for hard-goods ventures.">
+            <div class="company__name">SZ Manufacturing</div>
+            <div class="company__thesis">In‑house advanced manufacturing for our hard‑goods ventures.</div>
+            <div class="company__sector">Manufacturing</div>
+            <div class="company__metric">1.2M <span style="color:var(--bone-faint);font-size:0.5em">/yr</span></div>
+            <div class="company__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+          </a>
+          <a class="company" href="#contact" data-aos="fade-up" data-cursor
+             data-tippy-content="Sustainability · 1M+ tonnes verified. Provenance and verification for carbon and materials.">
+            <div class="company__name">Terramuse</div>
+            <div class="company__thesis">Verification infrastructure for a measured, accountable planet.</div>
+            <div class="company__sector">Sustainability</div>
+            <div class="company__metric">1M<span style="color:var(--bone-faint);font-size:0.5em">+ t</span></div>
+            <div class="company__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+          </a>
+          <a class="company" href="#contact" data-aos="fade-up" data-cursor
+             data-tippy-content="Mobility · Stealth. Next‑generation micromobility for dense cities.">
+            <div class="company__name">Northwind</div>
+            <div class="company__thesis">Quiet, electric mobility engineered for the dense city.</div>
+            <div class="company__sector">Mobility</div>
+            <div class="company__metric">Stealth</div>
+            <div class="company__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ============ MILESTONES ============ -->
-    <section class="section" id="milestones" aria-labelledby="milestones-title">
+    <!-- MILESTONES -->
+    <section class="section milestones glass" id="milestones">
       <div class="container">
-        <header class="section-head" data-reveal>
-          <span class="eyebrow">Current Milestones</span>
-          <h2 id="milestones-title" class="section-title">What we're building right now.</h2>
-        </header>
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">Traction</span>
+          <h2 data-aos="fade-up">Proof, not promises.</h2>
+        </div>
+        <div class="stats">
+          <div class="stat" data-aos="fade-up">
+            <div class="stat__value" data-count="480" data-suffix="M" data-prefix="$">$0</div>
+            <div class="stat__label">Assets under management</div>
+          </div>
+          <div class="stat" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat__value" data-count="27" data-suffix="">0</div>
+            <div class="stat__label">Companies built</div>
+          </div>
+          <div class="stat" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat__value" data-count="6" data-suffix="">0</div>
+            <div class="stat__label">Successful exits</div>
+          </div>
+          <div class="stat" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat__value" data-count="11" data-suffix="">0</div>
+            <div class="stat__label">Patents filed</div>
+          </div>
+        </div>
+
         <div class="timeline">
-          <div class="timeline-row" data-reveal>
-            <div class="timeline-year">2026</div>
-            <div class="timeline-body">
-              <h4>SnapOps crosses 2,000 locations live</h4>
-              <p>Our operations platform now runs scheduling, inventory, and forecasting across two thousand hospitality and retail sites.</p>
-              <span class="tag">SnapOps · Traction</span>
-            </div>
+          <div class="tl-item" data-aos="fade-up">
+            <div class="tl-item__year">2018</div>
+            <div class="tl-item__body"><h3>The studio is founded</h3><p>Started with a single thesis: that great companies are built, not bought.</p></div>
           </div>
-          <div class="timeline-row" data-reveal>
-            <div class="timeline-year">2026</div>
-            <div class="timeline-body">
-              <h4>Bowl &amp; Sip Co. opens its 40th store</h4>
-              <p>The brand reaches forty locations across three regions with a profitable unit model and a franchise waitlist.</p>
-              <span class="tag">Bowl &amp; Sip Co. · Expansion</span>
-            </div>
+          <div class="tl-item" data-aos="fade-up">
+            <div class="tl-item__year">2020</div>
+            <div class="tl-item__body"><h3>First exit</h3><p>Our inaugural venture reaches a strategic acquisition — validating the studio model.</p></div>
           </div>
-          <div class="timeline-row" data-reveal>
-            <div class="timeline-year">2025</div>
-            <div class="timeline-body">
-              <h4>TerraMuse verifies 1M tonnes of carbon</h4>
-              <p>Our measurement and verification engine passes one million tonnes of independently verified carbon and nature impact.</p>
-              <span class="tag">TerraMuse · Impact</span>
-            </div>
+          <div class="tl-item" data-aos="fade-up">
+            <div class="tl-item__year">2022</div>
+            <div class="tl-item__body"><h3>Manufacturing goes in‑house</h3><p>SZ Manufacturing opens, giving our hard‑goods ventures vertical control.</p></div>
           </div>
-          <div class="timeline-row" data-reveal>
-            <div class="timeline-year">2025</div>
-            <div class="timeline-body">
-              <h4>Mirai ships its first controls platform</h4>
-              <p>Mirai Engineering delivers its flagship robotics controls stack to pilot partners in logistics and advanced manufacturing.</p>
-              <span class="tag">Mirai Engineering · Product</span>
-            </div>
+          <div class="tl-item" data-aos="fade-up">
+            <div class="tl-item__year">2026</div>
+            <div class="tl-item__body"><h3>$480M under management</h3><p>Twenty‑seven companies strong, across four sectors and two continents.</p></div>
           </div>
-        </div>
-        <div class="section-cta" data-reveal>
-          <a href="achievements.html" class="btn btn-secondary"><span>View all milestones</span></a>
         </div>
       </div>
     </section>
 
-    <!-- ============ INTEREST / SINGLE CTA ============ -->
-    <section class="section section--tight" id="connect" aria-labelledby="connect-title">
+    <!-- PATHWAYS -->
+    <section class="section pathways glass" id="pathways">
       <div class="container">
-        <header class="section-head center" data-reveal>
-          <span class="eyebrow">Where do you fit?</span>
-          <h2 id="connect-title" class="section-title">One conversation. Your kind of next step.</h2>
-          <p class="section-subtitle">Whatever your angle, the first move is the same: talk to us. We'll point you to the right room.</p>
-        </header>
-        <div class="interest-grid">
-          <article class="interest-card" data-reveal>
-            <h3>For Founders</h3>
-            <p>Have an idea worth building, or a company ready to compound? We co-found, fund, and operate alongside you.</p>
-            <a href="contact.html#founders" class="vc-link">Start a conversation <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-          </article>
-          <article class="interest-card" data-reveal data-delay="1">
-            <h3>For Operators</h3>
-            <p>Early-stage operators and builders — join a studio where you own real outcomes across multiple companies.</p>
-            <a href="contact.html#operators" class="vc-link">Explore roles <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-          </article>
-          <article class="interest-card" data-reveal data-delay="2">
-            <h3>For Investors</h3>
-            <p>Capital partners seeking durable, conviction-led exposure to a diversified venture portfolio.</p>
-            <a href="contact.html#investors" class="vc-link">Talk to the team <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-          </article>
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">Pathways</span>
+          <h2 data-aos="fade-up">Three ways to build with us.</h2>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ CTA BAND ============ -->
-    <section class="section section--tight" aria-labelledby="cta-title">
-      <div class="container">
-        <div class="cta-band" data-reveal>
-          <span class="eyebrow">Partner With Us</span>
-          <h2 id="cta-title">Ready to build something that lasts?</h2>
-          <p>We're always looking for exceptional founders, operators, and investors who share our conviction. Whether you have an idea worth building or capital worth deploying — let's talk.</p>
-          <div class="btn-row">
-            <a href="contact.html" class="btn btn-primary"><span>Start a conversation</span></a>
-            <a href="philosophy.html" class="btn btn-secondary"><span>Read our manifesto</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="footer-logo" aria-label="SZ Ventures home">
-            <svg viewBox="0 0 64 64" aria-hidden="true">
-              <path d="M32 4 L12 24 L12 44 L32 64 L52 44 L52 24 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-              <path d="M32 16 L32 48" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M16 32 L48 32" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-            <span>SZ Ventures</span>
-          </a>
-          <p class="footer-tagline">A venture studio building companies that matter.</p>
-          <div class="footer-social">
-            <a href="https://www.linkedin.com" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" fill="none"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" fill="currentColor"/></svg></a>
-            <a href="https://twitter.com" class="social-link" aria-label="X / Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-            <a href="mailto:hello@szventures.com" class="social-link" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-          </div>
-        </div>
-        <nav class="footer-nav" aria-label="Footer">
-          <div class="footer-nav-col">
-            <h4>Companies</h4>
+        <div class="pathways__grid">
+          <div class="pathway" data-aos="fade-up" data-cursor>
+            <div class="pathway__tag"><b>01</b> For founders</div>
+            <h3>Bring the spark.</h3>
+            <p>You have conviction and a market. We bring capital, a team, and the operating engine to make it real.</p>
             <ul>
-              <li><a href="snapops.html">SnapOps</a></li>
-              <li><a href="bowl-sip.html">Bowl &amp; Sip Co.</a></li>
-              <li><a href="terramuse.html">TerraMuse</a></li>
-              <li><a href="mirai.html">Mirai Engineering</a></li>
-              <li><a href="sz-manufacturing.html">SZ Manufacturing</a></li>
+              <li>Co‑founding & first hires</li>
+              <li>Seed to Series A capital</li>
+              <li>Studio design & engineering</li>
             </ul>
+            <a href="#contact" class="pathway__cta">Start a conversation <span aria-hidden="true">→</span></a>
           </div>
-          <div class="footer-nav-col">
+          <div class="pathway" data-aos="fade-up" data-aos-delay="100" data-cursor>
+            <div class="pathway__tag"><b>02</b> For operators</div>
+            <h3>Run something that matters.</h3>
+            <p>Join as an operator‑in‑residence or founding team member and build the next defining company.</p>
+            <ul>
+              <li>Operator & EIR roles</li>
+              <li>Equity from day one</li>
+              <li>Mentorship from proven builders</li>
+            </ul>
+            <a href="#contact" class="pathway__cta">See open roles <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="pathway" data-aos="fade-up" data-aos-delay="200" data-cursor>
+            <div class="pathway__tag"><b>03</b> For investors</div>
+            <h3>Back the studio.</h3>
+            <p>Gain diversified exposure to a pipeline of category‑defining companies, built with discipline.</p>
+            <ul>
+              <li>LP & co‑investment</li>
+              <li>Quarterly studio reports</li>
+              <li>Direct deal access</li>
+            </ul>
+            <a href="#contact" class="pathway__cta">Request the deck <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta glass" id="contact">
+      <div class="container">
+        <div class="cta__inner">
+          <div>
+            <span class="eyebrow" data-aos="fade">Partner with us</span>
+            <h2 class="display" data-aos="fade-up" data-aos-duration="900">Let's build something <em class="serif-accent">enduring.</em></h2>
+            <p data-aos="fade-up" data-aos-delay="150">Whether you're a founder, an operator, or an investor — the door is open. Tell us what you're building.</p>
+            <div style="margin-top:2rem" data-aos="fade-up" data-aos-delay="250">
+              <a href="mailto:hello@szventures.com" class="btn btn--accent" data-magnetic data-cursor><span>Start the conversation</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="cta__side" data-aos="fade-up" data-aos-delay="200">
+            <div class="cta__row"><span>Email</span><a href="mailto:hello@szventures.com" data-tippy-content="We reply within two business days">hello@szventures.com</a></div>
+            <div class="cta__row"><span>Press</span><a href="mailto:press@szventures.com" data-tippy-content="For media and speaking">press@szventures.com</a></div>
+            <div class="cta__row"><span>Studios</span><a href="#" data-tippy-content="San Francisco · Singapore">SF · SG</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer glass">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand display">
+            SZ<br>Ventures
+            <p>We don't consult. We co‑found, fund, and operate companies that matter.</p>
+          </div>
+          <div class="footer__col">
             <h4>Studio</h4>
-            <ul>
-              <li><a href="philosophy.html">Philosophy</a></li>
-              <li><a href="achievements.html">Milestones</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <a href="#philosophy" data-tippy-content="How we operate">Philosophy</a>
+            <a href="#portfolio" data-tippy-content="Our companies">Portfolio</a>
+            <a href="#milestones" data-tippy-content="Our track record">Milestones</a>
+            <a href="#pathways" data-tippy-content="Work with us">Pathways</a>
           </div>
-          <div class="footer-nav-col">
-            <h4>Resources</h4>
-            <ul>
-              <li><a href="insights.html">Insights</a></li>
-              <li><a href="careers.html">Careers</a></li>
-              <li><a href="press.html">Press Kit</a></li>
-            </ul>
+          <div class="footer__col">
+            <h4>Connect</h4>
+            <a href="mailto:hello@szventures.com" data-tippy-content="Email the studio">Email</a>
+            <a href="#" data-tippy-content="@szventures">LinkedIn</a>
+            <a href="#" data-tippy-content="@szventures">X / Twitter</a>
+            <a href="#" data-tippy-content="szventures">Instagram</a>
           </div>
-          <div class="footer-nav-col">
+          <div class="footer__col">
             <h4>Legal</h4>
-            <ul>
-              <li><a href="privacy.html">Privacy</a></li>
-              <li><a href="terms.html">Terms</a></li>
-              <li><a href="cookies.html">Cookies</a></li>
-            </ul>
+            <a href="#" data-tippy-content="How we handle data">Privacy</a>
+            <a href="#" data-tippy-content="Terms of use">Terms</a>
+            <a href="#" data-tippy-content="Cookie policy">Cookies</a>
           </div>
-        </nav>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2026 SZ Ventures. All rights reserved.</span>
+          <div class="footer__social">
+            <a href="#" data-tippy-content="LinkedIn" aria-label="LinkedIn">in</a>
+            <a href="#" data-tippy-content="X / Twitter" aria-label="X">X</a>
+            <a href="#" data-tippy-content="Instagram" aria-label="Instagram">ig</a>
+          </div>
+          <span>Crafted with conviction.</span>
+        </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 SZ Ventures. All rights reserved.</p>
-        <p>Crafted with conviction.</p>
-      </div>
-    </div>
-  </footer>
+      <div class="footer__word display" aria-hidden="true">SZ VENTURES</div>
+    </footer>
 
+  </main>
+  <!-- ================= /SWUP MAIN CONTAINER ================= -->
+
+  <!-- Scripts -->
   <script src="assets/js/app.js" defer></script>
   <script src="assets/js/libs.bundle.js" defer></script>
   <script src="assets/js/enhance.js" defer></script>
