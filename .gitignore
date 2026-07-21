@@ -25,3 +25,5 @@ desktop.ini
 .vscode/settings.json
 *.swp
 *.swo
+
+.vercel
