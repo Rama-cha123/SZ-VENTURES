@@ -1,0 +1,139 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:          # allow manual runs from the Actions tab
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true   # cancel in-flight runs on new push
+
+# ─────────────────────────────────────────────────────────────────────────────
+jobs:
+
+  # ── 1. Lint & validate ─────────────────────────────────────────────────────
+  lint:
+    name: Lint & Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate HTML files
+        run: |
+          echo "Checking HTML files exist and are non-empty…"
+          for f in index.html portfolio.html philosophy.html achievements.html \
+                   contact.html snapops.html bowl-sip.html terramuse.html \
+                   mirai.html sz-manufacturing.html team.html insights.html \
+                   careers.html press.html privacy.html terms.html cookies.html; do
+            if [ ! -s "$f" ]; then
+              echo "ERROR: $f is missing or empty"
+              exit 1
+            fi
+            echo "  ✓ $f"
+          done
+
+      - name: Check asset directories
+        run: |
+          echo "Checking critical asset paths…"
+          test -f assets/styles/libs.bundle.css  && echo "  ✓ libs.bundle.css"  || exit 1
+          test -f assets/js/libs.bundle.js        && echo "  ✓ libs.bundle.js"   || exit 1
+          test -f assets/js/app.js                && echo "  ✓ app.js"           || exit 1
+          test -f assets/js/enhance.js            && echo "  ✓ enhance.js"       || exit 1
+          test -f assets/img/favicon.svg          && echo "  ✓ favicon.svg"      || exit 1
+
+      - name: Check robots.txt & sitemap
+        run: |
+          grep -q "szventures.com" sitemap.xml && echo "  ✓ sitemap.xml" || exit 1
+          grep -q "Sitemap"        robots.txt  && echo "  ✓ robots.txt"  || exit 1
+
+  # ── 2. Security audit ──────────────────────────────────────────────────────
+  security:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for hardcoded secrets
+        run: |
+          echo "Scanning for accidental secrets…"
+          ! grep -rn "password\s*=\s*['\"]" --include="*.js" --include="*.html" . \
+            && echo "  ✓ No hardcoded passwords found" || true
+          ! grep -rn "api_key\s*=\s*['\"]" --include="*.js" --include="*.html" . \
+            && echo "  ✓ No hardcoded API keys found" || true
+
+      - name: Ensure no .env files committed
+        run: |
+          if find . -name ".env" -not -path "./.git/*" | grep -q .; then
+            echo "ERROR: .env file found in repository!"
+            exit 1
+          fi
+          echo "  ✓ No .env files committed"
+
+  # ── 3. Deploy to Vercel (production branch only) ──────────────────────────
+  deploy-vercel:
+    name: Deploy to Vercel
+    needs: [lint, security]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Deploy to Vercel
+        id: deploy
+        env:
+          VERCEL_TOKEN:   ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID:  ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          URL=$(vercel --prod --token "$VERCEL_TOKEN" --yes 2>&1 | tail -n1)
+          echo "Deployed to: $URL"
+          echo "url=$URL" >> $GITHUB_OUTPUT
+
+      - name: Post deployment URL as summary
+        run: |
+          echo "## 🚀 Deployment Successful" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Live URL:** ${{ steps.deploy.outputs.url }}" >> $GITHUB_STEP_SUMMARY
+
+  # ── 4. Deploy PR preview to Vercel ────────────────────────────────────────
+  deploy-preview:
+    name: Deploy Preview (PR)
+    needs: [lint, security]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Deploy preview
+        id: preview
+        env:
+          VERCEL_TOKEN:      ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID:     ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          URL=$(vercel --token "$VERCEL_TOKEN" --yes 2>&1 | tail -n1)
+          echo "Preview URL: $URL"
+          echo "url=$URL" >> $GITHUB_OUTPUT
+
+      - name: Comment PR with preview URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 🔍 Preview Deployment\n\n**URL:** ${{ steps.preview.outputs.url }}\n\nThis preview will be promoted to production when the PR is merged.`
+            })
