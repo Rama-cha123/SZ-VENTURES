@@ -1,0 +1,65 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options",   "value": "nosniff" },
+        { "key": "X-Frame-Options",           "value": "DENY" },
+        { "key": "X-XSS-Protection",          "value": "1; mode=block" },
+        { "key": "Referrer-Policy",           "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy",        "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.css",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" },
+        { "key": "Content-Type",  "value": "application/xml; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/portfolio",      "destination": "/portfolio.html" },
+    { "source": "/philosophy",     "destination": "/philosophy.html" },
+    { "source": "/achievements",   "destination": "/achievements.html" },
+    { "source": "/contact",        "destination": "/contact.html" },
+    { "source": "/snapops",        "destination": "/ventures/snapops/index.html" },
+    { "source": "/bowl-sip",       "destination": "/ventures/bowl-and-sip/index.html" },
+    { "source": "/terramuse",      "destination": "/ventures/terramuse/index.html" },
+    { "source": "/mirai",          "destination": "/ventures/mirai-engineering/index.html" },
+    { "source": "/sz-manufacturing","destination": "/ventures/manufacturing/index.html" },
+    { "source": "/team",           "destination": "/team.html" },
+    { "source": "/insights",       "destination": "/insights.html" },
+    { "source": "/careers",        "destination": "/careers.html" },
+    { "source": "/press",          "destination": "/press.html" },
+    { "source": "/privacy",        "destination": "/privacy.html" },
+    { "source": "/terms",          "destination": "/terms.html" },
+    { "source": "/cookies",        "destination": "/cookies.html" }
+  ]
+}

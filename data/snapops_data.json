@@ -1,0 +1,16 @@
+[
+    {
+        "source": "snapops",
+        "name": "Test",
+        "email": "test@example.com",
+        "message": "Hello",
+        "timestamp": "2026-07-24T09:05:16.515388"
+    },
+    {
+        "source": "snapops",
+        "name": "Rama Chandra",
+        "email": "bheemanapalliram@gmail.com",
+        "message": "I just Visited your website it's looking cool and informative.\n",
+        "timestamp": "2026-07-24T09:15:25.672733"
+    }
+]

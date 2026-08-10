@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SZ Manufacturing | Premium Uniforms & Workwear</title>
+  
+  <!-- Fonts: General Sans & Satoshi for Headings, Inter for Body -->
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,600,500,400&f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- GSAP, Lenis & Swiper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sz: {
+              bg: '#090909',
+              bg2: '#141414',
+              card: '#1B1B1B',
+              gold: '#C9A14A',
+              white: '#F7F7F7',
+              steel: '#6B7280',
+              muted: '#9CA3AF',
+              border: 'rgba(255,255,255,0.08)'
+            }
+          },
+          fontFamily: {
+            display: ['General Sans', 'sans-serif'],
+            heading: ['Satoshi', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            btn: ['Satoshi', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Styles & Utilities */
+    body {
+      background-color: #090909;
+      color: #F7F7F7;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    .font-display { font-family: 'General Sans', sans-serif; }
+    .font-heading { font-family: 'Satoshi', sans-serif; }
+    .font-body { font-family: 'Inter', sans-serif; }
+    .font-btn { font-family: 'Satoshi', sans-serif; font-weight: 600; }
+
+    /* Premium UI Elements */
+    .glass-card {
+      background: #1B1B1B;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+    }
+    
+    .btn-primary {
+      background-color: #C9A14A;
+      color: #090909;
+      border: 1px solid #C9A14A;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-primary:hover {
+      background-color: transparent;
+      color: #C9A14A;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #F7F7F7;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-secondary:hover {
+      border-color: #F7F7F7;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #090909; }
+    ::-webkit-scrollbar-thumb { background: #1B1B1B; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #C9A14A; }
+
+    /* Utilities */
+    .text-balance { text-wrap: balance; }
+  </style>
+</head>
+<body class="antialiased selection:bg-sz-gold selection:text-sz-bg">
+
+  <!-- 1. ANNOUNCEMENT BAR -->
+  <div class="bg-sz-card border-b border-sz-border py-2 px-6 lg:px-12 relative z-50">
+    <div class="max-w-[1600px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="font-body text-[10px] sm:text-xs text-sz-muted uppercase tracking-widest font-semibold">
+        Premium Uniform Manufacturing Across India
+      </div>
+      <div class="flex items-center gap-6 font-body text-[10px] sm:text-xs text-sz-muted uppercase tracking-wider font-semibold">
+        <a href="#" class="hover:text-sz-gold transition-colors">Bulk Orders</a>
+        <a href="#" class="hover:text-sz-gold transition-colors">Corporate Enquiries</a>
+        <a href="tel:+919876543210" class="flex items-center gap-2 text-sz-white hover:text-sz-gold transition-colors">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 98765 43210
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. STICKY NAVIGATION -->
+  <nav id="main-nav" class="w-full z-40 transition-all duration-300 bg-sz-bg/80 backdrop-blur-md border-b border-sz-border absolute top-[36px]">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      
+      <!-- Brand -->
+      <a href="/" class="flex items-center gap-4 group">
+        <!-- Abstract SZ Logo mark -->
+        <div class="w-10 h-10 border border-sz-gold flex items-center justify-center relative overflow-hidden group-hover:bg-sz-gold/10 transition-colors">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A14A" stroke-width="1.5"><path d="M4 8l8-4 8 4M4 16l8 4 8-4M12 4v16"/></svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display text-xl tracking-tight text-sz-white font-bold leading-none mb-1">SZ MANUFACTURING</span>
+          <span class="font-body text-[9px] uppercase tracking-widest text-sz-steel">Uniform Manufacturing</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden xl:flex items-center gap-8">
+        <a href="#industries" class="font-body text-xs uppercase tracking-widest text-sz-white hover:text-sz-gold transition-colors font-medium">Industries</a>
+        <a href="#products" class="font-body text-xs uppercase tracking-widest text-sz-white hover:text-sz-gold transition-colors font-medium">Products</a>
+        <a href="#customization" class="font-body text-xs uppercase tracking-widest text-sz-white hover:text-sz-gold transition-colors font-medium">Customization</a>
+        <a href="#manufacturing" class="font-body text-xs uppercase tracking-widest text-sz-white hover:text-sz-gold transition-colors font-medium">Manufacturing</a>
+        <a href="#quality" class="font-body text-xs uppercase tracking-widest text-sz-white hover:text-sz-gold transition-colors font-medium">Quality</a>
+        <a href="#about" class="font-body text-xs uppercase tracking-widest text-sz-white hover:text-sz-gold transition-colors font-medium">About</a>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-4">
+        <a href="#forms" class="hidden md:inline-flex btn-primary px-6 py-3 font-btn text-xs">Request a Quote</a>
+        <!-- Mobile Menu Toggle -->
+        <button class="xl:hidden text-sz-white p-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3. HERO SECTION -->
+  <section class="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2000&auto=format&fit=crop" alt="Premium Uniform Manufacturing" id="hero-img" class="w-full h-full object-cover opacity-40 scale-105">
+      <!-- Dark gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-sz-bg via-sz-bg/60 to-sz-bg/30"></div>
+      <!-- Subtle vignette -->
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#090909_120%)]"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-[1600px] w-full mx-auto px-6 lg:px-12 flex flex-col items-center text-center mt-12">
+      
+      <div class="hero-reveal overflow-hidden mb-6">
+        <span class="block font-body text-xs md:text-sm text-sz-gold uppercase tracking-[0.3em] font-semibold">Precision. Performance. Delivered.</span>
+      </div>
+      
+      <div class="hero-reveal overflow-hidden mb-8">
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-sz-white font-bold leading-[1.1] tracking-tight">
+          Workwear,<br>
+          <span class="text-sz-muted italic font-normal">Reimagined.</span>
+        </h1>
+      </div>
+      
+      <div class="hero-reveal overflow-hidden mb-12">
+        <p class="font-body text-base md:text-lg text-sz-muted max-w-2xl mx-auto text-balance">
+          Design-led uniforms engineered for comfort, identity, durability, and large-scale manufacturing. Trusted by top institutions and corporations globally.
+        </p>
+      </div>
+      
+      <div class="hero-reveal flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <a href="#customization" class="btn-primary px-8 py-4 font-btn text-sm w-full sm:w-auto text-center">Request Uniform Concept</a>
+        <a href="#forms" class="btn-secondary px-8 py-4 font-btn text-sm w-full sm:w-auto text-center">Discuss Requirements</a>
+      </div>
+
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 opacity-50">
+      <span class="font-body text-[10px] text-sz-white uppercase tracking-widest">Scroll to explore</span>
+      <div class="w-[1px] h-12 bg-sz-white/30 relative overflow-hidden">
+        <div class="w-full h-1/2 bg-sz-gold absolute top-0 animate-[scroll-down_2s_ease-in-out_infinite]"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WHY SZ MANUFACTURING -->
+  <section class="py-24 border-b border-sz-border bg-sz-bg2 relative overflow-hidden">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 reveal-up">
+        <h2 class="font-display text-3xl md:text-4xl text-sz-white font-bold mb-4">The SZ Advantage</h2>
+        <p class="font-body text-sz-muted max-w-2xl mx-auto">Engineered for large-scale procurement without compromising on premium quality or custom identity.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Card 1 -->
+        <div class="glass-card p-6 flex flex-col items-center text-center group hover:border-sz-gold transition-colors reveal-up">
+          <div class="w-12 h-12 text-sz-gold mb-4 group-hover:scale-110 transition-transform"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="6.5"/></svg></div>
+          <h4 class="font-body text-xs text-sz-white uppercase tracking-wider font-semibold mb-2">Premium Fabrics</h4>
+          <p class="font-body text-[10px] text-sz-muted leading-relaxed">Sourced from top global mills for ultimate durability and comfort.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass-card p-6 flex flex-col items-center text-center group hover:border-sz-gold transition-colors reveal-up" style="animation-delay: 0.1s;">
+          <div class="w-12 h-12 text-sz-gold mb-4 group-hover:scale-110 transition-transform"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h4 class="font-body text-xs text-sz-white uppercase tracking-wider font-semibold mb-2">Custom Branding</h4>
+          <p class="font-body text-[10px] text-sz-muted leading-relaxed">Precision embroidery and high-fidelity industrial printing.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass-card p-6 flex flex-col items-center text-center group hover:border-sz-gold transition-colors reveal-up" style="animation-delay: 0.2s;">
+          <div class="w-12 h-12 text-sz-gold mb-4 group-hover:scale-110 transition-transform"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+          <h4 class="font-body text-xs text-sz-white uppercase tracking-wider font-semibold mb-2">Bulk Manufacturing</h4>
+          <p class="font-body text-[10px] text-sz-muted leading-relaxed">State-of-the-art facilities capable of large-volume continuous production.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="glass-card p-6 flex flex-col items-center text-center group hover:border-sz-gold transition-colors reveal-up" style="animation-delay: 0.3s;">
+          <div class="w-12 h-12 text-sz-gold mb-4 group-hover:scale-110 transition-transform"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h4 class="font-body text-xs text-sz-white uppercase tracking-wider font-semibold mb-2">Quality Control</h4>
+          <p class="font-body text-[10px] text-sz-muted leading-relaxed">Rigorous multi-stage inspections to ensure ISO compliance.</p>
+        </div>
+        <!-- Card 5 -->
+        <div class="glass-card p-6 flex flex-col items-center text-center group hover:border-sz-gold transition-colors reveal-up" style="animation-delay: 0.4s;">
+          <div class="w-12 h-12 text-sz-gold mb-4 group-hover:scale-110 transition-transform"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h4 class="font-body text-xs text-sz-white uppercase tracking-wider font-semibold mb-2">Fast Delivery</h4>
+          <p class="font-body text-[10px] text-sz-muted leading-relaxed">Optimized logistics network for reliable pan-India supply.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. INDUSTRIES WE SERVE -->
+  <section id="industries" class="py-24 lg:py-32 px-6 lg:px-12 relative bg-sz-bg">
+    <div class="max-w-[1600px] mx-auto mb-16 flex flex-col md:flex-row justify-between items-end gap-6 reveal-up">
+      <div>
+        <h2 class="font-display text-4xl lg:text-5xl text-sz-white font-bold mb-4">Industries We Serve</h2>
+        <p class="font-body text-sz-muted max-w-lg">Tailored uniform solutions engineered for the specific functional and aesthetic needs of diverse sectors.</p>
+      </div>
+      <a href="#" class="btn-secondary px-6 py-3 font-btn text-xs">View Full Portfolio</a>
+    </div>
+
+    <!-- Masonry/Grid Layout -->
+    <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      
+      <!-- Industry 1: Schools -->
+      <div class="relative h-[400px] rounded-xl overflow-hidden group cursor-pointer reveal-up">
+        <div class="absolute inset-0 bg-sz-card z-0"></div>
+        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" alt="School Uniforms" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-sz-bg via-transparent to-transparent z-10"></div>
+        <div class="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+          <h3 class="font-display text-2xl text-sz-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-500">School & College</h3>
+          <div class="absolute bottom-8 left-8 right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+            <p class="font-body text-xs text-sz-muted mb-4">Durable, comfortable, and breathable fabrics designed for active campus life.</p>
+            <div class="flex items-center gap-4 text-[10px] text-sz-gold uppercase tracking-wider font-semibold">
+              <span>MOQ: 500</span> • <span>Custom Embroidery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industry 2: Corporate -->
+      <div class="relative h-[400px] rounded-xl overflow-hidden group cursor-pointer reveal-up" style="animation-delay: 0.1s;">
+        <div class="absolute inset-0 bg-sz-card z-0"></div>
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=800&auto=format&fit=crop" alt="Corporate Uniforms" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-sz-bg via-transparent to-transparent z-10"></div>
+        <div class="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+          <h3 class="font-display text-2xl text-sz-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-500">Corporate Wear</h3>
+          <div class="absolute bottom-8 left-8 right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+            <p class="font-body text-xs text-sz-muted mb-4">Sharp, professional tailoring that elevates your brand's executive identity.</p>
+            <div class="flex items-center gap-4 text-[10px] text-sz-gold uppercase tracking-wider font-semibold">
+              <span>MOQ: 100</span> • <span>Premium Blends</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industry 3: Healthcare -->
+      <div class="relative h-[400px] rounded-xl overflow-hidden group cursor-pointer reveal-up" style="animation-delay: 0.2s;">
+        <div class="absolute inset-0 bg-sz-card z-0"></div>
+        <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=800&auto=format&fit=crop" alt="Healthcare Apparel" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-sz-bg via-transparent to-transparent z-10"></div>
+        <div class="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+          <h3 class="font-display text-2xl text-sz-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-500">Healthcare</h3>
+          <div class="absolute bottom-8 left-8 right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+            <p class="font-body text-xs text-sz-muted mb-4">Anti-microbial, fluid-resistant scrubs and lab coats for medical professionals.</p>
+            <div class="flex items-center gap-4 text-[10px] text-sz-gold uppercase tracking-wider font-semibold">
+              <span>MOQ: 200</span> • <span>Medical Grade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industry 4: Industrial -->
+      <div class="relative h-[400px] rounded-xl overflow-hidden group cursor-pointer reveal-up" style="animation-delay: 0.3s;">
+        <div class="absolute inset-0 bg-sz-card z-0"></div>
+        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop" alt="Industrial Workwear" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-sz-bg via-transparent to-transparent z-10"></div>
+        <div class="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+          <h3 class="font-display text-2xl text-sz-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-500">Industrial & Safety</h3>
+          <div class="absolute bottom-8 left-8 right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+            <p class="font-body text-xs text-sz-muted mb-4">Heavy-duty, fire-retardant, and high-visibility gear built for rugged environments.</p>
+            <div class="flex items-center gap-4 text-[10px] text-sz-gold uppercase tracking-wider font-semibold">
+              <span>MOQ: 150</span> • <span>Safety Certified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industry 5: Hospitality -->
+      <div class="relative h-[300px] rounded-xl overflow-hidden group cursor-pointer reveal-up xl:col-span-2">
+        <div class="absolute inset-0 bg-sz-card z-0"></div>
+        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=1000&auto=format&fit=crop" alt="Hospitality Uniforms" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-sz-bg via-transparent to-transparent z-10"></div>
+        <div class="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+          <h3 class="font-display text-2xl text-sz-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-500">Hospitality & Culinary</h3>
+          <div class="absolute bottom-8 left-8 right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+            <p class="font-body text-xs text-sz-muted mb-4 max-w-lg">Elegant front-of-house attire and highly functional, heat-resistant chef wear.</p>
+            <div class="flex items-center gap-4 text-[10px] text-sz-gold uppercase tracking-wider font-semibold">
+              <span>MOQ: 100</span> • <span>Stain Resistant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industry 6: Logistics & Security -->
+      <div class="relative h-[300px] rounded-xl overflow-hidden group cursor-pointer reveal-up xl:col-span-2" style="animation-delay: 0.1s;">
+        <div class="absolute inset-0 bg-sz-card z-0"></div>
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c15949?q=80&w=1000&auto=format&fit=crop" alt="Logistics Uniforms" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-sz-bg via-transparent to-transparent z-10"></div>
+        <div class="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+          <h3 class="font-display text-2xl text-sz-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-500">Logistics & Security</h3>
+          <div class="absolute bottom-8 left-8 right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+            <p class="font-body text-xs text-sz-muted mb-4 max-w-lg">All-weather performance gear designed for mobility, authority, and high endurance.</p>
+            <div class="flex items-center gap-4 text-[10px] text-sz-gold uppercase tracking-wider font-semibold">
+              <span>MOQ: 200</span> • <span>Performance Stretch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. PRODUCT CATEGORIES -->
+  <section id="products" class="py-24 border-y border-sz-border bg-sz-bg2 relative overflow-hidden">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+      <div class="reveal-up">
+        <h2 class="font-display text-4xl lg:text-5xl text-sz-white font-bold mb-4">Masterfully Crafted.</h2>
+        <p class="font-body text-sz-muted max-w-lg">Explore our extensive catalog of premium garments, engineered to exact specifications.</p>
+      </div>
+      <div class="flex gap-4 reveal-up">
+        <button class="swiper-button-prev-prod w-12 h-12 rounded border border-sz-border flex items-center justify-center text-sz-white hover:bg-sz-card transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="swiper-button-next-prod w-12 h-12 rounded border border-sz-border flex items-center justify-center text-sz-white hover:bg-sz-card transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+
+    <div class="swiper product-swiper w-full pl-6 lg:pl-12 reveal-up">
+      <div class="swiper-wrapper">
+        
+        <!-- Category 1 -->
+        <div class="swiper-slide w-[280px] sm:w-[350px] mr-6">
+          <div class="group cursor-pointer">
+            <div class="h-[400px] bg-sz-card rounded-lg overflow-hidden relative mb-6 border border-sz-border">
+              <img src="https://images.unsplash.com/photo-1596484552834-6a58f850d0a1?q=80&w=600&auto=format&fit=crop" alt="Premium Shirts" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-sz-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                <span class="btn-secondary px-6 py-3 font-btn text-xs">View Catalog</span>
+              </div>
+            </div>
+            <h4 class="font-display text-xl text-sz-white font-bold mb-1">Corporate & Formal Shirts</h4>
+            <p class="font-body text-xs text-sz-muted">Wrinkle-resistant cotton blends.</p>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="swiper-slide w-[280px] sm:w-[350px] mr-6">
+          <div class="group cursor-pointer">
+            <div class="h-[400px] bg-sz-card rounded-lg overflow-hidden relative mb-6 border border-sz-border">
+              <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=600&auto=format&fit=crop" alt="Medical Scrubs" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-sz-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                <span class="btn-secondary px-6 py-3 font-btn text-xs">View Catalog</span>
+              </div>
+            </div>
+            <h4 class="font-display text-xl text-sz-white font-bold mb-1">Scrubs & Lab Coats</h4>
+            <p class="font-body text-xs text-sz-muted">Anti-microbial poly-cotton stretch.</p>
+          </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="swiper-slide w-[280px] sm:w-[350px] mr-6">
+          <div class="group cursor-pointer">
+            <div class="h-[400px] bg-sz-card rounded-lg overflow-hidden relative mb-6 border border-sz-border">
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=600&auto=format&fit=crop" alt="Safety Wear" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-sz-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                <span class="btn-secondary px-6 py-3 font-btn text-xs">View Catalog</span>
+              </div>
+            </div>
+            <h4 class="font-display text-xl text-sz-white font-bold mb-1">High-Vis & Safety Gear</h4>
+            <p class="font-body text-xs text-sz-muted">Reflective, fire-retardant industrial wear.</p>
+          </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="swiper-slide w-[280px] sm:w-[350px] mr-6">
+          <div class="group cursor-pointer">
+            <div class="h-[400px] bg-sz-card rounded-lg overflow-hidden relative mb-6 border border-sz-border">
+              <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=600&auto=format&fit=crop" alt="Chef Wear" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-sz-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                <span class="btn-secondary px-6 py-3 font-btn text-xs">View Catalog</span>
+              </div>
+            </div>
+            <h4 class="font-display text-xl text-sz-white font-bold mb-1">Culinary Jackets & Aprons</h4>
+            <p class="font-body text-xs text-sz-muted">Heat and stain-resistant heavy cotton.</p>
+          </div>
+        </div>
+
+        <!-- Category 5 -->
+        <div class="swiper-slide w-[280px] sm:w-[350px] mr-6">
+          <div class="group cursor-pointer">
+            <div class="h-[400px] bg-sz-card rounded-lg overflow-hidden relative mb-6 border border-sz-border">
+              <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop" alt="School Polo" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-sz-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                <span class="btn-secondary px-6 py-3 font-btn text-xs">View Catalog</span>
+              </div>
+            </div>
+            <h4 class="font-display text-xl text-sz-white font-bold mb-1">Premium Polos & T-Shirts</h4>
+            <p class="font-body text-xs text-sz-muted">Breathable pique cotton with custom tipping.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CUSTOM UNIFORM BUILDER -->
+  <section id="customization" class="py-24 lg:py-32 px-6 lg:px-12 relative overflow-hidden bg-sz-bg">
+    <!-- Abstract Tech Background -->
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,_#C9A14A_0%,_transparent_70%)] blur-[100px] opacity-10"></div>
+      <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    </div>
+
+    <div class="max-w-[1600px] mx-auto relative z-10">
+      <div class="text-center mb-16 reveal-up">
+        <h2 class="font-display text-4xl lg:text-5xl text-sz-white font-bold mb-4">Design Your Identity.</h2>
+        <p class="font-body text-sz-muted max-w-2xl mx-auto">Build your custom uniform specification in real-time. Select fabrics, colors, and branding to generate a live quote.</p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 reveal-up">
+        
+        <!-- Configurator Controls -->
+        <div class="w-full lg:w-1/2 glass-card rounded-2xl p-6 md:p-10 flex flex-col gap-8">
+          
+          <!-- Step 1 -->
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <span class="w-8 h-8 rounded-full bg-sz-gold text-sz-bg flex items-center justify-center font-bold text-sm">1</span>
+              <h3 class="font-heading text-xl text-sz-white font-bold">Select Garment</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <button class="config-btn border border-sz-gold bg-sz-gold/10 text-sz-gold py-3 rounded text-sm font-semibold transition-colors">Polo Shirt</button>
+              <button class="config-btn border border-sz-border hover:border-sz-gold hover:text-sz-gold text-sz-white py-3 rounded text-sm font-semibold transition-colors">Dress Shirt</button>
+              <button class="config-btn border border-sz-border hover:border-sz-gold hover:text-sz-gold text-sz-white py-3 rounded text-sm font-semibold transition-colors">Trousers</button>
+              <button class="config-btn border border-sz-border hover:border-sz-gold hover:text-sz-gold text-sz-white py-3 rounded text-sm font-semibold transition-colors">Chef Jacket</button>
+              <button class="config-btn border border-sz-border hover:border-sz-gold hover:text-sz-gold text-sz-white py-3 rounded text-sm font-semibold transition-colors">Scrubs</button>
+              <button class="config-btn border border-sz-border hover:border-sz-gold hover:text-sz-gold text-sz-white py-3 rounded text-sm font-semibold transition-colors">Coverall</button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <span class="w-8 h-8 rounded-full bg-sz-gold text-sz-bg flex items-center justify-center font-bold text-sm">2</span>
+              <h3 class="font-heading text-xl text-sz-white font-bold">Choose Fabric</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="border border-sz-border rounded p-4 cursor-pointer hover:border-sz-gold transition-colors flex items-start gap-3">
+                <div class="w-4 h-4 rounded-full border-2 border-sz-gold mt-1"></div>
+                <div>
+                  <h4 class="text-sm text-sz-white font-semibold">Premium Pique Cotton</h4>
+                  <p class="text-[10px] text-sz-muted">Breathable, soft, durable.</p>
+                </div>
+              </div>
+              <div class="border border-sz-border rounded p-4 cursor-pointer hover:border-sz-gold transition-colors flex items-start gap-3">
+                <div class="w-4 h-4 rounded-full border-2 border-sz-border mt-1"></div>
+                <div>
+                  <h4 class="text-sm text-sz-white font-semibold">Poly-Cotton Blend</h4>
+                  <p class="text-[10px] text-sz-muted">Wrinkle-resistant, structured.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <span class="w-8 h-8 rounded-full bg-sz-gold text-sz-bg flex items-center justify-center font-bold text-sm">3</span>
+              <h3 class="font-heading text-xl text-sz-white font-bold">Base Color</h3>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <button class="w-10 h-10 rounded-full bg-[#111111] border-2 border-sz-gold ring-2 ring-offset-2 ring-offset-sz-bg ring-sz-gold"></button>
+              <button class="w-10 h-10 rounded-full bg-[#0F204B] border border-sz-border hover:scale-110 transition-transform"></button>
+              <button class="w-10 h-10 rounded-full bg-[#521319] border border-sz-border hover:scale-110 transition-transform"></button>
+              <button class="w-10 h-10 rounded-full bg-[#3C4A3E] border border-sz-border hover:scale-110 transition-transform"></button>
+              <button class="w-10 h-10 rounded-full bg-[#D4D4D4] border border-sz-border hover:scale-110 transition-transform"></button>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <span class="w-8 h-8 rounded-full bg-sz-gold text-sz-bg flex items-center justify-center font-bold text-sm">4</span>
+              <h3 class="font-heading text-xl text-sz-white font-bold">Branding</h3>
+            </div>
+            <div class="flex gap-4">
+              <label class="flex-1 border border-sz-border rounded p-4 flex flex-col items-center justify-center cursor-pointer hover:border-sz-gold transition-colors text-sz-white hover:text-sz-gold">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="mb-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span class="text-xs font-semibold">Upload Logo</span>
+              </label>
+              <div class="flex-1 flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-sm text-sz-white">
+                  <input type="checkbox" checked class="accent-sz-gold"> <span>Embroidery (Left Chest)</span>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-sz-white">
+                  <input type="checkbox" class="accent-sz-gold"> <span>Print (Back)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Live Preview -->
+        <div class="w-full lg:w-1/2 relative min-h-[500px] flex flex-col">
+          <div class="flex-1 glass-card rounded-2xl border-sz-border flex items-center justify-center overflow-hidden relative group">
+            <div class="absolute inset-0 bg-gradient-to-tr from-sz-bg to-transparent z-10"></div>
+            <!-- Mockup Image (Polo) -->
+            <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=800&auto=format&fit=crop" alt="Polo Mockup" class="w-full h-full object-cover relative z-0 transition-all duration-700 group-hover:scale-105" style="filter: brightness(0.7) contrast(1.2);">
+            
+            <!-- Simulated Logo placement -->
+            <div class="absolute top-[35%] left-[65%] w-8 h-8 border border-sz-gold border-dashed rounded-sm z-20 flex items-center justify-center bg-sz-bg/50 backdrop-blur-sm">
+              <span class="text-[8px] text-sz-gold uppercase font-bold">Logo</span>
+            </div>
+            
+            <div class="absolute bottom-6 left-6 right-6 z-20 flex justify-between items-end">
+              <div>
+                <h4 class="font-display text-2xl text-sz-white font-bold">Custom Polo Shirt</h4>
+                <p class="font-body text-sm text-sz-gold">Premium Pique Cotton • Black • Embroidery</p>
+              </div>
+              <div class="text-right">
+                <span class="block text-[10px] text-sz-muted uppercase tracking-wider">Est. Price (MOQ 100)</span>
+                <span class="font-heading text-3xl text-sz-white font-bold">₹850<span class="text-lg text-sz-muted font-normal">/pc</span></span>
+              </div>
+            </div>
+          </div>
+          <button class="mt-4 btn-primary w-full py-5 rounded-xl font-btn text-sm">Request Formal Quote for this Design</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. MANUFACTURING PROCESS -->
+  <section id="manufacturing" class="py-24 border-y border-sz-border bg-sz-bg2 relative">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-20 reveal-up">
+        <h2 class="font-display text-4xl lg:text-5xl text-sz-white font-bold mb-4">From Design to Delivery.</h2>
+        <p class="font-body text-sz-muted max-w-2xl mx-auto">A seamless, vertically integrated process ensuring quality at every stage of production.</p>
+      </div>
+
+      <!-- Timeline Container -->
+      <div class="relative timeline-container py-10">
+        <!-- Progress Line Base -->
+        <div class="absolute top-1/2 left-0 right-0 h-[2px] bg-sz-border -translate-y-1/2 hidden md:block"></div>
+        <!-- Animated Progress Line -->
+        <div class="absolute top-1/2 left-0 right-0 h-[2px] bg-sz-gold -translate-y-1/2 hidden md:block timeline-progress origin-left scale-x-0"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
+          
+          <!-- Step 1 -->
+          <div class="timeline-step flex flex-row md:flex-col items-center md:text-center gap-6 md:gap-4 group">
+            <div class="w-16 h-16 rounded-full bg-sz-bg border-2 border-sz-border group-hover:border-sz-gold text-sz-white group-hover:text-sz-gold flex items-center justify-center text-xl font-bold font-heading transition-colors relative z-10">1</div>
+            <div>
+              <h4 class="font-heading text-lg text-sz-white font-bold mb-1">Consultation</h4>
+              <p class="font-body text-[11px] text-sz-muted">Understanding requirements, industry standards & brand identity.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step flex flex-row md:flex-col items-center md:text-center gap-6 md:gap-4 group">
+            <div class="w-16 h-16 rounded-full bg-sz-bg border-2 border-sz-border group-hover:border-sz-gold text-sz-white group-hover:text-sz-gold flex items-center justify-center text-xl font-bold font-heading transition-colors relative z-10">2</div>
+            <div>
+              <h4 class="font-heading text-lg text-sz-white font-bold mb-1">Design & Sampling</h4>
+              <p class="font-body text-[11px] text-sz-muted">Creating tech packs and producing physical samples for approval.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step flex flex-row md:flex-col items-center md:text-center gap-6 md:gap-4 group">
+            <div class="w-16 h-16 rounded-full bg-sz-bg border-2 border-sz-gold shadow-[0_0_20px_rgba(201,161,74,0.3)] text-sz-gold flex items-center justify-center text-xl font-bold font-heading transition-colors relative z-10">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4 class="font-heading text-lg text-sz-gold font-bold mb-1">Mass Production</h4>
+              <p class="font-body text-[11px] text-sz-white">Automated cutting, stitching, and high-fidelity branding.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step flex flex-row md:flex-col items-center md:text-center gap-6 md:gap-4 group">
+            <div class="w-16 h-16 rounded-full bg-sz-bg border-2 border-sz-border group-hover:border-sz-gold text-sz-white group-hover:text-sz-gold flex items-center justify-center text-xl font-bold font-heading transition-colors relative z-10">4</div>
+            <div>
+              <h4 class="font-heading text-lg text-sz-white font-bold mb-1">Quality Inspection</h4>
+              <p class="font-body text-[11px] text-sz-muted">Rigorous ISO-certified checks for fit, finish, and durability.</p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="timeline-step flex flex-row md:flex-col items-center md:text-center gap-6 md:gap-4 group">
+            <div class="w-16 h-16 rounded-full bg-sz-bg border-2 border-sz-border group-hover:border-sz-gold text-sz-white group-hover:text-sz-gold flex items-center justify-center text-xl font-bold font-heading transition-colors relative z-10">5</div>
+            <div>
+              <h4 class="font-heading text-lg text-sz-white font-bold mb-1">Logistics</h4>
+              <p class="font-body text-[11px] text-sz-muted">Organized packaging and pan-India reliable delivery.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FABRIC & QUALITY -->
+  <section id="quality" class="py-24 lg:py-32 px-6 lg:px-12 relative bg-sz-bg overflow-hidden">
+    <!-- Big typography background -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none whitespace-nowrap">
+      <span class="font-display text-[15vw] font-bold text-sz-white">PREMIUM</span>
+    </div>
+
+    <div class="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+      
+      <!-- Content -->
+      <div class="reveal-up">
+        <h2 class="font-display text-4xl lg:text-5xl text-sz-white font-bold mb-6">Engineered Fabrics.</h2>
+        <p class="font-body text-sz-muted mb-8 text-lg">We source from the world's leading mills to provide fabrics that offer superior breathability, durability, and safety, tailored specifically for your industry's demands.</p>
+        
+        <div class="grid grid-cols-2 gap-6 mb-10">
+          <div>
+            <div class="text-sz-gold mb-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h4 class="font-body text-sm text-sz-white font-bold mb-1">ISO 9001:2015</h4>
+            <p class="font-body text-[10px] text-sz-muted">Certified Quality Management</p>
+          </div>
+          <div>
+            <div class="text-sz-gold mb-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+            <h4 class="font-body text-sm text-sz-white font-bold mb-1">OEKO-TEX®</h4>
+            <p class="font-body text-[10px] text-sz-muted">Tested for harmful substances</p>
+          </div>
+        </div>
+
+        <a href="#forms" class="inline-flex items-center gap-2 text-sz-gold font-btn font-semibold hover:gap-4 transition-all">
+          Request Fabric Samples <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Fabric Grid -->
+      <div class="grid grid-cols-2 gap-4 reveal-up">
+        <div class="glass-card p-2 rounded-xl relative group overflow-hidden h-[250px]">
+          <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600&auto=format&fit=crop" alt="Cotton" class="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-sz-bg/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="font-display font-bold text-sz-white text-xl">100% Cotton</span>
+          </div>
+        </div>
+        <div class="glass-card p-2 rounded-xl relative group overflow-hidden h-[250px] translate-y-8">
+          <img src="https://images.unsplash.com/photo-1605646197148-522f254ee8d0?q=80&w=600&auto=format&fit=crop" alt="Performance" class="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-sz-bg/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="font-display font-bold text-sz-white text-xl text-center">Performance<br>Stretch</span>
+          </div>
+        </div>
+        <div class="glass-card p-2 rounded-xl relative group overflow-hidden h-[250px] -translate-y-4">
+          <img src="https://images.unsplash.com/photo-1596484552834-6a58f850d0a1?q=80&w=600&auto=format&fit=crop" alt="Fire Resistant" class="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-sz-bg/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="font-display font-bold text-sz-white text-xl text-center">Fire<br>Retardant</span>
+          </div>
+        </div>
+        <div class="glass-card p-2 rounded-xl relative group overflow-hidden h-[250px] translate-y-4">
+          <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=600&auto=format&fit=crop" alt="Poly Cotton" class="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-sz-bg/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="font-display font-bold text-sz-white text-xl text-center">Wrinkle-Free<br>Blend</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. CLIENT SUCCESS STORIES -->
+  <section class="py-24 border-y border-sz-border bg-sz-bg2 relative overflow-hidden">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 mb-16 flex flex-col md:flex-row justify-between items-end gap-6 reveal-up">
+      <div>
+        <h2 class="font-display text-4xl lg:text-5xl text-sz-white font-bold mb-4">Trusted by Leaders.</h2>
+        <p class="font-body text-sz-muted max-w-lg">Hear from institutions and organizations that have transformed their identity and operations with SZ Manufacturing.</p>
+      </div>
+      <div class="flex gap-4">
+        <button class="swiper-button-prev-test w-12 h-12 rounded border border-sz-border flex items-center justify-center text-sz-white hover:bg-sz-card transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="swiper-button-next-test w-12 h-12 rounded border border-sz-border flex items-center justify-center text-sz-white hover:bg-sz-card transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+
+    <div class="swiper testimonial-swiper w-full pl-6 lg:pl-12 reveal-up">
+      <div class="swiper-wrapper">
+        
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide w-[320px] md:w-[450px] mr-6">
+          <div class="glass-card p-8 md:p-10 rounded-2xl h-full flex flex-col justify-between">
+            <div>
+              <div class="text-sz-gold mb-6"><svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg></div>
+              <p class="font-body text-sz-white text-base md:text-lg mb-8 leading-relaxed">"Transitioning our 5,000+ staff uniforms to SZ was seamless. The precision in the embroidery and the durability of the poly-cotton blend completely exceeded our rigorous standards."</p>
+            </div>
+            <div class="flex items-center gap-4 border-t border-sz-border pt-6">
+              <div class="w-12 h-12 rounded-full overflow-hidden bg-sz-card"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+              <div>
+                <h4 class="font-heading text-sz-white font-bold text-sm">Rajesh Kumar</h4>
+                <p class="font-body text-[10px] text-sz-muted uppercase tracking-wider">VP HR, Global Motors</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide w-[320px] md:w-[450px] mr-6">
+          <div class="glass-card p-8 md:p-10 rounded-2xl h-full flex flex-col justify-between">
+            <div>
+              <div class="text-sz-gold mb-6"><svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg></div>
+              <p class="font-body text-sz-white text-base md:text-lg mb-8 leading-relaxed">"Our culinary team requires gear that can withstand intense heat and constant washing. SZ Manufacturing delivered custom chef jackets that still look brand new after months of heavy use."</p>
+            </div>
+            <div class="flex items-center gap-4 border-t border-sz-border pt-6">
+              <div class="w-12 h-12 rounded-full overflow-hidden bg-sz-card"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+              <div>
+                <h4 class="font-heading text-sz-white font-bold text-sm">Chef Anita Desai</h4>
+                <p class="font-body text-[10px] text-sz-muted uppercase tracking-wider">Executive Chef, The Grand</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="swiper-slide w-[320px] md:w-[450px] mr-6">
+          <div class="glass-card p-8 md:p-10 rounded-2xl h-full flex flex-col justify-between">
+            <div>
+              <div class="text-sz-gold mb-6"><svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg></div>
+              <p class="font-body text-sz-white text-base md:text-lg mb-8 leading-relaxed">"Finding a manufacturer who can handle an order of 20,000 school uniforms while maintaining strict quality control was tough until we partnered with SZ. Their logistics are unmatched."</p>
+            </div>
+            <div class="flex items-center gap-4 border-t border-sz-border pt-6">
+              <div class="w-12 h-12 rounded-full overflow-hidden bg-sz-card"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+              <div>
+                <h4 class="font-heading text-sz-white font-bold text-sm">Meera Sharma</h4>
+                <p class="font-body text-[10px] text-sz-muted uppercase tracking-wider">Director, Heritage Schools</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. INQUIRY FORMS -->
+  <section id="forms" class="py-24 lg:py-32 px-6 lg:px-12 relative bg-sz-bg">
+    <div class="max-w-[1200px] mx-auto">
+      <div class="text-center mb-12 reveal-up">
+        <h2 class="font-display text-4xl lg:text-5xl text-sz-white font-bold mb-4">Start Your Project.</h2>
+        <p class="font-body text-sz-muted max-w-2xl mx-auto">Select your sector below to ensure your inquiry reaches the specialized account management team.</p>
+      </div>
+
+      <!-- Tab Controls -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12 reveal-up">
+        <button class="tab-btn active px-8 py-4 rounded-xl font-btn text-sm font-bold bg-sz-gold text-sz-bg transition-colors" data-target="form-education">Schools & Colleges</button>
+        <button class="tab-btn px-8 py-4 rounded-xl font-btn text-sm font-bold bg-sz-card border border-sz-border text-sz-white hover:border-sz-gold transition-colors" data-target="form-corporate">Businesses & Orgs</button>
+        <button class="tab-btn px-8 py-4 rounded-xl font-btn text-sm font-bold bg-sz-card border border-sz-border text-sz-white hover:border-sz-gold transition-colors" data-target="form-dealers">Dealers & Distributors</button>
+      </div>
+
+      <!-- Forms Container -->
+      <div class="glass-card rounded-2xl p-8 md:p-12 relative overflow-hidden reveal-up">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(201,161,74,0.1),_transparent_50%)]"></div>
+        
+        <div class="relative z-10">
+          
+          <!-- Education Form -->
+          <div id="form-education" class="form-panel">
+            <h3 class="font-display text-2xl text-sz-white font-bold mb-6">Education Sector Inquiry</h3>
+            <form class="space-y-6 sz-form">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Institution Name *</label>
+                  <input type="text" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Contact Person *</label>
+                  <input type="text" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Student Strength *</label>
+                  <input type="number" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Email Address *</label>
+                  <input type="email" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Phone Number *</label>
+                  <input type="tel" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+              </div>
+              <div>
+                <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Uniform Categories Needed</label>
+                <input type="text" placeholder="E.g., Polo shirts, trousers, blazers, sportswear..." class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+              </div>
+              <div>
+                <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Additional Message</label>
+                <textarea rows="4" class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors resize-none"></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full py-5 rounded font-btn text-sm">Submit Enquiry</button>
+            </form>
+            
+            <div class="form-success hidden absolute inset-0 bg-sz-card/95 backdrop-blur z-20 flex-col items-center justify-center text-center p-8">
+              <div class="w-16 h-16 rounded-full border-2 border-sz-gold text-sz-gold flex items-center justify-center mb-6">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h4 class="font-display text-3xl text-sz-white font-bold mb-2">Inquiry Received</h4>
+              <p class="font-body text-sz-muted">Our education sector specialist will contact you within 24 hours.</p>
+            </div>
+          </div>
+
+          <!-- Corporate Form (Hidden initially) -->
+          <div id="form-corporate" class="form-panel hidden">
+            <h3 class="font-display text-2xl text-sz-white font-bold mb-6">Corporate & Industrial Inquiry</h3>
+            <form class="space-y-6 sz-form">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Company Name *</label>
+                  <input type="text" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Industry Sector *</label>
+                  <select required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors appearance-none">
+                    <option value="" disabled selected class="bg-sz-card">Select Industry</option>
+                    <option class="bg-sz-card">Corporate / IT</option>
+                    <option class="bg-sz-card">Manufacturing / Industrial</option>
+                    <option class="bg-sz-card">Hospitality / Culinary</option>
+                    <option class="bg-sz-card">Healthcare / Medical</option>
+                    <option class="bg-sz-card">Logistics / Security</option>
+                  </select>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Employee Count *</label>
+                  <input type="number" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Email Address *</label>
+                  <input type="email" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Phone Number *</label>
+                  <input type="tel" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+              </div>
+              <div>
+                <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Requirements / Timeline</label>
+                <textarea rows="4" class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors resize-none"></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full py-5 rounded font-btn text-sm">Submit RFQ</button>
+            </form>
+            
+            <div class="form-success hidden absolute inset-0 bg-sz-card/95 backdrop-blur z-20 flex-col items-center justify-center text-center p-8">
+              <div class="w-16 h-16 rounded-full border-2 border-sz-gold text-sz-gold flex items-center justify-center mb-6">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h4 class="font-display text-3xl text-sz-white font-bold mb-2">RFQ Submitted</h4>
+              <p class="font-body text-sz-muted">Our corporate accounts manager will process this request immediately.</p>
+            </div>
+          </div>
+
+          <!-- Dealers Form (Hidden initially) -->
+          <div id="form-dealers" class="form-panel hidden">
+            <h3 class="font-display text-2xl text-sz-white font-bold mb-6">Partner & Dealer Application</h3>
+            <form class="space-y-6 sz-form">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Company Name *</label>
+                  <input type="text" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Operating Region *</label>
+                  <input type="text" required placeholder="State / City" class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Business Type *</label>
+                  <input type="text" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Email Address *</label>
+                  <input type="email" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+                <div>
+                  <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Phone Number *</label>
+                  <input type="tel" required class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+                </div>
+              </div>
+              <div>
+                <label class="block text-[10px] text-sz-muted uppercase tracking-widest font-bold mb-2">Why Partner with SZ?</label>
+                <textarea rows="4" class="w-full bg-sz-bg border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors resize-none"></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full py-5 rounded font-btn text-sm">Apply for Dealership</button>
+            </form>
+            
+            <div class="form-success hidden absolute inset-0 bg-sz-card/95 backdrop-blur z-20 flex-col items-center justify-center text-center p-8">
+              <div class="w-16 h-16 rounded-full border-2 border-sz-gold text-sz-gold flex items-center justify-center mb-6">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h4 class="font-display text-3xl text-sz-white font-bold mb-2">Application Received</h4>
+              <p class="font-body text-sz-muted">Our distribution team will review your application and be in touch.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. GALLERY -->
+  <section class="py-24 border-y border-sz-border bg-sz-bg2 relative overflow-hidden">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 mb-16 text-center reveal-up">
+      <h2 class="font-display text-4xl lg:text-5xl text-sz-white font-bold mb-4">Precision in Practice.</h2>
+      <p class="font-body text-sz-muted max-w-2xl mx-auto">Explore our extensive portfolio of manufactured garments across various industries.</p>
+    </div>
+
+    <!-- Masonry Gallery -->
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-4 reveal-up">
+      <div class="rounded-xl overflow-hidden group h-[200px] md:h-[300px]">
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+      </div>
+      <div class="rounded-xl overflow-hidden group h-[200px] md:h-[300px] md:col-span-2">
+        <img src="https://images.unsplash.com/photo-1596484552834-6a58f850d0a1?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+      </div>
+      <div class="rounded-xl overflow-hidden group h-[200px] md:h-[300px]">
+        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+      </div>
+      <div class="rounded-xl overflow-hidden group h-[200px] md:h-[300px] md:col-span-2">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+      </div>
+      <div class="rounded-xl overflow-hidden group h-[200px] md:h-[300px]">
+        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+      </div>
+      <div class="rounded-xl overflow-hidden group h-[200px] md:h-[300px]">
+        <img src="https://images.unsplash.com/photo-1605646197148-522f254ee8d0?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. NEWSLETTER -->
+  <section class="py-24 px-6 lg:px-12 bg-sz-bg relative">
+    <div class="max-w-[800px] mx-auto text-center reveal-up">
+      <h2 class="font-display text-3xl md:text-4xl text-sz-white font-bold mb-4">Stay Ahead of the Curve.</h2>
+      <p class="font-body text-sz-muted mb-8">Subscribe to receive insights on fabric innovations, industry trends, and bulk procurement offers.</p>
+      
+      <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto sz-form">
+        <input type="email" required placeholder="Enter your corporate email" class="flex-1 bg-sz-card border border-sz-border rounded p-4 text-sz-white text-sm focus:outline-none focus:border-sz-gold transition-colors">
+        <button type="submit" class="btn-primary px-8 py-4 rounded font-btn text-sm whitespace-nowrap">Subscribe</button>
+      </form>
+      <div class="hidden form-success mt-4 text-sz-gold font-body text-sm font-semibold text-center justify-center">
+        Subscription Confirmed. Welcome to SZ.
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. PREMIUM FOOTER -->
+  <footer class="bg-sz-card border-t border-sz-border pt-24 pb-8 relative overflow-hidden">
+    <div class="absolute inset-0 bg-sz-bg/50"></div>
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 relative z-10">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-20">
+        
+        <!-- Brand Column -->
+        <div class="lg:col-span-2">
+          <a href="/" class="flex items-center gap-4 mb-6 group">
+            <div class="w-10 h-10 border border-sz-gold flex items-center justify-center relative overflow-hidden group-hover:bg-sz-gold/10 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A14A" stroke-width="1.5"><path d="M4 8l8-4 8 4M4 16l8 4 8-4M12 4v16"/></svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-display text-xl tracking-tight text-sz-white font-bold leading-none mb-1">SZ MANUFACTURING</span>
+              <span class="font-body text-[9px] uppercase tracking-widest text-sz-steel">Uniform Manufacturing</span>
+            </div>
+          </a>
+          <p class="font-body text-sm text-sz-muted leading-relaxed mb-6 max-w-sm">
+            India's premium institutional uniform manufacturer, delivering design-led workwear engineered for comfort, durability, and large-scale procurement.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded border border-sz-border flex items-center justify-center text-sz-muted hover:text-sz-gold hover:border-sz-gold transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="w-10 h-10 rounded border border-sz-border flex items-center justify-center text-sz-muted hover:text-sz-gold hover:border-sz-gold transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+            <a href="#" class="w-10 h-10 rounded border border-sz-border flex items-center justify-center text-sz-muted hover:text-sz-gold hover:border-sz-gold transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Links Columns -->
+        <div>
+          <h4 class="font-display text-sm text-sz-white font-bold mb-6">Industries</h4>
+          <ul class="space-y-4 font-body text-xs text-sz-muted">
+            <li><a href="#" class="hover:text-sz-gold transition-colors">School & College</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Corporate & IT</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Healthcare</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Industrial & Safety</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Hospitality</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-display text-sm text-sz-white font-bold mb-6">Products</h4>
+          <ul class="space-y-4 font-body text-xs text-sz-muted">
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Shirts & Polos</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Trousers & Skirts</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Blazers & Suiting</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Scrubs & Lab Coats</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">High-Vis Gear</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-display text-sm text-sz-white font-bold mb-6">Company</h4>
+          <ul class="space-y-4 font-body text-xs text-sz-muted">
+            <li><a href="#" class="hover:text-sz-gold transition-colors">About Us</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Manufacturing Process</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Quality Control</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Careers</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-display text-sm text-sz-white font-bold mb-6">Support</h4>
+          <ul class="space-y-4 font-body text-xs text-sz-muted">
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Sizing Guide</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Fabric Care</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">Track Order</a></li>
+            <li><a href="#" class="hover:text-sz-gold transition-colors">FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom (SZ Ventures Branding) -->
+      <div class="border-t border-sz-border pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        
+        <!-- Parent Company Branding -->
+        <div class="flex items-center gap-3">
+          <span class="font-body text-[10px] text-sz-muted uppercase tracking-widest">A Venture by</span>
+          <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="h-6 opacity-70 hover:opacity-100 transition-opacity filter invert" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSI1MCIgZm9udC1zaXplPSI0MCIgZmlsbD0iI2ZmZiI+U1o8L3RleHQ+PC9zdmc+'; this.onerror=null;">
+          <div class="flex flex-col">
+            <span class="font-display text-sm text-sz-white font-bold leading-none">SZ VENTURES</span>
+            <span class="font-body text-[8px] text-sz-muted uppercase tracking-widest mt-1">Building Purposeful Brands</span>
+          </div>
+        </div>
+
+        <!-- Copyright & Legal -->
+        <div class="flex items-center gap-6">
+          <span class="font-body text-[10px] text-sz-muted">&copy; 2026 SZ Manufacturing. All rights reserved.</span>
+          <div class="flex gap-4 font-body text-[10px] text-sz-muted">
+            <a href="#" class="hover:text-sz-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts for Phase 1 -->
+  <script>
+    // Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // GSAP ScrollTrigger Integration
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Animations
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    
+    tl.from(".hero-reveal > *", {
+      y: 100,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.15,
+      delay: 0.2
+    });
+
+    // Subtle parallax on hero image
+    gsap.to("#hero-img", {
+      yPercent: 20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "section",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+
+    // Scroll Reveals
+    const revealElements = document.querySelectorAll('.reveal-up');
+    revealElements.forEach((el) => {
+      gsap.fromTo(el, 
+        { y: 50, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out"
+        }
+      );
+    });
+
+    // Product Swiper Initialization
+    const productSwiper = new Swiper('.product-swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 0,
+      navigation: {
+        nextEl: '.swiper-button-next-prod',
+        prevEl: '.swiper-button-prev-prod',
+      },
+      grabCursor: true
+    });
+
+    // Timeline Animation
+    gsap.to('.timeline-progress', {
+      scrollTrigger: {
+        trigger: '.timeline-container',
+        start: 'top center',
+        end: 'bottom center',
+        scrub: 1
+      },
+      scaleX: 1
+    });
+
+    gsap.from('.timeline-step', {
+      scrollTrigger: {
+        trigger: '.timeline-container',
+        start: 'top 80%'
+      },
+      y: 30,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "back.out(1.5)"
+    });
+
+    // Testimonial Swiper
+    const testimonialSwiper = new Swiper('.testimonial-swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 0,
+      navigation: {
+        nextEl: '.swiper-button-next-test',
+        prevEl: '.swiper-button-prev-test',
+      },
+      grabCursor: true
+    });
+
+    // Form Tabs Logic
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const formPanels = document.querySelectorAll('.form-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset buttons
+        tabBtns.forEach(b => {
+          b.classList.remove('bg-sz-gold', 'text-sz-bg');
+          b.classList.add('bg-sz-card', 'text-sz-white');
+        });
+        // Set active button
+        btn.classList.add('bg-sz-gold', 'text-sz-bg');
+        btn.classList.remove('bg-sz-card', 'text-sz-white');
+
+        // Show panel
+        const target = btn.getAttribute('data-target');
+        formPanels.forEach(panel => {
+          if(panel.id === target) {
+            panel.classList.remove('hidden');
+            gsap.from(panel, { opacity: 0, y: 20, duration: 0.5 });
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Form Submission Simulation
+    document.querySelectorAll('.sz-form').forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        const successState = form.nextElementSibling;
+        
+        btn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing...</span>';
+        
+        setTimeout(() => {
+          form.style.opacity = '0';
+          form.style.pointerEvents = 'none';
+          if (successState) {
+            successState.classList.remove('hidden');
+            successState.classList.add('flex');
+            gsap.from(successState.children, { y: 20, opacity: 0, stagger: 0.1, duration: 0.5, ease: 'back.out' });
+          }
+          btn.innerHTML = originalText;
+        }, 1500);
+      });
+    });
+
+    // Custom Animation Styles
+    const styleSheet = document.createElement("style");
+    styleSheet.textContent = `
+      @keyframes scroll-down {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(200%); }
+      }
+    `;
+    document.head.appendChild(styleSheet);
+  </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# SZ Ventures — Netlify configuration
+# Pure-static site, no build step required.
+# ─────────────────────────────────────────────────────────────────────────────
+
+[build]
+  publish = "."        # deploy the repo root as-is
+  # No build command — the site is pre-built HTML/CSS/JS.
+
+# ── Pretty URLs ──────────────────────────────────────────────────────────────
+# Strip .html extension and serve clean paths like /portfolio → portfolio.html
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.css]
+  bundle = false
+  minify = true
+
+[build.processing.js]
+  bundle = false
+  minify = true
+
+[build.processing.images]
+  compress = true
+
+# ── Security & Cache Headers ──────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options    = "nosniff"
+    X-Frame-Options           = "DENY"
+    X-XSS-Protection          = "1; mode=block"
+    Referrer-Policy           = "strict-origin-when-cross-origin"
+    Permissions-Policy        = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type  = "application/xml; charset=utf-8"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# ── Redirects: clean slugs → HTML files ──────────────────────────────────────
+[[redirects]]
+  from   = "/portfolio"
+  to     = "/portfolio.html"
+  status = 200
+
+[[redirects]]
+  from   = "/philosophy"
+  to     = "/philosophy.html"
+  status = 200
+
+[[redirects]]
+  from   = "/achievements"
+  to     = "/achievements.html"
+  status = 200
+
+[[redirects]]
+  from   = "/contact"
+  to     = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from   = "/snapops"
+  to     = "/ventures/snapops/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/bowl-sip"
+  to     = "/ventures/bowl-and-sip/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/terramuse"
+  to     = "/ventures/terramuse/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/mirai"
+  to     = "/ventures/mirai-engineering/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/sz-manufacturing"
+  to     = "/ventures/manufacturing/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/team"
+  to     = "/team.html"
+  status = 200
+
+[[redirects]]
+  from   = "/insights"
+  to     = "/insights.html"
+  status = 200
+
+[[redirects]]
+  from   = "/careers"
+  to     = "/careers.html"
+  status = 200
+
+[[redirects]]
+  from   = "/press"
+  to     = "/press.html"
+  status = 200
+
+[[redirects]]
+  from   = "/privacy"
+  to     = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from   = "/terms"
+  to     = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from   = "/cookies"
+  to     = "/cookies.html"
+  status = 200
+
+# ── 404 fallback ─────────────────────────────────────────────────────────────
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 404
