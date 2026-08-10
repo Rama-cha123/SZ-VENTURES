@@ -60,25 +60,8 @@
   let lenis;
 
   function initLenis() {
-    if (prefersReduced || typeof window.Lenis === 'undefined') return null;
-
-    lenis = new window.Lenis({
-      autoRaf: true,
-      autoToggle: true,
-      anchors: true,
-      duration: 1.1,
-      keyboard: { enabled: true, keystrokes: true },
-    });
-
-    // Cleanup on removal
-    cleanupFns.push(() => {
-      if (lenis) {
-        lenis.destroy();
-        lenis = null;
-      }
-    });
-
-    return lenis;
+    // Disabled JS-based smooth scrolling to guarantee zero-lag native scrolling across all systems.
+    return null;
   }
 
   // ==== AOS (scroll reveals) ==============================================
@@ -345,6 +328,94 @@
     });
   }
 
+  // ==== Role Switcher (Partnership Intake Engine) =======================
+  function initRoleSwitcher() {
+    const selector = $('.role-selector');
+    if (!selector) return;
+
+    const btns = $$('.role-btn', selector);
+    const hiddenRoleInput = $('#intakeRole');
+    const hiddenVentureInput = $('#intakeVenture');
+    const dynamicLabel = $('#intakeDynamicLabel');
+    const dynamicInput = $('#intakeDynamicInput');
+    const detailsLabel = $('#intakeDetailsLabel');
+
+    const roleConfigs = {
+      company: {
+        role: 'Company / Enterprise',
+        venture: 'SZ Manufacturing / SZ Ventures',
+        dynamicLabel: 'Company Name & Industry',
+        dynamicPlaceholder: 'e.g. Acme Corp (Textiles & Retail)',
+        detailsLabel: 'Describe your corporate requirement or operational challenge'
+      },
+      college: {
+        role: 'College / Academic Institution',
+        venture: 'Mirai Engineering',
+        dynamicLabel: 'College / University Name',
+        dynamicPlaceholder: 'e.g. National Institute of Technology',
+        detailsLabel: 'How can Mirai Engineering assist your students & institution?'
+      },
+      manufacturer: {
+        role: 'Manufacturer / Supply Chain Partner',
+        venture: 'SZ Manufacturing',
+        dynamicLabel: 'Production Capabilities & Location',
+        dynamicPlaceholder: 'e.g. Apparel Manufacturing (Tirupur, India)',
+        detailsLabel: 'Detail your production capacity, certifications & partnership goals'
+      },
+      ngo: {
+        role: 'NGO / Social Impact Organization',
+        venture: 'SZ Manufacturing / SZ Ventures',
+        dynamicLabel: 'Organization Name & Focus Area',
+        dynamicPlaceholder: 'e.g. Women Empowerment Initiative',
+        detailsLabel: 'Tell us how we can collaborate on social impact initiatives'
+      },
+      investor: {
+        role: 'Investor / Capital Partner',
+        venture: 'SZ Ventures',
+        dynamicLabel: 'Fund / Entity Name',
+        dynamicPlaceholder: 'e.g. Apex Horizon Capital',
+        detailsLabel: 'What stage or venture category aligns with your investment thesis?'
+      },
+      creator: {
+        role: 'Creator / Artisan',
+        venture: 'TerraMuse',
+        dynamicLabel: 'Craft / Specialty & Portfolio Link',
+        dynamicPlaceholder: 'e.g. Ceramics & Handcrafted Decor (instagram.com/crafts)',
+        detailsLabel: 'Tell us about your creative work or custom commission idea'
+      },
+      tech: {
+        role: 'Technology Partner',
+        venture: 'SnapOps / SZ Ventures',
+        dynamicLabel: 'Platform / Technology Expertise',
+        dynamicPlaceholder: 'e.g. WhatsApp API / Robotics Autonomy Stack',
+        detailsLabel: 'Describe your technology capabilities and integration interest'
+      },
+      opportunity: {
+        role: 'Business Opportunity / Founder',
+        venture: 'SZ Ventures',
+        dynamicLabel: 'Venture Concept or Market Opportunity',
+        dynamicPlaceholder: 'e.g. B2B Operations Automation for Logistics',
+        detailsLabel: 'Share a high-level overview of the problem, market opportunity & execution needs'
+      }
+    };
+
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        btns.forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        const roleKey = btn.dataset.role || 'company';
+        const config = roleConfigs[roleKey] || roleConfigs['company'];
+
+        if (hiddenRoleInput) hiddenRoleInput.value = config.role;
+        if (hiddenVentureInput) hiddenVentureInput.value = config.venture;
+        if (dynamicLabel) dynamicLabel.textContent = config.dynamicLabel;
+        if (dynamicInput) dynamicInput.placeholder = config.dynamicPlaceholder;
+        if (detailsLabel) detailsLabel.textContent = config.detailsLabel;
+      });
+    });
+  }
+
   // ==== Boot ==============================================================
   function boot() {
     initLenis();
@@ -357,6 +428,7 @@
     initMenu();
     initCounters();
     initAnchors();
+    initRoleSwitcher();
     // Ensure AOS is refreshed after all resources are loaded
     window.addEventListener('load', () => window.AOS && window.AOS.refresh());
   }

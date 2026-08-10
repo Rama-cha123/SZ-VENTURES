@@ -85,27 +85,27 @@
 
 [[redirects]]
   from   = "/snapops"
-  to     = "/snapops.html"
+  to     = "/ventures/snapops/index.html"
   status = 200
 
 [[redirects]]
   from   = "/bowl-sip"
-  to     = "/bowl-sip.html"
+  to     = "/ventures/bowl-and-sip/index.html"
   status = 200
 
 [[redirects]]
   from   = "/terramuse"
-  to     = "/terramuse.html"
+  to     = "/ventures/terramuse/index.html"
   status = 200
 
 [[redirects]]
   from   = "/mirai"
-  to     = "/mirai.html"
+  to     = "/ventures/mirai-engineering/index.html"
   status = 200
 
 [[redirects]]
   from   = "/sz-manufacturing"
-  to     = "/sz-manufacturing.html"
+  to     = "/ventures/manufacturing/index.html"
   status = 200
 
 [[redirects]]

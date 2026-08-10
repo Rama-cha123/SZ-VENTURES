@@ -261,3 +261,43 @@ body.cursor-hover .cursor__ring {
   overflow: hidden; clip: rect(0 0 0 0);
   white-space: nowrap; border: 0;
 }
+
+/* Print-specific tweaks */
+@media print {
+  /* Remove interactive effects */
+  .glass {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Preserve readability */
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  /* Hide interactive elements that make no sense on paper */
+  #cursor__dot,
+  #cursor__ring,
+  .cursor,
+  [data-magnetic],
+  .no-js,
+  .js-enabled {
+    display: none !important;
+  }
+
+  /* Ensure glass borders don’t cause page breaks */
+  .glass {
+    page-break-inside: avoid;
+  }
+
+  /* Reduce motion – already disabled in print but enforce */
+  * {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
