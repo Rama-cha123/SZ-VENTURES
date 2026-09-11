@@ -111,6 +111,7 @@
       if (window.AOS) window.AOS.refreshHard();
       initTippy();
       bindMagnetics();
+      if (typeof initQueryPrefill === 'function') initQueryPrefill();
     });
 
     cleanupFns.push(() => swup.destroy());
@@ -416,6 +417,42 @@
     });
   }
 
+  // ==== Form Query Prefill ================================================
+  function initQueryPrefill() {
+    const form = document.querySelector('.intake-form');
+    if (!form) return;
+    
+    const params = new URLSearchParams(window.location.search);
+    const subjectParam = params.get('subject');
+    
+    if (subjectParam) {
+      const messageField = document.getElementById('message');
+      if (messageField && !messageField.value) {
+        messageField.value = "Inquiry regarding: " + subjectParam + "\n\n";
+      }
+      
+      const interest = document.getElementById('interest');
+      if (interest) {
+        if (subjectParam.toLowerCase().includes('creator') || subjectParam.toLowerCase().includes('production')) {
+          let hasCreator = Array.from(interest.options).some(opt => opt.value === 'creator');
+          if (!hasCreator) {
+            const opt = document.createElement('option');
+            opt.value = 'creator';
+            opt.textContent = 'Creator / Influencer';
+            interest.appendChild(opt);
+          }
+          interest.value = 'creator';
+        }
+      }
+      
+      let action = form.getAttribute('action');
+      if (action && action.startsWith('mailto:')) {
+        action = action.split('?')[0];
+        form.setAttribute('action', action + "?subject=" + encodeURIComponent(subjectParam));
+      }
+    }
+  }
+
   // ==== Boot ==============================================================
   function boot() {
     initLenis();
@@ -429,6 +466,7 @@
     initCounters();
     initAnchors();
     initRoleSwitcher();
+    initQueryPrefill();
     // Ensure AOS is refreshed after all resources are loaded
     window.addEventListener('load', () => window.AOS && window.AOS.refresh());
   }
