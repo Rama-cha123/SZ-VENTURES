@@ -340,62 +340,67 @@
 
   <!-- FLOATING NAVIGATION -->
     <!-- Header Navigation -->
-  <header class="nav glass" id="nav">
-    <div class="nav__inner">
-      <a href="/index.html" class="nav__brand" data-cursor data-tippy-content="SZX Ventures — Venture Studio">
-        <img src="/assets/img/logo.png" alt="SZX Ventures Logo" class="nav-logo-img" aria-hidden="true">
-        SZX Ventures
+  <header class="fixed top-0 left-0 w-full z-[100] glass-nav transition-all duration-300" id="nav">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="/index.html" class="flex items-center gap-3 font-display font-bold text-xl text-brand-text tracking-wide group" data-cursor data-tippy-content="SZX Ventures — Venture Studio">
+        <img src="/assets/img/logo.png" alt="SZX Ventures Logo" class="w-6 h-6 object-contain" aria-hidden="true">
+        <span>SZX Ventures</span>
       </a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="/philosophy.html" class="nav__link">About</a>
-        <div class="nav__dropdown">
-          <a href="/portfolio.html" class="nav__link nav__dropdown-toggle">
+      <nav class="hidden lg:flex items-center gap-8 font-body font-medium text-sm text-brand-text/80" aria-label="Primary">
+        <a href="/philosophy.html" class="hover:text-brand-gold transition-colors">About</a>
+        
+        <div class="relative group">
+          <a href="/portfolio.html" class="flex items-center gap-1 hover:text-brand-gold transition-colors">
             Ventures
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="/ventures/bowl-and-sip/index.html" class="nav__dropdown-item">
-              <strong>Bowl & Sip Co.</strong>
-              <span>Nutrition & Active Lifestyle</span>
+          <div class="absolute top-full left-0 mt-2 w-64 bg-brand-surface border border-brand-border rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 flex flex-col">
+            <a href="/ventures/bowl-and-sip/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
+              <strong class="block text-brand-text font-bold">Bowl & Sip Co.</strong>
+              <span class="block text-xs text-brand-muted mt-0.5">Nutrition & Active Lifestyle</span>
             </a>
-            <a href="/ventures/snapops/index.html" class="nav__dropdown-item">
-              <strong>SnapOps</strong>
-              <span>Community & Operations</span>
+            <a href="/ventures/snapops/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
+              <strong class="block text-brand-text font-bold">SnapOps</strong>
+              <span class="block text-xs text-brand-muted mt-0.5">Community & Operations</span>
             </a>
-            <a href="/ventures/mirai-engineering/index.html" class="nav__dropdown-item">
-              <strong>Mirai Engineering</strong>
-              <span>Global Careers</span>
+            <a href="/ventures/mirai-engineering/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
+              <strong class="block text-brand-text font-bold">Mirai Engineering</strong>
+              <span class="block text-xs text-brand-muted mt-0.5">Global Careers</span>
             </a>
-            <a href="/ventures/manufacturing/index.html" class="nav__dropdown-item">
-              <strong>SZ Manufacturing</strong>
-              <span>Manufacturing & B2B</span>
+            <a href="/ventures/manufacturing/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
+              <strong class="block text-brand-text font-bold">SZ Manufacturing</strong>
+              <span class="block text-xs text-brand-muted mt-0.5">Manufacturing & B2B</span>
             </a>
-            <a href="/ventures/creator-house/index.html" class="nav__dropdown-item">
-              <strong>Creator House</strong>
-              <span>Handcrafted Décor & Gifting</span>
+            <a href="/ventures/creator-house/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
+              <strong class="block text-brand-text font-bold">Creator House</strong>
+              <span class="block text-xs text-brand-muted mt-0.5">Premium Production</span>
             </a>
           </div>
         </div>
-        <a href="/insights.html" class="nav__link">Insights</a>
-        <div class="nav__dropdown">
-          <a href="#" class="nav__link nav__dropdown-toggle">
+        
+        <a href="/insights.html" class="hover:text-brand-gold transition-colors">Insights</a>
+        
+        <div class="relative group">
+          <a href="#" class="flex items-center gap-1 hover:text-brand-gold transition-colors">
             Company
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
           </a>
-          <div class="nav__dropdown-menu">
-            <a href="/team.html" class="nav__dropdown-item"><strong>Team</strong></a>
-            <a href="/careers.html" class="nav__dropdown-item"><strong>Careers</strong></a>
-            <a href="/achievements.html" class="nav__dropdown-item"><strong>Achievements</strong></a>
-            <a href="/press.html" class="nav__dropdown-item"><strong>Press</strong></a>
-            <a href="/contact.html" class="nav__dropdown-item"><strong>Contact</strong></a>
+          <div class="absolute top-full left-0 mt-2 w-48 bg-brand-surface border border-brand-border rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 flex flex-col">
+            <a href="/team.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Team</strong></a>
+            <a href="/careers.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Careers</strong></a>
+            <a href="/achievements.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Achievements</strong></a>
+            <a href="/press.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Press</strong></a>
+            <a href="/contact.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Contact</strong></a>
           </div>
         </div>
       </nav>
-      <div class="nav__right">
-        <a href="/login/index.html" class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
-        <a href="/contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Let's Talk →</span></a>
-        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
+      
+      <div class="flex items-center gap-4">
+        <a href="/login/index.html" class="hidden sm:block text-brand-text/80 hover:text-brand-gold font-display font-medium transition-colors">Portal Login</a>
+        <a href="/contact.html" class="btn-magnetic bg-white text-black font-btn font-bold px-5 py-2.5 rounded-full hover:bg-brand-gold hover:text-white transition-colors" data-magnetic data-cursor>Let's Talk →</a>
+        <button class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5" id="navToggle" aria-label="Open menu">
+          <span class="w-6 h-0.5 bg-brand-text block"></span>
+          <span class="w-6 h-0.5 bg-brand-text block"></span>
         </button>
       </div>
     </div>
