@@ -20,16 +20,21 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
     :root {
-      --bg: #EAE8E1;
-      --bg-dark: #1A1A1A;
-      --card-dark: #222222;
-      --text: #1A1A1A;
-      --text-light: #F5F5F5;
-      --border: #D2CFC6;
-      --border-dark: #333333;
-      --muted: rgba(26,26,26,0.55);
+      --bg: #E8E4DB;
+      --bg-warm: #F4F1EB;
+      --bg-dark: #141414;
+      --bg-dark-elevated: #1C1C1C;
+      --card-dark: #1F1F1F;
+      --text: #171717;
+      --text-secondary: #3D3D3D;
+      --text-light: #FAFAF8;
+      --border: #CCC8BC;
+      --border-dark: #2A2A2A;
+      --muted: rgba(23,23,23,0.52);
       --muted-light: rgba(255,255,255,0.5);
-      --gold: #E8C95A;
+      --gold: #D4A843;
+      --gold-soft: #C9A23D;
+      --accent: #B8955A;
     }
     
     body {
@@ -42,8 +47,23 @@
       line-height: 1.5;
     }
     
-    img { display: block; max-width: 100%; }
+    img {
+      display: block;
+      max-width: 100%;
+      image-rendering: auto;
+    }
     a { text-decoration: none; color: inherit; }
+    
+    /* Premium image treatment */
+    .img-editorial {
+      filter: contrast(1.04) saturate(0.92) brightness(0.98);
+    }
+    .img-warm {
+      filter: sepia(0.06) contrast(1.05) saturate(0.88) brightness(0.97);
+    }
+    .img-cinematic {
+      filter: contrast(1.08) saturate(0.75) brightness(0.95);
+    }
     
     /* Buttons */
     .btn {
@@ -67,7 +87,7 @@
       color: #fff;
       border-color: var(--text);
     }
-    .btn-primary:hover { background: #333; }
+    .btn-primary:hover { background: #2C2C2C; transform: translateY(-1px); }
     
     .btn-outline {
       background: transparent;
@@ -111,6 +131,10 @@
     /* Dark section */
     .dark-section {
       background: var(--bg-dark);
+      color: var(--text-light);
+    }
+    .dark-section-elevated {
+      background: var(--bg-dark-elevated);
       color: var(--text-light);
     }
     
@@ -173,8 +197,8 @@
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.2s;
+      color: rgba(23,23,23,0.45);
+      transition: color 0.25s;
     }
     .ch-nav__link:hover { color: var(--text); }
     .ch-nav__link--active {
@@ -316,7 +340,8 @@
       font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(26,26,26,0.7);
+      color: rgba(255,255,255,0.75);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
     .ch-hero__overlay-tags span:not(:last-child)::after {
       content: ' | ';
@@ -330,7 +355,8 @@
       text-transform: uppercase;
       text-align: right;
       line-height: 1.5;
-      color: rgba(26,26,26,0.7);
+      color: rgba(255,255,255,0.7);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
     .ch-hero__scribble {
       position: absolute;
@@ -341,9 +367,9 @@
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 700;
       line-height: 1;
-      color: rgba(26,26,26,0.8);
+      color: rgba(255,255,255,0.85);
       z-index: 2;
-      mix-blend-mode: multiply;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
     /* =========================================
@@ -424,17 +450,23 @@
       .ch-features { grid-template-columns: repeat(4, 1fr); }
     }
     .ch-feature {
-      border: 1px solid var(--border);
+      border: 1px solid rgba(204,200,188,0.6);
       padding: 28px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       gap: 12px;
-      transition: background 0.25s;
+      transition: all 0.3s ease;
       cursor: default;
+      background: rgba(244,241,235,0.4);
     }
-    .ch-feature:hover { background: rgba(255,255,255,0.5); }
+    .ch-feature:hover {
+      background: rgba(255,255,255,0.7);
+      border-color: rgba(204,200,188,0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
     .ch-feature i { font-size: 28px; color: var(--text); }
     .ch-feature span {
       font-size: 10px;
@@ -492,7 +524,7 @@
       color: var(--gold);
       text-align: center;
       z-index: 2;
-      text-shadow: 0 2px 20px rgba(232,201,90,0.3);
+      text-shadow: 0 2px 24px rgba(212,168,67,0.35), 0 0 60px rgba(212,168,67,0.1);
     }
     .ch-about__content {
       padding: 48px 24px;
@@ -576,6 +608,7 @@
       padding: 24px 40px;
       text-align: center;
       flex-shrink: 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     }
     .ch-membership__price {
       font-size: 36px;
@@ -611,6 +644,11 @@
       border: 1px solid var(--border-dark);
       padding: 28px 24px;
       position: relative;
+      transition: all 0.3s ease;
+    }
+    .ch-deliverable:hover {
+      border-color: rgba(255,255,255,0.1);
+      background: rgba(40,40,40,1);
     }
     .ch-deliverable__num {
       font-size: 48px;
@@ -1116,7 +1154,7 @@
       </div>
     </div>
     <div class="ch-hero__image">
-      <img src="https://images.unsplash.com/photo-1595856149818-49520a2cc121?q=80&w=2000&auto=format&fit=crop" alt="Creator in professional studio" loading="eager">
+      <img src="https://images.unsplash.com/photo-1600861194942-f883de0dfe96?q=85&w=1800&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Creator in professional studio" loading="eager" class="img-editorial" style="object-position: center 25%;">
       <div class="ch-hero__overlay-top">
         <div class="ch-hero__overlay-tags">
           <span>People</span>
@@ -1143,7 +1181,7 @@
           </p>
         </div>
         <div class="ch-problem__visual">
-          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1500&auto=format&fit=crop" alt="Creator managing multiple tasks" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=85&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Creator managing multiple tasks" loading="lazy" class="img-warm" style="object-position: center 30%;">
           <div class="ch-problem__scribble">
             DIFFERENT<br>PEOPLE...<br>DIFFERENT TOOLS...<br>TOO MUCH TO MANAGE.
           </div>
@@ -1191,7 +1229,7 @@
   <!-- WHAT IS CREATOR HOUSE -->
   <section class="ch-about">
     <div class="ch-about__image">
-      <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1740&auto=format&fit=crop" alt="Professional production studio" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=85&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Professional production studio" loading="lazy" class="img-cinematic" style="object-position: center center;">
       <div class="ch-about__image-overlay"></div>
       <div class="ch-about__image-scribble">GOOD<br>CREATORS<br>BUILD<br>GREAT<br>BRANDS</div>
     </div>
@@ -1264,7 +1302,7 @@
           <p class="ch-benefits__disclaimer">All production and access are subject to advance booking and availability.</p>
         </div>
         <div class="ch-benefits__image">
-          <img src="https://images.unsplash.com/photo-1596700683073-7729f2da8b74?q=80&w=800&auto=format&fit=crop" alt="Creator portrait" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=85&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Creator portrait" loading="lazy" class="img-cinematic" style="object-position: center 20%;">
           <div class="ch-benefits__image-overlay"></div>
           <div class="ch-benefits__image-text">
             <p>SAME<br>CREATORS.<br>BIGGER<br>STORIES.</p>
@@ -1361,7 +1399,7 @@
 
       <div class="ch-env__grid">
         <a href="#" class="ch-env-card">
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Fashion creator shoot" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=85&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Fashion creator shoot" loading="lazy" class="img-editorial" style="object-position: center 15%;">
           <div class="ch-env-card__overlay"></div>
           <div class="ch-env-card__content">
             <div>
@@ -1372,7 +1410,7 @@
           </div>
         </a>
         <a href="#" class="ch-env-card">
-          <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop" alt="Beauty content production" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=85&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Beauty content production" loading="lazy" class="img-editorial" style="object-position: center 20%;">
           <div class="ch-env-card__overlay"></div>
           <div class="ch-env-card__content">
             <div>
@@ -1383,7 +1421,7 @@
           </div>
         </a>
         <a href="#" class="ch-env-card">
-          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop" alt="Fitness production" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=85&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Fitness production" loading="lazy" class="img-editorial" style="object-position: center 30%;">
           <div class="ch-env-card__overlay"></div>
           <div class="ch-env-card__content">
             <div>
