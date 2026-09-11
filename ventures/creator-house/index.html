@@ -1110,6 +1110,123 @@
     }
     .ch-footer__legal a { color: rgba(255,255,255,0.3); transition: color 0.2s; }
     .ch-footer__legal a:hover { color: #fff; }
+    /* =========================================
+       SCROLL ANIMATIONS
+       ========================================= */
+    
+    /* Base reveal state — hidden */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Slide from left */
+    [data-reveal="left"] {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    [data-reveal="left"].is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Slide from right */
+    [data-reveal="right"] {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    [data-reveal="right"].is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Scale up */
+    [data-reveal="scale"] {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    [data-reveal="scale"].is-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    /* Stagger children — applied via JS delay */
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-stagger].is-visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Parallax hero image */
+    .ch-hero__image img {
+      transition: transform 0.1s linear;
+    }
+    
+    /* Navbar scroll state */
+    .ch-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
+    }
+    .ch-nav--scrolled {
+      box-shadow: 0 1px 0 var(--border), 0 4px 20px rgba(0,0,0,0.04);
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    
+    /* Horizontal line reveal */
+    .line-reveal {
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .line-reveal.is-visible {
+      width: 100%;
+    }
+    
+    /* Image clip reveal */
+    [data-reveal="clip"] {
+      opacity: 1;
+      transform: none;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-reveal="clip"].is-visible {
+      clip-path: inset(0 0 0 0);
+    }
+    
+    /* Number counter animation */
+    .ch-deliverable__num {
+      transition: opacity 0.5s ease;
+    }
+    
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal],
+      [data-reveal="left"],
+      [data-reveal="right"],
+      [data-reveal="scale"],
+      [data-reveal="clip"],
+      [data-stagger] > * {
+        opacity: 1 !important;
+        transform: none !important;
+        clip-path: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1135,17 +1252,17 @@
   <!-- HERO -->
   <section class="ch-hero">
     <div class="ch-hero__content">
-      <span class="ch-hero__eyebrow">SZX Ventures</span>
-      <h1 class="ch-hero__title">CREATOR<br>HOUSE</h1>
-      <h2 class="ch-hero__subtitle">Your Content. Your Space.<br>Your Production Engine.</h2>
-      <p class="ch-hero__desc">
+      <span class="ch-hero__eyebrow" data-reveal>SZX Ventures</span>
+      <h1 class="ch-hero__title" data-reveal style="transition-delay:0.1s">CREATOR<br>HOUSE</h1>
+      <h2 class="ch-hero__subtitle" data-reveal style="transition-delay:0.2s">Your Content. Your Space.<br>Your Production Engine.</h2>
+      <p class="ch-hero__desc" data-reveal style="transition-delay:0.3s">
         A premium production ecosystem built for creators, models, influencers, UGC creators and digital-first talent — giving you the space, infrastructure and production support to create consistently.
       </p>
-      <div class="ch-hero__btns">
+      <div class="ch-hero__btns" data-reveal style="transition-delay:0.4s">
         <a href="/contact.html?subject=Creator%20House%20Membership" class="btn btn-primary">Join The Creator House <i class="ph ph-arrow-right"></i></a>
         <a href="/contact.html?subject=Book%20Production%20Day" class="btn btn-outline">Book a Production Day</a>
       </div>
-      <div class="ch-hero__location">
+      <div class="ch-hero__location" data-reveal style="transition-delay:0.5s">
         <i class="ph-fill ph-map-pin"></i>
         <div>
           Launching in Bengaluru.<br>
@@ -1173,15 +1290,15 @@
     <div class="container">
       <div class="ch-problem__top">
         <div class="ch-problem__text">
-          <span class="section-label" style="color:var(--muted);">The Problem</span>
-          <h2>CREATING CONTENT SHOULDN'T BE THIS COMPLICATED.</h2>
-          <p>
+          <span class="section-label" style="color:var(--muted);" data-reveal>The Problem</span>
+          <h2 data-reveal style="transition-delay:0.1s">CREATING CONTENT SHOULDN'T BE THIS COMPLICATED.</h2>
+          <p data-reveal style="transition-delay:0.2s">
             Creators today have to coordinate studios, photographers, lighting, locations, editors, equipment, props and production teams separately.<br><br>
             Creator House brings the essential production ecosystem together in one place.
           </p>
         </div>
         <div class="ch-problem__visual">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=85&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Creator managing multiple tasks" loading="lazy" class="img-warm" style="object-position: center 30%;">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=85&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Creator managing multiple tasks" loading="lazy" class="img-warm" style="object-position: center 30%;" data-reveal="clip">
           <div class="ch-problem__scribble">
             DIFFERENT<br>PEOPLE...<br>DIFFERENT TOOLS...<br>TOO MUCH TO MANAGE.
           </div>
@@ -1189,7 +1306,7 @@
       </div>
 
       <!-- Features Grid -->
-      <div class="ch-features">
+      <div class="ch-features" data-stagger>
         <div class="ch-feature">
           <i class="ph ph-camera"></i>
           <span>Professional<br>Photography</span>
@@ -1229,16 +1346,16 @@
   <!-- WHAT IS CREATOR HOUSE -->
   <section class="ch-about">
     <div class="ch-about__image">
-      <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=85&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Professional production studio" loading="lazy" class="img-cinematic" style="object-position: center center;">
+      <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=85&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Professional production studio" loading="lazy" class="img-cinematic" style="object-position: center center;" data-reveal="scale">
       <div class="ch-about__image-overlay"></div>
       <div class="ch-about__image-scribble">GOOD<br>CREATORS<br>BUILD<br>GREAT<br>BRANDS</div>
     </div>
     <div class="ch-about__content">
-      <span class="section-label" style="color:var(--muted);">What is Creator House?</span>
-      <h2>MORE THAN A STUDIO.</h2>
-      <p>Creator House is being built as a recurring production ecosystem for India's creator economy.</p>
-      <p>Members get access to professional production infrastructure designed around the way modern creators actually work — from Instagram reels and professional photography to long-form video, podcasts, UGC, brand content and personal-brand building.</p>
-      <div class="ch-about__quote">
+      <span class="section-label" style="color:var(--muted);" data-reveal>What is Creator House?</span>
+      <h2 data-reveal style="transition-delay:0.1s">MORE THAN A STUDIO.</h2>
+      <p data-reveal style="transition-delay:0.2s">Creator House is being built as a recurring production ecosystem for India's creator economy.</p>
+      <p data-reveal style="transition-delay:0.3s">Members get access to professional production infrastructure designed around the way modern creators actually work — from Instagram reels and professional photography to long-form video, podcasts, UGC, brand content and personal-brand building.</p>
+      <div class="ch-about__quote" data-reveal style="transition-delay:0.4s">
         <p>The goal is simple:</p>
         <p>Make professional content production easier, faster and more accessible.</p>
       </div>
@@ -1251,34 +1368,34 @@
       
       <div class="ch-membership__header">
         <div>
-          <span class="section-label" style="color:rgba(255,255,255,0.35);">Membership</span>
-          <h2>THE CREATOR PRODUCTION MEMBERSHIP</h2>
-          <p>A complete production ecosystem. Designed for consistent creators.</p>
+          <span class="section-label" style="color:rgba(255,255,255,0.35);" data-reveal>Membership</span>
+          <h2 data-reveal style="transition-delay:0.1s">THE CREATOR PRODUCTION MEMBERSHIP</h2>
+          <p data-reveal style="transition-delay:0.2s">A complete production ecosystem. Designed for consistent creators.</p>
         </div>
         <div class="ch-membership__price-card">
-          <div class="ch-membership__price">₹3,499 <span>/ MONTH</span></div>
+          <div class="ch-membership__price" data-reveal="scale">₹3,499 <span>/ MONTH</span></div>
           <div class="ch-membership__price-sub">+ applicable taxes</div>
         </div>
       </div>
 
-      <div class="ch-deliverables">
+      <div class="ch-deliverables" data-stagger>
         <div class="ch-deliverable">
-          <div class="ch-deliverable__num">12</div>
+          <div class="ch-deliverable__num" data-count="12">0</div>
           <div class="ch-deliverable__label">Professionally<br>Edited Photos /<br>Month</div>
           <i class="ph ph-image ch-deliverable__icon"></i>
         </div>
         <div class="ch-deliverable">
-          <div class="ch-deliverable__num">3</div>
+          <div class="ch-deliverable__num" data-count="3">0</div>
           <div class="ch-deliverable__label">Short-Form<br>Videos / Reels /<br>Month</div>
           <i class="ph ph-video-camera ch-deliverable__icon"></i>
         </div>
         <div class="ch-deliverable">
-          <div class="ch-deliverable__num">1</div>
+          <div class="ch-deliverable__num" data-count="1">0</div>
           <div class="ch-deliverable__label">Long-Form Video<br>Up to 10–12 Minutes</div>
           <i class="ph ph-monitor-play ch-deliverable__icon"></i>
         </div>
         <div class="ch-deliverable">
-          <div class="ch-deliverable__num">2</div>
+          <div class="ch-deliverable__num" data-count="2">0</div>
           <div class="ch-deliverable__label">Creator House<br>Access Days /<br>Month</div>
           <i class="ph ph-calendar-blank ch-deliverable__icon"></i>
         </div>
@@ -1325,13 +1442,13 @@
       
       <div class="ch-how__header">
         <div>
-          <span class="section-label" style="color:var(--muted);">How It Works</span>
-          <h2 class="section-title">FROM IDEA TO PUBLISHED CONTENT.</h2>
+          <span class="section-label" style="color:var(--muted);" data-reveal>How It Works</span>
+          <h2 class="section-title" data-reveal style="transition-delay:0.1s">FROM IDEA TO PUBLISHED CONTENT.</h2>
         </div>
         <div class="ch-how__aside">Consistent Content<br>Builds Bigger Opportunities.</div>
       </div>
 
-      <div class="ch-steps">
+      <div class="ch-steps" data-stagger>
         <div class="ch-step">
           <div class="ch-step__top">
             <div class="ch-step__num">01</div>
@@ -1391,13 +1508,13 @@
       
       <div class="ch-env__header">
         <div>
-          <span class="section-label" style="color:rgba(255,255,255,0.35);">Creator House Environment</span>
-          <h2 class="section-title">BUILT FOR DIFFERENT TYPES OF CREATORS.</h2>
+          <span class="section-label" style="color:rgba(255,255,255,0.35);" data-reveal>Creator House Environment</span>
+          <h2 class="section-title" data-reveal style="transition-delay:0.1s">BUILT FOR DIFFERENT TYPES OF CREATORS.</h2>
         </div>
         <div class="ch-env__aside">Different Niches.<br>A Bigger Creator Economy.</div>
       </div>
 
-      <div class="ch-env__grid">
+      <div class="ch-env__grid" data-stagger>
         <a href="#" class="ch-env-card">
           <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=85&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&cs=tinysrgb" alt="Fashion creator shoot" loading="lazy" class="img-editorial" style="object-position: center 15%;">
           <div class="ch-env-card__overlay"></div>
@@ -1441,10 +1558,10 @@
     <div class="container">
       <div class="ch-cta__inner">
         <div class="ch-cta__text">
-          <h2>Be Part of India's<br>Growing Creator Economy.</h2>
-          <p>Launching in Bengaluru. Limited founding memberships.</p>
+          <h2 data-reveal>Be Part of India's<br>Growing Creator Economy.</h2>
+          <p data-reveal style="transition-delay:0.1s">Launching in Bengaluru. Limited founding memberships.</p>
         </div>
-        <div class="ch-cta__btns">
+        <div class="ch-cta__btns" data-reveal style="transition-delay:0.2s">
           <a href="/contact.html?subject=Creator%20House%20Membership" class="btn btn-primary">Join The Creator House <i class="ph ph-arrow-right"></i></a>
           <a href="/contact.html?subject=Book%20Production%20Day" class="btn btn-outline">Book a Production Day</a>
         </div>
@@ -1487,6 +1604,155 @@
       </div>
     </div>
   </footer>
+
+  <!-- Scroll Animation Engine -->
+  <script>
+  (function() {
+    'use strict';
+
+    // Respect reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // =========================
+    // 1. Intersection Observer for reveals
+    // =========================
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+      revealObserver.observe(el);
+    });
+
+    // =========================
+    // 2. Staggered grid reveals
+    // =========================
+    const staggerObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            const children = entry.target.children;
+            Array.from(children).forEach((child, i) => {
+              child.style.transitionDelay = (i * 0.08) + 's';
+            });
+            staggerObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -20px 0px' }
+    );
+
+    document.querySelectorAll('[data-stagger]').forEach((el) => {
+      staggerObserver.observe(el);
+    });
+
+    // =========================
+    // 3. Navbar scroll effect
+    // =========================
+    const nav = document.querySelector('.ch-nav');
+    let lastScrollY = 0;
+    let ticking = false;
+
+    function updateNav() {
+      if (window.scrollY > 60) {
+        nav.classList.add('ch-nav--scrolled');
+      } else {
+        nav.classList.remove('ch-nav--scrolled');
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateNav);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // =========================
+    // 4. Parallax hero image
+    // =========================
+    const heroImg = document.querySelector('.ch-hero__image img');
+    if (heroImg) {
+      let parallaxTicking = false;
+      window.addEventListener('scroll', () => {
+        if (!parallaxTicking) {
+          requestAnimationFrame(() => {
+            const scrolled = window.scrollY;
+            if (scrolled < window.innerHeight) {
+              heroImg.style.transform = 'translateY(' + (scrolled * 0.15) + 'px) scale(1.05)';
+            }
+            parallaxTicking = false;
+          });
+          parallaxTicking = true;
+        }
+      }, { passive: true });
+    }
+
+    // =========================
+    // 5. Number counter animation
+    // =========================
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-count'), 10);
+            const duration = 1200;
+            const start = performance.now();
+
+            function animate(now) {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease out cubic
+              const eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.round(eased * target);
+              if (progress < 1) {
+                requestAnimationFrame(animate);
+              }
+            }
+            requestAnimationFrame(animate);
+            counterObserver.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    document.querySelectorAll('[data-count]').forEach((el) => {
+      counterObserver.observe(el);
+    });
+
+    // =========================
+    // 6. Line reveal animations
+    // =========================
+    const lineObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            lineObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    document.querySelectorAll('.line-reveal').forEach((el) => {
+      lineObserver.observe(el);
+    });
+
+  })();
+  </script>
 
 </body>
 </html>
