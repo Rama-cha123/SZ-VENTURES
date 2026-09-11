@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <script>document.documentElement.classList.add("js")</script>
   <title>Portfolio — SZ Ventures</title>
-  <meta name="description" content="Five companies, one ecosystem. Meet the SZ Ventures portfolio: SnapOps, Bowl &amp; Sip Co., TerraMuse, Mirai Engineering, and SZ Manufacturing.">
+  <meta name="description" content="Five companies, one ecosystem. Meet the SZ Ventures portfolio: SnapOps, Bowl &amp; Sip Co., Creator House, Mirai Engineering, and SZ Manufacturing.">
   <meta name="theme-color" content="#0e0e10">
   <link rel="canonical" href="https://szventures.com/portfolio">
 
@@ -32,23 +32,67 @@
 <body>
   <a class="visually-hidden" href="#main">Skip to content</a>
 
-  <nav class="nav" id="nav" aria-label="Main navigation">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo" aria-label="SZ Ventures home" data-tippy-content="SZ Ventures — Home">
+    <!-- Header Navigation -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
         <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
-        <span class="nav-logo-text">SZ Ventures</span>
+        SZ Ventures
       </a>
-      <div class="nav-links" id="nav-links">
-        <a href="portfolio.html" class="nav-link" data-tippy-content="See our portfolio">Portfolio</a>
-        <a href="philosophy.html" class="nav-link" data-tippy-content="Our philosophy">Philosophy</a>
-        <a href="achievements.html" class="nav-link" data-tippy-content="Our milestones">Milestones</a>
-        <a href="contact.html" class="nav-link nav-cta" data-tippy-content="Partner with us">Partner With Us</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/philosophy.html" class="nav__link">About</a>
+        <div class="nav__dropdown">
+          <a href="/portfolio.html" class="nav__link nav__dropdown-toggle">
+            Ventures
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="/ventures/bowl-and-sip/index.html" class="nav__dropdown-item">
+              <strong>Bowl & Sip Co.</strong>
+              <span>Nutrition & Active Lifestyle</span>
+            </a>
+            <a href="/ventures/snapops/index.html" class="nav__dropdown-item">
+              <strong>SnapOps</strong>
+              <span>Community & Operations</span>
+            </a>
+            <a href="/ventures/mirai-engineering/index.html" class="nav__dropdown-item">
+              <strong>Mirai Engineering</strong>
+              <span>Global Careers</span>
+            </a>
+            <a href="/ventures/manufacturing/index.html" class="nav__dropdown-item">
+              <strong>SZ Manufacturing</strong>
+              <span>Manufacturing & B2B</span>
+            </a>
+            <a href="/ventures/creator-house/index.html" class="nav__dropdown-item">
+              <strong>Creator House</strong>
+              <span>Handcrafted Décor & Gifting</span>
+            </a>
+          </div>
+        </div>
+        <a href="/insights.html" class="nav__link">Insights</a>
+        <div class="nav__dropdown">
+          <a href="#" class="nav__link nav__dropdown-toggle">
+            Company
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="/team.html" class="nav__dropdown-item"><strong>Team</strong></a>
+            <a href="/careers.html" class="nav__dropdown-item"><strong>Careers</strong></a>
+            <a href="/achievements.html" class="nav__dropdown-item"><strong>Achievements</strong></a>
+            <a href="/press.html" class="nav__dropdown-item"><strong>Press</strong></a>
+            <a href="/contact.html" class="nav__dropdown-item"><strong>Contact</strong></a>
+          </div>
+        </div>
+      </nav>
+      <div class="nav__right">
+        <a href="/login/index.html" class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
+        <a href="/contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Let's Talk →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation" data-tippy-content="Menu">
-        <span class="hamburger"></span>
-      </button>
     </div>
-  </nav>
+  </header>
 
   <main id="main">
     <section class="page-hero" aria-labelledby="p-title">
@@ -77,9 +121,9 @@
             <p class="vc-desc">A fast-casual brand rethinking everyday food — nourishing bowls and craft beverages, built to scale.</p>
             <span class="vc-link">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></span>
           </a>
-          <a class="venture-card" href="/ventures/terramuse/index.html" data-reveal style="--v-accent: var(--v-terramuse);">
+          <a class="venture-card" href="/ventures/creator-house/index.html" data-reveal style="--v-accent: var(--v-creator-house);">
             <span class="vc-sector">Sustainability</span>
-            <h3>TerraMuse</h3>
+            <h3>Creator House</h3>
             <p class="vc-desc">Carbon and nature-tech infrastructure helping organizations measure, verify, and restore.</p>
             <span class="vc-link">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></span>
           </a>
@@ -114,11 +158,11 @@
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo">
+    <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="footer-logo" aria-label="SZ Ventures home">
+          <a href="/index.html" class="footer-logo" aria-label="SZ Ventures home">
             <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
             <span>SZ Ventures</span>
           </a>
@@ -135,7 +179,7 @@
             <ul>
               <li><a href="/ventures/snapops/index.html">SnapOps</a></li>
               <li><a href="/ventures/bowl-and-sip/index.html">Bowl &amp; Sip Co.</a></li>
-              <li><a href="/ventures/terramuse/index.html">TerraMuse</a></li>
+              <li><a href="/ventures/creator-house/index.html">Creator House</a></li>
               <li><a href="/ventures/mirai-engineering/index.html">Mirai Engineering</a></li>
               <li><a href="/ventures/manufacturing/index.html">SZ Manufacturing</a></li>
             </ul>
@@ -143,26 +187,26 @@
           <div class="footer-nav-col">
             <h4>Studio</h4>
             <ul>
-              <li><a href="philosophy.html">Philosophy</a></li>
-              <li><a href="achievements.html">Milestones</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="/philosophy.html">Philosophy</a></li>
+              <li><a href="/achievements.html">Milestones</a></li>
+              <li><a href="/portfolio.html">Portfolio</a></li>
+              <li><a href="/contact.html">Contact</a></li>
             </ul>
           </div>
           <div class="footer-nav-col">
             <h4>Resources</h4>
             <ul>
-              <li><a href="insights.html">Insights</a></li>
-              <li><a href="careers.html">Careers</a></li>
-              <li><a href="press.html">Press Kit</a></li>
+              <li><a href="/insights.html">Insights</a></li>
+              <li><a href="/careers.html">Careers</a></li>
+              <li><a href="/press.html">Press Kit</a></li>
             </ul>
           </div>
           <div class="footer-nav-col">
             <h4>Legal</h4>
             <ul>
-              <li><a href="privacy.html">Privacy</a></li>
-              <li><a href="terms.html">Terms</a></li>
-              <li><a href="cookies.html">Cookies</a></li>
+              <li><a href="/privacy.html">Privacy</a></li>
+              <li><a href="/terms.html">Terms</a></li>
+              <li><a href="/cookies.html">Cookies</a></li>
             </ul>
           </div>
         </nav>

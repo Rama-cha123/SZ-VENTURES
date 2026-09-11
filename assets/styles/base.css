@@ -23,16 +23,22 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: var(--font-body);
   font-size: var(--fs-400);
   line-height: var(--lh-body);
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "kern", "liga", "calt";
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  position: relative;
+}
+
+/* Global Focus States for A11y */
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 body.is-loading {

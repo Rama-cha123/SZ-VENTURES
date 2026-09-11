@@ -10,7 +10,7 @@
   --ink:           #f4f2ed;   /* Warm soft white primary text */
   --ink-soft:      #d0cbd2;   /* Secondary body text */
   --muted:         #a09890;   /* Muted captions & subtitles */
-  --muted-2:       #706860;   /* Faint tertiary text */
+  --muted-2:       #8a827a;   /* Faint tertiary text (brightened for a11y) */
   --line:          rgba(197, 160, 89, 0.18); /* Hairline gold border */
   --line-soft:     rgba(255, 255, 255, 0.08); /* Soft division line */
   --card:          rgba(22, 19, 25, 0.75);   /* Dark glass card surface */
@@ -32,7 +32,7 @@
   /* ---- Venture Identity Accents ---- */
   --v-snapops:      #1f7a8c;  /* teal — operations/tech */
   --v-bowlsip:      #c2683f;  /* terracotta — hospitality */
-  --v-terramuse:    #3c7a4e;  /* forest — sustainability */
+  --v-creator-house:    #3c7a4e;  /* forest — sustainability */
   --v-mirai:        #4b3fa7;  /* indigo — engineering */
   --v-manufacturing:#b5642a;  /* steel amber — manufacturing */
 

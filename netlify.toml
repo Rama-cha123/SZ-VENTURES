@@ -94,8 +94,8 @@
   status = 200
 
 [[redirects]]
-  from   = "/terramuse"
-  to     = "/ventures/terramuse/index.html"
+  from   = "/creator-house"
+  to     = "/ventures/creator-house/index.html"
   status = 200
 
 [[redirects]]

@@ -188,7 +188,7 @@ sz-ventures/
 ├── contact.html
 ├── snapops.html                # Portfolio company pages
 ├── bowl-sip.html
-├── terramuse.html
+├── creator-house.html
 ├── mirai.html
 ├── sz-manufacturing.html
 ├── team.html

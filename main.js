@@ -378,7 +378,7 @@
       },
       creator: {
         role: 'Creator / Artisan',
-        venture: 'TerraMuse',
+        venture: 'Creator House',
         dynamicLabel: 'Craft / Specialty & Portfolio Link',
         dynamicPlaceholder: 'e.g. Ceramics & Handcrafted Decor (instagram.com/crafts)',
         detailsLabel: 'Tell us about your creative work or custom commission idea'

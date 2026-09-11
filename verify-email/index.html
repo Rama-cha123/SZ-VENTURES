@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SZ Ventures — Verify Email</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css">
+  <style>
+    .auth-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; position: relative; }
+    .auth-card { max-width: 420px; width: 100%; text-align: center; z-index: 10; padding: 3.5rem 2.5rem; background: rgba(10, 10, 12, 0.65); border: 1px solid var(--glass-border); }
+    .auth-logo { margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 0.75rem; color: var(--ink); text-decoration: none; font-weight: 600; font-size: 1.15rem; }
+    .auth-logo img { height: 28px; width: 28px; }
+    .auth-title { font-family: var(--font-serif); font-size: var(--fs-700); margin-bottom: 0.5rem; color: var(--ink); }
+    .auth-subtitle { color: var(--muted); margin-bottom: 2.5rem; font-size: var(--fs-400); letter-spacing: 0.05em; text-transform: uppercase; }
+    .auth-text { color: var(--ink-soft); line-height: var(--lh-body); margin-bottom: 2rem; font-size: var(--fs-400); }
+    .auth-btn { width: 100%; margin-top: 1rem; padding: 0.9rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="auth-container">
+    <div class="auth-card glass">
+      <a href="/" class="auth-logo">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" loading="lazy">
+        SZ Ventures
+      </a>
+      <div class="auth-subtitle">Verify your email</div>
+      <h1 class="auth-title">Check your inbox</h1>
+      
+      <p class="auth-text">We've sent a verification link to your email address. Please click the link to activate your account and gain access to the portal.</p>
+
+      <a href="/login/index.html" class="btn btn--accent auth-btn">RETURN TO SIGN IN</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SZ Ventures — Portal Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css">
+  <style>
+    :root {
+      --sidebar-w: 260px;
+    }
+    body { background: var(--paper); color: var(--ink); margin: 0; padding: 0; font-family: var(--font-body); display: flex; min-height: 100vh; overflow-x: hidden; }
+    
+    /* Sidebar */
+    .sidebar { width: var(--sidebar-w); background: var(--paper-2); border-right: 1px solid var(--line); display: flex; flex-direction: column; padding: 1.5rem 0; flex-shrink: 0; }
+    .sidebar-header { padding: 0 1.5rem 2rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; color: var(--ink); text-decoration: none; font-weight: 600; font-family: var(--font-display); }
+    .sidebar-header img { height: 28px; width: 28px; }
+    .sidebar-nav { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; padding: 0 1rem; }
+    .nav-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted-2); margin: 1rem 0 0.25rem 0.5rem; font-weight: 600; }
+    .nav-item { padding: 0.6rem 1rem; border-radius: var(--radius-sm); color: var(--muted); text-decoration: none; font-size: var(--fs-400); display: flex; align-items: center; gap: 0.75rem; transition: background 0.2s, color 0.2s; }
+    .nav-item:hover, .nav-item.active { background: rgba(220, 180, 110, 0.1); color: var(--gold-light); }
+    .nav-item svg { width: 16px; height: 16px; color: currentcolor; }
+    .sidebar-footer { padding: 1.5rem; border-top: 1px solid var(--line); }
+    
+    /* Main Content */
+    .main-content { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+    .topbar { height: 72px; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: var(--paper); }
+    .topbar-left h2 { margin: 0; font-size: var(--fs-600); font-weight: 500; font-family: var(--font-display); }
+    .topbar-right { display: flex; align-items: center; gap: 1rem; }
+    .user-profile { display: flex; align-items: center; gap: 0.75rem; color: var(--ink); font-size: var(--fs-400); font-weight: 500; }
+    .avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; font-size: 1rem; }
+    
+    /* Dashboard Layout */
+    .dashboard { padding: 2rem; display: flex; flex-direction: column; gap: 2rem; overflow-y: auto; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .stat-card { background: rgba(255,255,255,0.02); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; }
+    .stat-label { font-size: var(--fs-300); color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: block; }
+    .stat-value { font-size: var(--fs-800); font-family: var(--font-serif); color: var(--ink); }
+    .stat-diff { font-size: var(--fs-300); color: #4dff88; margin-top: 0.5rem; display: flex; align-items: center; gap: 0.25rem; }
+    .stat-diff.negative { color: #ff4d4d; }
+
+    /* Tables */
+    .panel { background: rgba(255,255,255,0.02); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .panel-header { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+    .panel-title { margin: 0; font-size: var(--fs-500); font-weight: 600; font-family: var(--font-display); }
+    .data-table { width: 100%; border-collapse: collapse; text-align: left; }
+    .data-table th { padding: 1rem 1.5rem; font-size: var(--fs-300); color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--line); font-weight: 500; }
+    .data-table td { padding: 1rem 1.5rem; border-bottom: 1px solid var(--line-soft); font-size: var(--fs-400); color: var(--ink-soft); }
+    .data-table tr:last-child td { border-bottom: none; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 0.5rem; }
+    .status-active { background: #4dff88; box-shadow: 0 0 8px rgba(77, 255, 136, 0.4); }
+    .status-pending { background: var(--gold-bright); box-shadow: 0 0 8px rgba(245, 215, 150, 0.4); }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .sidebar { position: fixed; transform: translateX(-100%); transition: transform 0.3s; z-index: 100; height: 100vh; }
+      .sidebar.open { transform: translateX(0); }
+      .mobile-toggle { display: block; background: none; border: none; color: var(--ink); cursor: pointer; }
+      .topbar { padding: 0 1rem; }
+      .dashboard { padding: 1rem; }
+    }
+    @media (min-width: 769px) {
+      .mobile-toggle { display: none; }
+    }
+  </style>
+</head>
+<body>
+  
+  <aside class="sidebar" id="sidebar">
+    <a href="/" class="sidebar-header">
+      <img src="/assets/img/logo.png" alt="SZ Ventures Logo" loading="lazy">
+      SZ Ventures
+    </a>
+    <nav class="sidebar-nav">
+      <div class="nav-label">Main</div>
+      <a href="#" class="nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Dashboard
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Overview
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        Ventures
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Team
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Projects
+      </a>
+      
+      <div class="nav-label">Operational</div>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Documents
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+        Reports
+      </a>
+      
+      <div class="nav-label restricted-admin">Admin</div>
+      <a href="#" class="nav-item restricted-admin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Settings
+      </a>
+      <a href="#" class="nav-item restricted-admin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Access Control
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="logoutBtn" class="btn btn--ghost" style="width:100%; padding: 0.6rem; font-size: 0.8rem;">SIGN OUT</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h2>Dashboard Overview</h2>
+      </div>
+      <div class="topbar-right">
+        <div class="user-profile">
+          <div style="display:flex; flex-direction:column; align-items:flex-end; line-height:1.2;">
+            <span id="userEmail">Loading...</span>
+            <span id="userRoleDisplay" style="font-size: 0.65rem; color: var(--gold); text-transform: uppercase;"></span>
+          </div>
+          <div class="avatar"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">Active Ventures</span>
+          <div class="stat-value">5</div>
+          <div class="stat-diff"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Operational</div>
+        </div>
+        <div class="stat-card restricted-admin">
+          <span class="stat-label">Capital Deployed (Q3)</span>
+          <div class="stat-value">$1.2M</div>
+          <div class="stat-diff"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> 12% vs last quarter</div>
+        </div>
+        <div class="stat-card restricted-team">
+          <span class="stat-label">Pipeline Opportunities</span>
+          <div class="stat-value">14</div>
+          <div class="stat-diff negative"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg> Review required</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h3 class="panel-title">Venture Status</h3>
+          <a href="#" style="color: var(--gold); text-decoration: none; font-size: var(--fs-400);">View all →</a>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Venture</th>
+              <th>Sector</th>
+              <th>Status</th>
+              <th>Lead</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Bowl & Sip Co.</strong></td>
+              <td>Nutrition & Active Lifestyle</td>
+              <td><span class="status-dot status-active"></span>Active</td>
+              <td>T. Anderson</td>
+            </tr>
+            <tr>
+              <td><strong>SnapOps</strong></td>
+              <td>Community & Operations</td>
+              <td><span class="status-dot status-pending"></span>Pilot</td>
+              <td>S. Carter</td>
+            </tr>
+            <tr>
+              <td><strong>Mirai Engineering</strong></td>
+              <td>Global Engineering Careers</td>
+              <td><span class="status-dot status-active"></span>Active Growth</td>
+              <td>J. Tanaka</td>
+            </tr>
+            <tr>
+              <td><strong>SZ Manufacturing</strong></td>
+              <td>Manufacturing & B2B</td>
+              <td><span class="status-dot status-active"></span>Expanding</td>
+              <td>A. Patel</td>
+            </tr>
+            <tr>
+              <td><strong>Creator House</strong></td>
+              <td>Handcrafted Décor & Gifting</td>
+              <td><span class="status-dot status-pending"></span>Custom Commissions</td>
+              <td>E. Roberts</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/js/supabase-config.js"></script>
+  <script src="/assets/js/auth.js"></script>
+</body>
+</html>

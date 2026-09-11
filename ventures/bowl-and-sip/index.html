@@ -22,6 +22,7 @@
     tailwind.config = {
       theme: {
         extend: {
+            borderRadius: { 'xl': '24px', '2xl': '24px', 'lg': '16px' },
           colors: {
             brand: {
               bg: '#080808',
@@ -338,30 +339,65 @@
   </aside>
 
   <!-- FLOATING NAVIGATION -->
-  <header class="fixed top-0 w-full z-50 glass-nav transition-transform duration-500" id="main-nav">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      
-      <a href="#" class="font-display text-2xl tracking-wide text-brand-text flex items-center gap-2">
-        <span class="text-brand-accent">BOWL</span> & SIP CO.
+    <!-- Header Navigation -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
+        SZ Ventures
       </a>
-
-      <nav class="hidden md:flex items-center gap-8 font-body text-sm font-medium text-brand-muted">
-        <a href="#menu" class="hover:text-brand-text transition-colors">Menu</a>
-        <a href="#nutrition" class="hover:text-brand-text transition-colors">Nutrition</a>
-        <a href="#plans" class="hover:text-brand-text transition-colors">Plans</a>
-        <a href="#about" class="hover:text-brand-text transition-colors">Our Story</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/philosophy.html" class="nav__link">About</a>
+        <div class="nav__dropdown">
+          <a href="/portfolio.html" class="nav__link nav__dropdown-toggle">
+            Ventures
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="/ventures/bowl-and-sip/index.html" class="nav__dropdown-item">
+              <strong>Bowl & Sip Co.</strong>
+              <span>Nutrition & Active Lifestyle</span>
+            </a>
+            <a href="/ventures/snapops/index.html" class="nav__dropdown-item">
+              <strong>SnapOps</strong>
+              <span>Community & Operations</span>
+            </a>
+            <a href="/ventures/mirai-engineering/index.html" class="nav__dropdown-item">
+              <strong>Mirai Engineering</strong>
+              <span>Global Careers</span>
+            </a>
+            <a href="/ventures/manufacturing/index.html" class="nav__dropdown-item">
+              <strong>SZ Manufacturing</strong>
+              <span>Manufacturing & B2B</span>
+            </a>
+            <a href="/ventures/creator-house/index.html" class="nav__dropdown-item">
+              <strong>Creator House</strong>
+              <span>Handcrafted Décor & Gifting</span>
+            </a>
+          </div>
+        </div>
+        <a href="/insights.html" class="nav__link">Insights</a>
+        <div class="nav__dropdown">
+          <a href="#" class="nav__link nav__dropdown-toggle">
+            Company
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="/team.html" class="nav__dropdown-item"><strong>Team</strong></a>
+            <a href="/careers.html" class="nav__dropdown-item"><strong>Careers</strong></a>
+            <a href="/achievements.html" class="nav__dropdown-item"><strong>Achievements</strong></a>
+            <a href="/press.html" class="nav__dropdown-item"><strong>Press</strong></a>
+            <a href="/contact.html" class="nav__dropdown-item"><strong>Contact</strong></a>
+          </div>
+        </div>
       </nav>
-
-      <div class="flex items-center gap-6">
-        <button id="cart-btn" class="relative group flex items-center gap-2 hover:text-brand-accent transition-colors">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="absolute -top-1 -right-2 bg-brand-accent text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">0</span>
+      <div class="nav__right">
+        <a href="/login/index.html" class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
+        <a href="/contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Let's Talk →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
-        <a href="#menu" class="hidden sm:inline-flex btn-magnetic bg-brand-gold text-brand-bg font-btn font-bold text-sm px-6 py-3 rounded-full hover:bg-white transition-colors">
-          Order Now
-        </a>
       </div>
-
     </div>
   </header>
 
@@ -374,7 +410,7 @@
         <div class="absolute inset-0 z-0 scale-105 transform origin-center" id="hero-img-wrap">
           <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2500&auto=format&fit=crop" 
                alt="Healthy Bowl" 
-               class="w-full h-full object-cover object-right-bottom opacity-60">
+               class="w-full h-full object-cover object-right-bottom opacity-60" loading="lazy">
           <div class="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
           <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-bg"></div>
         </div>
@@ -494,7 +530,7 @@
 
           <div class="relative h-[600px] w-full rounded-3xl overflow-hidden reveal-up" id="why-image">
             <img src="https://images.unsplash.com/photo-1628557044797-f21a177c37ec?q=80&w=1500&auto=format&fit=crop" 
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6" alt="SZ Ventures Visual" loading="lazy">
           <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div class="col-span-1 md:col-span-1">
               <a href="#" class="font-display text-2xl tracking-wide text-brand-text block mb-6">
@@ -813,7 +849,7 @@
           
           card.innerHTML = `
             <div class="relative h-64 overflow-hidden">
-              <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
               <div class="absolute top-4 right-4 bg-brand-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold font-btn text-brand-gold border border-brand-border">
                 ₹${product.price}
               </div>
@@ -895,7 +931,7 @@
             const el = document.createElement('div');
             el.className = 'flex gap-4 p-4 rounded-xl bg-brand-surface border border-brand-border';
             el.innerHTML = `
-              <img src="${item.image}" alt="${item.title}" class="w-20 h-20 rounded-lg object-cover">
+              <img src="${item.image}" alt="${item.title}" class="w-20 h-20 rounded-lg object-cover" loading="lazy">
               <div class="flex-1 flex flex-col justify-between">
                 <div>
                   <h4 class="font-display font-bold text-lg text-brand-text leading-tight">${item.title}</h4>

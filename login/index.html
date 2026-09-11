@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SZ Ventures — Portal Login</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css">
+  <style>
+    .auth-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; position: relative; }
+    .auth-card { max-width: 420px; width: 100%; text-align: center; z-index: 10; padding: 3.5rem 2.5rem; background: rgba(10, 10, 12, 0.65); border: 1px solid var(--glass-border); }
+    .auth-logo { margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 0.75rem; color: var(--ink); text-decoration: none; font-weight: 600; font-size: 1.15rem; }
+    .auth-logo img { height: 28px; width: 28px; }
+    .auth-title { font-family: var(--font-serif); font-size: var(--fs-700); margin-bottom: 0.5rem; color: var(--ink); }
+    .auth-subtitle { color: var(--muted); margin-bottom: 2.5rem; font-size: var(--fs-400); letter-spacing: 0.05em; text-transform: uppercase; }
+    .form-group { text-align: left; margin-bottom: 1.25rem; }
+    .form-label { display: block; font-size: var(--fs-300); color: var(--muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .form-input { width: 100%; padding: 0.8rem 1rem; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--ink); font-family: var(--font-body); transition: border-color 0.3s ease; }
+    .form-input:focus { outline: none; border-color: var(--gold); }
+    .auth-btn { width: 100%; margin-top: 1rem; padding: 0.9rem; font-weight: 600; }
+    .auth-links { margin-top: 1.5rem; font-size: var(--fs-400); display: flex; justify-content: space-between; }
+    .auth-links a { color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    .auth-links a:hover { color: var(--gold-bright); }
+    .google-btn { width: 100%; margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+    .divider { margin: 2rem 0; display: flex; align-items: center; text-align: center; color: var(--muted-2); font-size: var(--fs-300); }
+    .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--line); }
+    .divider:not(:empty)::before { margin-right: .5em; }
+    .divider:not(:empty)::after { margin-left: .5em; }
+    .msg-box { display: none; margin-bottom: 1rem; padding: 0.75rem; border-radius: var(--radius-sm); background: rgba(0,0,0,0.2); font-size: var(--fs-400); text-align: left; }
+    .back-home { position: absolute; top: 2rem; left: 2rem; color: var(--muted); text-decoration: none; font-size: var(--fs-400); transition: color 0.3s; }
+    .back-home:hover { color: var(--gold-bright); }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <a href="/" class="back-home">← Return to SZ Ventures</a>
+  <div class="auth-container">
+    <div class="auth-card glass">
+      <a href="/" class="auth-logo">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" loading="lazy">
+        SZ Ventures
+      </a>
+      <div class="auth-subtitle">Private Studio Portal</div>
+      <h1 class="auth-title">Welcome back</h1>
+      
+      <div id="loginMessage" class="msg-box"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" class="form-input" required placeholder="name@domain.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" id="password" class="form-input" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn--accent auth-btn">SIGN IN →</button>
+      </form>
+      
+      <div class="divider">OR</div>
+      
+      <button id="googleAuthBtn" class="btn btn--ghost google-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/></svg>
+        Continue with Google
+      </button>
+
+      <div class="auth-links">
+        <a href="/forgot-password/index.html">Forgot password?</a>
+        <a href="/register/index.html">Request access</a>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/js/supabase-config.js"></script>
+  <script src="/assets/js/auth.js"></script>
+</body>
+</html>

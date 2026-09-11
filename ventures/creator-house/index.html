@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Creator House | Premium Production Ecosystem</title>
+  <meta name="description" content="Where creators don't just create content. They build their content engine.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- GSAP & Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            creator: {
+              black: '#050505',
+              dark: '#111111',
+              gray: '#1E1E1E',
+              border: '#2A2A2A',
+              light: '#F4F4F5',
+              muted: '#A1A1AA',
+              accent: '#8B5CF6', /* Violet */
+              accentHover: '#7C3AED',
+              glow: 'rgba(139, 92, 246, 0.15)'
+            }
+          },
+          fontFamily: {
+            display: ['"Outfit"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+          },
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            'glass': 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: theme('colors.creator.black');
+      color: theme('colors.creator.light');
+    }
+    
+    /* Smooth Scroll */
+    html.lenis { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
+    
+    .glass-nav {
+      background: rgba(5, 5, 5, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid theme('colors.creator.border');
+    }
+
+    .glass-card {
+      background: theme('backgroundImage.glass');
+      backdrop-filter: blur(10px);
+      border: 1px solid theme('colors.creator.border');
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #FFF 0%, #A1A1AA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .text-gradient-accent {
+      background: linear-gradient(135deg, #C4B5FD 0%, #8B5CF6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn-primary {
+      background: theme('colors.creator.light');
+      color: theme('colors.creator.black');
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px theme('colors.creator.glow');
+    }
+
+    .btn-outline {
+      border: 1px solid theme('colors.creator.border');
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      border-color: theme('colors.creator.light');
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+
+    .reveal-up { opacity: 0; transform: translateY(40px); }
+    .reveal-scale { opacity: 0; transform: scale(0.95); }
+    
+    /* Noise texture */
+    .bg-noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body class="selection:bg-creator-accent selection:text-white relative">
+  <div class="bg-noise fixed"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
+    <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="/" class="flex flex-col relative z-10 group">
+        <span class="font-display font-bold text-2xl tracking-tight text-white group-hover:text-creator-accent transition-colors">CREATOR HOUSE</span>
+        <span class="font-body text-[9px] tracking-[0.3em] text-creator-muted uppercase mt-0.5">by SZ Ventures</span>
+      </a>
+      
+      <div class="hidden lg:flex items-center gap-8 font-body text-sm text-creator-muted">
+        <a href="#problem" class="hover:text-white transition-colors">The Ecosystem</a>
+        <a href="#membership" class="hover:text-white transition-colors">Membership</a>
+        <a href="#how-it-works" class="hover:text-white transition-colors">How it Works</a>
+        <a href="#environment" class="hover:text-white transition-colors">Spaces</a>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="#membership" class="btn-primary font-display font-semibold px-6 py-2.5 rounded-full text-sm">Join Waitlist</a>
+      </div>
+      
+      <button class="lg:hidden text-white" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 1. HERO SECTION -->
+  <section class="relative pt-32 lg:pt-48 pb-20 px-6 min-h-[95vh] flex items-center overflow-hidden">
+    <!-- Ambient Glow -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-creator-accent rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
+    
+    <div class="max-w-[1400px] mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
+      
+      <div class="reveal-up">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-creator-border bg-creator-gray/50 backdrop-blur text-xs font-body tracking-wider uppercase mb-8">
+          <span class="w-2 h-2 rounded-full bg-creator-accent animate-pulse"></span>
+          Launching in Bengaluru
+        </div>
+        
+        <h1 class="font-display text-5xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] mb-6">
+          Your Content.<br>
+          <span class="text-creator-muted">Your Space.</span><br>
+          <span class="text-gradient-accent">Your Production Engine.</span>
+        </h1>
+        
+        <p class="font-body text-lg lg:text-xl text-creator-muted mb-10 max-w-xl leading-relaxed text-balance">
+          A premium production ecosystem built for creators, models, influencers, UGC creators and digital-first talent — giving you the space, infrastructure and production support to create consistently.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <a href="#membership" class="btn-primary font-display font-semibold px-8 py-4 rounded-full text-center text-lg">Join the Creator House</a>
+          <a href="#book" class="btn-outline font-display font-medium px-8 py-4 rounded-full text-center text-lg text-white">Book a Production Day</a>
+        </div>
+        
+        <div class="flex items-center gap-3 text-sm font-body text-creator-muted">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <!-- CMS Data Hook for Dynamic Founding Memberships -->
+          <span><strong id="founding-membership-count" data-cms-key="founding_members_limit" class="text-white">50</strong> Limited founding memberships available.</span>
+        </div>
+      </div>
+
+      <div class="relative w-full aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden glass-card reveal-scale p-2">
+        <div class="w-full h-full rounded-[1.25rem] overflow-hidden relative">
+            <div class="absolute inset-0 bg-creator-accent/10 mix-blend-overlay z-10"></div>
+            <!-- Example professional setup image -->
+            <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=2000&auto=format&fit=crop" alt="Creator House Studio Setup" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. THE PROBLEM -->
+  <section id="problem" class="py-24 lg:py-32 px-6 border-t border-creator-border bg-creator-dark relative overflow-hidden">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-24 reveal-up">
+        <h2 class="font-display text-4xl lg:text-6xl font-bold mb-6 text-gradient">Creating content shouldn't be this complicated.</h2>
+        <p class="font-body text-lg text-creator-muted leading-relaxed">
+          Creators today have to coordinate studios, photographers, lighting, locations, editors, equipment, props and production teams separately.<br><br>
+          <strong class="text-white">Creator House brings the essential production ecosystem together in one place.</strong>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+        <!-- Card 1 -->
+        <div class="glass-card p-6 lg:p-8 rounded-2xl reveal-up">
+          <div class="w-12 h-12 rounded-xl bg-creator-gray border border-creator-border flex items-center justify-center mb-6 text-creator-accent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Professional Photography</h3>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass-card p-6 lg:p-8 rounded-2xl reveal-up" style="animation-delay: 0.1s;">
+          <div class="w-12 h-12 rounded-xl bg-creator-gray border border-creator-border flex items-center justify-center mb-6 text-creator-accent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Reels & Video Production</h3>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass-card p-6 lg:p-8 rounded-2xl reveal-up" style="animation-delay: 0.2s;">
+          <div class="w-12 h-12 rounded-xl bg-creator-gray border border-creator-border flex items-center justify-center mb-6 text-creator-accent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Flexible Content Spaces</h3>
+        </div>
+        <!-- Card 4 -->
+        <div class="glass-card p-6 lg:p-8 rounded-2xl reveal-up" style="animation-delay: 0.3s;">
+          <div class="w-12 h-12 rounded-xl bg-creator-gray border border-creator-border flex items-center justify-center mb-6 text-creator-accent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Lighting & Setup</h3>
+        </div>
+        <!-- Card 5 -->
+        <div class="glass-card p-6 lg:p-8 rounded-2xl reveal-up">
+          <div class="w-12 h-12 rounded-xl bg-creator-gray border border-creator-border flex items-center justify-center mb-6 text-creator-accent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Props & Styling Resources</h3>
+        </div>
+        <!-- Card 6 -->
+        <div class="glass-card p-6 lg:p-8 rounded-2xl reveal-up" style="animation-delay: 0.1s;">
+          <div class="w-12 h-12 rounded-xl bg-creator-gray border border-creator-border flex items-center justify-center mb-6 text-creator-accent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Creator Collaborations</h3>
+        </div>
+        <!-- Card 7 -->
+        <div class="glass-card p-6 lg:p-8 rounded-2xl reveal-up" style="animation-delay: 0.2s;">
+          <div class="w-12 h-12 rounded-xl bg-creator-gray border border-creator-border flex items-center justify-center mb-6 text-creator-accent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Brand Opportunities</h3>
+        </div>
+        <!-- Card 8 -->
+        <div class="glass-card p-6 lg:p-8 rounded-2xl reveal-up" style="animation-delay: 0.3s;">
+          <div class="w-12 h-12 rounded-xl bg-creator-gray border border-creator-border flex items-center justify-center mb-6 text-creator-accent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Professional Support</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. WHAT IS CREATOR HOUSE? -->
+  <section class="py-24 lg:py-32 px-6 relative overflow-hidden bg-creator-black">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop')] opacity-[0.05] bg-cover bg-center mix-blend-screen"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-creator-black via-transparent to-creator-black"></div>
+    
+    <div class="max-w-[1200px] mx-auto relative z-10 text-center reveal-up">
+      <h2 class="font-display text-4xl lg:text-7xl font-bold mb-8">More than a studio.</h2>
+      <p class="font-body text-xl lg:text-2xl text-creator-muted leading-relaxed max-w-4xl mx-auto mb-12">
+        Creator House is being built as a recurring production ecosystem for India's creator economy.
+        <br><br>
+        Members get access to professional production infrastructure designed around the way modern creators actually work — from Instagram reels and professional photography to long-form video, podcasts, UGC, brand content and personal-brand building.
+      </p>
+      <div class="inline-block p-1 rounded-2xl bg-gradient-to-r from-creator-accent to-creator-gray">
+        <div class="bg-creator-black px-8 py-6 rounded-xl">
+          <p class="font-display text-2xl font-bold text-white">The goal is simple: Make professional content production easier, faster and more accessible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. MEMBERSHIP -->
+  <section id="membership" class="py-24 lg:py-32 px-6 border-t border-creator-border bg-creator-dark relative">
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-creator-accent rounded-full blur-[120px] opacity-[0.15] pointer-events-none"></div>
+
+    <div class="max-w-[1400px] mx-auto">
+      <div class="text-center mb-16 reveal-up">
+        <h2 class="font-display text-4xl lg:text-6xl font-bold mb-6">The Creator Production Membership</h2>
+        <p class="font-body text-xl text-creator-muted">Positioning you for growth with consistent, high-quality production capability.</p>
+      </div>
+
+      <div class="max-w-5xl mx-auto grid lg:grid-cols-5 gap-8 items-start">
+        
+        <!-- Main Pricing Card -->
+        <div class="lg:col-span-3 glass-card rounded-3xl p-8 lg:p-12 relative overflow-hidden reveal-up">
+          <!-- Highlight gradient top -->
+          <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-creator-accent to-blue-500"></div>
+          
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-creator-border/50 pb-8">
+            <div>
+              <h3 class="font-display text-3xl font-bold text-white mb-2">Founding Member</h3>
+              <p class="text-creator-muted font-body">Complete production infrastructure.</p>
+            </div>
+            <div class="mt-6 md:mt-0 text-left md:text-right">
+              <div class="font-display text-5xl font-bold text-white mb-1">₹3,499<span class="text-xl text-creator-muted font-normal">/mo</span></div>
+              <p class="text-sm text-creator-muted">+ applicable taxes</p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-6 mb-12">
+            <div class="bg-creator-black/50 rounded-xl p-6 border border-creator-border">
+              <div class="text-3xl font-bold text-creator-accent mb-2">12</div>
+              <div class="font-body text-sm font-medium text-white">Professionally Edited Photos / Month</div>
+            </div>
+            <div class="bg-creator-black/50 rounded-xl p-6 border border-creator-border">
+              <div class="text-3xl font-bold text-creator-accent mb-2">3</div>
+              <div class="font-body text-sm font-medium text-white">Short-form Videos / Reels / Month</div>
+            </div>
+            <div class="bg-creator-black/50 rounded-xl p-6 border border-creator-border">
+              <div class="text-3xl font-bold text-creator-accent mb-2">1</div>
+              <div class="font-body text-sm font-medium text-white">Long-form Video (Up to 10-12 mins)</div>
+            </div>
+            <div class="bg-creator-black/50 rounded-xl p-6 border border-creator-border">
+              <div class="text-3xl font-bold text-creator-accent mb-2">2</div>
+              <div class="font-body text-sm font-medium text-white">Creator House Access Days / Month</div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#" class="btn-primary font-display font-semibold px-8 py-4 rounded-xl text-center text-lg w-full">Become a Member</a>
+            <a href="#" class="btn-outline font-display font-medium px-8 py-4 rounded-xl text-center text-lg w-full">Request Details</a>
+          </div>
+          
+          <div class="mt-6 text-center">
+            <p class="text-xs text-creator-muted font-body">
+              All production and access is subject to advance booking and availability. Not a generic unlimited studio rental.
+            </p>
+          </div>
+        </div>
+
+        <!-- Additional Benefits -->
+        <div class="lg:col-span-2 glass-card rounded-3xl p-8 lg:p-10 reveal-up" style="animation-delay: 0.1s;">
+          <h4 class="font-display text-xl font-bold text-white mb-6">Additional Ecosystem Benefits</h4>
+          <ul class="space-y-4 font-body text-sm text-creator-muted">
+            <li class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tw-colors-creator-accent)" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Professional production environment</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tw-colors-creator-accent)" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Photography support</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tw-colors-creator-accent)" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Flexible content setups</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tw-colors-creator-accent)" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Lighting infrastructure</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tw-colors-creator-accent)" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Props & content resources</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tw-colors-creator-accent)" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Lifestyle / content zones</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tw-colors-creator-accent)" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Kitchen & food content capability</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tw-colors-creator-accent)" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Podcast & interview capability</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tw-colors-creator-accent)" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Creator collaboration opportunities</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tw-colors-creator-accent)" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Access to selected creator/brand opportunities</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. HOW IT WORKS -->
+  <section id="how-it-works" class="py-24 lg:py-32 px-6 bg-creator-black relative">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="mb-16 reveal-up">
+        <h2 class="font-display text-4xl lg:text-6xl font-bold mb-4 text-gradient">From Idea to Published Content.</h2>
+        <p class="font-body text-xl text-creator-muted">A streamlined 5-step process.</p>
+      </div>
+
+      <div class="relative">
+        <!-- Connecting Line -->
+        <div class="hidden lg:block absolute top-[40px] left-[5%] right-[5%] h-px bg-creator-border"></div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
+          <!-- Step 1 -->
+          <div class="reveal-up relative">
+            <div class="w-20 h-20 rounded-full bg-creator-gray border border-creator-border flex items-center justify-center font-display text-2xl font-bold text-white mb-6 mx-auto lg:mx-0 relative">
+              01
+              <div class="absolute -right-2 -top-2 w-4 h-4 rounded-full bg-creator-accent opacity-50 blur-sm"></div>
+            </div>
+            <h4 class="font-display text-xl font-bold text-white mb-3 text-center lg:text-left">Book</h4>
+            <p class="font-body text-sm text-creator-muted leading-relaxed text-center lg:text-left">Choose your production slot through the Creator House booking system.</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="reveal-up relative" style="animation-delay: 0.1s;">
+            <div class="w-20 h-20 rounded-full bg-creator-gray border border-creator-border flex items-center justify-center font-display text-2xl font-bold text-white mb-6 mx-auto lg:mx-0 relative">02</div>
+            <h4 class="font-display text-xl font-bold text-white mb-3 text-center lg:text-left">Create</h4>
+            <p class="font-body text-sm text-creator-muted leading-relaxed text-center lg:text-left">Arrive with your concept, wardrobe and ideas.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="reveal-up relative" style="animation-delay: 0.2s;">
+            <div class="w-20 h-20 rounded-full bg-creator-gray border border-creator-border flex items-center justify-center font-display text-2xl font-bold text-white mb-6 mx-auto lg:mx-0 relative">03</div>
+            <h4 class="font-display text-xl font-bold text-white mb-3 text-center lg:text-left">Shoot</h4>
+            <p class="font-body text-sm text-creator-muted leading-relaxed text-center lg:text-left">Our production team handles photography/video capture and the environment.</p>
+          </div>
+          <!-- Step 4 -->
+          <div class="reveal-up relative" style="animation-delay: 0.3s;">
+            <div class="w-20 h-20 rounded-full bg-creator-gray border border-creator-border flex items-center justify-center font-display text-2xl font-bold text-white mb-6 mx-auto lg:mx-0 relative">04</div>
+            <h4 class="font-display text-xl font-bold text-white mb-3 text-center lg:text-left">Edit</h4>
+            <p class="font-body text-sm text-creator-muted leading-relaxed text-center lg:text-left">Post-production is handled through our centralized professional workflow.</p>
+          </div>
+          <!-- Step 5 -->
+          <div class="reveal-up relative" style="animation-delay: 0.4s;">
+            <div class="w-20 h-20 rounded-full bg-creator-gray border border-creator-border flex items-center justify-center font-display text-2xl font-bold text-white mb-6 mx-auto lg:mx-0 relative">
+              05
+              <div class="absolute -right-2 -top-2 w-4 h-4 rounded-full bg-green-500 opacity-50 blur-sm"></div>
+            </div>
+            <h4 class="font-display text-xl font-bold text-white mb-3 text-center lg:text-left">Receive</h4>
+            <p class="font-body text-sm text-creator-muted leading-relaxed text-center lg:text-left">Final content is delivered digitally within the defined turnaround window.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20 text-center reveal-up">
+        <a href="#membership" class="btn-primary font-display font-semibold px-10 py-5 rounded-full text-lg shadow-lg inline-block">Start Creating</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CREATOR HOUSE ENVIRONMENT -->
+  <section id="environment" class="py-24 lg:py-32 px-6 border-t border-creator-border bg-creator-dark relative">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="text-center mb-16 lg:mb-24 reveal-up">
+        <h2 class="font-display text-4xl lg:text-6xl font-bold mb-4">Built for different types of creators.</h2>
+        <p class="font-body text-xl text-creator-muted">Flexible spaces adapted to your niche.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Fashion -->
+        <div class="group cursor-pointer reveal-up relative overflow-hidden rounded-3xl aspect-[3/4] md:aspect-auto md:h-[600px]">
+          <div class="absolute inset-0 bg-creator-black">
+            <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?q=80&w=1000&auto=format&fit=crop" alt="Fashion Creator" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700 transform group-hover:scale-105">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-creator-black via-creator-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <h3 class="font-display text-3xl font-bold text-white mb-3">Fashion</h3>
+            <p class="font-body text-creator-light/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Lifestyle, fashion shoots, lookbooks and personal branding content tailored to your unique style.</p>
+          </div>
+        </div>
+
+        <!-- Beauty -->
+        <div class="group cursor-pointer reveal-up relative overflow-hidden rounded-3xl aspect-[3/4] md:aspect-auto md:h-[600px]" style="animation-delay: 0.1s;">
+          <div class="absolute inset-0 bg-creator-black">
+            <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=1000&auto=format&fit=crop" alt="Beauty Creator" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700 transform group-hover:scale-105">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-creator-black via-creator-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <h3 class="font-display text-3xl font-bold text-white mb-3">Beauty</h3>
+            <p class="font-body text-creator-light/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Perfect lighting for beauty creators, makeup artists, skincare routines and detailed product content.</p>
+          </div>
+        </div>
+
+        <!-- Fitness -->
+        <div class="group cursor-pointer reveal-up relative overflow-hidden rounded-3xl aspect-[3/4] md:aspect-auto md:h-[600px]" style="animation-delay: 0.2s;">
+          <div class="absolute inset-0 bg-creator-black">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1000&auto=format&fit=crop" alt="Fitness Creator" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700 transform group-hover:scale-105">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-creator-black via-creator-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <h3 class="font-display text-3xl font-bold text-white mb-3">Fitness</h3>
+            <p class="font-body text-creator-light/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Dynamic environments for workout sessions, wellness, transformation journeys and instructional content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-creator-black py-12 px-6 border-t border-creator-border text-center lg:text-left">
+    <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-6">
+      <div>
+        <a href="/" class="font-display font-bold text-xl tracking-tight text-white inline-block mb-2">CREATOR HOUSE</a>
+        <p class="font-body text-xs text-creator-muted">An SZ Ventures Company</p>
+      </div>
+      <div class="font-body text-sm text-creator-muted">
+        &copy; 2026 Creator House. All rights reserved.
+      </div>
+      <div class="flex gap-6">
+        <a href="/privacy.html" class="font-body text-sm text-creator-muted hover:text-white transition-colors">Privacy</a>
+        <a href="/terms.html" class="font-body text-sm text-creator-muted hover:text-white transition-colors">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // GSAP ScrollTrigger setup
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Reveal animations
+    const revealElements = document.querySelectorAll('.reveal-up');
+    revealElements.forEach((el) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out"
+      });
+    });
+
+    const revealScale = document.querySelectorAll('.reveal-scale');
+    revealScale.forEach((el) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+        },
+        scale: 1,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out"
+      });
+    });
+  </script>
+</body>
+</html>

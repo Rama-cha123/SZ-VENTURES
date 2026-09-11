@@ -24,6 +24,7 @@
     tailwind.config = {
       theme: {
         extend: {
+            borderRadius: { 'xl': '24px', '2xl': '24px', 'lg': '16px' },
           colors: {
             mirai: {
               bg: '#060B17',
@@ -259,7 +260,7 @@
       <!-- Right Image / Graphics -->
       <div class="relative w-full aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden glass-card group" id="hero-image">
         <!-- The visual represents a futuristic engineering environment -->
-        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop" alt="Engineering Student in futuristic lab" class="w-full h-full object-cover opacity-70 mix-blend-luminosity group-hover:scale-105 transition-transform duration-1000 ease-out">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop" alt="Engineering Student in futuristic lab" class="w-full h-full object-cover opacity-70 mix-blend-luminosity group-hover:scale-105 transition-transform duration-1000 ease-out" loading="lazy">
         
         <!-- Holographic Data Overlay -->
         <div class="absolute inset-0 bg-gradient-to-t from-mirai-bg to-transparent opacity-80"></div>
@@ -373,7 +374,7 @@
         <!-- B.Tech -->
         <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors">
           <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop" alt="AI Robotics" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop" alt="AI Robotics" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
             <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">4 Years</div>
           </div>
@@ -394,7 +395,7 @@
         <!-- M.Tech -->
         <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors" style="animation-delay: 0.1s;">
           <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" alt="Data Science" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" alt="Data Science" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
             <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">2 Years</div>
           </div>
@@ -415,7 +416,7 @@
         <!-- Executive Programs -->
         <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors" style="animation-delay: 0.2s;">
           <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop" alt="Corporate" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop" alt="Corporate" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
             <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">1 Year</div>
           </div>
@@ -436,7 +437,7 @@
         <!-- Corporate Training -->
         <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors" style="animation-delay: 0.3s;">
           <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop" alt="Training" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop" alt="Training" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
             <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">Custom</div>
           </div>
@@ -563,7 +564,7 @@
       </div>
 
       <div class="relative glass-card rounded-2xl overflow-hidden reveal-up h-full min-h-[400px]">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" alt="Technology Integration" class="w-full h-full object-cover opacity-60 mix-blend-luminosity">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" alt="Technology Integration" class="w-full h-full object-cover opacity-60 mix-blend-luminosity" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-tr from-mirai-bg to-transparent opacity-90"></div>
         <!-- Blueprint Overlay SVG -->
         <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#00D4FF 1px, transparent 1px); background-size: 20px 20px;"></div>
@@ -648,7 +649,7 @@
             </div>
             <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
               <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" alt="Arjun Mehta" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" alt="Arjun Mehta" class="w-full h-full object-cover" loading="lazy">
               </div>
               <div>
                 <h5 class="font-body font-bold text-white text-sm">Arjun Mehta</h5>
@@ -669,7 +670,7 @@
             </div>
             <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
               <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="Priya Sharma" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="Priya Sharma" class="w-full h-full object-cover" loading="lazy">
               </div>
               <div>
                 <h5 class="font-body font-bold text-white text-sm">Priya Sharma</h5>
@@ -690,7 +691,7 @@
             </div>
             <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
               <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="David Chen" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="David Chen" class="w-full h-full object-cover" loading="lazy">
               </div>
               <div>
                 <h5 class="font-body font-bold text-white text-sm">David Chen</h5>
@@ -711,7 +712,7 @@
             </div>
             <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
               <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Sneha Rao" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Sneha Rao" class="w-full h-full object-cover" loading="lazy">
               </div>
               <div>
                 <h5 class="font-body font-bold text-white text-sm">Sneha Rao</h5>
@@ -737,7 +738,7 @@
       <!-- Domain 1 -->
       <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up">
         <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop" alt="AI" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700">
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop" alt="AI" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
         <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
           <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Artificial Intelligence</h3>
           <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
@@ -749,7 +750,7 @@
       <!-- Domain 2 -->
       <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.1s;">
         <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&auto=format&fit=crop" alt="Robotics" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&auto=format&fit=crop" alt="Robotics" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
         <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
           <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Robotics & Automation</h3>
           <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
@@ -761,7 +762,7 @@
       <!-- Domain 3 -->
       <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.2s;">
         <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop" alt="Cyber Security" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700">
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop" alt="Cyber Security" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
         <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
           <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Cyber Security</h3>
           <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
@@ -773,7 +774,7 @@
       <!-- Domain 4 -->
       <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.3s;">
         <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop" alt="Space Tech" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop" alt="Space Tech" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
         <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
           <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Space Technology</h3>
           <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
@@ -785,7 +786,7 @@
       <!-- Domain 5 -->
       <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up">
         <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="IoT" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="IoT" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
         <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
           <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">IoT & Embedded Systems</h3>
           <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
@@ -797,7 +798,7 @@
       <!-- Domain 6 -->
       <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.1s;">
         <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Data" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Data" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
         <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
           <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Data Science</h3>
           <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
@@ -809,7 +810,7 @@
       <!-- Domain 7 -->
       <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.2s;">
         <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=600&auto=format&fit=crop" alt="Renewable" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700">
+        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=600&auto=format&fit=crop" alt="Renewable" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
         <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
           <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Renewable Energy</h3>
           <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
@@ -821,7 +822,7 @@
       <!-- Domain 8 -->
       <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.3s;">
         <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1580894742597-87bc8789db3d?q=80&w=600&auto=format&fit=crop" alt="Cloud" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700">
+        <img src="https://images.unsplash.com/photo-1580894742597-87bc8789db3d?q=80&w=600&auto=format&fit=crop" alt="Cloud" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
         <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
           <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Cloud Computing</h3>
           <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
@@ -1148,7 +1149,7 @@
           <!-- Resource 1 -->
           <div class="glass-card rounded-xl overflow-hidden hover:border-mirai-blue transition-colors group cursor-pointer reveal-up">
             <div class="h-32 overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=400&auto=format&fit=crop" alt="Code" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500">
+              <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=400&auto=format&fit=crop" alt="Code" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500" loading="lazy">
             </div>
             <div class="p-5">
               <span class="text-[10px] text-mirai-blue font-bold uppercase tracking-wider block mb-2">Research Paper</span>
@@ -1160,7 +1161,7 @@
           <!-- Resource 2 -->
           <div class="glass-card rounded-xl overflow-hidden hover:border-mirai-blue transition-colors group cursor-pointer reveal-up" style="animation-delay: 0.1s;">
             <div class="h-32 overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&auto=format&fit=crop" alt="Setup" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&auto=format&fit=crop" alt="Setup" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500" loading="lazy">
             </div>
             <div class="p-5">
               <span class="text-[10px] text-mirai-success font-bold uppercase tracking-wider block mb-2">Career Guide</span>
@@ -1193,7 +1194,7 @@
         <!-- Blueprint lines -->
         <div class="absolute inset-0 opacity-30" style="background-image: linear-gradient(#3B82F6 1px, transparent 1px), linear-gradient(90deg, #3B82F6 1px, transparent 1px); background-size: 40px 40px;"></div>
         <!-- Abstract robotic hand / AI node image -->
-        <img src="https://images.unsplash.com/photo-1614729939124-03290b5609ce?q=80&w=800&auto=format&fit=crop" alt="AI Core" class="absolute inset-0 w-full h-full object-cover mix-blend-screen opacity-60">
+        <img src="https://images.unsplash.com/photo-1614729939124-03290b5609ce?q=80&w=800&auto=format&fit=crop" alt="AI Core" class="absolute inset-0 w-full h-full object-cover mix-blend-screen opacity-60" loading="lazy">
         <!-- Overlay gradient to blend -->
         <div class="absolute inset-0 bg-gradient-to-r from-mirai-card to-transparent md:w-1/2"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-mirai-bg2 to-transparent md:hidden"></div>
