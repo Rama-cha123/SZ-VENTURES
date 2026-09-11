@@ -1,5 +1,5 @@
 /* =====================================================================
-   SZ VENTURES — Supabase Configuration
+   SZX VENTURES — Supabase Configuration
    DO NOT COMMIT REAL SECRETS IF REPOSITORY IS PUBLIC
    ===================================================================== */
 

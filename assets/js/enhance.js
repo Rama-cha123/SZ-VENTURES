@@ -1,5 +1,5 @@
 /* =====================================================================
-   SZ VENTURES — ENHANCEMENTS
+   SZX VENTURES — ENHANCEMENTS
    Global initialization for third-party UI libraries.
 
    Loaded as a deferred script AFTER libs.bundle.js (which provides the

@@ -1,5 +1,5 @@
 /* =====================================================================
-   SZ VENTURES — main.js
+   SZX VENTURES — main.js
    Global init for AOS · Lenis · Tippy.js · Swup, plus the premium
    interaction layer (preloader, custom cursor, magnetic buttons,
    scroll progress, animated counters, nav). Framework-agnostic,
@@ -343,7 +343,7 @@
     const roleConfigs = {
       company: {
         role: 'Company / Enterprise',
-        venture: 'SZ Manufacturing / SZ Ventures',
+        venture: 'SZ Manufacturing / SZX Ventures',
         dynamicLabel: 'Company Name & Industry',
         dynamicPlaceholder: 'e.g. Acme Corp (Textiles & Retail)',
         detailsLabel: 'Describe your corporate requirement or operational challenge'
@@ -364,14 +364,14 @@
       },
       ngo: {
         role: 'NGO / Social Impact Organization',
-        venture: 'SZ Manufacturing / SZ Ventures',
+        venture: 'SZ Manufacturing / SZX Ventures',
         dynamicLabel: 'Organization Name & Focus Area',
         dynamicPlaceholder: 'e.g. Women Empowerment Initiative',
         detailsLabel: 'Tell us how we can collaborate on social impact initiatives'
       },
       investor: {
         role: 'Investor / Capital Partner',
-        venture: 'SZ Ventures',
+        venture: 'SZX Ventures',
         dynamicLabel: 'Fund / Entity Name',
         dynamicPlaceholder: 'e.g. Apex Horizon Capital',
         detailsLabel: 'What stage or venture category aligns with your investment thesis?'
@@ -385,14 +385,14 @@
       },
       tech: {
         role: 'Technology Partner',
-        venture: 'SnapOps / SZ Ventures',
+        venture: 'SnapOps / SZX Ventures',
         dynamicLabel: 'Platform / Technology Expertise',
         dynamicPlaceholder: 'e.g. WhatsApp API / Robotics Autonomy Stack',
         detailsLabel: 'Describe your technology capabilities and integration interest'
       },
       opportunity: {
         role: 'Business Opportunity / Founder',
-        venture: 'SZ Ventures',
+        venture: 'SZX Ventures',
         dynamicLabel: 'Venture Concept or Market Opportunity',
         dynamicPlaceholder: 'e.g. B2B Operations Automation for Logistics',
         detailsLabel: 'Share a high-level overview of the problem, market opportunity & execution needs'

@@ -1,5 +1,5 @@
 /* =====================================================================
-   SZ VENTURES — Secure Auth & RBAC Logic
+   SZX VENTURES — Secure Auth & RBAC Logic
    Handles Supabase authentication, session state, and Role-Based Access.
    ===================================================================== */
 

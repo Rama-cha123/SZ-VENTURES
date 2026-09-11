@@ -1,4 +1,4 @@
-/* SZ Ventures — shared UI behaviors
+/* SZX Ventures — shared UI behaviors
    - condensed nav on scroll
    - mobile menu toggle
    - scroll reveal (IntersectionObserver)

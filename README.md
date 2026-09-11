@@ -1,8 +1,8 @@
-# SZ Ventures
+# SZX Ventures
 
 > A venture studio operating at the intersection of technology, hospitality, sustainability, and advanced manufacturing — building category-defining companies.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-org%2Fsz-ventures)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-org%2Fszx-ventures)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_BADGE_ID/deploy-status)](https://app.netlify.com/sites/YOUR_SITE_NAME/deploys)
 
 ---
@@ -26,7 +26,7 @@
 
 ## Project Overview
 
-SZ Ventures is a pure-static website — zero build step, zero runtime dependencies. Every page is a hand-authored HTML file served with a curated set of vendored JS/CSS libraries bundled locally. This makes it:
+SZX Ventures is a pure-static website — zero build step, zero runtime dependencies. Every page is a hand-authored HTML file served with a curated set of vendored JS/CSS libraries bundled locally. This makes it:
 
 - **Instantly deployable** to any CDN or static host.
 - **Framework-agnostic** — no Node, no Python, no compilation.
@@ -75,7 +75,7 @@ Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ri
 
 ### Vercel (Recommended — One-Click)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-org%2Fsz-ventures)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-org%2Fszx-ventures)
 
 **Manual steps:**
 
@@ -104,7 +104,7 @@ The `netlify.toml` file handles pretty URLs, asset caching, security headers, an
 1. Push to GitHub.
 2. Go to **Settings → Pages**.
 3. Source: **Deploy from a branch** → select `main` / `master`, folder `/` (root).
-4. Save. GitHub Pages will serve the site at `https://your-org.github.io/sz-ventures/`.
+4. Save. GitHub Pages will serve the site at `https://your-org.github.io/szx-ventures/`.
 
 > **Note:** GitHub Pages does not support clean URLs (`.html` extension is required in links) unless you use a custom domain + `_redirects` file workaround.
 
@@ -116,18 +116,18 @@ A production-hardened Nginx Docker image is included.
 
 ```bash
 # Build the image
-docker build -t sz-ventures:latest .
+docker build -t szx-ventures:latest .
 
 # Run locally (port 8080 → container port 80)
-docker run -p 8080:80 sz-ventures:latest
+docker run -p 8080:80 szx-ventures:latest
 
 # Open → http://localhost:8080
 ```
 
 **Push to a registry (e.g. Docker Hub):**
 ```bash
-docker tag sz-ventures:latest your-dockerhub-username/sz-ventures:latest
-docker push your-dockerhub-username/sz-ventures:latest
+docker tag szx-ventures:latest your-dockerhub-username/szx-ventures:latest
+docker push your-dockerhub-username/szx-ventures:latest
 ```
 
 **Docker Compose (optional):**
@@ -135,7 +135,7 @@ docker push your-dockerhub-username/sz-ventures:latest
 version: "3.9"
 services:
   web:
-    image: sz-ventures:latest
+    image: szx-ventures:latest
     ports:
       - "80:80"
     restart: unless-stopped
@@ -180,7 +180,7 @@ If you add a backend (e.g. a contact form API), follow this pattern:
 ## Project Structure
 
 ```
-sz-ventures/
+szx-ventures/
 ├── index.html                  # Home page
 ├── portfolio.html
 ├── philosophy.html
@@ -245,4 +245,4 @@ sz-ventures/
 
 ## License
 
-© SZ Ventures. All rights reserved.
+© SZX Ventures. All rights reserved.

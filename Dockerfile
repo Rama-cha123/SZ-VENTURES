@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# SZ Ventures — Dockerfile
+# SZX Ventures — Dockerfile
 # Serves the static site with Nginx (Alpine), production-hardened.
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -7,9 +7,9 @@
 FROM nginx:1.27-alpine AS production
 
 # Labels
-LABEL org.opencontainers.image.title="sz-ventures"
-LABEL org.opencontainers.image.description="SZ Ventures static website"
-LABEL org.opencontainers.image.source="https://github.com/your-org/sz-ventures"
+LABEL org.opencontainers.image.title="szx-ventures"
+LABEL org.opencontainers.image.description="SZX Ventures static website"
+LABEL org.opencontainers.image.source="https://github.com/your-org/szx-ventures"
 
 # Remove default nginx html and configs
 RUN rm -rf /usr/share/nginx/html/* /etc/nginx/conf.d/*
