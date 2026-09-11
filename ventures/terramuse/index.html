@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Terra Muse | Thoughtful Corporate Gifting</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
+
+  <!-- GSAP, Lenis & Swiper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#FAF8F3',
+              alt: '#F4EFE6',
+              dark: '#24351F',
+              forest: '#314A2F',
+              gold: '#C7A15B',
+              beige: '#E6D6BE',
+              text: '#1F1F1F',
+              muted: '#6B6B6B',
+              border: 'rgba(0,0,0,0.08)'
+            }
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            body: ['"Inter"', 'sans-serif'],
+            btn: ['"Satoshi"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    
+    body {
+      background-color: #FAF8F3;
+      color: #1F1F1F;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Lenis Smooth Scroll */
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
+    .lenis.lenis-scrolling iframe { pointer-events: none; }
+
+    /* Custom Utilities */
+    .text-balance { text-wrap: balance; }
+    
+    .glass-nav {
+      background: rgba(250, 248, 243, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background-color: #24351F;
+      color: #FAF8F3;
+      border: 1px solid #24351F;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary:hover {
+      background-color: #314A2F;
+      border-color: #314A2F;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -10px rgba(36, 53, 31, 0.5);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #24351F;
+      border: 1px solid rgba(0,0,0,0.1);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-secondary:hover {
+      background-color: rgba(0,0,0,0.03);
+      border-color: rgba(0,0,0,0.2);
+    }
+
+    /* Reveal Utilities */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    
+    /* Hover Card Elevation */
+    .hover-lift {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -20px rgba(36, 53, 31, 0.15);
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-dark selection:text-brand-bg">
+
+  <!-- 1. ANNOUNCEMENT BAR -->
+  <div class="bg-brand-dark text-brand-bg text-[11px] sm:text-xs font-btn tracking-wider py-2.5 px-6 flex flex-col sm:flex-row justify-between items-center z-50 relative uppercase font-medium">
+    <div class="flex items-center gap-2 mb-2 sm:mb-0">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C7A15B" stroke-width="2"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+      <span>Thoughtful gifts. Lasting impressions. Strengthen relationships with Terra Muse.</span>
+    </div>
+    <div class="flex items-center gap-6 text-brand-beige">
+      <a href="#" class="hover:text-white transition-colors">Bulk Orders</a>
+      <span class="opacity-30">|</span>
+      <a href="tel:+919876543210" class="hover:text-white transition-colors">Corporate Enquiries: +91 98765 43210</a>
+    </div>
+  </div>
+
+  <!-- 2. STICKY NAVIGATION -->
+  <nav id="main-nav" class="glass-nav fixed w-full top-auto z-40 transition-transform duration-500">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="/" class="flex flex-col">
+        <span class="font-display text-2xl lg:text-3xl tracking-wide text-brand-dark leading-none">TERRA MUSE</span>
+        <span class="font-btn text-[10px] tracking-[0.2em] text-brand-gold uppercase mt-1">Corporate Gifting</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center gap-8 font-body text-sm font-medium text-brand-text">
+        <a href="#solutions" class="hover:text-brand-gold transition-colors flex items-center gap-1 group">
+          Solutions
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-50 group-hover:rotate-180 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <a href="#collections" class="hover:text-brand-gold transition-colors">Gift Collections</a>
+        <a href="#about" class="hover:text-brand-gold transition-colors">About Us</a>
+        <a href="#sustainability" class="hover:text-brand-gold transition-colors">Sustainability</a>
+        <a href="#resources" class="hover:text-brand-gold transition-colors flex items-center gap-1 group">
+          Resources
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-50 group-hover:rotate-180 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
+
+      <!-- Actions -->
+      <div class="hidden lg:flex items-center gap-6">
+        <button class="text-brand-dark hover:text-brand-gold transition-colors" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="text-brand-dark hover:text-brand-gold transition-colors" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <button class="text-brand-dark hover:text-brand-gold transition-colors relative" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="absolute -top-2 -right-2 bg-brand-forest text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+        <a href="#quote" class="btn-primary font-btn font-medium px-6 py-2.5 rounded text-sm ml-2">Request a Quote</a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="lg:hidden text-brand-dark">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 3. HERO SECTION -->
+  <section class="relative pt-32 lg:pt-40 pb-20 lg:pb-32 px-6 lg:px-12 overflow-hidden max-w-[1600px] mx-auto min-h-[90vh] flex items-center">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      
+      <!-- Left Content -->
+      <div class="z-10" id="hero-content">
+        <span class="font-btn text-xs tracking-[0.2em] text-brand-gold uppercase font-bold mb-6 block">Corporate Gifting, Reimagined.</span>
+        <h1 class="font-display text-5xl lg:text-7xl xl:text-8xl text-brand-dark leading-[1.05] mb-8 text-balance">
+          Meaningful Gifts.<br>Stronger Connections.
+        </h1>
+        <p class="font-body text-lg text-brand-muted max-w-md mb-10 text-balance leading-relaxed">
+          Premium, sustainable corporate gifts that reflect your values and leave a lasting impression.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#quote" class="btn-primary font-btn font-medium px-8 py-4 rounded text-center">Request a Quote</a>
+          <a href="#collections" class="btn-secondary font-btn font-medium px-8 py-4 rounded text-center">Explore Collections</a>
+        </div>
+      </div>
+
+      <!-- Right Image -->
+      <div class="relative z-10 w-full aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden" id="hero-image">
+        <!-- Botanical/Organic background wrapper -->
+        <div class="absolute inset-0 bg-[#E8EAE6] mix-blend-multiply"></div>
+        <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=2000&auto=format&fit=crop" alt="Premium Corporate Gift Box" class="w-full h-full object-cover origin-center transform scale-105">
+        
+        <!-- Floating Badge -->
+        <div class="absolute bottom-8 right-8 bg-brand-bg/90 backdrop-blur-md p-6 rounded-xl border border-brand-border shadow-2xl max-w-[200px]" id="hero-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C7A15B" stroke-width="1.5" class="mb-3"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <p class="font-display text-2xl text-brand-dark italic leading-tight">For teams that inspire.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. TRUST FEATURES -->
+  <section class="border-y border-brand-border bg-white py-12 px-6 lg:px-12">
+    <div class="max-w-[1600px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 divide-x-0 lg:divide-x divide-brand-border">
+      
+      <!-- Feature 1 -->
+      <div class="flex items-start gap-4 lg:px-8 reveal-up">
+        <div class="w-10 h-10 rounded-full bg-brand-alt flex items-center justify-center shrink-0 text-brand-forest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </div>
+        <div>
+          <h4 class="font-body text-sm font-semibold text-brand-text mb-1">Sustainable & Ethical</h4>
+          <p class="font-body text-xs text-brand-muted leading-relaxed">Eco-friendly products with responsible sourcing.</p>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="flex items-start gap-4 lg:px-8 reveal-up">
+        <div class="w-10 h-10 rounded-full bg-brand-alt flex items-center justify-center shrink-0 text-brand-forest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div>
+          <h4 class="font-body text-sm font-semibold text-brand-text mb-1">Fully Customizable</h4>
+          <p class="font-body text-xs text-brand-muted leading-relaxed">Add your logo, message, and personal touch.</p>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="flex items-start gap-4 lg:px-8 reveal-up">
+        <div class="w-10 h-10 rounded-full bg-brand-alt flex items-center justify-center shrink-0 text-brand-forest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <h4 class="font-body text-sm font-semibold text-brand-text mb-1">Premium Quality</h4>
+          <p class="font-body text-xs text-brand-muted leading-relaxed">Carefully curated products that delight.</p>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="flex items-start gap-4 lg:px-8 reveal-up">
+        <div class="w-10 h-10 rounded-full bg-brand-alt flex items-center justify-center shrink-0 text-brand-forest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div>
+          <h4 class="font-body text-sm font-semibold text-brand-text mb-1">Pan India Delivery</h4>
+          <p class="font-body text-xs text-brand-muted leading-relaxed">Timely and reliable delivery across India.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. CORPORATE GIFTING SOLUTIONS -->
+  <section id="solutions" class="py-24 lg:py-32 px-6 lg:px-12 max-w-[1600px] mx-auto bg-brand-bg relative z-10">
+    <div class="mb-16">
+      <span class="font-btn text-xs tracking-[0.2em] text-brand-gold uppercase font-bold mb-4 block reveal-up">Tailored Solutions for Every Occasion</span>
+      <h2 class="font-display text-4xl lg:text-5xl text-brand-dark leading-tight max-w-xl text-balance reveal-up">Gifts for Every Business Need</h2>
+      <p class="font-body text-brand-muted mt-6 max-w-md reveal-up">Curated gifting solutions that help you celebrate, appreciate, and engage your most valuable relationships.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+      
+      <!-- Solution 1 -->
+      <a href="#" class="group block reveal-up">
+        <div class="relative w-full aspect-square overflow-hidden bg-brand-alt rounded-2xl mb-6">
+          <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800&auto=format&fit=crop" alt="Employee Appreciation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply">
+          <div class="absolute bottom-4 left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg text-brand-forest group-hover:scale-110 transition-transform">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+        </div>
+        <h3 class="font-display text-2xl text-brand-dark mb-2">Employee Appreciation</h3>
+        <p class="font-body text-sm text-brand-muted leading-relaxed">Celebrate achievements and boost employee morale.</p>
+      </a>
+
+      <!-- Solution 2 -->
+      <a href="#" class="group block reveal-up" style="animation-delay: 0.1s;">
+        <div class="relative w-full aspect-square overflow-hidden bg-[#E2E6DF] rounded-2xl mb-6">
+          <img src="https://images.unsplash.com/photo-1608248593856-f8728a16dbd7?q=80&w=800&auto=format&fit=crop" alt="Client Gifting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply">
+          <div class="absolute bottom-4 left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg text-brand-forest group-hover:scale-110 transition-transform">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
+          </div>
+        </div>
+        <h3 class="font-display text-2xl text-brand-dark mb-2">Client Gifting</h3>
+        <p class="font-body text-sm text-brand-muted leading-relaxed">Strengthen relationships with thoughtful gestures.</p>
+      </a>
+
+      <!-- Solution 3 -->
+      <a href="#" class="group block reveal-up" style="animation-delay: 0.2s;">
+        <div class="relative w-full aspect-square overflow-hidden bg-[#EAE8E3] rounded-2xl mb-6">
+          <img src="https://images.unsplash.com/photo-1513884923967-4b182ef167ab?q=80&w=800&auto=format&fit=crop" alt="Festive Gifting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply">
+          <div class="absolute bottom-4 left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg text-brand-forest group-hover:scale-110 transition-transform">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13"/><path d="M19 12h-4"/><path d="M9 12H5"/><path d="M12 8c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+          </div>
+        </div>
+        <h3 class="font-display text-2xl text-brand-dark mb-2">Festive Gifting</h3>
+        <p class="font-body text-sm text-brand-muted leading-relaxed">Make every festival memorable for your people and partners.</p>
+      </a>
+
+      <!-- Solution 4 -->
+      <a href="#" class="group block reveal-up" style="animation-delay: 0.3s;">
+        <div class="relative w-full aspect-square overflow-hidden bg-brand-alt rounded-2xl mb-6">
+          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=800&auto=format&fit=crop" alt="Welcome Kits" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply">
+          <div class="absolute bottom-4 left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg text-brand-forest group-hover:scale-110 transition-transform">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+        </div>
+        <h3 class="font-display text-2xl text-brand-dark mb-2">Welcome Kits</h3>
+        <p class="font-body text-sm text-brand-muted leading-relaxed">Create a great first impression for new joiners.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 6. WHY TERRA MUSE (Dark Section) -->
+  <section class="bg-brand-dark text-brand-bg py-24 lg:py-32 px-6 lg:px-12 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[#1E2C1A] opacity-50 mix-blend-multiply"></div>
+    <div class="max-w-[1600px] mx-auto relative z-10">
+      
+      <div class="grid lg:grid-cols-3 gap-16 lg:gap-24 items-center">
+        <!-- Text Content -->
+        <div class="lg:col-span-1">
+          <span class="font-btn text-xs tracking-[0.2em] text-brand-gold uppercase font-bold mb-4 block reveal-up">Why Terra Muse</span>
+          <h2 class="font-display text-4xl lg:text-5xl leading-tight mb-8 text-balance reveal-up">Thoughtful by Design.<br>Responsible by Choice.</h2>
+          <a href="#about" class="btn-secondary !text-white !border-white/20 hover:!bg-white/10 font-btn font-medium px-8 py-3 rounded inline-block reveal-up">Our Story</a>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-12 lg:gap-x-20 lg:gap-y-16">
+          <div class="reveal-up">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C7A15B" stroke-width="1.5" class="mb-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <h4 class="font-display text-2xl mb-3">Sustainable Materials</h4>
+            <p class="font-body text-sm text-brand-bg/70 leading-relaxed">Gifts that are kind to people and the planet, using recycled, organic, or biodegradable components.</p>
+          </div>
+          <div class="reveal-up">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C7A15B" stroke-width="1.5" class="mb-6"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="M8 15h8"/></svg>
+            <h4 class="font-display text-2xl mb-3">Artisan Crafted</h4>
+            <p class="font-body text-sm text-brand-bg/70 leading-relaxed">Support local artisans and traditional craftsmanship with thoughtfully curated handcrafted products.</p>
+          </div>
+          <div class="reveal-up">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C7A15B" stroke-width="1.5" class="mb-6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <h4 class="font-display text-2xl mb-3">Minimal & Timeless</h4>
+            <p class="font-body text-sm text-brand-bg/70 leading-relaxed">Elegant, understated designs that leave a lasting impact rather than ending up in a landfill.</p>
+          </div>
+          <div class="reveal-up">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C7A15B" stroke-width="1.5" class="mb-6"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
+            <h4 class="font-display text-2xl mb-3">Purpose Driven</h4>
+            <p class="font-body text-sm text-brand-bg/70 leading-relaxed">A portion of every purchase supports green initiatives and community development programs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CURATED GIFT COLLECTIONS -->
+  <section id="collections" class="py-24 lg:py-32 px-6 lg:px-12 max-w-[1600px] mx-auto bg-brand-bg">
+    <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+      <div class="max-w-xl">
+        <span class="font-btn text-xs tracking-[0.2em] text-brand-gold uppercase font-bold mb-4 block reveal-up">Curated Gift Collections</span>
+        <h2 class="font-display text-4xl lg:text-5xl text-brand-dark leading-tight text-balance reveal-up">Handpicked Corporate Gifts</h2>
+        <p class="font-body text-brand-muted mt-6 reveal-up">A range of premium gifts curated for every workplace and occasion.</p>
+      </div>
+      <div class="flex gap-4 reveal-up">
+        <a href="#" class="font-btn font-medium text-sm text-brand-dark flex items-center gap-2 hover:text-brand-gold transition-colors pb-2 border-b border-brand-dark hover:border-brand-gold">
+          View All Collections
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+      
+      <!-- Product 1 -->
+      <div class="group cursor-pointer reveal-up">
+        <div class="relative aspect-[4/5] bg-brand-alt rounded-xl overflow-hidden mb-6">
+          <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=600&auto=format&fit=crop" alt="Eco Desk Essentials" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out">
+          <button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur text-brand-dark font-btn font-bold py-3 rounded opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-xl hover:bg-brand-dark hover:text-white">Add to Quote</button>
+        </div>
+        <div class="flex justify-between items-start gap-4">
+          <div>
+            <h3 class="font-display text-xl text-brand-dark font-medium mb-1">Eco Desk Essentials Kit</h3>
+            <p class="font-body text-xs text-brand-muted mb-2">Thoughtful & practical</p>
+            <p class="font-btn text-sm font-medium text-brand-dark">From ₹1,450</p>
+          </div>
+          <button class="text-brand-muted hover:text-brand-gold transition-colors" aria-label="Add to Wishlist">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="group cursor-pointer reveal-up" style="animation-delay: 0.1s;">
+        <div class="relative aspect-[4/5] bg-[#E2E6DF] rounded-xl overflow-hidden mb-6">
+          <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&auto=format&fit=crop" alt="Wellness Hamper" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out">
+          <button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur text-brand-dark font-btn font-bold py-3 rounded opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-xl hover:bg-brand-dark hover:text-white">Add to Quote</button>
+        </div>
+        <div class="flex justify-between items-start gap-4">
+          <div>
+            <h3 class="font-display text-xl text-brand-dark font-medium mb-1">Wellness Hamper</h3>
+            <p class="font-body text-xs text-brand-muted mb-2">Care for their well-being</p>
+            <p class="font-btn text-sm font-medium text-brand-dark">From ₹1,950</p>
+          </div>
+          <button class="text-brand-muted hover:text-brand-gold transition-colors" aria-label="Add to Wishlist">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="group cursor-pointer reveal-up" style="animation-delay: 0.2s;">
+        <div class="relative aspect-[4/5] bg-[#EAE8E3] rounded-xl overflow-hidden mb-6">
+          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=600&auto=format&fit=crop" alt="Green Living Box" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out">
+          <button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur text-brand-dark font-btn font-bold py-3 rounded opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-xl hover:bg-brand-dark hover:text-white">Add to Quote</button>
+        </div>
+        <div class="flex justify-between items-start gap-4">
+          <div>
+            <h3 class="font-display text-xl text-brand-dark font-medium mb-1">Green Living Box</h3>
+            <p class="font-body text-xs text-brand-muted mb-2">Sustainable everyday picks</p>
+            <p class="font-btn text-sm font-medium text-brand-dark">From ₹2,150</p>
+          </div>
+          <button class="text-brand-muted hover:text-brand-gold transition-colors" aria-label="Add to Wishlist">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="group cursor-pointer reveal-up" style="animation-delay: 0.3s;">
+        <div class="relative aspect-[4/5] bg-brand-alt rounded-xl overflow-hidden mb-6">
+          <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=600&auto=format&fit=crop" alt="Executive Gift Set" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out" style="filter: hue-rotate(45deg);">
+          <button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur text-brand-dark font-btn font-bold py-3 rounded opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-xl hover:bg-brand-dark hover:text-white">Add to Quote</button>
+        </div>
+        <div class="flex justify-between items-start gap-4">
+          <div>
+            <h3 class="font-display text-xl text-brand-dark font-medium mb-1">Executive Gift Set</h3>
+            <p class="font-body text-xs text-brand-muted mb-2">Premium & sophisticated</p>
+            <p class="font-btn text-sm font-medium text-brand-dark">From ₹3,650</p>
+          </div>
+          <button class="text-brand-muted hover:text-brand-gold transition-colors" aria-label="Add to Wishlist">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. HOW IT WORKS -->
+  <section class="border-y border-brand-border bg-brand-alt py-24 px-6 lg:px-12 relative overflow-hidden">
+    <div class="max-w-[1600px] mx-auto">
+      <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+        
+        <!-- Left Title -->
+        <div class="w-full lg:w-1/3 shrink-0">
+          <span class="font-btn text-xs tracking-[0.2em] text-brand-gold uppercase font-bold mb-4 block reveal-up">Our Corporate Gifting</span>
+          <h2 class="font-display text-4xl lg:text-5xl text-brand-dark leading-tight reveal-up">Simple. Seamless. Impactful.</h2>
+        </div>
+
+        <!-- Timeline -->
+        <div class="w-full flex-1 relative">
+          <!-- Connecting Line (Desktop) -->
+          <div class="hidden lg:block absolute top-[28px] left-8 right-8 h-px bg-brand-dark/20 z-0"></div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6 relative z-10">
+            <!-- Step 1 -->
+            <div class="reveal-up relative">
+              <div class="w-14 h-14 rounded-full bg-brand-gold text-white flex items-center justify-center font-display text-2xl font-bold mb-6 shadow-lg shadow-brand-gold/20">1</div>
+              <h4 class="font-display text-xl font-bold text-brand-dark mb-2">Share Requirement</h4>
+              <p class="font-body text-sm text-brand-muted leading-relaxed pr-4">Tell us about your occasion, audience, and budget.</p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="reveal-up relative" style="animation-delay: 0.1s;">
+              <div class="w-14 h-14 rounded-full bg-brand-gold text-white flex items-center justify-center font-display text-2xl font-bold mb-6 shadow-lg shadow-brand-gold/20">2</div>
+              <h4 class="font-display text-xl font-bold text-brand-dark mb-2">Get Quote</h4>
+              <p class="font-body text-sm text-brand-muted leading-relaxed pr-4">Receive curated options and a transparent proposal.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="reveal-up relative" style="animation-delay: 0.2s;">
+              <div class="w-14 h-14 rounded-full bg-brand-gold text-white flex items-center justify-center font-display text-2xl font-bold mb-6 shadow-lg shadow-brand-gold/20">3</div>
+              <h4 class="font-display text-xl font-bold text-brand-dark mb-2">Approve & Customize</h4>
+              <p class="font-body text-sm text-brand-muted leading-relaxed pr-4">Add your logo, custom message, and finalize designs.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="reveal-up relative" style="animation-delay: 0.3s;">
+              <div class="w-14 h-14 rounded-full bg-brand-gold text-white flex items-center justify-center font-display text-2xl font-bold mb-6 shadow-lg shadow-brand-gold/20">4</div>
+              <h4 class="font-display text-xl font-bold text-brand-dark mb-2">We Handle the Rest</h4>
+              <p class="font-body text-sm text-brand-muted leading-relaxed pr-4">From luxury packaging to seamless pan-India delivery.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. SUSTAINABILITY COMMITMENT -->
+  <section id="sustainability" class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark z-0">
+      <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2000&auto=format&fit=crop" alt="Sustainability Nature" class="w-full h-full object-cover opacity-40 mix-blend-luminosity" id="sustainability-bg">
+    </div>
+    
+    <div class="relative z-10 text-center px-6 py-32 max-w-4xl mx-auto reveal-up">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C7A15B" stroke-width="1.5" class="mx-auto mb-8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      <h2 class="font-display text-4xl lg:text-6xl text-white leading-tight mb-8 text-balance">Committed to the Planet.</h2>
+      <p class="font-body text-lg text-white/80 leading-relaxed mb-12 max-w-2xl mx-auto text-balance">
+        We believe that the best gifts shouldn't cost the earth. Every Terra Muse hamper is crafted with recyclable packaging, ethically sourced materials, and a commitment to reducing carbon footprints.
+      </p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto mb-12 border-y border-white/20 py-8">
+        <div>
+          <div class="font-display text-4xl text-brand-gold mb-2">100%</div>
+          <div class="font-body text-xs text-white/70 uppercase tracking-wider">Recyclable<br>Packaging</div>
+        </div>
+        <div>
+          <div class="font-display text-4xl text-brand-gold mb-2">0%</div>
+          <div class="font-body text-xs text-white/70 uppercase tracking-wider">Single-use<br>Plastics</div>
+        </div>
+        <div>
+          <div class="font-display text-4xl text-brand-gold mb-2">Local</div>
+          <div class="font-body text-xs text-white/70 uppercase tracking-wider">Artisan<br>Sourcing</div>
+        </div>
+        <div>
+          <div class="font-display text-4xl text-brand-gold mb-2">1%</div>
+          <div class="font-body text-xs text-white/70 uppercase tracking-wider">For the<br>Planet</div>
+        </div>
+      </div>
+      
+      <a href="#" class="btn-primary !bg-brand-gold !text-white !border-brand-gold hover:!bg-[#B38D4A] hover:!border-[#B38D4A] font-btn font-medium px-8 py-4 rounded inline-block">Read Our Impact Report</a>
+    </div>
+  </section>
+
+  <!-- 10. TESTIMONIALS -->
+  <section class="py-24 lg:py-32 bg-brand-bg relative overflow-hidden">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 mb-16 text-center">
+      <span class="font-btn text-xs tracking-[0.2em] text-brand-gold uppercase font-bold mb-4 block reveal-up">Client Stories</span>
+      <h2 class="font-display text-4xl lg:text-5xl text-brand-dark leading-tight reveal-up">Trusted by the Best.</h2>
+    </div>
+
+    <!-- Swiper Carousel -->
+    <div class="swiper testimonial-swiper w-full pb-16 reveal-up">
+      <div class="swiper-wrapper flex items-center">
+        <!-- Slide 1 -->
+        <div class="swiper-slide w-[350px] sm:w-[400px]">
+          <div class="bg-white p-8 rounded-2xl border border-brand-border shadow-sm mx-4">
+            <div class="flex gap-1 text-brand-gold mb-6">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="font-body text-brand-dark leading-relaxed mb-8">"Terra Muse completely elevated our Diwali gifting. The customization options were premium, and the eco-friendly packaging aligned perfectly with our ESG goals. Highly recommended."</p>
+            <div class="flex items-center gap-4 border-t border-brand-border pt-6">
+              <div class="w-12 h-12 bg-brand-alt rounded-full overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" alt="Client" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h5 class="font-display font-semibold text-lg text-brand-dark">Arjun Mehta</h5>
+                <p class="font-body text-xs text-brand-muted uppercase tracking-wider">VP HR, Tech Innovations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide w-[350px] sm:w-[400px]">
+          <div class="bg-white p-8 rounded-2xl border border-brand-border shadow-sm mx-4">
+            <div class="flex gap-1 text-brand-gold mb-6">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="font-body text-brand-dark leading-relaxed mb-8">"The entire process from concept to delivery was seamless. The artisan-crafted products felt incredibly special, and our clients were deeply appreciative of the quality."</p>
+            <div class="flex items-center gap-4 border-t border-brand-border pt-6">
+              <div class="w-12 h-12 bg-brand-alt rounded-full overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Client" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h5 class="font-display font-semibold text-lg text-brand-dark">Sarah Jenkins</h5>
+                <p class="font-body text-xs text-brand-muted uppercase tracking-wider">Director, Global FinCorp</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide w-[350px] sm:w-[400px]">
+          <div class="bg-white p-8 rounded-2xl border border-brand-border shadow-sm mx-4">
+            <div class="flex gap-1 text-brand-gold mb-6">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="font-body text-brand-dark leading-relaxed mb-8">"We ordered 500 Welcome Kits for our new campus. Terra Muse delivered on time, with impeccable presentation. It sets the exact tone we want for our new hires."</p>
+            <div class="flex items-center gap-4 border-t border-brand-border pt-6">
+              <div class="w-12 h-12 bg-brand-alt rounded-full overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop" alt="Client" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h5 class="font-display font-semibold text-lg text-brand-dark">Ravi Sharma</h5>
+                <p class="font-body text-xs text-brand-muted uppercase tracking-wider">Founder, StartUp Studio</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. CORPORATE INQUIRY FORM -->
+  <section id="quote" class="py-24 lg:py-32 px-6 lg:px-12 max-w-[1200px] mx-auto bg-brand-bg relative z-10">
+    <div class="bg-white rounded-3xl border border-brand-border shadow-2xl p-8 lg:p-16 relative overflow-hidden reveal-up">
+      <!-- Decorative element -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-brand-alt rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-50 pointer-events-none"></div>
+
+      <div class="text-center mb-12 relative z-10">
+        <span class="font-btn text-xs tracking-[0.2em] text-brand-gold uppercase font-bold mb-4 block">Let's Connect</span>
+        <h2 class="font-display text-4xl lg:text-5xl text-brand-dark leading-tight">Request a Quote</h2>
+        <p class="font-body text-brand-muted mt-4 max-w-lg mx-auto">Fill out the form below, and our dedicated corporate gifting expert will get in touch with you shortly.</p>
+      </div>
+
+      <form id="inquiry-form" class="relative z-10">
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="block text-xs font-bold text-brand-muted uppercase tracking-wider mb-2">Company Name *</label>
+            <input type="text" required class="w-full bg-brand-bg border border-brand-border rounded px-4 py-3 text-brand-dark focus:outline-none focus:border-brand-dark transition-colors">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-brand-muted uppercase tracking-wider mb-2">Contact Person *</label>
+            <input type="text" required class="w-full bg-brand-bg border border-brand-border rounded px-4 py-3 text-brand-dark focus:outline-none focus:border-brand-dark transition-colors">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-brand-muted uppercase tracking-wider mb-2">Email Address *</label>
+            <input type="email" required class="w-full bg-brand-bg border border-brand-border rounded px-4 py-3 text-brand-dark focus:outline-none focus:border-brand-dark transition-colors">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-brand-muted uppercase tracking-wider mb-2">Phone Number *</label>
+            <input type="tel" required class="w-full bg-brand-bg border border-brand-border rounded px-4 py-3 text-brand-dark focus:outline-none focus:border-brand-dark transition-colors">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-brand-muted uppercase tracking-wider mb-2">Estimated Quantity</label>
+            <select class="w-full bg-brand-bg border border-brand-border rounded px-4 py-3 text-brand-dark focus:outline-none focus:border-brand-dark transition-colors appearance-none">
+              <option>50 - 100</option>
+              <option>100 - 500</option>
+              <option>500 - 1000</option>
+              <option>1000+</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-brand-muted uppercase tracking-wider mb-2">Occasion / Theme</label>
+            <select class="w-full bg-brand-bg border border-brand-border rounded px-4 py-3 text-brand-dark focus:outline-none focus:border-brand-dark transition-colors appearance-none">
+              <option>Employee Welcome Kit</option>
+              <option>Festive Gifting</option>
+              <option>Client Appreciation</option>
+              <option>Conference / Event</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="mb-8">
+          <label class="block text-xs font-bold text-brand-muted uppercase tracking-wider mb-2">Additional Message / Requirements</label>
+          <textarea rows="4" class="w-full bg-brand-bg border border-brand-border rounded px-4 py-3 text-brand-dark focus:outline-none focus:border-brand-dark transition-colors resize-none"></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn-primary font-btn font-bold px-12 py-4 rounded text-lg w-full md:w-auto min-w-[200px]">
+            <span class="flex items-center justify-center gap-2">
+              Submit Inquiry
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </button>
+        </div>
+      </form>
+      
+      <!-- Success Message (Hidden by default) -->
+      <div id="form-success" class="hidden absolute inset-0 bg-white z-20 flex-col items-center justify-center text-center p-8">
+        <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center text-green-600 mb-6">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="font-display text-4xl text-brand-dark mb-4">Inquiry Received.</h3>
+        <p class="font-body text-brand-muted mb-8 max-w-md">Thank you for considering Terra Muse. Our gifting experts will review your requirements and reach out within 24 hours.</p>
+        <button onclick="document.getElementById('form-success').classList.add('hidden'); document.getElementById('inquiry-form').reset();" class="btn-secondary font-btn font-medium px-8 py-3 rounded">Send Another</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. NEWSLETTER & 13. FOOTER -->
+  <footer class="bg-brand-forest text-brand-bg pt-24 pb-8 px-6 lg:px-12 relative overflow-hidden">
+    <!-- Texture -->
+    <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');"></div>
+    
+    <div class="max-w-[1600px] mx-auto relative z-10">
+      
+      <!-- Newsletter Section -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center border-b border-white/10 pb-20 mb-20">
+        <div>
+          <h2 class="font-display text-4xl lg:text-5xl mb-4">Stay Inspired.</h2>
+          <p class="font-body text-white/70 max-w-md">Get corporate gifting trends, new launches, and exclusive offers straight to your inbox.</p>
+        </div>
+        <form class="flex w-full max-w-md lg:ml-auto" onsubmit="event.preventDefault(); alert('Subscribed!');">
+          <input type="email" placeholder="Enter your work email" required class="flex-1 bg-brand-dark border border-white/20 rounded-l px-4 py-4 text-white focus:outline-none focus:border-brand-gold transition-colors placeholder:text-white/40">
+          <button type="submit" class="bg-brand-gold text-brand-dark font-btn font-bold px-6 py-4 rounded-r hover:bg-[#B38D4A] transition-colors">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Links Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-8 gap-y-12 mb-20">
+        <div class="lg:col-span-1">
+          <a href="/" class="flex flex-col mb-6">
+            <span class="font-display text-3xl tracking-wide text-white leading-none">TERRA MUSE</span>
+            <span class="font-btn text-[10px] tracking-[0.2em] text-brand-gold uppercase mt-1">Corporate Gifting</span>
+          </a>
+          <p class="font-body text-sm text-white/60 mb-6">Thoughtful gifts that strengthen relationships and inspire impact.</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-white/60 hover:text-white transition-colors" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="text-white/60 hover:text-white transition-colors" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="text-white/60 hover:text-white transition-colors" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5 5 9.5 5 9.5s1.5.5 2.5.2C4.5 8 5 3 5 3c1.5 1 3 1.5 5 1.5-1.5-4 5-7 8-3 1.5-.5 3-1.5 3-1.5z"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="font-btn font-bold text-xs uppercase tracking-[0.1em] mb-6">Solutions</h5>
+          <ul class="space-y-4 font-body text-sm text-white/70">
+            <li><a href="#" class="hover:text-white transition-colors">Employee Appreciation</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Client Gifting</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Festive Hampers</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Welcome Kits</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Bulk Orders</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-btn font-bold text-xs uppercase tracking-[0.1em] mb-6">Company</h5>
+          <ul class="space-y-4 font-body text-sm text-white/70">
+            <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Sustainability</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-btn font-bold text-xs uppercase tracking-[0.1em] mb-6">Resources</h5>
+          <ul class="space-y-4 font-body text-sm text-white/70">
+            <li><a href="#" class="hover:text-white transition-colors">Corporate Gifting Guide</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">FAQs</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-btn font-bold text-xs uppercase tracking-[0.1em] mb-6">Contact Us</h5>
+          <ul class="space-y-4 font-body text-sm text-white/70">
+            <li class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <a href="tel:+919876543210" class="hover:text-white">+91 98765 43210</a></li>
+            <li class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="mailto:gifting@terramuse.com" class="hover:text-white">gifting@terramuse.com</a></li>
+            <li class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Bangalore, India</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar with SZ Ventures Logo -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/10 pt-8">
+        
+        <!-- SZ Ventures Branding -->
+        <div class="flex items-center gap-4">
+          <span class="font-display text-sm text-white/50 italic">A venture by</span>
+          <div class="flex flex-col items-start border-l border-white/20 pl-4">
+            <span class="font-display text-xl font-bold tracking-tight leading-none mb-1">SZ VENTURES</span>
+            <span class="font-body text-[9px] uppercase tracking-wider text-brand-gold">Building Purposeful Brands</span>
+          </div>
+        </div>
+
+        <div class="font-body text-xs text-white/50 flex flex-wrap justify-center gap-6">
+          <span>&copy; 2026 Terra Muse Corporate Gifting. All rights reserved.</span>
+          <div class="flex gap-4">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts for Core Engine -->
+  <script>
+    // Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Initialize Swiper
+    const testimonialSwiper = new Swiper('.testimonial-swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 0,
+      loop: true,
+      centeredSlides: false,
+      speed: 5000,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      grabCursor: true
+    });
+
+    // GSAP ScrollTrigger Integration
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Animations
+    const tl = gsap.timeline();
+    tl.from("#hero-content > *", { y: 30, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out" })
+      .from("#hero-image img", { scale: 1.2, opacity: 0, duration: 1.5, ease: "power3.out" }, "-=0.8")
+      .from("#hero-badge", { y: 40, opacity: 0, duration: 1, ease: "back.out(1.5)" }, "-=1");
+
+    // Scroll Reveals
+    const revealElements = document.querySelectorAll('.reveal-up');
+    revealElements.forEach((el, index) => {
+      gsap.fromTo(el, 
+        { y: 40, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out"
+        }
+      );
+    });
+
+    // Navbar Hide on Scroll Down
+    let lastScrollY = window.scrollY;
+    const nav = document.getElementById('main-nav');
+    const annBar = document.querySelector('.bg-brand-dark'); // The announcement bar
+
+    lenis.on('scroll', (e) => {
+      // Offset navbar position based on announcement bar visibility
+      const scrollY = window.scrollY;
+      const annHeight = annBar.offsetHeight;
+      
+      if (scrollY > annHeight) {
+        nav.classList.add('fixed', 'top-0');
+        nav.classList.remove('top-auto');
+      } else {
+        nav.classList.remove('fixed', 'top-0');
+        nav.classList.add('top-auto');
+      }
+
+      if (scrollY > 200) {
+        if (scrollY > lastScrollY) {
+          nav.style.transform = 'translateY(-100%)';
+        } else {
+          nav.style.transform = 'translateY(0)';
+        }
+      }
+      lastScrollY = scrollY;
+    });
+
+    // Handle Form Submission
+    document.getElementById('inquiry-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Simulate API loading
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing...</span>';
+      
+      setTimeout(() => {
+        document.getElementById('form-success').classList.remove('hidden');
+        document.getElementById('form-success').classList.add('flex');
+        btn.innerHTML = originalText;
+      }, 1500);
+    });
+
+    // Smooth Anchor Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = this.getAttribute('href');
+        if(target !== '#') {
+          lenis.scrollTo(target, { offset: -100 });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
