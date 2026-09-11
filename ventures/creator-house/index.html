@@ -7,7 +7,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -21,11 +21,10 @@
           },
           colors: {
             brand: {
-              light: '#EAE8E1',
-              dark: '#161616',
-              gray: '#222222',
-              card: '#1C1C1C',
-              border: '#D1CFC7',
+              light: '#EBE9E2',
+              dark: '#1A1A1A',
+              cardDark: '#222222',
+              border: '#D9D6CB',
               darkBorder: '#333333'
             }
           }
@@ -34,69 +33,67 @@
     }
   </script>
   <style>
-    body { background-color: #EAE8E1; color: #161616; -webkit-font-smoothing: antialiased; }
-    .dark-section { background-color: #161616; color: #F5F5F5; }
-    .btn-dark { background-color: #161616; color: #FFFFFF; transition: all 0.2s; border: 1px solid #161616; }
-    .btn-dark:hover { background-color: #2A2A2A; }
-    .btn-light { background-color: #EAE8E1; color: #161616; transition: all 0.2s; border: 1px solid #EAE8E1; font-weight: 600; }
-    .btn-light:hover { background-color: #DFDBD0; }
-    .btn-outline-dark { background-color: transparent; color: #161616; border: 1px solid #161616; transition: all 0.2s; font-weight: 600;}
-    .btn-outline-dark:hover { background-color: rgba(0,0,0,0.05); }
-    .btn-outline-light { background-color: transparent; color: #F5F5F5; border: 1px solid #F5F5F5; transition: all 0.2s; font-weight: 600;}
-    .btn-outline-light:hover { background-color: rgba(255,255,255,0.1); }
+    body { background-color: #EBE9E2; color: #1A1A1A; -webkit-font-smoothing: antialiased; }
+    .dark-section { background-color: #1A1A1A; color: #F5F5F5; }
     
-    .grid-bg {
-      background-size: 40px 40px;
-      background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
-    }
+    .btn-dark { background-color: #1A1A1A; color: #FFFFFF; transition: all 0.3s ease; border: 1px solid #1A1A1A; font-weight: 700; }
+    .btn-dark:hover { background-color: #333333; }
+    
+    .btn-light { background-color: #EBE9E2; color: #1A1A1A; transition: all 0.3s ease; border: 1px solid #EBE9E2; font-weight: 700; }
+    .btn-light:hover { background-color: #DFDBD0; }
+    
+    .btn-outline-dark { background-color: transparent; color: #1A1A1A; border: 1px solid #1A1A1A; transition: all 0.3s ease; font-weight: 700; }
+    .btn-outline-dark:hover { background-color: rgba(0,0,0,0.05); }
+    
+    .btn-outline-light { background-color: transparent; color: #F5F5F5; border: 1px solid #F5F5F5; transition: all 0.3s ease; font-weight: 700; }
+    .btn-outline-light:hover { background-color: rgba(255,255,255,0.1); }
   </style>
 </head>
 <body class="font-sans overflow-x-hidden">
 
   <!-- NAVBAR -->
-  <nav class="w-full flex items-center justify-between px-6 lg:px-12 py-5 border-b border-brand-border">
+  <nav class="w-full flex items-center justify-between px-6 lg:px-16 py-6 max-w-[1920px] mx-auto border-b border-brand-border">
     <a href="/index.html" class="flex items-center gap-3">
-      <!-- Inverted SZX Logo to be black -->
       <img src="../../assets/img/logo.png" alt="SZX Ventures" class="w-10 h-10 object-contain invert" style="filter: brightness(0);">
     </a>
-    <div class="hidden lg:flex items-center gap-10 text-xs font-semibold tracking-wide text-brand-dark/70 uppercase">
-      <a href="/index.html" class="hover:text-black transition">Home</a>
-      <a href="/philosophy.html" class="hover:text-black transition">About</a>
-      <a href="/portfolio.html" class="hover:text-black transition flex items-center gap-1">Our Ventures <i class="ph ph-caret-down text-sm"></i></a>
+    <div class="hidden lg:flex items-center gap-12 text-[11px] font-semibold tracking-widest text-brand-dark uppercase">
+      <a href="/index.html" class="hover:text-black/60 transition">Home</a>
+      <a href="/philosophy.html" class="hover:text-black/60 transition">About</a>
+      <a href="/portfolio.html" class="hover:text-black/60 transition flex items-center gap-1">Our Ventures <i class="ph ph-caret-down"></i></a>
       <a href="/ventures/creator-house/index.html" class="text-black border-b border-black pb-1">Creator House</a>
-      <a href="/careers.html" class="hover:text-black transition">Careers</a>
-      <a href="/contact.html" class="hover:text-black transition">Contact</a>
+      <a href="/careers.html" class="hover:text-black/60 transition">Careers</a>
+      <a href="/contact.html" class="hover:text-black/60 transition">Contact</a>
     </div>
-    <a href="#join" class="hidden lg:flex btn-dark px-6 py-3 rounded-md text-xs font-bold uppercase tracking-wide items-center gap-2">Join Now <i class="ph ph-arrow-right"></i></a>
+    <a href="#join" class="hidden lg:flex btn-dark px-6 py-2.5 text-[10px] uppercase tracking-widest items-center gap-2 rounded-sm">Join Now <i class="ph ph-arrow-right"></i></a>
     <button class="lg:hidden text-2xl"><i class="ph ph-list"></i></button>
   </nav>
 
   <!-- HERO SECTION -->
-  <section class="relative flex flex-col lg:flex-row min-h-[85vh] border-b border-brand-border">
+  <section class="flex flex-col lg:flex-row min-h-[85vh] max-w-[1920px] mx-auto border-b border-brand-border">
     
     <!-- Left Content -->
-    <div class="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center border-r border-brand-border grid-bg">
-      <span class="text-xs font-bold tracking-[0.2em] uppercase text-brand-dark/50 mb-4">SZX Ventures</span>
-      <h1 class="text-6xl lg:text-7xl font-extrabold tracking-tighter text-brand-dark leading-[0.9] mb-6">
-        CREATOR<br>HOUSE
+    <div class="w-full lg:w-1/2 px-6 lg:px-16 py-16 flex flex-col justify-center">
+      <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-dark mb-6">SZX Ventures</span>
+      <h1 class="text-[4rem] lg:text-[6rem] xl:text-[7rem] font-black tracking-tighter text-brand-dark leading-[0.9] mb-8 uppercase">
+        Creator<br>House
       </h1>
-      <h2 class="text-2xl lg:text-3xl font-medium text-brand-dark/80 tracking-tight leading-snug mb-4 max-w-lg">
+      <h2 class="text-2xl lg:text-3xl font-light text-brand-dark/80 tracking-tight leading-snug mb-4 max-w-lg">
         Your Content. Your Space.<br>Your Production Engine.
       </h2>
-      <p class="text-sm text-brand-dark/70 mb-10 max-w-md leading-relaxed">
+      <p class="text-[13px] text-brand-dark/70 mb-10 max-w-md leading-relaxed font-medium">
         A premium production ecosystem built for creators, models, influencers, UGC creators and digital-first talent — giving you the space, infrastructure and production support to create consistently.
       </p>
       
-      <div class="flex flex-col sm:flex-row gap-4 mb-6">
-        <a href="#join" class="btn-dark px-6 py-4 rounded-md text-xs font-bold uppercase tracking-wide flex items-center justify-center gap-2">Join The Creator House <i class="ph ph-arrow-right"></i></a>
-        <a href="#book" class="btn-outline-dark px-6 py-4 rounded-md text-xs font-bold uppercase tracking-wide text-center">Book a Production Day</a>
+      <div class="flex flex-col sm:flex-row gap-4 mb-8">
+        <a href="#join" class="btn-dark px-6 py-4 text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 rounded-sm">Join The Creator House <i class="ph ph-arrow-right"></i></a>
+        <a href="#book" class="btn-outline-dark px-6 py-4 text-[10px] uppercase tracking-widest text-center rounded-sm">Book a Production Day</a>
       </div>
       
-      <div class="flex items-start gap-2 mt-4 text-sm font-semibold">
-        <i class="ph-fill ph-map-pin mt-1"></i>
-        <div>
+      <div class="flex items-start gap-3 mt-4 text-xs font-semibold text-brand-dark">
+        <i class="ph-fill ph-map-pin text-lg"></i>
+        <div class="leading-relaxed">
           Launching in Bengaluru.<br>
-          <a href="#" class="underline decoration-1 underline-offset-4 text-brand-dark/70 font-medium hover:text-black">Limited founding memberships.</a>
+          <a href="#" class="underline decoration-1 underline-offset-4 text-brand-dark hover:text-black">Limited founding memberships.</a>
         </div>
       </div>
     </div>
@@ -106,332 +103,342 @@
       <img src="https://images.unsplash.com/photo-1595856149818-49520a2cc121?q=80&w=2000&auto=format&fit=crop" alt="Creator in studio" class="w-full h-full object-cover">
       
       <!-- Top nav overlay -->
-      <div class="absolute top-6 left-6 right-6 flex justify-between text-[10px] font-bold tracking-widest text-brand-dark/80 uppercase mix-blend-color-burn">
+      <div class="absolute top-8 left-8 right-8 flex justify-between items-start text-[9px] font-bold tracking-[0.2em] text-brand-dark uppercase mix-blend-color-burn">
         <div class="flex gap-4">
-          <span>People</span><span class="opacity-50">|</span>
-          <span>Content</span><span class="opacity-50">|</span>
-          <span>Brands</span><span class="opacity-50">|</span>
+          <span>People</span><span class="opacity-30">v</span>
+          <span>Content</span><span class="opacity-30">v</span>
+          <span>Brands</span><span class="opacity-30">v</span>
           <span>Opportunities</span>
         </div>
-        <div class="text-right w-32 leading-tight">India's Next<br>Gen Creator<br>Ecosystem</div>
+        <div class="text-right leading-[1.4] opacity-80">India's Next<br>Gen Creator<br>Ecosystem</div>
       </div>
 
       <!-- Scribble text -->
-      <div class="absolute top-1/4 left-1/4 transform -rotate-6 font-scribble text-4xl lg:text-5xl text-brand-dark leading-none mix-blend-color-burn">
+      <div class="absolute top-1/4 left-[10%] transform -rotate-6 font-scribble text-4xl lg:text-5xl text-brand-dark leading-none mix-blend-color-burn">
         CREATE<br>SHOOT<br>EDIT<br>GROW
       </div>
     </div>
   </section>
 
   <!-- THE PROBLEM SECTION -->
-  <section class="py-20 lg:py-28 px-6 lg:px-12 max-w-[1600px] mx-auto">
-    <div class="flex flex-col lg:flex-row gap-16 mb-16 items-start">
+  <section class="py-24 lg:py-32 px-6 lg:px-16 max-w-[1920px] mx-auto">
+    <div class="flex flex-col lg:flex-row gap-20 mb-20 items-start">
       
       <!-- Text -->
-      <div class="w-full lg:w-1/2">
-        <span class="text-xs font-bold tracking-[0.2em] uppercase text-brand-dark/50 mb-4 block">The Problem</span>
-        <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6 max-w-xl">
+      <div class="w-full lg:w-[45%]">
+        <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-dark/50 mb-6 block">The Problem</span>
+        <h2 class="text-3xl lg:text-5xl font-black tracking-tight leading-[1.1] mb-8 uppercase">
           CREATING CONTENT SHOULDN'T BE THIS COMPLICATED.
         </h2>
-        <p class="text-sm text-brand-dark/70 leading-relaxed max-w-md">
+        <p class="text-[13px] text-brand-dark/70 leading-relaxed max-w-sm font-medium">
           Creators today have to coordinate studios, photographers, lighting, locations, editors, equipment, props and production teams separately.<br><br>
           Creator House brings the essential production ecosystem together in one place.
         </p>
       </div>
 
       <!-- Image -->
-      <div class="w-full lg:w-1/2 relative">
-        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1500&auto=format&fit=crop" alt="Stressed Creator" class="w-full h-64 lg:h-80 object-cover grayscale opacity-90 rounded-sm">
-        <div class="absolute inset-0 bg-brand-light/20 mix-blend-overlay"></div>
-        <div class="absolute top-1/2 -left-8 transform -translate-y-1/2 -rotate-3 font-scribble text-3xl lg:text-4xl text-brand-dark leading-tight z-10 w-[110%]">
+      <div class="w-full lg:w-[55%] relative">
+        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1500&auto=format&fit=crop" alt="Stressed Creator" class="w-full h-72 lg:h-[400px] object-cover grayscale opacity-90 rounded-sm">
+        <div class="absolute top-1/2 -left-16 transform -translate-y-1/2 -rotate-3 font-scribble text-3xl lg:text-5xl text-brand-dark leading-tight z-10 whitespace-nowrap">
           DIFFERENT<br>PEOPLE...<br>DIFFERENT TOOLS...<br>TOO MUCH TO MANAGE.
         </div>
-        <!-- Decorative line -->
-        <div class="absolute -bottom-8 left-12 w-32 h-px bg-brand-dark/30 transform -rotate-2"></div>
+        <div class="absolute top-1/2 -left-20 w-16 h-px bg-brand-dark/20"></div>
       </div>
     </div>
 
     <!-- Features Grid -->
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="border border-brand-border rounded-lg p-6 flex flex-col items-center text-center gap-3 bg-brand-light/50 hover:bg-white transition cursor-default">
-        <i class="ph ph-camera text-3xl text-brand-dark"></i>
-        <span class="text-xs font-bold tracking-wide leading-tight">Professional<br>Photography</span>
+      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
+        <i class="ph ph-camera text-4xl text-brand-dark"></i>
+        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Professional<br>Photography</span>
       </div>
-      <div class="border border-brand-border rounded-lg p-6 flex flex-col items-center text-center gap-3 bg-brand-light/50 hover:bg-white transition cursor-default">
-        <i class="ph ph-play-circle text-3xl text-brand-dark"></i>
-        <span class="text-xs font-bold tracking-wide leading-tight">Reels & Video<br>Production</span>
+      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
+        <i class="ph ph-play-circle text-4xl text-brand-dark"></i>
+        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Reels & Video<br>Production</span>
       </div>
-      <div class="border border-brand-border rounded-lg p-6 flex flex-col items-center text-center gap-3 bg-brand-light/50 hover:bg-white transition cursor-default">
-        <i class="ph ph-cube text-3xl text-brand-dark"></i>
-        <span class="text-xs font-bold tracking-wide leading-tight">Flexible<br>Content Spaces</span>
+      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
+        <i class="ph ph-cube text-4xl text-brand-dark"></i>
+        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Flexible<br>Content Spaces</span>
       </div>
-      <div class="border border-brand-border rounded-lg p-6 flex flex-col items-center text-center gap-3 bg-brand-light/50 hover:bg-white transition cursor-default">
-        <i class="ph ph-lightbulb text-3xl text-brand-dark"></i>
-        <span class="text-xs font-bold tracking-wide leading-tight">Lighting &<br>Production Setup</span>
+      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
+        <i class="ph ph-lightbulb text-4xl text-brand-dark"></i>
+        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Lighting &<br>Production Setup</span>
       </div>
-      <div class="border border-brand-border rounded-lg p-6 flex flex-col items-center text-center gap-3 bg-brand-light/50 hover:bg-white transition cursor-default">
-        <i class="ph ph-coat-hanger text-3xl text-brand-dark"></i>
-        <span class="text-xs font-bold tracking-wide leading-tight">Props & Styling<br>Resources</span>
+      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
+        <i class="ph ph-coat-hanger text-4xl text-brand-dark"></i>
+        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Props & Styling<br>Resources</span>
       </div>
-      <div class="border border-brand-border rounded-lg p-6 flex flex-col items-center text-center gap-3 bg-brand-light/50 hover:bg-white transition cursor-default">
-        <i class="ph ph-users text-3xl text-brand-dark"></i>
-        <span class="text-xs font-bold tracking-wide leading-tight">Creator<br>Collaborations</span>
+      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
+        <i class="ph ph-users text-4xl text-brand-dark"></i>
+        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Creator<br>Collaborations</span>
       </div>
-      <div class="border border-brand-border rounded-lg p-6 flex flex-col items-center text-center gap-3 bg-brand-light/50 hover:bg-white transition cursor-default">
-        <i class="ph ph-megaphone text-3xl text-brand-dark"></i>
-        <span class="text-xs font-bold tracking-wide leading-tight">Brand<br>Opportunities</span>
+      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
+        <i class="ph ph-megaphone text-4xl text-brand-dark"></i>
+        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Brand<br>Opportunities</span>
       </div>
-      <div class="border border-brand-border rounded-lg p-6 flex flex-col items-center text-center gap-3 bg-brand-light/50 hover:bg-white transition cursor-default">
-        <i class="ph ph-gear text-3xl text-brand-dark"></i>
-        <span class="text-xs font-bold tracking-wide leading-tight">Professional<br>Production Support</span>
+      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
+        <i class="ph ph-gear text-4xl text-brand-dark"></i>
+        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Professional<br>Production Support</span>
       </div>
     </div>
   </section>
 
   <!-- WHAT IS CREATOR HOUSE -->
-  <section class="border-t border-brand-border">
+  <section class="max-w-[1920px] mx-auto border-t border-brand-border">
     <div class="flex flex-col lg:flex-row">
       <!-- Left Image -->
       <div class="w-full lg:w-1/2 min-h-[400px] lg:min-h-[600px] relative border-r border-brand-border">
-        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1740&auto=format&fit=crop" alt="Dark Studio Room" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-scribble text-4xl lg:text-5xl text-yellow-300 leading-tight text-center drop-shadow-[0_0_15px_rgba(253,224,71,0.6)] w-full">
+        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1740&auto=format&fit=crop" alt="Dark Studio Room" class="w-full h-full object-cover grayscale opacity-90">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-scribble text-4xl lg:text-5xl text-[#F2D780] leading-tight text-center drop-shadow-lg w-full">
           GOOD<br>CREATORS<br>BUILD<br>GREAT<br>BRANDS
         </div>
       </div>
       
       <!-- Right Text -->
-      <div class="w-full lg:w-1/2 p-8 lg:p-20 flex flex-col justify-center grid-bg">
-        <span class="text-xs font-bold tracking-[0.2em] uppercase text-brand-dark/50 mb-2 block">What is Creator House?</span>
-        <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-8">
+      <div class="w-full lg:w-1/2 p-10 lg:p-24 flex flex-col justify-center">
+        <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-dark/50 mb-4 block">What is Creator House?</span>
+        <h2 class="text-3xl lg:text-5xl font-black tracking-tight leading-[1.1] mb-10 uppercase">
           MORE THAN A STUDIO.
         </h2>
-        <p class="text-sm text-brand-dark/80 leading-relaxed mb-6 font-medium">
+        <p class="text-[13px] text-brand-dark/80 leading-relaxed mb-6 font-medium">
           Creator House is being built as a recurring production ecosystem for India's creator economy.
         </p>
-        <p class="text-sm text-brand-dark/70 leading-relaxed mb-8">
+        <p class="text-[13px] text-brand-dark/70 leading-relaxed mb-10 max-w-lg">
           Members get access to professional production infrastructure designed around the way modern creators actually work — from Instagram reels and professional photography to long-form video, podcasts, UGC, brand content and personal-brand building.
         </p>
-        <div class="pt-4 border-t border-brand-border/50">
-          <p class="text-sm text-brand-dark/70 mb-1 font-medium">The goal is simple:</p>
-          <p class="text-sm font-bold text-brand-dark">Make professional content production easier, faster and more accessible.</p>
+        <div>
+          <p class="text-[13px] text-brand-dark/70 mb-1 font-medium">The goal is simple:</p>
+          <p class="text-[13px] font-bold text-brand-dark">Make professional content production easier, faster and more accessible.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- MEMBERSHIP (DARK) -->
-  <section class="dark-section py-20 lg:py-28 px-6 lg:px-12 border-b border-brand-darkBorder">
+  <section class="dark-section py-24 lg:py-32 px-6 lg:px-16 border-b border-brand-darkBorder">
     <div class="max-w-[1400px] mx-auto">
       
       <!-- Header -->
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-6">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
         <div>
-          <span class="text-xs font-bold tracking-[0.2em] uppercase text-white/40 mb-3 block">Membership</span>
-          <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.1] mb-3">
+          <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 mb-4 block">Membership</span>
+          <h2 class="text-3xl lg:text-4xl font-black tracking-tight leading-[1.1] mb-4 uppercase">
             THE CREATOR PRODUCTION MEMBERSHIP
           </h2>
-          <p class="text-sm text-white/60">A complete production ecosystem. Designed for consistent creators.</p>
+          <p class="text-[13px] text-white/60">A complete production ecosystem. Designed for consistent creators.</p>
         </div>
-        <div class="bg-[#1A1A1A] border border-brand-darkBorder rounded-lg px-8 py-5 flex items-center justify-center flex-col shadow-2xl">
-          <div class="text-3xl font-extrabold flex items-baseline gap-1">₹3,499 <span class="text-sm font-bold text-white/50 tracking-wider">/ MONTH</span></div>
-          <div class="text-[10px] text-white/40 uppercase tracking-widest mt-1">+ applicable taxes</div>
+        <div class="bg-brand-cardDark border border-brand-darkBorder rounded-sm px-10 py-6 flex flex-col items-center justify-center">
+          <div class="text-4xl font-black flex items-baseline gap-2 text-white">₹3,499 <span class="text-sm font-bold text-white/60 tracking-wider">/ MONTH</span></div>
+          <div class="text-[10px] text-white/40 uppercase tracking-widest mt-2">+ applicable taxes</div>
         </div>
       </div>
 
       <!-- Deliverables Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-        <div class="bg-brand-card border border-brand-darkBorder rounded-lg p-6 relative overflow-hidden group">
-          <div class="text-4xl font-extrabold text-white mb-6">12</div>
-          <div class="text-xs font-bold tracking-wide leading-relaxed text-white/80">PROFESSIONALLY<br>EDITED PHOTOS /<br>MONTH</div>
-          <i class="ph ph-image absolute top-6 right-6 text-3xl text-white/10 group-hover:text-white/20 transition"></i>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <div class="bg-brand-cardDark border border-brand-darkBorder rounded-sm p-8 relative flex flex-col">
+          <div class="text-5xl font-black text-white mb-8">12</div>
+          <div class="text-[10px] font-bold tracking-[0.15em] leading-[1.6] text-white/80 uppercase">PROFESSIONALLY<br>EDITED PHOTOS /<br>MONTH</div>
+          <i class="ph ph-image absolute top-8 right-8 text-3xl text-white/20"></i>
         </div>
-        <div class="bg-brand-card border border-brand-darkBorder rounded-lg p-6 relative overflow-hidden group">
-          <div class="text-4xl font-extrabold text-white mb-6">3</div>
-          <div class="text-xs font-bold tracking-wide leading-relaxed text-white/80">SHORT-FORM<br>VIDEOS / REELS /<br>MONTH</div>
-          <i class="ph ph-video-camera absolute top-6 right-6 text-3xl text-white/10 group-hover:text-white/20 transition"></i>
+        <div class="bg-brand-cardDark border border-brand-darkBorder rounded-sm p-8 relative flex flex-col">
+          <div class="text-5xl font-black text-white mb-8">3</div>
+          <div class="text-[10px] font-bold tracking-[0.15em] leading-[1.6] text-white/80 uppercase">SHORT-FORM<br>VIDEOS / REELS /<br>MONTH</div>
+          <i class="ph ph-video-camera absolute top-8 right-8 text-3xl text-white/20"></i>
         </div>
-        <div class="bg-brand-card border border-brand-darkBorder rounded-lg p-6 relative overflow-hidden group">
-          <div class="text-4xl font-extrabold text-white mb-6">1</div>
-          <div class="text-xs font-bold tracking-wide leading-relaxed text-white/80">LONG-FORM VIDEO<br>UP TO 10-12 MINUTES<br>&nbsp;</div>
-          <i class="ph ph-monitor-play absolute top-6 right-6 text-3xl text-white/10 group-hover:text-white/20 transition"></i>
+        <div class="bg-brand-cardDark border border-brand-darkBorder rounded-sm p-8 relative flex flex-col">
+          <div class="text-5xl font-black text-white mb-8">1</div>
+          <div class="text-[10px] font-bold tracking-[0.15em] leading-[1.6] text-white/80 uppercase">LONG-FORM VIDEO<br>UP TO 10-12 MINUTES<br>&nbsp;</div>
+          <i class="ph ph-monitor-play absolute top-8 right-8 text-3xl text-white/20"></i>
         </div>
-        <div class="bg-brand-card border border-brand-darkBorder rounded-lg p-6 relative overflow-hidden group">
-          <div class="text-4xl font-extrabold text-white mb-6">2</div>
-          <div class="text-xs font-bold tracking-wide leading-relaxed text-white/80">CREATOR HOUSE<br>ACCESS DAYS /<br>MONTH</div>
-          <i class="ph ph-calendar-blank absolute top-6 right-6 text-3xl text-white/10 group-hover:text-white/20 transition"></i>
+        <div class="bg-brand-cardDark border border-brand-darkBorder rounded-sm p-8 relative flex flex-col">
+          <div class="text-5xl font-black text-white mb-8">2</div>
+          <div class="text-[10px] font-bold tracking-[0.15em] leading-[1.6] text-white/80 uppercase">CREATOR HOUSE<br>ACCESS DAYS /<br>MONTH</div>
+          <i class="ph ph-calendar-blank absolute top-8 right-8 text-3xl text-white/20"></i>
         </div>
       </div>
 
       <!-- Benefits & Image -->
-      <div class="flex flex-col lg:flex-row gap-12 mb-12">
-        <div class="w-full lg:w-2/3">
-          <span class="text-xs font-bold tracking-[0.2em] uppercase text-white/40 mb-6 block">Additional Benefits</span>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5"></i><span class="text-sm text-white/70">Professional production environment</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5"></i><span class="text-sm text-white/70">Lifestyle/content zones</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5"></i><span class="text-sm text-white/70">Photography support</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5"></i><span class="text-sm text-white/70">Kitchen/food content capability</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5"></i><span class="text-sm text-white/70">Flexible content setups</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5"></i><span class="text-sm text-white/70">Podcast/interview capability</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5"></i><span class="text-sm text-white/70">Lighting infrastructure</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5"></i><span class="text-sm text-white/70">Creator collaboration opportunities</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5"></i><span class="text-sm text-white/70">Props & content resources</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5"></i><span class="text-sm text-white/70">Access to selected creator/brand opportunities</span></div>
+      <div class="flex flex-col lg:flex-row gap-16 mb-16">
+        <div class="w-full lg:w-[65%]">
+          <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 mb-8 block">Additional Benefits</span>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-10">
+            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Professional production environment</span></div>
+            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Lifestyle/content zones</span></div>
+            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Photography support</span></div>
+            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Kitchen/food content capability</span></div>
+            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Flexible content setups</span></div>
+            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Podcast/interview capability</span></div>
+            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Lighting infrastructure</span></div>
+            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Creator collaboration opportunities</span></div>
+            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Props & content resources</span></div>
+            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Access to selected creator/brand opportunities</span></div>
           </div>
-          <p class="text-[10px] text-white/30 uppercase tracking-widest mt-8">All production and access are subject to advance booking and availability.</p>
+          <p class="text-[9px] text-white/30 uppercase tracking-[0.2em] mt-10">All production and access are subject to advance booking and availability.</p>
         </div>
 
-        <div class="w-full lg:w-1/3 relative min-h-[300px] rounded-lg overflow-hidden border border-brand-darkBorder">
-          <img src="https://images.unsplash.com/photo-1596700683073-7729f2da8b74?q=80&w=800&auto=format&fit=crop" alt="Shadow portrait" class="w-full h-full object-cover grayscale opacity-60">
-          <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
-          <div class="absolute bottom-10 left-8">
-            <div class="font-sans italic font-extrabold text-2xl text-white/90 leading-tight">
+        <div class="w-full lg:w-[35%] relative min-h-[350px] rounded-sm overflow-hidden border border-brand-darkBorder">
+          <img src="https://images.unsplash.com/photo-1596700683073-7729f2da8b74?q=80&w=800&auto=format&fit=crop" alt="Shadow portrait" class="w-full h-full object-cover grayscale opacity-70">
+          <div class="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent"></div>
+          <div class="absolute bottom-12 left-10">
+            <div class="font-sans italic font-black text-[1.75rem] text-white leading-[1.1] tracking-tight">
               SAME<br>CREATORS.<br>BIGGER<br>STORIES.
             </div>
-            <div class="w-8 h-1 bg-white/30 mt-4"></div>
+            <div class="w-10 h-0.5 bg-brand-light/50 mt-6"></div>
           </div>
         </div>
       </div>
 
       <!-- Buttons -->
       <div class="flex flex-col sm:flex-row gap-4">
-        <a href="#become-member" class="btn-light px-8 py-4 rounded-md text-xs uppercase tracking-wide flex items-center justify-center gap-2">Become A Member <i class="ph ph-arrow-right"></i></a>
-        <a href="#details" class="btn-outline-light px-8 py-4 rounded-md text-xs uppercase tracking-wide text-center">Request Membership Details</a>
+        <a href="#become-member" class="btn-light px-8 py-4 rounded-sm text-[10px] uppercase tracking-widest flex items-center justify-center gap-2">Become A Member <i class="ph ph-arrow-right"></i></a>
+        <a href="#details" class="btn-outline-light px-8 py-4 rounded-sm text-[10px] uppercase tracking-widest text-center">Request Membership Details</a>
       </div>
 
     </div>
   </section>
 
   <!-- HOW IT WORKS (LIGHT) -->
-  <section class="py-20 lg:py-28 px-6 lg:px-12 border-b border-brand-border">
+  <section class="py-24 lg:py-32 px-6 lg:px-16 border-b border-brand-border max-w-[1920px] mx-auto">
     <div class="max-w-[1400px] mx-auto">
       
       <!-- Header -->
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-6">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-24 gap-8">
         <div>
-          <span class="text-xs font-bold tracking-[0.2em] uppercase text-brand-dark/50 mb-3 block">How It Works</span>
-          <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.1]">
+          <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-dark/50 mb-4 block">How It Works</span>
+          <h2 class="text-3xl lg:text-4xl font-black tracking-tight leading-[1.1] uppercase">
             FROM IDEA TO PUBLISHED CONTENT.
           </h2>
         </div>
-        <div class="text-[10px] font-bold text-brand-dark/50 uppercase tracking-widest text-right max-w-[200px]">
+        <div class="text-[9px] font-bold text-brand-dark/50 uppercase tracking-[0.2em] text-right max-w-[200px] leading-[1.6]">
           CONSISTENT CONTENT BUILDS BIGGER OPPORTUNITIES.
         </div>
       </div>
 
       <!-- Stepper -->
-      <div class="relative flex flex-col lg:flex-row justify-between gap-8 lg:gap-4 mb-20">
+      <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-6 mb-24 relative">
         
-        <!-- Arrows connecting (Desktop only) -->
-        <div class="hidden lg:flex absolute top-6 left-[10%] right-[10%] justify-between items-center z-0 pointer-events-none text-brand-dark/30">
-          <i class="ph ph-arrow-right"></i>
-          <i class="ph ph-arrow-right"></i>
-          <i class="ph ph-arrow-right"></i>
-          <i class="ph ph-arrow-right"></i>
-        </div>
-
-        <div class="flex-1 flex flex-col relative z-10">
-          <div class="w-12 h-12 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-sm mb-6 border-4 border-brand-light shadow-sm">01</div>
-          <i class="ph ph-calendar-blank text-2xl mb-3 text-brand-dark/80"></i>
-          <h3 class="font-bold text-sm mb-2 tracking-wide">BOOK</h3>
-          <p class="text-xs text-brand-dark/60 leading-relaxed pr-4">Choose your production slot through the Creator House booking system.</p>
+        <!-- Step 1 -->
+        <div class="flex-1 flex flex-col relative">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">01</div>
+            <i class="ph ph-calendar-blank text-2xl text-brand-dark"></i>
+            <i class="ph ph-arrow-right text-brand-dark/30 ml-auto hidden lg:block mr-2"></i>
+          </div>
+          <h3 class="font-black text-sm mb-3 uppercase tracking-wide">BOOK</h3>
+          <p class="text-[13px] text-brand-dark/70 leading-relaxed pr-4 font-medium">Choose your production slot through the Creator House booking system.</p>
         </div>
         
-        <div class="flex-1 flex flex-col relative z-10">
-          <div class="w-12 h-12 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-sm mb-6 border-4 border-brand-light shadow-sm">02</div>
-          <i class="ph ph-lightbulb text-2xl mb-3 text-brand-dark/80"></i>
-          <h3 class="font-bold text-sm mb-2 tracking-wide">CREATE</h3>
-          <p class="text-xs text-brand-dark/60 leading-relaxed pr-4">Arrive with your concept, wardrobe and ideas.</p>
+        <!-- Step 2 -->
+        <div class="flex-1 flex flex-col relative">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">02</div>
+            <i class="ph ph-lightbulb text-2xl text-brand-dark"></i>
+            <i class="ph ph-arrow-right text-brand-dark/30 ml-auto hidden lg:block mr-2"></i>
+          </div>
+          <h3 class="font-black text-sm mb-3 uppercase tracking-wide">CREATE</h3>
+          <p class="text-[13px] text-brand-dark/70 leading-relaxed pr-4 font-medium">Arrive with your concept, wardrobe and ideas.</p>
         </div>
 
-        <div class="flex-1 flex flex-col relative z-10">
-          <div class="w-12 h-12 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-sm mb-6 border-4 border-brand-light shadow-sm">03</div>
-          <i class="ph ph-camera text-2xl mb-3 text-brand-dark/80"></i>
-          <h3 class="font-bold text-sm mb-2 tracking-wide">SHOOT</h3>
-          <p class="text-xs text-brand-dark/60 leading-relaxed pr-4">Our production team handles photography/video capture and the production environment.</p>
+        <!-- Step 3 -->
+        <div class="flex-1 flex flex-col relative">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">03</div>
+            <i class="ph ph-camera text-2xl text-brand-dark"></i>
+            <i class="ph ph-arrow-right text-brand-dark/30 ml-auto hidden lg:block mr-2"></i>
+          </div>
+          <h3 class="font-black text-sm mb-3 uppercase tracking-wide">SHOOT</h3>
+          <p class="text-[13px] text-brand-dark/70 leading-relaxed pr-4 font-medium">Our production team handles photography/video capture and the production environment.</p>
         </div>
 
-        <div class="flex-1 flex flex-col relative z-10">
-          <div class="w-12 h-12 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-sm mb-6 border-4 border-brand-light shadow-sm">04</div>
-          <i class="ph ph-pen-nib text-2xl mb-3 text-brand-dark/80"></i>
-          <h3 class="font-bold text-sm mb-2 tracking-wide">EDIT</h3>
-          <p class="text-xs text-brand-dark/60 leading-relaxed pr-4">Post-production is handled through our centralized professional editing workflow.</p>
+        <!-- Step 4 -->
+        <div class="flex-1 flex flex-col relative">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">04</div>
+            <i class="ph ph-pen-nib text-2xl text-brand-dark"></i>
+            <i class="ph ph-arrow-right text-brand-dark/30 ml-auto hidden lg:block mr-2"></i>
+          </div>
+          <h3 class="font-black text-sm mb-3 uppercase tracking-wide">EDIT</h3>
+          <p class="text-[13px] text-brand-dark/70 leading-relaxed pr-4 font-medium">Post-production is handled through our centralized professional editing workflow.</p>
         </div>
 
-        <div class="flex-1 flex flex-col relative z-10">
-          <div class="w-12 h-12 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-sm mb-6 border-4 border-brand-light shadow-sm">05</div>
-          <i class="ph ph-paper-plane-right text-2xl mb-3 text-brand-dark/80"></i>
-          <h3 class="font-bold text-sm mb-2 tracking-wide">RECEIVE</h3>
-          <p class="text-xs text-brand-dark/60 leading-relaxed pr-4">Final content is delivered digitally within the defined turnaround window.</p>
+        <!-- Step 5 -->
+        <div class="flex-1 flex flex-col relative">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">05</div>
+            <i class="ph ph-paper-plane-right text-2xl text-brand-dark"></i>
+          </div>
+          <h3 class="font-black text-sm mb-3 uppercase tracking-wide">RECEIVE</h3>
+          <p class="text-[13px] text-brand-dark/70 leading-relaxed pr-4 font-medium">Final content is delivered digitally within the defined turnaround window.</p>
         </div>
+
       </div>
 
       <div class="text-center">
-        <a href="#create" class="btn-dark inline-flex items-center gap-2 px-8 py-4 rounded-md text-xs font-bold uppercase tracking-wide">Start Creating <i class="ph ph-arrow-right"></i></a>
+        <a href="#create" class="btn-dark inline-flex items-center gap-2 px-8 py-4 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em]">Start Creating <i class="ph ph-arrow-right"></i></a>
       </div>
 
     </div>
   </section>
 
   <!-- ENVIRONMENT (DARK) -->
-  <section class="dark-section py-20 lg:py-28 px-6 lg:px-12 border-b border-brand-darkBorder">
+  <section class="dark-section py-24 lg:py-32 px-6 lg:px-16 border-b border-brand-darkBorder">
     <div class="max-w-[1400px] mx-auto">
       
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-6">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
         <div>
-          <span class="text-xs font-bold tracking-[0.2em] uppercase text-white/40 mb-3 block">Creator House Environment</span>
-          <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.1]">
+          <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 mb-4 block">Creator House Environment</span>
+          <h2 class="text-3xl lg:text-4xl font-black tracking-tight leading-[1.1] uppercase">
             BUILT FOR DIFFERENT TYPES OF CREATORS.
           </h2>
         </div>
-        <div class="text-[10px] font-bold text-white/40 uppercase tracking-widest text-right max-w-[200px]">
+        <div class="text-[9px] font-bold text-white/40 uppercase tracking-[0.2em] text-right max-w-[200px] leading-[1.6]">
           DIFFERENT NICHES.<br>A BIGGER CREATOR ECONOMY.
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Card 1 -->
-        <a href="#" class="group relative h-[400px] rounded-lg overflow-hidden border border-brand-darkBorder block">
+        <a href="#" class="group relative h-[450px] rounded-sm overflow-hidden border border-brand-darkBorder block">
           <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Fashion" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
             <div>
-              <h3 class="text-xl font-bold text-white mb-2 tracking-wide">FASHION</h3>
-              <p class="text-xs text-white/60">Lifestyle, fashion shoots, lookbooks and personal branding.</p>
+              <h3 class="text-[15px] font-black text-white mb-2 tracking-widest uppercase">FASHION</h3>
+              <p class="text-xs text-white/70 font-medium">Lifestyle, fashion shoots, lookbooks and personal branding.</p>
             </div>
             <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white transition shrink-0">
-              <i class="ph ph-arrow-right"></i>
+              <i class="ph ph-arrow-right text-sm"></i>
             </div>
           </div>
         </a>
 
         <!-- Card 2 -->
-        <a href="#" class="group relative h-[400px] rounded-lg overflow-hidden border border-brand-darkBorder block">
+        <a href="#" class="group relative h-[450px] rounded-sm overflow-hidden border border-brand-darkBorder block">
           <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop" alt="Beauty" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
             <div>
-              <h3 class="text-xl font-bold text-white mb-2 tracking-wide">BEAUTY</h3>
-              <p class="text-xs text-white/60">Beauty creators, makeup, skincare and product content.</p>
+              <h3 class="text-[15px] font-black text-white mb-2 tracking-widest uppercase">BEAUTY</h3>
+              <p class="text-xs text-white/70 font-medium">Beauty creators, makeup, skincare and product content.</p>
             </div>
             <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white transition shrink-0">
-              <i class="ph ph-arrow-right"></i>
+              <i class="ph ph-arrow-right text-sm"></i>
             </div>
           </div>
         </a>
 
         <!-- Card 3 -->
-        <a href="#" class="group relative h-[400px] rounded-lg overflow-hidden border border-brand-darkBorder block">
+        <a href="#" class="group relative h-[450px] rounded-sm overflow-hidden border border-brand-darkBorder block">
           <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop" alt="Fitness" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
             <div>
-              <h3 class="text-xl font-bold text-white mb-2 tracking-wide">FITNESS</h3>
-              <p class="text-xs text-white/60">Workout, wellness, transformation and instructional content.</p>
+              <h3 class="text-[15px] font-black text-white mb-2 tracking-widest uppercase">FITNESS</h3>
+              <p class="text-xs text-white/70 font-medium">Workout, wellness, transformation and instructional content.</p>
             </div>
             <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white transition shrink-0">
-              <i class="ph ph-arrow-right"></i>
+              <i class="ph ph-arrow-right text-sm"></i>
             </div>
           </div>
         </a>
@@ -440,22 +447,22 @@
   </section>
 
   <!-- CTA / PRE-FOOTER (LIGHT) -->
-  <section class="py-20 px-6 lg:px-12 border-b border-brand-border">
+  <section class="py-24 px-6 lg:px-16 border-b border-brand-border max-w-[1920px] mx-auto">
     <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-12">
       
-      <div class="w-full lg:w-1/2">
-        <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.1] text-brand-dark mb-4">
+      <div class="w-full lg:w-[45%]">
+        <h2 class="text-3xl lg:text-[2.5rem] font-black tracking-tight leading-[1.1] text-brand-dark mb-4">
           Be Part of India's<br>Growing Creator Economy.
         </h2>
-        <p class="text-sm font-semibold text-brand-dark/80">Launching in Bengaluru. Limited founding memberships.</p>
+        <p class="text-[13px] font-semibold text-brand-dark/80">Launching in Bengaluru. Limited founding memberships.</p>
       </div>
 
-      <div class="w-full lg:w-1/2 flex flex-col sm:flex-row justify-end items-center gap-4 lg:pr-12 lg:border-r border-brand-border">
-        <a href="#join" class="btn-dark px-6 py-4 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 w-full sm:w-auto justify-center">Join The Creator House <i class="ph ph-arrow-right"></i></a>
-        <a href="#book" class="btn-outline-dark px-6 py-4 rounded-md text-xs font-bold uppercase tracking-wide w-full sm:w-auto text-center">Book a Production Day</a>
+      <div class="w-full lg:w-[45%] flex flex-col sm:flex-row justify-end items-center gap-4 lg:pr-12 lg:border-r border-brand-border">
+        <a href="#join" class="btn-dark px-8 py-4 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 w-full sm:w-auto justify-center">Join The Creator House <i class="ph ph-arrow-right"></i></a>
+        <a href="#book" class="btn-outline-dark px-8 py-4 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] w-full sm:w-auto text-center">Book a Production Day</a>
       </div>
 
-      <div class="hidden lg:block text-[10px] font-bold text-brand-dark/50 uppercase tracking-widest leading-loose">
+      <div class="hidden lg:block text-[9px] font-bold text-brand-dark/60 uppercase tracking-[0.3em] leading-[1.8] w-[10%] pl-4">
         CREATE<br>COLLABORATE<br>GROW<br>ACROSS INDIA
       </div>
 
@@ -463,16 +470,16 @@
   </section>
 
   <!-- FOOTER (DARK) -->
-  <footer class="dark-section py-12 px-6 lg:px-12">
-    <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+  <footer class="dark-section py-16 px-6 lg:px-16">
+    <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
       
       <!-- Brand & Links -->
-      <div class="flex flex-col md:flex-row items-center gap-8">
+      <div class="flex flex-col md:flex-row items-center gap-10">
         <a href="/index.html" class="flex flex-col items-center">
-          <img src="../../assets/img/logo.png" alt="SZX Ventures" class="w-12 h-12 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition">
-          <span class="text-[8px] tracking-[0.2em] font-bold mt-2 opacity-50 uppercase">Ventures</span>
+          <img src="../../assets/img/logo.png" alt="SZX Ventures" class="w-12 h-12 object-contain brightness-0 invert opacity-90 hover:opacity-100 transition">
+          <span class="text-[8px] tracking-[0.3em] font-bold mt-2 opacity-50 uppercase">Ventures</span>
         </a>
-        <div class="flex flex-wrap justify-center gap-6 text-[11px] font-semibold tracking-wide uppercase text-white/50">
+        <div class="flex flex-wrap justify-center gap-8 text-[10px] font-bold tracking-[0.2em] uppercase text-white/50">
           <a href="/index.html" class="hover:text-white transition">Home</a>
           <a href="/philosophy.html" class="hover:text-white transition">About</a>
           <a href="/portfolio.html" class="hover:text-white transition">Our Ventures</a>
@@ -483,14 +490,14 @@
       </div>
 
       <!-- Social & Legal -->
-      <div class="flex flex-col items-center md:items-end gap-4">
-        <div class="flex gap-4 text-white/40">
-          <a href="#" class="hover:text-white transition text-lg"><i class="ph ph-linkedin-logo"></i></a>
-          <a href="#" class="hover:text-white transition text-lg"><i class="ph ph-instagram-logo"></i></a>
-          <a href="#" class="hover:text-white transition text-lg"><i class="ph ph-youtube-logo"></i></a>
-          <a href="#" class="hover:text-white transition text-lg"><i class="ph ph-x-logo"></i></a>
+      <div class="flex flex-col items-center md:items-end gap-5">
+        <div class="flex gap-6 text-white/50">
+          <a href="#" class="hover:text-white transition text-xl"><i class="ph ph-linkedin-logo"></i></a>
+          <a href="#" class="hover:text-white transition text-xl"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" class="hover:text-white transition text-xl"><i class="ph ph-youtube-logo"></i></a>
+          <a href="#" class="hover:text-white transition text-xl"><i class="ph ph-x-logo"></i></a>
         </div>
-        <div class="flex flex-wrap justify-center gap-4 text-[9px] text-white/30 uppercase tracking-wider">
+        <div class="flex flex-wrap justify-center gap-5 text-[9px] text-white/40 uppercase tracking-[0.15em] font-semibold">
           <span>&copy; 2026 SZX Ventures. All rights reserved.</span>
           <a href="/privacy.html" class="hover:text-white transition">Privacy</a>
           <a href="/terms.html" class="hover:text-white transition">Terms</a>
