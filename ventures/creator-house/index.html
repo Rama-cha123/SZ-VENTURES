@@ -4,507 +4,1449 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Creator House | SZX Ventures</title>
+  <meta name="description" content="Creator House by SZX Ventures is a premium creator production ecosystem in Bengaluru built for creators, models, influencers, UGC creators and digital-first talent.">
+  <meta property="og:title" content="Creator House | SZX Ventures">
+  <meta property="og:description" content="Creator House by SZX Ventures is a premium creator production ecosystem in Bengaluru built for creators, models, influencers, UGC creators and digital-first talent.">
+  <meta property="og:type" content="website">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
   
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            scribble: ['Caveat', 'cursive']
-          },
-          colors: {
-            brand: {
-              light: '#EBE9E2',
-              dark: '#1A1A1A',
-              cardDark: '#222222',
-              border: '#D9D6CB',
-              darkBorder: '#333333'
-            }
-          }
-        }
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #EAE8E1;
+      --bg-dark: #1A1A1A;
+      --card-dark: #222222;
+      --text: #1A1A1A;
+      --text-light: #F5F5F5;
+      --border: #D2CFC6;
+      --border-dark: #333333;
+      --muted: rgba(26,26,26,0.55);
+      --muted-light: rgba(255,255,255,0.5);
+      --gold: #E8C95A;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+    
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+    .btn-primary:hover { background: #333; }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--text);
+    }
+    .btn-outline:hover { background: rgba(0,0,0,0.04); }
+    
+    .btn-primary-light {
+      background: var(--bg);
+      color: var(--text);
+      border-color: var(--bg);
+    }
+    .btn-primary-light:hover { background: #DDD9CE; }
+    
+    .btn-outline-light {
+      background: transparent;
+      color: var(--text-light);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .btn-outline-light:hover { background: rgba(255,255,255,0.08); }
+    
+    /* Section labels */
+    .section-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    
+    /* Dark section */
+    .dark-section {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+    
+    /* Scribble font */
+    .font-scribble {
+      font-family: 'Caveat', cursive;
+    }
+    
+    /* Responsive container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    @media (min-width: 1024px) {
+      .container { padding: 0 48px; }
+    }
+
+    /* =========================================
+       NAVBAR
+       ========================================= */
+    .ch-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 1024px) {
+      .ch-nav { padding: 18px 48px; }
+    }
+    .ch-nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ch-nav__brand img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      filter: brightness(0);
+    }
+    .ch-nav__brand span {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .ch-nav__links {
+      display: none;
+      align-items: center;
+      gap: 36px;
+    }
+    @media (min-width: 1024px) {
+      .ch-nav__links { display: flex; }
+    }
+    .ch-nav__link {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .ch-nav__link:hover { color: var(--text); }
+    .ch-nav__link--active {
+      color: var(--text);
+      border-bottom: 1.5px solid var(--text);
+      padding-bottom: 2px;
+    }
+    .ch-nav__link--dropdown {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .ch-nav__cta {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .ch-nav__cta { display: inline-flex; }
+    }
+    .ch-nav__mobile {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text);
+    }
+    @media (min-width: 1024px) {
+      .ch-nav__mobile { display: none; }
+    }
+
+    /* =========================================
+       HERO
+       ========================================= */
+    .ch-hero {
+      display: flex;
+      flex-direction: column;
+      min-height: 80vh;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 1024px) {
+      .ch-hero { flex-direction: row; }
+    }
+    .ch-hero__content {
+      flex: 1;
+      padding: 48px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media (min-width: 1024px) {
+      .ch-hero__content {
+        padding: 64px 56px;
+        max-width: 50%;
       }
     }
-  </script>
-  <style>
-    body { background-color: #EBE9E2; color: #1A1A1A; -webkit-font-smoothing: antialiased; }
-    .dark-section { background-color: #1A1A1A; color: #F5F5F5; }
+    .ch-hero__eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .ch-hero__title {
+      font-size: clamp(56px, 8vw, 96px);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .ch-hero__subtitle {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 300;
+      line-height: 1.3;
+      color: rgba(26,26,26,0.8);
+      margin-bottom: 16px;
+      max-width: 480px;
+    }
+    .ch-hero__desc {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 36px;
+    }
+    .ch-hero__btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .ch-hero__location {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .ch-hero__location i { font-size: 16px; margin-top: 1px; }
+    .ch-hero__location a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      color: var(--muted);
+    }
+    .ch-hero__location a:hover { color: var(--text); }
     
-    .btn-dark { background-color: #1A1A1A; color: #FFFFFF; transition: all 0.3s ease; border: 1px solid #1A1A1A; font-weight: 700; }
-    .btn-dark:hover { background-color: #333333; }
-    
-    .btn-light { background-color: #EBE9E2; color: #1A1A1A; transition: all 0.3s ease; border: 1px solid #EBE9E2; font-weight: 700; }
-    .btn-light:hover { background-color: #DFDBD0; }
-    
-    .btn-outline-dark { background-color: transparent; color: #1A1A1A; border: 1px solid #1A1A1A; transition: all 0.3s ease; font-weight: 700; }
-    .btn-outline-dark:hover { background-color: rgba(0,0,0,0.05); }
-    
-    .btn-outline-light { background-color: transparent; color: #F5F5F5; border: 1px solid #F5F5F5; transition: all 0.3s ease; font-weight: 700; }
-    .btn-outline-light:hover { background-color: rgba(255,255,255,0.1); }
+    .ch-hero__image {
+      flex: 1;
+      position: relative;
+      min-height: 400px;
+      overflow: hidden;
+    }
+    @media (min-width: 1024px) {
+      .ch-hero__image { max-width: 50%; }
+    }
+    .ch-hero__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+    .ch-hero__overlay-top {
+      position: absolute;
+      top: 24px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      z-index: 2;
+    }
+    .ch-hero__overlay-tags {
+      display: flex;
+      gap: 12px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(26,26,26,0.7);
+    }
+    .ch-hero__overlay-tags span:not(:last-child)::after {
+      content: ' | ';
+      margin-left: 12px;
+      opacity: 0.3;
+    }
+    .ch-hero__overlay-badge {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: right;
+      line-height: 1.5;
+      color: rgba(26,26,26,0.7);
+    }
+    .ch-hero__scribble {
+      position: absolute;
+      top: 25%;
+      left: 15%;
+      transform: rotate(-6deg);
+      font-family: 'Caveat', cursive;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1;
+      color: rgba(26,26,26,0.8);
+      z-index: 2;
+      mix-blend-mode: multiply;
+    }
+
+    /* =========================================
+       THE PROBLEM
+       ========================================= */
+    .ch-problem {
+      padding: 80px 0;
+    }
+    @media (min-width: 1024px) {
+      .ch-problem { padding: 120px 0; }
+    }
+    .ch-problem__top {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    @media (min-width: 1024px) {
+      .ch-problem__top {
+        flex-direction: row;
+        gap: 64px;
+        align-items: flex-start;
+      }
+    }
+    .ch-problem__text {
+      flex: 1;
+    }
+    .ch-problem__text h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .ch-problem__text p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 380px;
+      font-weight: 500;
+    }
+    .ch-problem__visual {
+      flex: 1;
+      position: relative;
+    }
+    .ch-problem__visual img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      filter: grayscale(1);
+      opacity: 0.85;
+    }
+    @media (min-width: 1024px) {
+      .ch-problem__visual img { height: 380px; }
+    }
+    .ch-problem__scribble {
+      position: absolute;
+      top: 50%;
+      right: 10%;
+      transform: translateY(-50%) rotate(-2deg);
+      font-family: 'Caveat', cursive;
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text);
+      z-index: 2;
+      text-align: right;
+    }
+
+    /* Features Grid */
+    .ch-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (min-width: 768px) {
+      .ch-features { grid-template-columns: repeat(4, 1fr); }
+    }
+    .ch-feature {
+      border: 1px solid var(--border);
+      padding: 28px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      transition: background 0.25s;
+      cursor: default;
+    }
+    .ch-feature:hover { background: rgba(255,255,255,0.5); }
+    .ch-feature i { font-size: 28px; color: var(--text); }
+    .ch-feature span {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       WHAT IS CREATOR HOUSE
+       ========================================= */
+    .ch-about {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--border);
+    }
+    @media (min-width: 1024px) {
+      .ch-about { flex-direction: row; }
+    }
+    .ch-about__image {
+      position: relative;
+      min-height: 400px;
+      overflow: hidden;
+    }
+    @media (min-width: 1024px) {
+      .ch-about__image {
+        width: 50%;
+        min-height: 600px;
+        border-right: 1px solid var(--border);
+      }
+    }
+    .ch-about__image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ch-about__image-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
+    }
+    .ch-about__image-scribble {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Caveat', cursive;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--gold);
+      text-align: center;
+      z-index: 2;
+      text-shadow: 0 2px 20px rgba(232,201,90,0.3);
+    }
+    .ch-about__content {
+      padding: 48px 24px;
+    }
+    @media (min-width: 1024px) {
+      .ch-about__content {
+        width: 50%;
+        padding: 80px 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    .ch-about__content h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .ch-about__content p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-weight: 500;
+      max-width: 500px;
+    }
+    .ch-about__quote {
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .ch-about__quote p:first-child {
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .ch-about__quote p:last-child {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* =========================================
+       MEMBERSHIP
+       ========================================= */
+    .ch-membership {
+      padding: 80px 0;
+    }
+    @media (min-width: 1024px) {
+      .ch-membership { padding: 120px 0; }
+    }
+    .ch-membership__header {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 1024px) {
+      .ch-membership__header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+    .ch-membership__header h2 {
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+    .ch-membership__header p {
+      font-size: 13px;
+      color: var(--muted-light);
+      margin-top: 8px;
+    }
+    .ch-membership__price-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border-dark);
+      padding: 24px 40px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .ch-membership__price {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--text-light);
+      line-height: 1;
+    }
+    .ch-membership__price span {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted-light);
+    }
+    .ch-membership__price-sub {
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    /* Deliverables */
+    .ch-deliverables {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 768px) {
+      .ch-deliverables { grid-template-columns: repeat(4, 1fr); }
+    }
+    .ch-deliverable {
+      background: var(--card-dark);
+      border: 1px solid var(--border-dark);
+      padding: 28px 24px;
+      position: relative;
+    }
+    .ch-deliverable__num {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--text-light);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .ch-deliverable__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+    }
+    .ch-deliverable__icon {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 28px;
+      color: rgba(255,255,255,0.12);
+    }
+
+    /* Benefits */
+    .ch-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 1024px) {
+      .ch-benefits { flex-direction: row; }
+    }
+    .ch-benefits__list {
+      flex: 1;
+    }
+    .ch-benefits__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .ch-benefits__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .ch-benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+    }
+    .ch-benefit-item i {
+      font-size: 16px;
+      color: var(--text-light);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .ch-benefits__disclaimer {
+      font-size: 9px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 28px;
+    }
+    .ch-benefits__image {
+      width: 100%;
+      position: relative;
+      min-height: 300px;
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+    }
+    @media (min-width: 1024px) {
+      .ch-benefits__image { width: 35%; }
+    }
+    .ch-benefits__image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1);
+      opacity: 0.6;
+    }
+    .ch-benefits__image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.85), transparent);
+      z-index: 1;
+    }
+    .ch-benefits__image-text {
+      position: absolute;
+      bottom: 40px;
+      left: 32px;
+      z-index: 2;
+    }
+    .ch-benefits__image-text p {
+      font-size: 24px;
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1.15;
+      color: var(--text-light);
+      letter-spacing: -0.02em;
+    }
+    .ch-benefits__image-text div {
+      width: 32px;
+      height: 2px;
+      background: rgba(255,255,255,0.4);
+      margin-top: 20px;
+    }
+
+    .ch-membership__btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* =========================================
+       HOW IT WORKS
+       ========================================= */
+    .ch-how {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 1024px) {
+      .ch-how { padding: 120px 0; }
+    }
+    .ch-how__header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 64px;
+    }
+    @media (min-width: 1024px) {
+      .ch-how__header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+    .ch-how__aside {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      line-height: 1.6;
+      text-align: right;
+      max-width: 200px;
+    }
+    .ch-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+    @media (min-width: 1024px) {
+      .ch-steps {
+        flex-direction: row;
+        gap: 0;
+      }
+    }
+    .ch-step {
+      flex: 1;
+      position: relative;
+    }
+    @media (min-width: 1024px) {
+      .ch-step { padding-right: 24px; }
+    }
+    .ch-step__top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .ch-step__num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--text);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .ch-step__icon {
+      font-size: 22px;
+      color: var(--text);
+    }
+    .ch-step__arrow {
+      margin-left: auto;
+      font-size: 16px;
+      color: rgba(26,26,26,0.2);
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .ch-step__arrow { display: block; }
+    }
+    .ch-step h3 {
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .ch-step p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    /* =========================================
+       ENVIRONMENT
+       ========================================= */
+    .ch-env {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    @media (min-width: 1024px) {
+      .ch-env { padding: 120px 0; }
+    }
+    .ch-env__header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 1024px) {
+      .ch-env__header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+    .ch-env__aside {
+      font-size: 9px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      line-height: 1.6;
+      text-align: right;
+    }
+    .ch-env__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .ch-env__grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .ch-env-card {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+      display: block;
+    }
+    .ch-env-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+      opacity: 0.85;
+    }
+    .ch-env-card:hover img { transform: scale(1.05); }
+    .ch-env-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.15) 50%, transparent 100%);
+    }
+    .ch-env-card__content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .ch-env-card__content h3 {
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+    .ch-env-card__content p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+      max-width: 200px;
+    }
+    .ch-env-card__arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      flex-shrink: 0;
+      transition: all 0.25s;
+    }
+    .ch-env-card:hover .ch-env-card__arrow {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* =========================================
+       CTA SECTION
+       ========================================= */
+    .ch-cta {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .ch-cta__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    @media (min-width: 1024px) {
+      .ch-cta__inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .ch-cta__text h2 {
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .ch-cta__text p {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .ch-cta__btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .ch-cta__aside {
+      display: none;
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      line-height: 1.8;
+    }
+    @media (min-width: 1024px) {
+      .ch-cta__aside { display: block; }
+    }
+
+    /* =========================================
+       FOOTER
+       ========================================= */
+    .ch-footer {
+      padding: 48px 0;
+    }
+    .ch-footer__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .ch-footer__inner {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    .ch-footer__brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .ch-footer__brand-group {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+    }
+    .ch-footer__brand img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+    }
+    .ch-footer__brand span {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+    }
+    .ch-footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+    .ch-footer__links a {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.2s;
+    }
+    .ch-footer__links a:hover { color: #fff; }
+    .ch-footer__links a.active { color: #fff; }
+    .ch-footer__right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    @media (min-width: 768px) {
+      .ch-footer__right { align-items: flex-end; }
+    }
+    .ch-footer__social {
+      display: flex;
+      gap: 16px;
+    }
+    .ch-footer__social a {
+      font-size: 18px;
+      color: rgba(255,255,255,0.35);
+      transition: color 0.2s;
+    }
+    .ch-footer__social a:hover { color: #fff; }
+    .ch-footer__legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 9px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .ch-footer__legal a { color: rgba(255,255,255,0.3); transition: color 0.2s; }
+    .ch-footer__legal a:hover { color: #fff; }
   </style>
 </head>
-<body class="font-sans overflow-x-hidden">
+<body>
 
   <!-- NAVBAR -->
-  <nav class="w-full flex items-center justify-between px-6 lg:px-16 py-6 max-w-[1920px] mx-auto border-b border-brand-border">
-    <a href="/index.html" class="flex items-center gap-3">
-      <img src="../../assets/img/logo.png" alt="SZX Ventures" class="w-10 h-10 object-contain invert" style="filter: brightness(0);">
+  <nav class="ch-nav">
+    <a href="/index.html" class="ch-nav__brand">
+      <img src="../../assets/img/logo.png" alt="SZX Ventures Logo">
+      <span>Ventures</span>
     </a>
-    <div class="hidden lg:flex items-center gap-12 text-[11px] font-semibold tracking-widest text-brand-dark uppercase">
-      <a href="/index.html" class="hover:text-black/60 transition">Home</a>
-      <a href="/philosophy.html" class="hover:text-black/60 transition">About</a>
-      <a href="/portfolio.html" class="hover:text-black/60 transition flex items-center gap-1">Our Ventures <i class="ph ph-caret-down"></i></a>
-      <a href="/ventures/creator-house/index.html" class="text-black border-b border-black pb-1">Creator House</a>
-      <a href="/careers.html" class="hover:text-black/60 transition">Careers</a>
-      <a href="/contact.html" class="hover:text-black/60 transition">Contact</a>
+    <div class="ch-nav__links">
+      <a href="/index.html" class="ch-nav__link">Home</a>
+      <a href="/philosophy.html" class="ch-nav__link">About</a>
+      <a href="/portfolio.html" class="ch-nav__link ch-nav__link--dropdown">Our Ventures <i class="ph ph-caret-down" style="font-size:10px;"></i></a>
+      <a href="/ventures/creator-house/index.html" class="ch-nav__link ch-nav__link--active">Creator House</a>
+      <a href="/careers.html" class="ch-nav__link">Careers</a>
+      <a href="/contact.html" class="ch-nav__link">Contact</a>
     </div>
-    <a href="#join" class="hidden lg:flex btn-dark px-6 py-2.5 text-[10px] uppercase tracking-widest items-center gap-2 rounded-sm">Join Now <i class="ph ph-arrow-right"></i></a>
-    <button class="lg:hidden text-2xl"><i class="ph ph-list"></i></button>
+    <a href="#join" class="ch-nav__cta btn btn-primary" style="padding:10px 22px;">Join Now <i class="ph ph-arrow-right"></i></a>
+    <button class="ch-nav__mobile" aria-label="Open menu"><i class="ph ph-list"></i></button>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="flex flex-col lg:flex-row min-h-[85vh] max-w-[1920px] mx-auto border-b border-brand-border">
-    
-    <!-- Left Content -->
-    <div class="w-full lg:w-1/2 px-6 lg:px-16 py-16 flex flex-col justify-center">
-      <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-dark mb-6">SZX Ventures</span>
-      <h1 class="text-[4rem] lg:text-[6rem] xl:text-[7rem] font-black tracking-tighter text-brand-dark leading-[0.9] mb-8 uppercase">
-        Creator<br>House
-      </h1>
-      <h2 class="text-2xl lg:text-3xl font-light text-brand-dark/80 tracking-tight leading-snug mb-4 max-w-lg">
-        Your Content. Your Space.<br>Your Production Engine.
-      </h2>
-      <p class="text-[13px] text-brand-dark/70 mb-10 max-w-md leading-relaxed font-medium">
+  <!-- HERO -->
+  <section class="ch-hero">
+    <div class="ch-hero__content">
+      <span class="ch-hero__eyebrow">SZX Ventures</span>
+      <h1 class="ch-hero__title">CREATOR<br>HOUSE</h1>
+      <h2 class="ch-hero__subtitle">Your Content. Your Space.<br>Your Production Engine.</h2>
+      <p class="ch-hero__desc">
         A premium production ecosystem built for creators, models, influencers, UGC creators and digital-first talent — giving you the space, infrastructure and production support to create consistently.
       </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 mb-8">
-        <a href="#join" class="btn-dark px-6 py-4 text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 rounded-sm">Join The Creator House <i class="ph ph-arrow-right"></i></a>
-        <a href="#book" class="btn-outline-dark px-6 py-4 text-[10px] uppercase tracking-widest text-center rounded-sm">Book a Production Day</a>
+      <div class="ch-hero__btns">
+        <a href="/contact.html?subject=Creator%20House%20Membership" class="btn btn-primary">Join The Creator House <i class="ph ph-arrow-right"></i></a>
+        <a href="/contact.html?subject=Book%20Production%20Day" class="btn btn-outline">Book a Production Day</a>
       </div>
-      
-      <div class="flex items-start gap-3 mt-4 text-xs font-semibold text-brand-dark">
-        <i class="ph-fill ph-map-pin text-lg"></i>
-        <div class="leading-relaxed">
+      <div class="ch-hero__location">
+        <i class="ph-fill ph-map-pin"></i>
+        <div>
           Launching in Bengaluru.<br>
-          <a href="#" class="underline decoration-1 underline-offset-4 text-brand-dark hover:text-black">Limited founding memberships.</a>
+          <a href="#join" data-cms-key="foundingMembershipText">Limited founding memberships.</a>
         </div>
       </div>
     </div>
-
-    <!-- Right Image -->
-    <div class="w-full lg:w-1/2 relative min-h-[500px]">
-      <img src="https://images.unsplash.com/photo-1595856149818-49520a2cc121?q=80&w=2000&auto=format&fit=crop" alt="Creator in studio" class="w-full h-full object-cover">
-      
-      <!-- Top nav overlay -->
-      <div class="absolute top-8 left-8 right-8 flex justify-between items-start text-[9px] font-bold tracking-[0.2em] text-brand-dark uppercase mix-blend-color-burn">
-        <div class="flex gap-4">
-          <span>People</span><span class="opacity-30">v</span>
-          <span>Content</span><span class="opacity-30">v</span>
-          <span>Brands</span><span class="opacity-30">v</span>
+    <div class="ch-hero__image">
+      <img src="https://images.unsplash.com/photo-1595856149818-49520a2cc121?q=80&w=2000&auto=format&fit=crop" alt="Creator in professional studio" loading="eager">
+      <div class="ch-hero__overlay-top">
+        <div class="ch-hero__overlay-tags">
+          <span>People</span>
+          <span>Content</span>
+          <span>Brands</span>
           <span>Opportunities</span>
         </div>
-        <div class="text-right leading-[1.4] opacity-80">India's Next<br>Gen Creator<br>Ecosystem</div>
+        <div class="ch-hero__overlay-badge">India's Next<br>Gen Creator<br>Ecosystem</div>
       </div>
-
-      <!-- Scribble text -->
-      <div class="absolute top-1/4 left-[10%] transform -rotate-6 font-scribble text-4xl lg:text-5xl text-brand-dark leading-none mix-blend-color-burn">
-        CREATE<br>SHOOT<br>EDIT<br>GROW
-      </div>
+      <div class="ch-hero__scribble">CREATE<br>SHOOT<br>EDIT<br>GROW</div>
     </div>
   </section>
 
-  <!-- THE PROBLEM SECTION -->
-  <section class="py-24 lg:py-32 px-6 lg:px-16 max-w-[1920px] mx-auto">
-    <div class="flex flex-col lg:flex-row gap-20 mb-20 items-start">
-      
-      <!-- Text -->
-      <div class="w-full lg:w-[45%]">
-        <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-dark/50 mb-6 block">The Problem</span>
-        <h2 class="text-3xl lg:text-5xl font-black tracking-tight leading-[1.1] mb-8 uppercase">
-          CREATING CONTENT SHOULDN'T BE THIS COMPLICATED.
-        </h2>
-        <p class="text-[13px] text-brand-dark/70 leading-relaxed max-w-sm font-medium">
-          Creators today have to coordinate studios, photographers, lighting, locations, editors, equipment, props and production teams separately.<br><br>
-          Creator House brings the essential production ecosystem together in one place.
-        </p>
-      </div>
-
-      <!-- Image -->
-      <div class="w-full lg:w-[55%] relative">
-        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1500&auto=format&fit=crop" alt="Stressed Creator" class="w-full h-72 lg:h-[400px] object-cover grayscale opacity-90 rounded-sm">
-        <div class="absolute top-1/2 -left-16 transform -translate-y-1/2 -rotate-3 font-scribble text-3xl lg:text-5xl text-brand-dark leading-tight z-10 whitespace-nowrap">
-          DIFFERENT<br>PEOPLE...<br>DIFFERENT TOOLS...<br>TOO MUCH TO MANAGE.
+  <!-- THE PROBLEM -->
+  <section class="ch-problem">
+    <div class="container">
+      <div class="ch-problem__top">
+        <div class="ch-problem__text">
+          <span class="section-label" style="color:var(--muted);">The Problem</span>
+          <h2>CREATING CONTENT SHOULDN'T BE THIS COMPLICATED.</h2>
+          <p>
+            Creators today have to coordinate studios, photographers, lighting, locations, editors, equipment, props and production teams separately.<br><br>
+            Creator House brings the essential production ecosystem together in one place.
+          </p>
         </div>
-        <div class="absolute top-1/2 -left-20 w-16 h-px bg-brand-dark/20"></div>
+        <div class="ch-problem__visual">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1500&auto=format&fit=crop" alt="Creator managing multiple tasks" loading="lazy">
+          <div class="ch-problem__scribble">
+            DIFFERENT<br>PEOPLE...<br>DIFFERENT TOOLS...<br>TOO MUCH TO MANAGE.
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Features Grid -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
-        <i class="ph ph-camera text-4xl text-brand-dark"></i>
-        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Professional<br>Photography</span>
-      </div>
-      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
-        <i class="ph ph-play-circle text-4xl text-brand-dark"></i>
-        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Reels & Video<br>Production</span>
-      </div>
-      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
-        <i class="ph ph-cube text-4xl text-brand-dark"></i>
-        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Flexible<br>Content Spaces</span>
-      </div>
-      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
-        <i class="ph ph-lightbulb text-4xl text-brand-dark"></i>
-        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Lighting &<br>Production Setup</span>
-      </div>
-      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
-        <i class="ph ph-coat-hanger text-4xl text-brand-dark"></i>
-        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Props & Styling<br>Resources</span>
-      </div>
-      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
-        <i class="ph ph-users text-4xl text-brand-dark"></i>
-        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Creator<br>Collaborations</span>
-      </div>
-      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
-        <i class="ph ph-megaphone text-4xl text-brand-dark"></i>
-        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Brand<br>Opportunities</span>
-      </div>
-      <div class="border border-brand-border/60 rounded-sm py-8 px-6 flex flex-col items-center text-center gap-4 bg-brand-light/20 hover:bg-white/50 transition duration-300">
-        <i class="ph ph-gear text-4xl text-brand-dark"></i>
-        <span class="text-[11px] font-bold tracking-widest leading-tight uppercase">Professional<br>Production Support</span>
+      <!-- Features Grid -->
+      <div class="ch-features">
+        <div class="ch-feature">
+          <i class="ph ph-camera"></i>
+          <span>Professional<br>Photography</span>
+        </div>
+        <div class="ch-feature">
+          <i class="ph ph-play-circle"></i>
+          <span>Reels & Video<br>Production</span>
+        </div>
+        <div class="ch-feature">
+          <i class="ph ph-cube"></i>
+          <span>Flexible<br>Content Spaces</span>
+        </div>
+        <div class="ch-feature">
+          <i class="ph ph-lightbulb"></i>
+          <span>Lighting &<br>Production Setup</span>
+        </div>
+        <div class="ch-feature">
+          <i class="ph ph-coat-hanger"></i>
+          <span>Props & Styling<br>Resources</span>
+        </div>
+        <div class="ch-feature">
+          <i class="ph ph-users"></i>
+          <span>Creator<br>Collaborations</span>
+        </div>
+        <div class="ch-feature">
+          <i class="ph ph-megaphone"></i>
+          <span>Brand<br>Opportunities</span>
+        </div>
+        <div class="ch-feature">
+          <i class="ph ph-gear"></i>
+          <span>Professional<br>Production Support</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- WHAT IS CREATOR HOUSE -->
-  <section class="max-w-[1920px] mx-auto border-t border-brand-border">
-    <div class="flex flex-col lg:flex-row">
-      <!-- Left Image -->
-      <div class="w-full lg:w-1/2 min-h-[400px] lg:min-h-[600px] relative border-r border-brand-border">
-        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1740&auto=format&fit=crop" alt="Dark Studio Room" class="w-full h-full object-cover grayscale opacity-90">
-        <div class="absolute inset-0 bg-black/50"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-scribble text-4xl lg:text-5xl text-[#F2D780] leading-tight text-center drop-shadow-lg w-full">
-          GOOD<br>CREATORS<br>BUILD<br>GREAT<br>BRANDS
-        </div>
-      </div>
-      
-      <!-- Right Text -->
-      <div class="w-full lg:w-1/2 p-10 lg:p-24 flex flex-col justify-center">
-        <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-dark/50 mb-4 block">What is Creator House?</span>
-        <h2 class="text-3xl lg:text-5xl font-black tracking-tight leading-[1.1] mb-10 uppercase">
-          MORE THAN A STUDIO.
-        </h2>
-        <p class="text-[13px] text-brand-dark/80 leading-relaxed mb-6 font-medium">
-          Creator House is being built as a recurring production ecosystem for India's creator economy.
-        </p>
-        <p class="text-[13px] text-brand-dark/70 leading-relaxed mb-10 max-w-lg">
-          Members get access to professional production infrastructure designed around the way modern creators actually work — from Instagram reels and professional photography to long-form video, podcasts, UGC, brand content and personal-brand building.
-        </p>
-        <div>
-          <p class="text-[13px] text-brand-dark/70 mb-1 font-medium">The goal is simple:</p>
-          <p class="text-[13px] font-bold text-brand-dark">Make professional content production easier, faster and more accessible.</p>
-        </div>
+  <section class="ch-about">
+    <div class="ch-about__image">
+      <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1740&auto=format&fit=crop" alt="Professional production studio" loading="lazy">
+      <div class="ch-about__image-overlay"></div>
+      <div class="ch-about__image-scribble">GOOD<br>CREATORS<br>BUILD<br>GREAT<br>BRANDS</div>
+    </div>
+    <div class="ch-about__content">
+      <span class="section-label" style="color:var(--muted);">What is Creator House?</span>
+      <h2>MORE THAN A STUDIO.</h2>
+      <p>Creator House is being built as a recurring production ecosystem for India's creator economy.</p>
+      <p>Members get access to professional production infrastructure designed around the way modern creators actually work — from Instagram reels and professional photography to long-form video, podcasts, UGC, brand content and personal-brand building.</p>
+      <div class="ch-about__quote">
+        <p>The goal is simple:</p>
+        <p>Make professional content production easier, faster and more accessible.</p>
       </div>
     </div>
   </section>
 
-  <!-- MEMBERSHIP (DARK) -->
-  <section class="dark-section py-24 lg:py-32 px-6 lg:px-16 border-b border-brand-darkBorder">
-    <div class="max-w-[1400px] mx-auto">
+  <!-- MEMBERSHIP -->
+  <section class="dark-section ch-membership" id="join">
+    <div class="container">
       
-      <!-- Header -->
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
+      <div class="ch-membership__header">
         <div>
-          <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 mb-4 block">Membership</span>
-          <h2 class="text-3xl lg:text-4xl font-black tracking-tight leading-[1.1] mb-4 uppercase">
-            THE CREATOR PRODUCTION MEMBERSHIP
-          </h2>
-          <p class="text-[13px] text-white/60">A complete production ecosystem. Designed for consistent creators.</p>
+          <span class="section-label" style="color:rgba(255,255,255,0.35);">Membership</span>
+          <h2>THE CREATOR PRODUCTION MEMBERSHIP</h2>
+          <p>A complete production ecosystem. Designed for consistent creators.</p>
         </div>
-        <div class="bg-brand-cardDark border border-brand-darkBorder rounded-sm px-10 py-6 flex flex-col items-center justify-center">
-          <div class="text-4xl font-black flex items-baseline gap-2 text-white">₹3,499 <span class="text-sm font-bold text-white/60 tracking-wider">/ MONTH</span></div>
-          <div class="text-[10px] text-white/40 uppercase tracking-widest mt-2">+ applicable taxes</div>
+        <div class="ch-membership__price-card">
+          <div class="ch-membership__price">₹3,499 <span>/ MONTH</span></div>
+          <div class="ch-membership__price-sub">+ applicable taxes</div>
         </div>
       </div>
 
-      <!-- Deliverables Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-        <div class="bg-brand-cardDark border border-brand-darkBorder rounded-sm p-8 relative flex flex-col">
-          <div class="text-5xl font-black text-white mb-8">12</div>
-          <div class="text-[10px] font-bold tracking-[0.15em] leading-[1.6] text-white/80 uppercase">PROFESSIONALLY<br>EDITED PHOTOS /<br>MONTH</div>
-          <i class="ph ph-image absolute top-8 right-8 text-3xl text-white/20"></i>
+      <div class="ch-deliverables">
+        <div class="ch-deliverable">
+          <div class="ch-deliverable__num">12</div>
+          <div class="ch-deliverable__label">Professionally<br>Edited Photos /<br>Month</div>
+          <i class="ph ph-image ch-deliverable__icon"></i>
         </div>
-        <div class="bg-brand-cardDark border border-brand-darkBorder rounded-sm p-8 relative flex flex-col">
-          <div class="text-5xl font-black text-white mb-8">3</div>
-          <div class="text-[10px] font-bold tracking-[0.15em] leading-[1.6] text-white/80 uppercase">SHORT-FORM<br>VIDEOS / REELS /<br>MONTH</div>
-          <i class="ph ph-video-camera absolute top-8 right-8 text-3xl text-white/20"></i>
+        <div class="ch-deliverable">
+          <div class="ch-deliverable__num">3</div>
+          <div class="ch-deliverable__label">Short-Form<br>Videos / Reels /<br>Month</div>
+          <i class="ph ph-video-camera ch-deliverable__icon"></i>
         </div>
-        <div class="bg-brand-cardDark border border-brand-darkBorder rounded-sm p-8 relative flex flex-col">
-          <div class="text-5xl font-black text-white mb-8">1</div>
-          <div class="text-[10px] font-bold tracking-[0.15em] leading-[1.6] text-white/80 uppercase">LONG-FORM VIDEO<br>UP TO 10-12 MINUTES<br>&nbsp;</div>
-          <i class="ph ph-monitor-play absolute top-8 right-8 text-3xl text-white/20"></i>
+        <div class="ch-deliverable">
+          <div class="ch-deliverable__num">1</div>
+          <div class="ch-deliverable__label">Long-Form Video<br>Up to 10–12 Minutes</div>
+          <i class="ph ph-monitor-play ch-deliverable__icon"></i>
         </div>
-        <div class="bg-brand-cardDark border border-brand-darkBorder rounded-sm p-8 relative flex flex-col">
-          <div class="text-5xl font-black text-white mb-8">2</div>
-          <div class="text-[10px] font-bold tracking-[0.15em] leading-[1.6] text-white/80 uppercase">CREATOR HOUSE<br>ACCESS DAYS /<br>MONTH</div>
-          <i class="ph ph-calendar-blank absolute top-8 right-8 text-3xl text-white/20"></i>
+        <div class="ch-deliverable">
+          <div class="ch-deliverable__num">2</div>
+          <div class="ch-deliverable__label">Creator House<br>Access Days /<br>Month</div>
+          <i class="ph ph-calendar-blank ch-deliverable__icon"></i>
         </div>
       </div>
 
-      <!-- Benefits & Image -->
-      <div class="flex flex-col lg:flex-row gap-16 mb-16">
-        <div class="w-full lg:w-[65%]">
-          <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 mb-8 block">Additional Benefits</span>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-10">
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Professional production environment</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Lifestyle/content zones</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Photography support</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Kitchen/food content capability</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Flexible content setups</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Podcast/interview capability</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Lighting infrastructure</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Creator collaboration opportunities</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Props & content resources</span></div>
-            <div class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-white mt-0.5 text-lg"></i><span class="text-[13px] font-medium text-white/80">Access to selected creator/brand opportunities</span></div>
+      <div class="ch-benefits">
+        <div class="ch-benefits__list">
+          <span class="section-label" style="color:rgba(255,255,255,0.35);">Additional Benefits</span>
+          <div class="ch-benefits__grid">
+            <div class="ch-benefit-item"><i class="ph-fill ph-check-circle"></i><span>Professional production environment</span></div>
+            <div class="ch-benefit-item"><i class="ph-fill ph-check-circle"></i><span>Lifestyle/content zones</span></div>
+            <div class="ch-benefit-item"><i class="ph-fill ph-check-circle"></i><span>Photography support</span></div>
+            <div class="ch-benefit-item"><i class="ph-fill ph-check-circle"></i><span>Kitchen/food content capability</span></div>
+            <div class="ch-benefit-item"><i class="ph-fill ph-check-circle"></i><span>Flexible content setups</span></div>
+            <div class="ch-benefit-item"><i class="ph-fill ph-check-circle"></i><span>Podcast/interview capability</span></div>
+            <div class="ch-benefit-item"><i class="ph-fill ph-check-circle"></i><span>Lighting infrastructure</span></div>
+            <div class="ch-benefit-item"><i class="ph-fill ph-check-circle"></i><span>Creator collaboration opportunities</span></div>
+            <div class="ch-benefit-item"><i class="ph-fill ph-check-circle"></i><span>Props & content resources</span></div>
+            <div class="ch-benefit-item"><i class="ph-fill ph-check-circle"></i><span>Access to selected creator/brand opportunities</span></div>
           </div>
-          <p class="text-[9px] text-white/30 uppercase tracking-[0.2em] mt-10">All production and access are subject to advance booking and availability.</p>
+          <p class="ch-benefits__disclaimer">All production and access are subject to advance booking and availability.</p>
         </div>
-
-        <div class="w-full lg:w-[35%] relative min-h-[350px] rounded-sm overflow-hidden border border-brand-darkBorder">
-          <img src="https://images.unsplash.com/photo-1596700683073-7729f2da8b74?q=80&w=800&auto=format&fit=crop" alt="Shadow portrait" class="w-full h-full object-cover grayscale opacity-70">
-          <div class="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent"></div>
-          <div class="absolute bottom-12 left-10">
-            <div class="font-sans italic font-black text-[1.75rem] text-white leading-[1.1] tracking-tight">
-              SAME<br>CREATORS.<br>BIGGER<br>STORIES.
-            </div>
-            <div class="w-10 h-0.5 bg-brand-light/50 mt-6"></div>
+        <div class="ch-benefits__image">
+          <img src="https://images.unsplash.com/photo-1596700683073-7729f2da8b74?q=80&w=800&auto=format&fit=crop" alt="Creator portrait" loading="lazy">
+          <div class="ch-benefits__image-overlay"></div>
+          <div class="ch-benefits__image-text">
+            <p>SAME<br>CREATORS.<br>BIGGER<br>STORIES.</p>
+            <div></div>
           </div>
         </div>
       </div>
 
-      <!-- Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="#become-member" class="btn-light px-8 py-4 rounded-sm text-[10px] uppercase tracking-widest flex items-center justify-center gap-2">Become A Member <i class="ph ph-arrow-right"></i></a>
-        <a href="#details" class="btn-outline-light px-8 py-4 rounded-sm text-[10px] uppercase tracking-widest text-center">Request Membership Details</a>
+      <div class="ch-membership__btns">
+        <a href="/contact.html?subject=Creator%20House%20Membership" class="btn btn-primary-light">Become A Member <i class="ph ph-arrow-right"></i></a>
+        <a href="/contact.html?subject=Request%20Membership%20Details" class="btn btn-outline-light">Request Membership Details</a>
       </div>
 
     </div>
   </section>
 
-  <!-- HOW IT WORKS (LIGHT) -->
-  <section class="py-24 lg:py-32 px-6 lg:px-16 border-b border-brand-border max-w-[1920px] mx-auto">
-    <div class="max-w-[1400px] mx-auto">
+  <!-- HOW IT WORKS -->
+  <section class="ch-how">
+    <div class="container">
       
-      <!-- Header -->
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-24 gap-8">
+      <div class="ch-how__header">
         <div>
-          <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-dark/50 mb-4 block">How It Works</span>
-          <h2 class="text-3xl lg:text-4xl font-black tracking-tight leading-[1.1] uppercase">
-            FROM IDEA TO PUBLISHED CONTENT.
-          </h2>
+          <span class="section-label" style="color:var(--muted);">How It Works</span>
+          <h2 class="section-title">FROM IDEA TO PUBLISHED CONTENT.</h2>
         </div>
-        <div class="text-[9px] font-bold text-brand-dark/50 uppercase tracking-[0.2em] text-right max-w-[200px] leading-[1.6]">
-          CONSISTENT CONTENT BUILDS BIGGER OPPORTUNITIES.
+        <div class="ch-how__aside">Consistent Content<br>Builds Bigger Opportunities.</div>
+      </div>
+
+      <div class="ch-steps">
+        <div class="ch-step">
+          <div class="ch-step__top">
+            <div class="ch-step__num">01</div>
+            <i class="ph ph-calendar-blank ch-step__icon"></i>
+            <i class="ph ph-arrow-right ch-step__arrow"></i>
+          </div>
+          <h3>Book</h3>
+          <p>Choose your production slot through the Creator House booking system.</p>
+        </div>
+        <div class="ch-step">
+          <div class="ch-step__top">
+            <div class="ch-step__num">02</div>
+            <i class="ph ph-lightbulb ch-step__icon"></i>
+            <i class="ph ph-arrow-right ch-step__arrow"></i>
+          </div>
+          <h3>Create</h3>
+          <p>Arrive with your concept, wardrobe and ideas.</p>
+        </div>
+        <div class="ch-step">
+          <div class="ch-step__top">
+            <div class="ch-step__num">03</div>
+            <i class="ph ph-camera ch-step__icon"></i>
+            <i class="ph ph-arrow-right ch-step__arrow"></i>
+          </div>
+          <h3>Shoot</h3>
+          <p>Our production team handles photography/video capture and the production environment.</p>
+        </div>
+        <div class="ch-step">
+          <div class="ch-step__top">
+            <div class="ch-step__num">04</div>
+            <i class="ph ph-pen-nib ch-step__icon"></i>
+            <i class="ph ph-arrow-right ch-step__arrow"></i>
+          </div>
+          <h3>Edit</h3>
+          <p>Post-production is handled through our centralized professional editing workflow.</p>
+        </div>
+        <div class="ch-step">
+          <div class="ch-step__top">
+            <div class="ch-step__num">05</div>
+            <i class="ph ph-paper-plane-right ch-step__icon"></i>
+          </div>
+          <h3>Receive</h3>
+          <p>Final content is delivered digitally within the defined turnaround window.</p>
         </div>
       </div>
 
-      <!-- Stepper -->
-      <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-6 mb-24 relative">
-        
-        <!-- Step 1 -->
-        <div class="flex-1 flex flex-col relative">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">01</div>
-            <i class="ph ph-calendar-blank text-2xl text-brand-dark"></i>
-            <i class="ph ph-arrow-right text-brand-dark/30 ml-auto hidden lg:block mr-2"></i>
-          </div>
-          <h3 class="font-black text-sm mb-3 uppercase tracking-wide">BOOK</h3>
-          <p class="text-[13px] text-brand-dark/70 leading-relaxed pr-4 font-medium">Choose your production slot through the Creator House booking system.</p>
-        </div>
-        
-        <!-- Step 2 -->
-        <div class="flex-1 flex flex-col relative">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">02</div>
-            <i class="ph ph-lightbulb text-2xl text-brand-dark"></i>
-            <i class="ph ph-arrow-right text-brand-dark/30 ml-auto hidden lg:block mr-2"></i>
-          </div>
-          <h3 class="font-black text-sm mb-3 uppercase tracking-wide">CREATE</h3>
-          <p class="text-[13px] text-brand-dark/70 leading-relaxed pr-4 font-medium">Arrive with your concept, wardrobe and ideas.</p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="flex-1 flex flex-col relative">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">03</div>
-            <i class="ph ph-camera text-2xl text-brand-dark"></i>
-            <i class="ph ph-arrow-right text-brand-dark/30 ml-auto hidden lg:block mr-2"></i>
-          </div>
-          <h3 class="font-black text-sm mb-3 uppercase tracking-wide">SHOOT</h3>
-          <p class="text-[13px] text-brand-dark/70 leading-relaxed pr-4 font-medium">Our production team handles photography/video capture and the production environment.</p>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="flex-1 flex flex-col relative">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">04</div>
-            <i class="ph ph-pen-nib text-2xl text-brand-dark"></i>
-            <i class="ph ph-arrow-right text-brand-dark/30 ml-auto hidden lg:block mr-2"></i>
-          </div>
-          <h3 class="font-black text-sm mb-3 uppercase tracking-wide">EDIT</h3>
-          <p class="text-[13px] text-brand-dark/70 leading-relaxed pr-4 font-medium">Post-production is handled through our centralized professional editing workflow.</p>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="flex-1 flex flex-col relative">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">05</div>
-            <i class="ph ph-paper-plane-right text-2xl text-brand-dark"></i>
-          </div>
-          <h3 class="font-black text-sm mb-3 uppercase tracking-wide">RECEIVE</h3>
-          <p class="text-[13px] text-brand-dark/70 leading-relaxed pr-4 font-medium">Final content is delivered digitally within the defined turnaround window.</p>
-        </div>
-
-      </div>
-
-      <div class="text-center">
-        <a href="#create" class="btn-dark inline-flex items-center gap-2 px-8 py-4 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em]">Start Creating <i class="ph ph-arrow-right"></i></a>
+      <div style="text-align:center;">
+        <a href="/contact.html?subject=Book%20Production" class="btn btn-primary">Start Creating <i class="ph ph-arrow-right"></i></a>
       </div>
 
     </div>
   </section>
 
-  <!-- ENVIRONMENT (DARK) -->
-  <section class="dark-section py-24 lg:py-32 px-6 lg:px-16 border-b border-brand-darkBorder">
-    <div class="max-w-[1400px] mx-auto">
+  <!-- ENVIRONMENT -->
+  <section class="dark-section ch-env">
+    <div class="container">
       
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
+      <div class="ch-env__header">
         <div>
-          <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 mb-4 block">Creator House Environment</span>
-          <h2 class="text-3xl lg:text-4xl font-black tracking-tight leading-[1.1] uppercase">
-            BUILT FOR DIFFERENT TYPES OF CREATORS.
-          </h2>
+          <span class="section-label" style="color:rgba(255,255,255,0.35);">Creator House Environment</span>
+          <h2 class="section-title">BUILT FOR DIFFERENT TYPES OF CREATORS.</h2>
         </div>
-        <div class="text-[9px] font-bold text-white/40 uppercase tracking-[0.2em] text-right max-w-[200px] leading-[1.6]">
-          DIFFERENT NICHES.<br>A BIGGER CREATOR ECONOMY.
-        </div>
+        <div class="ch-env__aside">Different Niches.<br>A Bigger Creator Economy.</div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Card 1 -->
-        <a href="#" class="group relative h-[450px] rounded-sm overflow-hidden border border-brand-darkBorder block">
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Fashion" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
+      <div class="ch-env__grid">
+        <a href="#" class="ch-env-card">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Fashion creator shoot" loading="lazy">
+          <div class="ch-env-card__overlay"></div>
+          <div class="ch-env-card__content">
             <div>
-              <h3 class="text-[15px] font-black text-white mb-2 tracking-widest uppercase">FASHION</h3>
-              <p class="text-xs text-white/70 font-medium">Lifestyle, fashion shoots, lookbooks and personal branding.</p>
+              <h3>FASHION</h3>
+              <p>Lifestyle, fashion shoots, lookbooks and personal branding.</p>
             </div>
-            <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white transition shrink-0">
-              <i class="ph ph-arrow-right text-sm"></i>
-            </div>
+            <div class="ch-env-card__arrow"><i class="ph ph-arrow-right"></i></div>
           </div>
         </a>
-
-        <!-- Card 2 -->
-        <a href="#" class="group relative h-[450px] rounded-sm overflow-hidden border border-brand-darkBorder block">
-          <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop" alt="Beauty" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
+        <a href="#" class="ch-env-card">
+          <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop" alt="Beauty content production" loading="lazy">
+          <div class="ch-env-card__overlay"></div>
+          <div class="ch-env-card__content">
             <div>
-              <h3 class="text-[15px] font-black text-white mb-2 tracking-widest uppercase">BEAUTY</h3>
-              <p class="text-xs text-white/70 font-medium">Beauty creators, makeup, skincare and product content.</p>
+              <h3>BEAUTY</h3>
+              <p>Beauty creators, makeup, skincare and product content.</p>
             </div>
-            <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white transition shrink-0">
-              <i class="ph ph-arrow-right text-sm"></i>
-            </div>
+            <div class="ch-env-card__arrow"><i class="ph ph-arrow-right"></i></div>
           </div>
         </a>
-
-        <!-- Card 3 -->
-        <a href="#" class="group relative h-[450px] rounded-sm overflow-hidden border border-brand-darkBorder block">
-          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop" alt="Fitness" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
+        <a href="#" class="ch-env-card">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop" alt="Fitness production" loading="lazy">
+          <div class="ch-env-card__overlay"></div>
+          <div class="ch-env-card__content">
             <div>
-              <h3 class="text-[15px] font-black text-white mb-2 tracking-widest uppercase">FITNESS</h3>
-              <p class="text-xs text-white/70 font-medium">Workout, wellness, transformation and instructional content.</p>
+              <h3>FITNESS</h3>
+              <p>Workout, wellness, transformation and instructional content.</p>
             </div>
-            <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white transition shrink-0">
-              <i class="ph ph-arrow-right text-sm"></i>
-            </div>
+            <div class="ch-env-card__arrow"><i class="ph ph-arrow-right"></i></div>
           </div>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA / PRE-FOOTER (LIGHT) -->
-  <section class="py-24 px-6 lg:px-16 border-b border-brand-border max-w-[1920px] mx-auto">
-    <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-12">
-      
-      <div class="w-full lg:w-[45%]">
-        <h2 class="text-3xl lg:text-[2.5rem] font-black tracking-tight leading-[1.1] text-brand-dark mb-4">
-          Be Part of India's<br>Growing Creator Economy.
-        </h2>
-        <p class="text-[13px] font-semibold text-brand-dark/80">Launching in Bengaluru. Limited founding memberships.</p>
-      </div>
-
-      <div class="w-full lg:w-[45%] flex flex-col sm:flex-row justify-end items-center gap-4 lg:pr-12 lg:border-r border-brand-border">
-        <a href="#join" class="btn-dark px-8 py-4 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 w-full sm:w-auto justify-center">Join The Creator House <i class="ph ph-arrow-right"></i></a>
-        <a href="#book" class="btn-outline-dark px-8 py-4 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] w-full sm:w-auto text-center">Book a Production Day</a>
-      </div>
-
-      <div class="hidden lg:block text-[9px] font-bold text-brand-dark/60 uppercase tracking-[0.3em] leading-[1.8] w-[10%] pl-4">
-        CREATE<br>COLLABORATE<br>GROW<br>ACROSS INDIA
       </div>
 
     </div>
   </section>
 
-  <!-- FOOTER (DARK) -->
-  <footer class="dark-section py-16 px-6 lg:px-16">
-    <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-      
-      <!-- Brand & Links -->
-      <div class="flex flex-col md:flex-row items-center gap-10">
-        <a href="/index.html" class="flex flex-col items-center">
-          <img src="../../assets/img/logo.png" alt="SZX Ventures" class="w-12 h-12 object-contain brightness-0 invert opacity-90 hover:opacity-100 transition">
-          <span class="text-[8px] tracking-[0.3em] font-bold mt-2 opacity-50 uppercase">Ventures</span>
-        </a>
-        <div class="flex flex-wrap justify-center gap-8 text-[10px] font-bold tracking-[0.2em] uppercase text-white/50">
-          <a href="/index.html" class="hover:text-white transition">Home</a>
-          <a href="/philosophy.html" class="hover:text-white transition">About</a>
-          <a href="/portfolio.html" class="hover:text-white transition">Our Ventures</a>
-          <a href="/ventures/creator-house/index.html" class="text-white">Creator House</a>
-          <a href="/careers.html" class="hover:text-white transition">Careers</a>
-          <a href="/contact.html" class="hover:text-white transition">Contact</a>
+  <!-- CTA -->
+  <section class="ch-cta">
+    <div class="container">
+      <div class="ch-cta__inner">
+        <div class="ch-cta__text">
+          <h2>Be Part of India's<br>Growing Creator Economy.</h2>
+          <p>Launching in Bengaluru. Limited founding memberships.</p>
+        </div>
+        <div class="ch-cta__btns">
+          <a href="/contact.html?subject=Creator%20House%20Membership" class="btn btn-primary">Join The Creator House <i class="ph ph-arrow-right"></i></a>
+          <a href="/contact.html?subject=Book%20Production%20Day" class="btn btn-outline">Book a Production Day</a>
+        </div>
+        <div class="ch-cta__aside">
+          CREATE<br>COLLABORATE<br>GROW<br>ACROSS INDIA
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Social & Legal -->
-      <div class="flex flex-col items-center md:items-end gap-5">
-        <div class="flex gap-6 text-white/50">
-          <a href="#" class="hover:text-white transition text-xl"><i class="ph ph-linkedin-logo"></i></a>
-          <a href="#" class="hover:text-white transition text-xl"><i class="ph ph-instagram-logo"></i></a>
-          <a href="#" class="hover:text-white transition text-xl"><i class="ph ph-youtube-logo"></i></a>
-          <a href="#" class="hover:text-white transition text-xl"><i class="ph ph-x-logo"></i></a>
+  <!-- FOOTER -->
+  <footer class="dark-section ch-footer">
+    <div class="container">
+      <div class="ch-footer__inner">
+        <div class="ch-footer__brand-group">
+          <a href="/index.html" class="ch-footer__brand">
+            <img src="../../assets/img/logo.png" alt="SZX Ventures">
+            <span>Ventures</span>
+          </a>
+          <div class="ch-footer__links">
+            <a href="/index.html">Home</a>
+            <a href="/philosophy.html">About</a>
+            <a href="/portfolio.html">Our Ventures</a>
+            <a href="/ventures/creator-house/index.html" class="active">Creator House</a>
+            <a href="/careers.html">Careers</a>
+            <a href="/contact.html">Contact</a>
+          </div>
         </div>
-        <div class="flex flex-wrap justify-center gap-5 text-[9px] text-white/40 uppercase tracking-[0.15em] font-semibold">
-          <span>&copy; 2026 SZX Ventures. All rights reserved.</span>
-          <a href="/privacy.html" class="hover:text-white transition">Privacy</a>
-          <a href="/terms.html" class="hover:text-white transition">Terms</a>
-          <a href="/sitemap.html" class="hover:text-white transition">Sitemap</a>
+        <div class="ch-footer__right">
+          <div class="ch-footer__social">
+            <a href="https://www.linkedin.com/company/szxofficial/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="https://www.instagram.com/szxholdingsofficial" aria-label="Instagram" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+            <a href="#" aria-label="X"><i class="ph ph-x-logo"></i></a>
+          </div>
+          <div class="ch-footer__legal">
+            <span>&copy; 2026 SZX Ventures. All rights reserved.</span>
+          </div>
         </div>
       </div>
-
     </div>
   </footer>
 
