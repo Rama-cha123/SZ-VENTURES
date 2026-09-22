@@ -84,11 +84,6 @@
   status = 200
 
 [[redirects]]
-  from   = "/snapops"
-  to     = "/ventures/snapops/index.html"
-  status = 200
-
-[[redirects]]
   from   = "/bowl-sip"
   to     = "/ventures/bowl-and-sip/index.html"
   status = 200
@@ -96,11 +91,6 @@
 [[redirects]]
   from   = "/creator-house"
   to     = "/ventures/creator-house/index.html"
-  status = 200
-
-[[redirects]]
-  from   = "/mirai"
-  to     = "/ventures/mirai-engineering/index.html"
   status = 200
 
 [[redirects]]

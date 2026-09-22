@@ -1,0 +1,42 @@
+[
+    {
+        "source": "partnership_inquiry",
+        "full_name": "Test User",
+        "email": "test@example.com",
+        "phone": "1234567890",
+        "message": "This is a test message.",
+        "timestamp": "2026-09-17T22:56:41.093362",
+        "id": "948D5FBE",
+        "idempotency_key": "test-uuid-1"
+    },
+    {
+        "source": "partnership_inquiry",
+        "full_name": "Test",
+        "email": "not-an-email",
+        "phone": "123",
+        "message": "msg",
+        "timestamp": "2026-09-17T23:00:04.724075",
+        "id": "E7EF27C0",
+        "idempotency_key": "c7bd7a99-aeb9-4929-9dd9-8e43d378b432"
+    },
+    {
+        "source": "partnership_inquiry",
+        "full_name": "\u6e2c\u8a66",
+        "email": "test@test.com",
+        "phone": "123456",
+        "message": "\u55e8",
+        "timestamp": "2026-09-17T23:00:06.760244",
+        "id": "1D9538D3",
+        "idempotency_key": "test-uuid-same"
+    },
+    {
+        "source": "partnership_inquiry",
+        "full_name": "\u6e2c\u8a66",
+        "email": "test@test.com",
+        "phone": "123456",
+        "message": "\u55e8",
+        "timestamp": "2026-09-17T23:01:15.414914",
+        "id": "09744F71",
+        "idempotency_key": "test-uuid-same-2"
+    }
+]

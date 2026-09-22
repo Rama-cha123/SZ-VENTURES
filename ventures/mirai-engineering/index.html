@@ -1,1496 +1,1533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Mirai Engineering | Engineering Tomorrow. Building Global Careers.</title>
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,600,500,400&f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+  <meta name="robots" content="noindex, nofollow">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+ <title>Mirai Engineering | Engineering Tomorrow. Building Global Careers.</title>
+ 
+ <!-- Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+ <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,600,500,400&f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
 
-  <!-- GSAP, Lenis & Swiper -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-            borderRadius: { 'xl': '24px', '2xl': '24px', 'lg': '16px' },
-          colors: {
-            mirai: {
-              bg: '#060B17',
-              bg2: '#0E1525',
-              card: '#111C32',
-              blue: '#3B82F6',
-              cyan: '#00D4FF',
-              purple: '#6366F1',
-              success: '#22C55E',
-              orange: '#F59E0B',
-              text: '#F8FAFC',
-              muted: '#94A3B8',
-              border: 'rgba(255,255,255,0.08)'
-            }
-          },
-          fontFamily: {
-            display: ['"General Sans"', 'sans-serif'],
-            body: ['"Inter"', 'sans-serif'],
-            btn: ['"Satoshi"', 'sans-serif'],
-            numbers: ['"Space Grotesk"', 'sans-serif']
-          },
-          backgroundImage: {
-            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-            'cyber-grid': 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)'
-          }
-        }
+ <!-- GSAP, Lenis & Swiper -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+ <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+ 
+ <!-- Tailwind CSS -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+  tailwind.config = {
+   theme: {
+    extend: {
+      borderRadius: { 'xl': '24px', '2xl': '24px', 'lg': '16px' },
+     colors: {
+      mirai: {
+       bg: '#060B17',
+       bg2: '#0E1525',
+       card: '#111C32',
+       blue: '#3B82F6',
+       cyan: '#00D4FF',
+       purple: '#6366F1',
+       success: '#22C55E',
+       orange: '#F59E0B',
+       text: '#F8FAFC',
+       muted: '#94A3B8',
+       border: 'rgba(255,255,255,0.08)'
       }
+     },
+     fontFamily: {
+      display: ['"General Sans"', 'sans-serif'],
+      body: ['"Inter"', 'sans-serif'],
+      btn: ['"Satoshi"', 'sans-serif'],
+      numbers: ['"Space Grotesk"', 'sans-serif']
+     },
+     backgroundImage: {
+      'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      'cyber-grid': 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)'
+     }
     }
-  </script>
+   }
+  }
+ </script>
 
-  <style>
-    :root {
-      color-scheme: dark;
-    }
-    
-    body {
-      background-color: #060B17;
-      color: #F8FAFC;
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+ <style>
+  :root {
+   color-scheme: dark;
+  }
+  
+  body {
+   background-color: #060B17;
+   color: #F8FAFC;
+   font-family: 'Inter', sans-serif;
+   overflow-x: hidden;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+  }
 
-    /* Lenis Smooth Scroll */
-    html.lenis, html.lenis body { height: auto; }
-    .lenis.lenis-smooth { scroll-behavior: auto !important; }
-    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-    .lenis.lenis-stopped { overflow: hidden; }
-    .lenis.lenis-scrolling iframe { pointer-events: none; }
+  /* Lenis Smooth Scroll */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+  .lenis.lenis-scrolling iframe { pointer-events: none; }
 
-    /* Custom Utilities */
-    .text-balance { text-wrap: balance; }
-    
-    .glass-nav {
-      background: rgba(6, 11, 23, 0.7);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .glass-card {
-      background: rgba(17, 28, 50, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: inset 0 0 20px rgba(255,255,255,0.02);
-    }
+  /* Custom Utilities */
+  .text-balance { text-wrap: balance; }
+  
+  .glass-nav {
+   background: rgba(6, 11, 23, 0.7);
+   backdrop-filter: blur(20px);
+   -webkit-backdrop-filter: blur(20px);
+   border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  
+  .glass-card {
+   background: rgba(17, 28, 50, 0.6);
+   backdrop-filter: blur(12px);
+   -webkit-backdrop-filter: blur(12px);
+   border: 1px solid rgba(255,255,255,0.08);
+   box-shadow: inset 0 0 20px rgba(255,255,255,0.02);
+  }
 
-    /* Buttons */
-    .btn-primary {
-      background: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%);
-      color: #FFF;
-      box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(135deg, #6366F1 0%, #3B82F6 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 0;
-    }
-    .btn-primary:hover::before { opacity: 1; }
-    .btn-primary:hover {
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
-      transform: translateY(-2px);
-    }
-    .btn-primary > span { position: relative; z-index: 1; }
+  /* Buttons */
+  .btn-primary {
+   background: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%);
+   color: #FFF;
+   box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+   transition: all 0.3s ease;
+   position: relative;
+   overflow: hidden;
+  }
+  .btn-primary::before {
+   content: '';
+   position: absolute;
+   top: 0; left: 0; right: 0; bottom: 0;
+   background: linear-gradient(135deg, #6366F1 0%, #3B82F6 100%);
+   opacity: 0;
+   transition: opacity 0.3s ease;
+   z-index: 0;
+  }
+  .btn-primary:hover::before { opacity: 1; }
+  .btn-primary:hover {
+   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+   transform: translateY(-2px);
+  }
+  .btn-primary > span { position: relative; z-index: 1; }
 
-    .btn-secondary {
-      background-color: rgba(255,255,255,0.05);
-      color: #F8FAFC;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-    .btn-secondary:hover {
-      background-color: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.2);
-    }
+  .btn-secondary {
+   background-color: rgba(255,255,255,0.05);
+   color: #F8FAFC;
+   border: 1px solid rgba(255,255,255,0.1);
+   transition: all 0.3s ease;
+   backdrop-filter: blur(10px);
+  }
+  .btn-secondary:hover {
+   background-color: rgba(255,255,255,0.1);
+   border-color: rgba(255,255,255,0.2);
+  }
 
-    /* Reveal Utilities */
-    .reveal-up {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    
-    /* Text Gradient */
-    .text-gradient {
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-image: linear-gradient(90deg, #F8FAFC, #94A3B8);
-    }
-    .text-gradient-blue {
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-image: linear-gradient(90deg, #3B82F6, #00D4FF);
-    }
+  /* Reveal Utilities */
+  .reveal-up {
+   opacity: 0;
+   transform: translateY(40px);
+  }
+  
+  /* Text Gradient */
+  .text-gradient {
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-image: linear-gradient(90deg, #F8FAFC, #94A3B8);
+  }
+  .text-gradient-blue {
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-image: linear-gradient(90deg, #3B82F6, #00D4FF);
+  }
 
-    /* Cyber Lines Background */
-    .bg-cyber {
-      background-size: 40px 40px;
-      background-position: center center;
-    }
-  </style>
+  /* Cyber Lines Background */
+  .bg-cyber {
+   background-size: 40px 40px;
+   background-position: center center;
+  }
+ </style>
 </head>
 <body class="selection:bg-mirai-blue selection:text-white">
 
-  <!-- 1. ANNOUNCEMENT BAR -->
-  <div class="bg-gradient-to-r from-mirai-blue/20 via-mirai-purple/20 to-mirai-blue/20 border-b border-mirai-border text-[11px] sm:text-xs font-btn tracking-wide py-2.5 px-6 flex flex-col sm:flex-row justify-between items-center z-50 relative text-mirai-text">
-    <div class="flex items-center gap-2 mb-2 sm:mb-0">
-      <span class="w-2 h-2 rounded-full bg-mirai-cyan animate-pulse"></span>
-      <span>Applications Open for 2027 Engineering Programs. <a href="#" class="text-mirai-cyan hover:underline ml-1">Learn More &rarr;</a></span>
+ <!-- 1. ANNOUNCEMENT BAR -->
+ <div class="bg-gradient-to-r from-mirai-blue/20 via-mirai-purple/20 to-mirai-blue/20 border-b border-mirai-border text-[11px] sm:text-xs font-btn tracking-wide py-2.5 px-6 flex flex-col sm:flex-row justify-between items-center z-50 relative text-mirai-text">
+  <div class="flex items-center gap-2 mb-2 sm:mb-0">
+   <span class="w-2 h-2 rounded-full bg-mirai-cyan animate-pulse"></span>
+   <span>Applications Open for 2027 Engineering Programs. <a href="#" class="text-mirai-cyan hover:underline ml-1">Learn More &rarr;</a></span>
+  </div>
+  <div class="flex items-center gap-6 text-mirai-muted">
+   <a href="#" class="hover:text-white transition-colors">Admissions</a>
+   <span class="opacity-30">|</span>
+   <a href="#" class="hover:text-white transition-colors">Upcoming Webinar</a>
+   <span class="opacity-30 hidden sm:inline">|</span>
+   <a href="tel:+919876543210" class="hover:text-white transition-colors hidden sm:inline">+91 98765 43210</a>
+  </div>
+ </div>
+
+ <!-- 2. STICKY NAVIGATION -->
+ <nav id="main-nav" class="glass-nav fixed w-full top-auto z-40 transition-transform duration-500">
+  <div class="max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+   
+   <!-- Logo -->
+   <a href="/" class="flex items-center gap-3">
+    <!-- Abstract M Logo -->
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <path d="M4 28V4L16 16L28 4V28" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+     <path d="M4 16L16 28L28 16" stroke="#00D4FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    </svg>
+    <div class="flex flex-col">
+     <span class="font-display text-xl tracking-tight text-white leading-none font-bold">MIRAI <span class="font-normal opacity-80">ENGINEERING</span></span>
+     <span class="font-btn text-[8px] tracking-[0.2em] text-mirai-muted uppercase mt-1">A SZ Ventures company</span>
     </div>
-    <div class="flex items-center gap-6 text-mirai-muted">
-      <a href="#" class="hover:text-white transition-colors">Admissions</a>
-      <span class="opacity-30">|</span>
-      <a href="#" class="hover:text-white transition-colors">Upcoming Webinar</a>
-      <span class="opacity-30 hidden sm:inline">|</span>
-      <a href="tel:+919876543210" class="hover:text-white transition-colors hidden sm:inline">+91 98765 43210</a>
+   </a>
+
+   <!-- Desktop Links -->
+   <div class="hidden lg:flex items-center gap-8 font-body text-sm font-medium text-mirai-muted">
+    <a href="#programs" class="hover:text-white transition-colors flex items-center gap-1 group">
+     Programs
+     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-50 group-hover:rotate-180 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+    <a href="#pathways" class="hover:text-white transition-colors">Pathways</a>
+    <a href="#admissions" class="hover:text-white transition-colors">Admissions</a>
+    <a href="#students" class="hover:text-white transition-colors">For Students</a>
+    <a href="#colleges" class="hover:text-white transition-colors">For Colleges</a>
+    <a href="#organizations" class="hover:text-white transition-colors">For Organizations</a>
+   </div>
+
+   <!-- Actions -->
+   <div class="hidden lg:flex items-center gap-6">
+    <button class="text-mirai-muted hover:text-white transition-colors" aria-label="Search">
+     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <a href="#login" class="text-sm font-medium text-mirai-muted hover:text-white transition-colors">Login</a>
+    <a href="#apply" class="btn-primary font-btn font-medium px-6 py-2.5 rounded-md text-sm ml-2"><span>Apply Now</span></a>
+   </div>
+
+   <!-- Mobile Menu Toggle -->
+   <button class="lg:hidden text-white">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+   </button>
+  </div>
+ </nav>
+
+ <!-- 3. HERO SECTION -->
+ <section class="relative pt-32 lg:pt-40 pb-20 lg:pb-32 px-6 lg:px-12 overflow-hidden max-w-[1600px] mx-auto min-h-[95vh] flex items-center">
+  <!-- Background Effects -->
+  <div class="absolute inset-0 bg-cyber bg-cyber-grid opacity-20 pointer-events-none"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-mirai-blue rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
+  
+  <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 w-full">
+   
+   <!-- Left Content -->
+   <div id="hero-content">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-mirai-blue/30 bg-mirai-blue/10 text-mirai-cyan text-xs font-btn font-bold tracking-wider uppercase mb-8">
+     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+     Future-Ready Education
     </div>
+    <h1 class="font-display text-5xl lg:text-7xl xl:text-[80px] text-white leading-[1.1] mb-6 text-balance font-bold">
+     The Future of Engineering <span class="text-gradient-blue">Starts Here.</span>
+    </h1>
+    <p class="font-body text-lg text-mirai-muted max-w-md mb-10 text-balance leading-relaxed">
+     Industry-integrated education. Global careers. Real-world innovation. Join India's most premium engineering ecosystem.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4">
+     <a href="#programs" class="btn-primary font-btn font-semibold px-8 py-4 rounded-md text-center text-base"><span>Explore Programs</span></a>
+     <a href="#contact" class="btn-secondary font-btn font-semibold px-8 py-4 rounded-md text-center text-base">Talk to an Advisor</a>
+    </div>
+
+    <!-- Trust Indicators -->
+    <div class="mt-16 pt-8 border-t border-mirai-border flex flex-col sm:flex-row gap-8 items-start sm:items-center">
+     <p class="text-xs text-mirai-muted font-medium uppercase tracking-widest">Industry Partners</p>
+     <div class="flex gap-6 opacity-60 grayscale hover:grayscale-0 transition-all">
+      <svg height="20" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">Microsoft</text></svg>
+      <svg height="20" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">Google</text></svg>
+      <svg height="20" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">NVIDIA</text></svg>
+     </div>
+    </div>
+   </div>
+
+   <!-- Right Image / Graphics -->
+   <div class="relative w-full aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden glass-card group" id="hero-image">
+    <!-- The visual represents a futuristic engineering environment -->
+    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop" alt="Engineering Student in futuristic lab" class="w-full h-full object-cover opacity-70 mix-blend-luminosity group-hover:scale-105 transition-transform duration-1000 ease-out" loading="lazy">
+    
+    <!-- Holographic Data Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-mirai-bg to-transparent opacity-80"></div>
+    <div class="absolute inset-0 border border-mirai-cyan/20 rounded-2xl pointer-events-none"></div>
+    
+    <!-- Floating UI Element 1 -->
+    <div class="absolute top-10 left-[-20px] bg-mirai-card/90 backdrop-blur-md p-4 rounded-lg border border-mirai-border shadow-2xl flex items-center gap-4 hero-float-1 z-20">
+     <div class="w-10 h-10 rounded-full bg-mirai-blue/20 flex items-center justify-center text-mirai-blue">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+     </div>
+     <div>
+      <p class="text-[10px] text-mirai-muted uppercase tracking-wider font-bold">Avg. Placement</p>
+      <p class="text-white font-numbers font-bold text-xl">12.5 LPA</p>
+     </div>
+    </div>
+
+    <!-- Floating UI Element 2 -->
+    <div class="absolute bottom-10 right-[-20px] bg-mirai-card/90 backdrop-blur-md p-4 rounded-lg border border-mirai-border shadow-2xl hero-float-2 z-20">
+     <p class="text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-2">Global Network</p>
+     <div class="flex items-end gap-2">
+      <span class="text-mirai-cyan font-numbers font-bold text-3xl leading-none">50+</span>
+      <span class="text-white text-xs pb-1">Countries</span>
+     </div>
+    </div>
+   </div>
+
+  </div>
+ </section>
+
+ <!-- 4. INDUSTRY ADVANTAGES -->
+ <section class="border-y border-mirai-border bg-mirai-bg2 py-16 px-6 lg:px-12 relative z-10">
+  <div class="max-w-[1600px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+   
+   <!-- Card 1 -->
+   <div class="reveal-up group">
+    <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
+     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    </div>
+    <h4 class="font-body text-sm font-semibold text-white mb-2">Industry-Aligned Curriculum</h4>
+    <p class="font-body text-xs text-mirai-muted leading-relaxed">Designed with top experts to meet future demands.</p>
+   </div>
+
+   <!-- Card 2 -->
+   <div class="reveal-up group" style="animation-delay: 0.1s;">
+    <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
+     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    </div>
+    <h4 class="font-body text-sm font-semibold text-white mb-2">Hands-on Projects</h4>
+    <p class="font-body text-xs text-mirai-muted leading-relaxed">Work on real-world problems and case studies.</p>
+   </div>
+
+   <!-- Card 3 -->
+   <div class="reveal-up group" style="animation-delay: 0.2s;">
+    <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
+     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <h4 class="font-body text-sm font-semibold text-white mb-2">Global Certifications</h4>
+    <p class="font-body text-xs text-mirai-muted leading-relaxed">Earn credentials recognized worldwide.</p>
+   </div>
+
+   <!-- Card 4 -->
+   <div class="reveal-up group" style="animation-delay: 0.3s;">
+    <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
+     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+    </div>
+    <h4 class="font-body text-sm font-semibold text-white mb-2">Research Opportunities</h4>
+    <p class="font-body text-xs text-mirai-muted leading-relaxed">Access to advanced labs and innovation hubs.</p>
+   </div>
+
+   <!-- Card 5 -->
+   <div class="reveal-up group" style="animation-delay: 0.4s;">
+    <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
+     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <h4 class="font-body text-sm font-semibold text-white mb-2">Placement Assistance</h4>
+    <p class="font-body text-xs text-mirai-muted leading-relaxed">Dedicated career support and interview prep.</p>
+   </div>
+
+   <!-- Card 6 -->
+   <div class="reveal-up group" style="animation-delay: 0.5s;">
+    <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
+     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    </div>
+    <h4 class="font-body text-sm font-semibold text-white mb-2">Flexible Learning</h4>
+    <p class="font-body text-xs text-mirai-muted leading-relaxed">Online, blended, and on-campus options.</p>
+   </div>
+
+  </div>
+ </section>
+
+ <!-- 5. ACADEMIC PROGRAMS -->
+ <section id="programs" class="py-24 lg:py-32 px-6 lg:px-12 relative overflow-hidden bg-mirai-bg">
+  <!-- Glow -->
+  <div class="absolute right-0 top-1/4 w-[500px] h-[500px] bg-mirai-purple rounded-full blur-[120px] opacity-10 pointer-events-none"></div>
+
+  <div class="max-w-[1600px] mx-auto">
+   <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+    <div class="reveal-up">
+     <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4">Academic Programs</h2>
+     <p class="font-body text-mirai-muted max-w-lg">Engineered for the future. Our curriculums integrate deep tech, practical application, and industry mentorship.</p>
+    </div>
+    <div class="reveal-up">
+     <a href="#" class="inline-flex items-center gap-2 text-mirai-cyan hover:text-white font-btn font-semibold transition-colors group">
+      View All Programs
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+     </a>
+    </div>
+   </div>
+
+   <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+    <!-- B.Tech -->
+    <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors">
+     <div class="h-48 overflow-hidden relative">
+      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop" alt="AI Robotics" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
+      <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">4 Years</div>
+     </div>
+     <div class="p-6">
+      <h3 class="font-display text-xl text-white font-bold mb-2">B.Tech Programs</h3>
+      <p class="font-body text-sm text-mirai-muted mb-4">AI, Robotics, Data Science, Cyber Security, and more.</p>
+      <ul class="text-xs text-mirai-muted space-y-2 mb-6">
+       <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> 12 Months Industry Internship</li>
+       <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> 100% Placement Assistance</li>
+      </ul>
+      <div class="flex items-center justify-between">
+       <a href="#" class="btn-secondary px-4 py-2 text-xs font-semibold rounded">Apply Now</a>
+       <button class="text-mirai-muted hover:text-white" aria-label="Download Brochure"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
+      </div>
+     </div>
+    </div>
+
+    <!-- M.Tech -->
+    <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors" style="animation-delay: 0.1s;">
+     <div class="h-48 overflow-hidden relative">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" alt="Data Science" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
+      <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">2 Years</div>
+     </div>
+     <div class="p-6">
+      <h3 class="font-display text-xl text-white font-bold mb-2">M.Tech / Masters</h3>
+      <p class="font-body text-sm text-mirai-muted mb-4">Advanced specializations for deep-tech leadership roles.</p>
+      <ul class="text-xs text-mirai-muted space-y-2 mb-6">
+       <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> Research & Development Focus</li>
+       <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> Global University Tie-ups</li>
+      </ul>
+      <div class="flex items-center justify-between">
+       <a href="#" class="btn-secondary px-4 py-2 text-xs font-semibold rounded">Apply Now</a>
+       <button class="text-mirai-muted hover:text-white" aria-label="Download Brochure"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
+      </div>
+     </div>
+    </div>
+
+    <!-- Executive Programs -->
+    <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors" style="animation-delay: 0.2s;">
+     <div class="h-48 overflow-hidden relative">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop" alt="Corporate" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
+      <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">1 Year</div>
+     </div>
+     <div class="p-6">
+      <h3 class="font-display text-xl text-white font-bold mb-2">Executive Programs</h3>
+      <p class="font-body text-sm text-mirai-muted mb-4">Upskill while you work. Designed for working professionals.</p>
+      <ul class="text-xs text-mirai-muted space-y-2 mb-6">
+       <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> Weekend / Online Classes</li>
+       <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> Executive Alumni Network</li>
+      </ul>
+      <div class="flex items-center justify-between">
+       <a href="#" class="btn-secondary px-4 py-2 text-xs font-semibold rounded">Apply Now</a>
+       <button class="text-mirai-muted hover:text-white" aria-label="Download Brochure"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
+      </div>
+     </div>
+    </div>
+
+    <!-- Corporate Training -->
+    <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors" style="animation-delay: 0.3s;">
+     <div class="h-48 overflow-hidden relative">
+      <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop" alt="Training" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
+      <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">Custom</div>
+     </div>
+     <div class="p-6">
+      <h3 class="font-display text-xl text-white font-bold mb-2">Corporate Training</h3>
+      <p class="font-body text-sm text-mirai-muted mb-4">Bespoke technological training for your enterprise workforce.</p>
+      <ul class="text-xs text-mirai-muted space-y-2 mb-6">
+       <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> Custom Curriculum Design</li>
+       <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> On-site or Remote Delivery</li>
+      </ul>
+      <div class="flex items-center justify-between">
+       <a href="#" class="btn-secondary px-4 py-2 text-xs font-semibold rounded">Enquire</a>
+       <button class="text-mirai-muted hover:text-white" aria-label="Download Brochure"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
+      </div>
+     </div>
+    </div>
+
+   </div>
+  </div>
+ </section>
+
+ <!-- 6. LEARNING ECOSYSTEM (TIMELINE) -->
+ <section id="pathways" class="py-24 bg-mirai-bg2 relative overflow-hidden">
+  <div class="max-w-[1600px] mx-auto px-6 lg:px-12 text-center mb-20">
+   <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4 reveal-up">The Mirai Ecosystem</h2>
+   <p class="font-body text-mirai-muted max-w-2xl mx-auto reveal-up">A proven pipeline that transforms passionate students into future-ready global engineers.</p>
   </div>
 
-  <!-- 2. STICKY NAVIGATION -->
-  <nav id="main-nav" class="glass-nav fixed w-full top-auto z-40 transition-transform duration-500">
-    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-      
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-3">
-        <!-- Abstract M Logo -->
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 28V4L16 16L28 4V28" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M4 16L16 28L28 16" stroke="#00D4FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-        </svg>
-        <div class="flex flex-col">
-          <span class="font-display text-xl tracking-tight text-white leading-none font-bold">MIRAI <span class="font-normal opacity-80">ENGINEERING</span></span>
-          <span class="font-btn text-[8px] tracking-[0.2em] text-mirai-muted uppercase mt-1">A SZX Ventures company</span>
-        </div>
-      </a>
+  <div class="max-w-[1200px] mx-auto px-6 relative">
+   <!-- Animated Line -->
+   <div class="absolute top-1/2 left-0 w-full h-[1px] bg-mirai-border -translate-y-1/2 hidden md:block z-0">
+    <div class="h-full bg-gradient-to-r from-mirai-blue via-mirai-cyan to-mirai-purple w-full origin-left scale-x-0 transition-transform duration-1000 ease-out timeline-progress"></div>
+   </div>
 
-      <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center gap-8 font-body text-sm font-medium text-mirai-muted">
-        <a href="#programs" class="hover:text-white transition-colors flex items-center gap-1 group">
-          Programs
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-50 group-hover:rotate-180 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
-        <a href="#pathways" class="hover:text-white transition-colors">Pathways</a>
-        <a href="#admissions" class="hover:text-white transition-colors">Admissions</a>
-        <a href="#students" class="hover:text-white transition-colors">For Students</a>
-        <a href="#colleges" class="hover:text-white transition-colors">For Colleges</a>
-        <a href="#organizations" class="hover:text-white transition-colors">For Organizations</a>
+   <div class="grid md:grid-cols-5 gap-8 relative z-10 timeline-container">
+    <!-- Step 1 -->
+    <div class="flex flex-col items-center text-center timeline-step group">
+     <div class="w-16 h-16 rounded-full glass-card border border-mirai-border flex items-center justify-center text-mirai-cyan mb-6 group-hover:scale-110 group-hover:border-mirai-cyan group-hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] transition-all">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+     </div>
+     <h4 class="font-body font-bold text-white mb-2">1. Learn</h4>
+     <p class="font-body text-xs text-mirai-muted">Master fundamentals with top faculty.</p>
+    </div>
+    
+    <!-- Step 2 -->
+    <div class="flex flex-col items-center text-center timeline-step group">
+     <div class="w-16 h-16 rounded-full glass-card border border-mirai-border flex items-center justify-center text-mirai-cyan mb-6 group-hover:scale-110 group-hover:border-mirai-cyan group-hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] transition-all">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+     </div>
+     <h4 class="font-body font-bold text-white mb-2">2. Build</h4>
+     <p class="font-body text-xs text-mirai-muted">Apply theory to hands-on projects.</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex flex-col items-center text-center timeline-step group">
+     <div class="w-16 h-16 rounded-full glass-card border border-mirai-border flex items-center justify-center text-mirai-cyan mb-6 group-hover:scale-110 group-hover:border-mirai-cyan group-hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] transition-all">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+     </div>
+     <h4 class="font-body font-bold text-white mb-2">3. Innovate</h4>
+     <p class="font-body text-xs text-mirai-muted">Solve complex real-world problems.</p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="flex flex-col items-center text-center timeline-step group">
+     <div class="w-16 h-16 rounded-full glass-card border border-mirai-border flex items-center justify-center text-mirai-cyan mb-6 group-hover:scale-110 group-hover:border-mirai-cyan group-hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] transition-all">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+     </div>
+     <h4 class="font-body font-bold text-white mb-2">4. Collaborate</h4>
+     <p class="font-body text-xs text-mirai-muted">Work with global industry partners.</p>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="flex flex-col items-center text-center timeline-step group">
+     <div class="w-16 h-16 rounded-full glass-card border border-mirai-border flex items-center justify-center text-mirai-success mb-6 group-hover:scale-110 group-hover:border-mirai-success group-hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+     </div>
+     <h4 class="font-body font-bold text-white mb-2">5. Launch</h4>
+     <p class="font-body text-xs text-mirai-muted">Secure high-impact placements.</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- 7. WHY MIRAI & 8. STATISTICS -->
+ <section class="py-24 lg:py-32 px-6 lg:px-12 bg-mirai-bg relative overflow-hidden">
+  <!-- Cyber Grid BG -->
+  <div class="absolute inset-0 bg-cyber bg-cyber-grid opacity-10 pointer-events-none"></div>
+
+  <div class="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-16 items-center mb-24 relative z-10">
+   <div class="reveal-up">
+    <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-6 text-balance">The Premium Standard in Engineering Education.</h2>
+    <p class="font-body text-mirai-muted mb-10 max-w-md">Our ecosystem is built on a foundation of cutting-edge research, industry integration, and an unwavering commitment to student success on a global scale.</p>
+    
+    <div class="grid grid-cols-2 gap-6">
+     <div class="flex items-start gap-4">
+      <div class="mt-1 text-mirai-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div>
+       <h5 class="font-body font-bold text-white text-sm mb-1">AI-Powered Learning</h5>
+       <p class="font-body text-xs text-mirai-muted">Personalized academic pathways.</p>
       </div>
-
-      <!-- Actions -->
-      <div class="hidden lg:flex items-center gap-6">
-        <button class="text-mirai-muted hover:text-white transition-colors" aria-label="Search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-        <a href="#login" class="text-sm font-medium text-mirai-muted hover:text-white transition-colors">Login</a>
-        <a href="#apply" class="btn-primary font-btn font-medium px-6 py-2.5 rounded-md text-sm ml-2"><span>Apply Now</span></a>
+     </div>
+     <div class="flex items-start gap-4">
+      <div class="mt-1 text-mirai-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div>
+       <h5 class="font-body font-bold text-white text-sm mb-1">Innovation Hubs</h5>
+       <p class="font-body text-xs text-mirai-muted">Access to 24/7 maker spaces.</p>
       </div>
+     </div>
+     <div class="flex items-start gap-4">
+      <div class="mt-1 text-mirai-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div>
+       <h5 class="font-body font-bold text-white text-sm mb-1">Startup Incubation</h5>
+       <p class="font-body text-xs text-mirai-muted">Seed funding & mentorship.</p>
+      </div>
+     </div>
+     <div class="flex items-start gap-4">
+      <div class="mt-1 text-mirai-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div>
+       <h5 class="font-body font-bold text-white text-sm mb-1">Global Partnerships</h5>
+       <p class="font-body text-xs text-mirai-muted">Exchange programs & dual degrees.</p>
+      </div>
+     </div>
+    </div>
+   </div>
 
-      <!-- Mobile Menu Toggle -->
-      <button class="lg:hidden text-white">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+   <div class="relative glass-card rounded-2xl overflow-hidden reveal-up h-full min-h-[400px]">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" alt="Technology Integration" class="w-full h-full object-cover opacity-60 mix-blend-luminosity" loading="lazy">
+    <div class="absolute inset-0 bg-gradient-to-tr from-mirai-bg to-transparent opacity-90"></div>
+    <!-- Blueprint Overlay SVG -->
+    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#00D4FF 1px, transparent 1px); background-size: 20px 20px;"></div>
+    <!-- Animated Scanner Line -->
+    <div class="absolute top-0 left-0 w-full h-2 bg-mirai-cyan/50 blur shadow-[0_0_15px_#00D4FF] animate-[scan_4s_ease-in-out_infinite]"></div>
+   </div>
+  </div>
+
+  <!-- 8. STATISTICS -->
+  <div class="max-w-[1600px] mx-auto grid grid-cols-2 lg:grid-cols-6 gap-6 relative z-10 border-t border-mirai-border pt-16" id="stats-section">
+   
+   <div class="text-center p-4">
+    <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-blue to-mirai-cyan mb-2">
+     <span class="counter" data-target="15000">0</span>+
+    </h3>
+    <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Students</p>
+   </div>
+
+   <div class="text-center p-4">
+    <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-blue to-mirai-cyan mb-2">
+     <span class="counter" data-target="500">0</span>+
+    </h3>
+    <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Experts</p>
+   </div>
+
+   <div class="text-center p-4">
+    <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-blue to-mirai-cyan mb-2">
+     <span class="counter" data-target="100">0</span>+
+    </h3>
+    <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Partners</p>
+   </div>
+
+   <div class="text-center p-4">
+    <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-success to-[#4ADE80] mb-2">
+     <span class="counter" data-target="92">0</span>%
+    </h3>
+    <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Placements</p>
+   </div>
+
+   <div class="text-center p-4">
+    <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-blue to-mirai-cyan mb-2">
+     <span class="counter" data-target="50">0</span>+
+    </h3>
+    <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Collabs</p>
+   </div>
+
+   <div class="text-center p-4">
+    <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-blue to-mirai-cyan mb-2">
+     <span class="counter" data-target="40">0</span>+
+    </h3>
+    <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Countries</p>
+   </div>
+
+  </div>
+ </section>
+
+ <!-- 9. SUCCESS STORIES (Testimonials) -->
+ <section class="py-24 lg:py-32 bg-mirai-bg2 relative overflow-hidden border-y border-mirai-border">
+  <div class="max-w-[1600px] mx-auto px-6 lg:px-12 mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
+   <div class="reveal-up">
+    <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4">Success Stories</h2>
+    <p class="font-body text-mirai-muted max-w-lg">Hear from our alumni who are now engineering the future at top global technology companies.</p>
+   </div>
+   <div class="flex gap-4 reveal-up">
+    <button class="swiper-button-prev-custom w-12 h-12 rounded-full border border-mirai-border flex items-center justify-center text-white hover:bg-mirai-border transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="swiper-button-next-custom w-12 h-12 rounded-full border border-mirai-border flex items-center justify-center text-white hover:bg-mirai-border transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+   </div>
+  </div>
+
+  <!-- Swiper Container -->
+  <div class="swiper success-swiper w-full pb-8 reveal-up">
+   <div class="swiper-wrapper flex items-stretch">
+    
+    <!-- Slide 1 -->
+    <div class="swiper-slide w-[350px] sm:w-[450px] mx-4 h-auto">
+     <div class="glass-card p-8 rounded-2xl h-full flex flex-col justify-between group hover:border-mirai-cyan transition-colors">
+      <div>
+       <div class="mb-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all">
+        <svg height="24" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">Google</text></svg>
+       </div>
+       <p class="font-body text-white text-lg leading-relaxed mb-8">"The deep tech curriculum at Mirai gave me a massive head start. The AI projects were exactly what Google was looking for during my interview."</p>
+      </div>
+      <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
+       <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" alt="Arjun Mehta" class="w-full h-full object-cover" loading="lazy">
+       </div>
+       <div>
+        <h5 class="font-body font-bold text-white text-sm">Arjun Mehta</h5>
+        <p class="font-body text-xs text-mirai-muted">Machine Learning Engineer</p>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="swiper-slide w-[350px] sm:w-[450px] mx-4 h-auto">
+     <div class="glass-card p-8 rounded-2xl h-full flex flex-col justify-between group hover:border-mirai-purple transition-colors">
+      <div>
+       <div class="mb-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all">
+        <svg height="24" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">Tesla</text></svg>
+       </div>
+       <p class="font-body text-white text-lg leading-relaxed mb-8">"The robotics lab at Mirai is world-class. Having 24/7 access to industrial robotic arms prepared me for the rigorous engineering challenges at Tesla."</p>
+      </div>
+      <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
+       <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="Priya Sharma" class="w-full h-full object-cover" loading="lazy">
+       </div>
+       <div>
+        <h5 class="font-body font-bold text-white text-sm">Priya Sharma</h5>
+        <p class="font-body text-xs text-mirai-muted">Robotics Systems Engineer</p>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="swiper-slide w-[350px] sm:w-[450px] mx-4 h-auto">
+     <div class="glass-card p-8 rounded-2xl h-full flex flex-col justify-between group hover:border-mirai-blue transition-colors">
+      <div>
+       <div class="mb-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all">
+        <svg height="24" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">NVIDIA</text></svg>
+       </div>
+       <p class="font-body text-white text-lg leading-relaxed mb-8">"Mirai's focus on foundational computer science and modern hardware acceleration architecture made my transition into the GPU division completely seamless."</p>
+      </div>
+      <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
+       <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="David Chen" class="w-full h-full object-cover" loading="lazy">
+       </div>
+       <div>
+        <h5 class="font-body font-bold text-white text-sm">David Chen</h5>
+        <p class="font-body text-xs text-mirai-muted">Hardware Architect</p>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="swiper-slide w-[350px] sm:w-[450px] mx-4 h-auto">
+     <div class="glass-card p-8 rounded-2xl h-full flex flex-col justify-between group hover:border-mirai-success transition-colors">
+      <div>
+       <div class="mb-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all">
+        <svg height="24" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">Microsoft</text></svg>
+       </div>
+       <p class="font-body text-white text-lg leading-relaxed mb-8">"The placement support team was phenomenal. They didn't just help me get a job; they helped me negotiate a career path that matched my exact ambitions."</p>
+      </div>
+      <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
+       <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Sneha Rao" class="w-full h-full object-cover" loading="lazy">
+       </div>
+       <div>
+        <h5 class="font-body font-bold text-white text-sm">Sneha Rao</h5>
+        <p class="font-body text-xs text-mirai-muted">Cloud Solutions Architect</p>
+       </div>
+      </div>
+     </div>
+    </div>
+
+   </div>
+  </div>
+ </section>
+
+ <!-- 10. ENGINEERING DOMAINS -->
+ <section class="py-24 lg:py-32 px-6 lg:px-12 bg-mirai-bg relative">
+  <div class="max-w-[1600px] mx-auto text-center mb-16 reveal-up">
+   <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4">Engineering Domains</h2>
+   <p class="font-body text-mirai-muted max-w-2xl mx-auto">Master the technologies that are actively redefining the future of human capability.</p>
+  </div>
+
+  <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+   
+   <!-- Domain 1 -->
+   <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up">
+    <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
+    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop" alt="AI" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
+    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
+     <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Artificial Intelligence</h3>
+     <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
+      Neural Networks • Deep Learning • NLP
+     </div>
+    </div>
+   </div>
+
+   <!-- Domain 2 -->
+   <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.1s;">
+    <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
+    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&auto=format&fit=crop" alt="Robotics" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
+    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
+     <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Robotics & Automation</h3>
+     <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
+      Kinematics • Control Systems • ROS
+     </div>
+    </div>
+   </div>
+
+   <!-- Domain 3 -->
+   <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.2s;">
+    <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
+    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop" alt="Cyber Security" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
+    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
+     <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Cyber Security</h3>
+     <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
+      Ethical Hacking • Cryptography • SecOps
+     </div>
+    </div>
+   </div>
+
+   <!-- Domain 4 -->
+   <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.3s;">
+    <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop" alt="Space Tech" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
+    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
+     <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Space Technology</h3>
+     <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
+      Astrodynamics • Satellite Comms • Propulsion
+     </div>
+    </div>
+   </div>
+
+   <!-- Domain 5 -->
+   <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up">
+    <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="IoT" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
+    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
+     <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">IoT & Embedded Systems</h3>
+     <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
+      Microcontrollers • Edge Computing • Sensors
+     </div>
+    </div>
+   </div>
+
+   <!-- Domain 6 -->
+   <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.1s;">
+    <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Data" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
+    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
+     <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Data Science</h3>
+     <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
+      Big Data • Predictive Modeling • Viz
+     </div>
+    </div>
+   </div>
+
+   <!-- Domain 7 -->
+   <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.2s;">
+    <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
+    <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=600&auto=format&fit=crop" alt="Renewable" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
+    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
+     <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Renewable Energy</h3>
+     <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
+      Solar Grid • Battery Tech • Wind Power
+     </div>
+    </div>
+   </div>
+
+   <!-- Domain 8 -->
+   <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.3s;">
+    <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
+    <img src="https://images.unsplash.com/photo-1580894742597-87bc8789db3d?q=80&w=600&auto=format&fit=crop" alt="Cloud" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
+    <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
+     <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Cloud Computing</h3>
+     <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
+      AWS Architecture • DevOps • Microservices
+     </div>
+    </div>
+   </div>
+
+  </div>
+ </section>
+
+ <!-- 11. CHOOSE YOUR PATH (Forms) -->
+ <section id="apply" class="py-24 lg:py-32 px-6 lg:px-12 bg-mirai-bg relative border-t border-mirai-border">
+  <!-- Glow -->
+  <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-mirai-blue rounded-full blur-[200px] opacity-[0.03] pointer-events-none z-0"></div>
+
+  <div class="max-w-[1600px] mx-auto text-center mb-16 relative z-10 reveal-up">
+   <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4">Choose Your Path</h2>
+   <p class="font-body text-mirai-muted max-w-2xl mx-auto">Select your profile to begin the application or partnership process.</p>
+  </div>
+
+  <div class="max-w-[1600px] mx-auto grid xl:grid-cols-3 gap-8 relative z-10">
+   
+   <!-- Individual Students Form -->
+   <div class="glass-card rounded-2xl p-8 reveal-up relative overflow-hidden group">
+    <div class="absolute inset-0 bg-gradient-to-b from-mirai-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+     <div class="w-12 h-12 rounded bg-mirai-blue/20 text-mirai-blue flex items-center justify-center mb-6">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+     </div>
+     <h3 class="font-display text-2xl text-white font-bold mb-2">Individual Students</h3>
+     <p class="font-body text-sm text-mirai-muted mb-8">Start your engineering journey.</p>
+
+     <form class="space-y-4 m-form">
+      <div class="grid grid-cols-2 gap-4">
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Full Name *</label>
+        <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors">
+       </div>
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Email *</label>
+        <input type="email" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors">
+       </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Phone *</label>
+        <input type="tel" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors">
+       </div>
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">City *</label>
+        <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors">
+       </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Qualification</label>
+        <select class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors appearance-none">
+         <option class="bg-mirai-card">12th Grade (High School)</option>
+         <option class="bg-mirai-card">Undergraduate</option>
+         <option class="bg-mirai-card">Postgraduate</option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Graduation Year</label>
+        <select class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors appearance-none">
+         <option class="bg-mirai-card">2024</option>
+         <option class="bg-mirai-card">2025</option>
+         <option class="bg-mirai-card">2026</option>
+         <option class="bg-mirai-card">2027</option>
+        </select>
+       </div>
+      </div>
+      <div>
+       <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Program Interested In *</label>
+       <select required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors appearance-none">
+        <option value="" disabled selected class="bg-mirai-card">Select Program</option>
+        <option class="bg-mirai-card">B.Tech Artificial Intelligence</option>
+        <option class="bg-mirai-card">B.Tech Robotics</option>
+        <option class="bg-mirai-card">M.Tech Data Science</option>
+        <option class="bg-mirai-card">Executive Cyber Security</option>
+       </select>
+      </div>
+      <div>
+       <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Statement of Purpose / Message</label>
+       <textarea rows="2" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors resize-none"></textarea>
+      </div>
+      <div>
+       <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Resume / CV (Optional)</label>
+       <div class="border border-dashed border-mirai-border rounded px-4 py-3 text-center cursor-pointer hover:border-mirai-blue transition-colors bg-mirai-bg/50">
+        <span class="text-xs text-mirai-muted">Click to upload or drag & drop</span>
+       </div>
+      </div>
+      <button type="submit" class="btn-primary w-full py-4 rounded font-btn font-bold text-sm mt-4">
+       <span>Submit Application</span>
       </button>
+     </form>
+     
+     <!-- Success State -->
+     <div class="form-success hidden absolute inset-0 bg-mirai-card/95 backdrop-blur z-20 flex-col items-center justify-center p-8 text-center rounded-2xl">
+      <div class="w-16 h-16 rounded-full bg-mirai-success/20 flex items-center justify-center text-mirai-success mb-4">
+       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h4 class="font-display text-2xl text-white font-bold mb-2">Application Received</h4>
+      <p class="font-body text-sm text-mirai-muted">We have sent a confirmation to your email. Our admissions team will contact you shortly.</p>
+     </div>
     </div>
-  </nav>
+   </div>
 
-  <!-- 3. HERO SECTION -->
-  <section class="relative pt-32 lg:pt-40 pb-20 lg:pb-32 px-6 lg:px-12 overflow-hidden max-w-[1600px] mx-auto min-h-[95vh] flex items-center">
-    <!-- Background Effects -->
-    <div class="absolute inset-0 bg-cyber bg-cyber-grid opacity-20 pointer-events-none"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-mirai-blue rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
+   <!-- Colleges & Universities Form -->
+   <div class="glass-card rounded-2xl p-8 reveal-up relative overflow-hidden group" style="animation-delay: 0.1s;">
+    <div class="absolute inset-0 bg-gradient-to-b from-mirai-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+     <div class="w-12 h-12 rounded bg-mirai-purple/20 text-mirai-purple flex items-center justify-center mb-6">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+     </div>
+     <h3 class="font-display text-2xl text-white font-bold mb-2">Colleges & Universities</h3>
+     <p class="font-body text-sm text-mirai-muted mb-8">Partner with Mirai Engineering.</p>
+
+     <form class="space-y-4 m-form">
+      <div>
+       <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Institution Name *</label>
+       <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">College Type</label>
+        <select class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors appearance-none">
+         <option class="bg-mirai-card">University</option>
+         <option class="bg-mirai-card">Engineering College</option>
+         <option class="bg-mirai-card">Research Institute</option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Accreditation</label>
+        <input type="text" placeholder="e.g. NAAC A+" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
+       </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Contact Person *</label>
+        <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
+       </div>
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Designation</label>
+        <input type="text" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
+       </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Official Email *</label>
+        <input type="email" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
+       </div>
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Phone *</label>
+        <input type="tel" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
+       </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">No. of Students</label>
+        <input type="number" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
+       </div>
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Partnership Interest *</label>
+        <select required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors appearance-none">
+         <option value="" disabled selected class="bg-mirai-card">Select Interest</option>
+         <option class="bg-mirai-card">Center of Excellence</option>
+         <option class="bg-mirai-card">Curriculum Integration</option>
+         <option class="bg-mirai-card">Faculty Training</option>
+         <option class="bg-mirai-card">Student Exchange</option>
+        </select>
+       </div>
+      </div>
+      <div>
+       <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Message</label>
+       <textarea rows="3" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors resize-none"></textarea>
+      </div>
+      
+      <button type="submit" class="btn-primary w-full py-4 rounded font-btn font-bold text-sm mt-4 !bg-none" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+       <span>Submit Request</span>
+      </button>
+     </form>
+
+     <!-- Success State -->
+     <div class="form-success hidden absolute inset-0 bg-mirai-card/95 backdrop-blur z-20 flex-col items-center justify-center p-8 text-center rounded-2xl">
+      <div class="w-16 h-16 rounded-full bg-mirai-success/20 flex items-center justify-center text-mirai-success mb-4">
+       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h4 class="font-display text-2xl text-white font-bold mb-2">Partnership Request Sent</h4>
+      <p class="font-body text-sm text-mirai-muted">Our institutional relations team will connect with you in 1-2 business days.</p>
+     </div>
+    </div>
+   </div>
+
+   <!-- Organizations Form -->
+   <div class="glass-card rounded-2xl p-8 reveal-up relative overflow-hidden group" style="animation-delay: 0.2s;">
+    <div class="absolute inset-0 bg-gradient-to-b from-mirai-cyan/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+     <div class="w-12 h-12 rounded bg-mirai-cyan/20 text-mirai-cyan flex items-center justify-center mb-6">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+     </div>
+     <h3 class="font-display text-2xl text-white font-bold mb-2">Organizations</h3>
+     <p class="font-body text-sm text-mirai-muted mb-8">Build future talent & upskill teams.</p>
+
+     <form class="space-y-4 m-form">
+      <div>
+       <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Organization Name *</label>
+       <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Industry</label>
+        <input type="text" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
+       </div>
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Contact Person *</label>
+        <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
+       </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Designation</label>
+        <input type="text" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
+       </div>
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Corporate Email *</label>
+        <input type="email" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
+       </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Phone *</label>
+        <input type="tel" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
+       </div>
+       <div>
+        <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Hiring Needs</label>
+        <input type="number" placeholder="Est. hires per year" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
+       </div>
+      </div>
+      <div>
+       <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Primary Interest *</label>
+       <select required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors appearance-none">
+        <option value="" disabled selected class="bg-mirai-card">Select Interest</option>
+        <option class="bg-mirai-card">Campus Recruitment</option>
+        <option class="bg-mirai-card">Corporate Training / Upskilling</option>
+        <option class="bg-mirai-card">Internship Opportunities</option>
+        <option class="bg-mirai-card">Sponsored Research</option>
+       </select>
+      </div>
+      <div>
+       <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Custom Message</label>
+       <textarea rows="4" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors resize-none"></textarea>
+      </div>
+      
+      <button type="submit" class="btn-primary w-full py-4 rounded font-btn font-bold text-sm mt-4 !bg-none" style="background: linear-gradient(135deg, #00D4FF 0%, #3B82F6 100%);">
+       <span>Submit Inquiry</span>
+      </button>
+     </form>
+
+     <!-- Success State -->
+     <div class="form-success hidden absolute inset-0 bg-mirai-card/95 backdrop-blur z-20 flex-col items-center justify-center p-8 text-center rounded-2xl">
+      <div class="w-16 h-16 rounded-full bg-mirai-success/20 flex items-center justify-center text-mirai-success mb-4">
+       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h4 class="font-display text-2xl text-white font-bold mb-2">Inquiry Received</h4>
+      <p class="font-body text-sm text-mirai-muted">Our corporate relations director will reach out to discuss how we can build your future talent pipeline.</p>
+     </div>
+    </div>
+   </div>
+
+  </div>
+ </section>
+
+ <!-- 12 & 13. EVENTS & RESOURCES (Combined block) -->
+
+ <section class="py-24 border-y border-mirai-border bg-mirai-bg2 relative">
+  <div class="max-w-[1600px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16">
+   
+   <!-- Events -->
+   <div>
+    <div class="flex items-center justify-between mb-8 reveal-up">
+     <h2 class="font-display text-3xl text-white font-bold">Upcoming Events</h2>
+     <a href="#" class="text-mirai-cyan hover:text-white text-sm font-semibold transition-colors">View Calendar &rarr;</a>
+    </div>
     
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 w-full">
-      
-      <!-- Left Content -->
-      <div id="hero-content">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-mirai-blue/30 bg-mirai-blue/10 text-mirai-cyan text-xs font-btn font-bold tracking-wider uppercase mb-8">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Future-Ready Education
-        </div>
-        <h1 class="font-display text-5xl lg:text-7xl xl:text-[80px] text-white leading-[1.1] mb-6 text-balance font-bold">
-          The Future of Engineering <span class="text-gradient-blue">Starts Here.</span>
-        </h1>
-        <p class="font-body text-lg text-mirai-muted max-w-md mb-10 text-balance leading-relaxed">
-          Industry-integrated education. Global careers. Real-world innovation. Join India's most premium engineering ecosystem.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#programs" class="btn-primary font-btn font-semibold px-8 py-4 rounded-md text-center text-base"><span>Explore Programs</span></a>
-          <a href="#contact" class="btn-secondary font-btn font-semibold px-8 py-4 rounded-md text-center text-base">Talk to an Advisor</a>
-        </div>
-
-        <!-- Trust Indicators -->
-        <div class="mt-16 pt-8 border-t border-mirai-border flex flex-col sm:flex-row gap-8 items-start sm:items-center">
-          <p class="text-xs text-mirai-muted font-medium uppercase tracking-widest">Industry Partners</p>
-          <div class="flex gap-6 opacity-60 grayscale hover:grayscale-0 transition-all">
-            <svg height="20" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">Microsoft</text></svg>
-            <svg height="20" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">Google</text></svg>
-            <svg height="20" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">NVIDIA</text></svg>
-          </div>
-        </div>
+    <div class="space-y-4">
+     <!-- Event 1 -->
+     <div class="glass-card p-6 rounded-xl flex gap-6 items-center hover:border-mirai-purple transition-colors reveal-up cursor-pointer">
+      <div class="w-16 h-16 rounded bg-mirai-bg border border-mirai-border flex flex-col items-center justify-center text-white font-display font-bold shrink-0">
+       <span class="text-xs text-mirai-muted uppercase font-body font-normal">Oct</span>
+       <span>12</span>
       </div>
-
-      <!-- Right Image / Graphics -->
-      <div class="relative w-full aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden glass-card group" id="hero-image">
-        <!-- The visual represents a futuristic engineering environment -->
-        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop" alt="Engineering Student in futuristic lab" class="w-full h-full object-cover opacity-70 mix-blend-luminosity group-hover:scale-105 transition-transform duration-1000 ease-out" loading="lazy">
-        
-        <!-- Holographic Data Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-mirai-bg to-transparent opacity-80"></div>
-        <div class="absolute inset-0 border border-mirai-cyan/20 rounded-2xl pointer-events-none"></div>
-        
-        <!-- Floating UI Element 1 -->
-        <div class="absolute top-10 left-[-20px] bg-mirai-card/90 backdrop-blur-md p-4 rounded-lg border border-mirai-border shadow-2xl flex items-center gap-4 hero-float-1 z-20">
-          <div class="w-10 h-10 rounded-full bg-mirai-blue/20 flex items-center justify-center text-mirai-blue">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <div>
-            <p class="text-[10px] text-mirai-muted uppercase tracking-wider font-bold">Avg. Placement</p>
-            <p class="text-white font-numbers font-bold text-xl">12.5 LPA</p>
-          </div>
-        </div>
-
-        <!-- Floating UI Element 2 -->
-        <div class="absolute bottom-10 right-[-20px] bg-mirai-card/90 backdrop-blur-md p-4 rounded-lg border border-mirai-border shadow-2xl hero-float-2 z-20">
-          <p class="text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-2">Global Network</p>
-          <div class="flex items-end gap-2">
-            <span class="text-mirai-cyan font-numbers font-bold text-3xl leading-none">50+</span>
-            <span class="text-white text-xs pb-1">Countries</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 4. INDUSTRY ADVANTAGES -->
-  <section class="border-y border-mirai-border bg-mirai-bg2 py-16 px-6 lg:px-12 relative z-10">
-    <div class="max-w-[1600px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-      
-      <!-- Card 1 -->
-      <div class="reveal-up group">
-        <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h4 class="font-body text-sm font-semibold text-white mb-2">Industry-Aligned Curriculum</h4>
-        <p class="font-body text-xs text-mirai-muted leading-relaxed">Designed with top experts to meet future demands.</p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="reveal-up group" style="animation-delay: 0.1s;">
-        <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <h4 class="font-body text-sm font-semibold text-white mb-2">Hands-on Projects</h4>
-        <p class="font-body text-xs text-mirai-muted leading-relaxed">Work on real-world problems and case studies.</p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="reveal-up group" style="animation-delay: 0.2s;">
-        <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <h4 class="font-body text-sm font-semibold text-white mb-2">Global Certifications</h4>
-        <p class="font-body text-xs text-mirai-muted leading-relaxed">Earn credentials recognized worldwide.</p>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="reveal-up group" style="animation-delay: 0.3s;">
-        <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-        </div>
-        <h4 class="font-body text-sm font-semibold text-white mb-2">Research Opportunities</h4>
-        <p class="font-body text-xs text-mirai-muted leading-relaxed">Access to advanced labs and innovation hubs.</p>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="reveal-up group" style="animation-delay: 0.4s;">
-        <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h4 class="font-body text-sm font-semibold text-white mb-2">Placement Assistance</h4>
-        <p class="font-body text-xs text-mirai-muted leading-relaxed">Dedicated career support and interview prep.</p>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="reveal-up group" style="animation-delay: 0.5s;">
-        <div class="w-12 h-12 rounded-lg bg-mirai-bg border border-mirai-border flex items-center justify-center text-mirai-blue mb-4 group-hover:border-mirai-blue group-hover:bg-mirai-blue/10 transition-colors">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h4 class="font-body text-sm font-semibold text-white mb-2">Flexible Learning</h4>
-        <p class="font-body text-xs text-mirai-muted leading-relaxed">Online, blended, and on-campus options.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 5. ACADEMIC PROGRAMS -->
-  <section id="programs" class="py-24 lg:py-32 px-6 lg:px-12 relative overflow-hidden bg-mirai-bg">
-    <!-- Glow -->
-    <div class="absolute right-0 top-1/4 w-[500px] h-[500px] bg-mirai-purple rounded-full blur-[120px] opacity-10 pointer-events-none"></div>
-
-    <div class="max-w-[1600px] mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-        <div class="reveal-up">
-          <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4">Academic Programs</h2>
-          <p class="font-body text-mirai-muted max-w-lg">Engineered for the future. Our curriculums integrate deep tech, practical application, and industry mentorship.</p>
-        </div>
-        <div class="reveal-up">
-          <a href="#" class="inline-flex items-center gap-2 text-mirai-cyan hover:text-white font-btn font-semibold transition-colors group">
-            View All Programs
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-        <!-- B.Tech -->
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop" alt="AI Robotics" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
-            <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">4 Years</div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-display text-xl text-white font-bold mb-2">B.Tech Programs</h3>
-            <p class="font-body text-sm text-mirai-muted mb-4">AI, Robotics, Data Science, Cyber Security, and more.</p>
-            <ul class="text-xs text-mirai-muted space-y-2 mb-6">
-              <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> 12 Months Industry Internship</li>
-              <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> 100% Placement Assistance</li>
-            </ul>
-            <div class="flex items-center justify-between">
-              <a href="#" class="btn-secondary px-4 py-2 text-xs font-semibold rounded">Apply Now</a>
-              <button class="text-mirai-muted hover:text-white" aria-label="Download Brochure"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
-            </div>
-          </div>
-        </div>
-
-        <!-- M.Tech -->
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors" style="animation-delay: 0.1s;">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" alt="Data Science" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
-            <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">2 Years</div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-display text-xl text-white font-bold mb-2">M.Tech / Masters</h3>
-            <p class="font-body text-sm text-mirai-muted mb-4">Advanced specializations for deep-tech leadership roles.</p>
-            <ul class="text-xs text-mirai-muted space-y-2 mb-6">
-              <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> Research & Development Focus</li>
-              <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> Global University Tie-ups</li>
-            </ul>
-            <div class="flex items-center justify-between">
-              <a href="#" class="btn-secondary px-4 py-2 text-xs font-semibold rounded">Apply Now</a>
-              <button class="text-mirai-muted hover:text-white" aria-label="Download Brochure"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Executive Programs -->
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors" style="animation-delay: 0.2s;">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop" alt="Corporate" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
-            <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">1 Year</div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-display text-xl text-white font-bold mb-2">Executive Programs</h3>
-            <p class="font-body text-sm text-mirai-muted mb-4">Upskill while you work. Designed for working professionals.</p>
-            <ul class="text-xs text-mirai-muted space-y-2 mb-6">
-              <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> Weekend / Online Classes</li>
-              <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> Executive Alumni Network</li>
-            </ul>
-            <div class="flex items-center justify-between">
-              <a href="#" class="btn-secondary px-4 py-2 text-xs font-semibold rounded">Apply Now</a>
-              <button class="text-mirai-muted hover:text-white" aria-label="Download Brochure"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Corporate Training -->
-        <div class="glass-card rounded-2xl overflow-hidden group reveal-up hover:border-mirai-blue transition-colors" style="animation-delay: 0.3s;">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop" alt="Training" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#111C32] to-transparent"></div>
-            <div class="absolute top-4 right-4 bg-mirai-bg2/80 backdrop-blur border border-mirai-border px-3 py-1 rounded text-xs font-numbers text-mirai-cyan">Custom</div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-display text-xl text-white font-bold mb-2">Corporate Training</h3>
-            <p class="font-body text-sm text-mirai-muted mb-4">Bespoke technological training for your enterprise workforce.</p>
-            <ul class="text-xs text-mirai-muted space-y-2 mb-6">
-              <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> Custom Curriculum Design</li>
-              <li class="flex items-center gap-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-mirai-success"><polyline points="20 6 9 17 4 12"/></svg> On-site or Remote Delivery</li>
-            </ul>
-            <div class="flex items-center justify-between">
-              <a href="#" class="btn-secondary px-4 py-2 text-xs font-semibold rounded">Enquire</a>
-              <button class="text-mirai-muted hover:text-white" aria-label="Download Brochure"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. LEARNING ECOSYSTEM (TIMELINE) -->
-  <section id="pathways" class="py-24 bg-mirai-bg2 relative overflow-hidden">
-    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 text-center mb-20">
-      <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4 reveal-up">The Mirai Ecosystem</h2>
-      <p class="font-body text-mirai-muted max-w-2xl mx-auto reveal-up">A proven pipeline that transforms passionate students into future-ready global engineers.</p>
-    </div>
-
-    <div class="max-w-[1200px] mx-auto px-6 relative">
-      <!-- Animated Line -->
-      <div class="absolute top-1/2 left-0 w-full h-[1px] bg-mirai-border -translate-y-1/2 hidden md:block z-0">
-        <div class="h-full bg-gradient-to-r from-mirai-blue via-mirai-cyan to-mirai-purple w-full origin-left scale-x-0 transition-transform duration-1000 ease-out timeline-progress"></div>
-      </div>
-
-      <div class="grid md:grid-cols-5 gap-8 relative z-10 timeline-container">
-        <!-- Step 1 -->
-        <div class="flex flex-col items-center text-center timeline-step group">
-          <div class="w-16 h-16 rounded-full glass-card border border-mirai-border flex items-center justify-center text-mirai-cyan mb-6 group-hover:scale-110 group-hover:border-mirai-cyan group-hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] transition-all">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          </div>
-          <h4 class="font-body font-bold text-white mb-2">1. Learn</h4>
-          <p class="font-body text-xs text-mirai-muted">Master fundamentals with top faculty.</p>
-        </div>
-        
-        <!-- Step 2 -->
-        <div class="flex flex-col items-center text-center timeline-step group">
-          <div class="w-16 h-16 rounded-full glass-card border border-mirai-border flex items-center justify-center text-mirai-cyan mb-6 group-hover:scale-110 group-hover:border-mirai-cyan group-hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] transition-all">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </div>
-          <h4 class="font-body font-bold text-white mb-2">2. Build</h4>
-          <p class="font-body text-xs text-mirai-muted">Apply theory to hands-on projects.</p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="flex flex-col items-center text-center timeline-step group">
-          <div class="w-16 h-16 rounded-full glass-card border border-mirai-border flex items-center justify-center text-mirai-cyan mb-6 group-hover:scale-110 group-hover:border-mirai-cyan group-hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] transition-all">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-          </div>
-          <h4 class="font-body font-bold text-white mb-2">3. Innovate</h4>
-          <p class="font-body text-xs text-mirai-muted">Solve complex real-world problems.</p>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="flex flex-col items-center text-center timeline-step group">
-          <div class="w-16 h-16 rounded-full glass-card border border-mirai-border flex items-center justify-center text-mirai-cyan mb-6 group-hover:scale-110 group-hover:border-mirai-cyan group-hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] transition-all">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h4 class="font-body font-bold text-white mb-2">4. Collaborate</h4>
-          <p class="font-body text-xs text-mirai-muted">Work with global industry partners.</p>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="flex flex-col items-center text-center timeline-step group">
-          <div class="w-16 h-16 rounded-full glass-card border border-mirai-border flex items-center justify-center text-mirai-success mb-6 group-hover:scale-110 group-hover:border-mirai-success group-hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <h4 class="font-body font-bold text-white mb-2">5. Launch</h4>
-          <p class="font-body text-xs text-mirai-muted">Secure high-impact placements.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. WHY MIRAI & 8. STATISTICS -->
-  <section class="py-24 lg:py-32 px-6 lg:px-12 bg-mirai-bg relative overflow-hidden">
-    <!-- Cyber Grid BG -->
-    <div class="absolute inset-0 bg-cyber bg-cyber-grid opacity-10 pointer-events-none"></div>
-
-    <div class="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-16 items-center mb-24 relative z-10">
-      <div class="reveal-up">
-        <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-6 text-balance">The Premium Standard in Engineering Education.</h2>
-        <p class="font-body text-mirai-muted mb-10 max-w-md">Our ecosystem is built on a foundation of cutting-edge research, industry integration, and an unwavering commitment to student success on a global scale.</p>
-        
-        <div class="grid grid-cols-2 gap-6">
-          <div class="flex items-start gap-4">
-            <div class="mt-1 text-mirai-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div>
-              <h5 class="font-body font-bold text-white text-sm mb-1">AI-Powered Learning</h5>
-              <p class="font-body text-xs text-mirai-muted">Personalized academic pathways.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <div class="mt-1 text-mirai-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div>
-              <h5 class="font-body font-bold text-white text-sm mb-1">Innovation Hubs</h5>
-              <p class="font-body text-xs text-mirai-muted">Access to 24/7 maker spaces.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <div class="mt-1 text-mirai-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div>
-              <h5 class="font-body font-bold text-white text-sm mb-1">Startup Incubation</h5>
-              <p class="font-body text-xs text-mirai-muted">Seed funding & mentorship.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <div class="mt-1 text-mirai-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div>
-              <h5 class="font-body font-bold text-white text-sm mb-1">Global Partnerships</h5>
-              <p class="font-body text-xs text-mirai-muted">Exchange programs & dual degrees.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="relative glass-card rounded-2xl overflow-hidden reveal-up h-full min-h-[400px]">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" alt="Technology Integration" class="w-full h-full object-cover opacity-60 mix-blend-luminosity" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-tr from-mirai-bg to-transparent opacity-90"></div>
-        <!-- Blueprint Overlay SVG -->
-        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#00D4FF 1px, transparent 1px); background-size: 20px 20px;"></div>
-        <!-- Animated Scanner Line -->
-        <div class="absolute top-0 left-0 w-full h-2 bg-mirai-cyan/50 blur shadow-[0_0_15px_#00D4FF] animate-[scan_4s_ease-in-out_infinite]"></div>
-      </div>
-    </div>
-
-    <!-- 8. STATISTICS -->
-    <div class="max-w-[1600px] mx-auto grid grid-cols-2 lg:grid-cols-6 gap-6 relative z-10 border-t border-mirai-border pt-16" id="stats-section">
-      
-      <div class="text-center p-4">
-        <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-blue to-mirai-cyan mb-2">
-          <span class="counter" data-target="15000">0</span>+
-        </h3>
-        <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Students</p>
-      </div>
-
-      <div class="text-center p-4">
-        <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-blue to-mirai-cyan mb-2">
-          <span class="counter" data-target="500">0</span>+
-        </h3>
-        <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Experts</p>
-      </div>
-
-      <div class="text-center p-4">
-        <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-blue to-mirai-cyan mb-2">
-          <span class="counter" data-target="100">0</span>+
-        </h3>
-        <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Partners</p>
-      </div>
-
-      <div class="text-center p-4">
-        <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-success to-[#4ADE80] mb-2">
-          <span class="counter" data-target="92">0</span>%
-        </h3>
-        <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Placements</p>
-      </div>
-
-      <div class="text-center p-4">
-        <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-blue to-mirai-cyan mb-2">
-          <span class="counter" data-target="50">0</span>+
-        </h3>
-        <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Collabs</p>
-      </div>
-
-      <div class="text-center p-4">
-        <h3 class="font-numbers text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-mirai-blue to-mirai-cyan mb-2">
-          <span class="counter" data-target="40">0</span>+
-        </h3>
-        <p class="font-body text-sm text-mirai-muted uppercase tracking-wider font-semibold">Countries</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 9. SUCCESS STORIES (Testimonials) -->
-  <section class="py-24 lg:py-32 bg-mirai-bg2 relative overflow-hidden border-y border-mirai-border">
-    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
-      <div class="reveal-up">
-        <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4">Success Stories</h2>
-        <p class="font-body text-mirai-muted max-w-lg">Hear from our alumni who are now engineering the future at top global technology companies.</p>
-      </div>
-      <div class="flex gap-4 reveal-up">
-        <button class="swiper-button-prev-custom w-12 h-12 rounded-full border border-mirai-border flex items-center justify-center text-white hover:bg-mirai-border transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <button class="swiper-button-next-custom w-12 h-12 rounded-full border border-mirai-border flex items-center justify-center text-white hover:bg-mirai-border transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-      </div>
-    </div>
-
-    <!-- Swiper Container -->
-    <div class="swiper success-swiper w-full pb-8 reveal-up">
-      <div class="swiper-wrapper flex items-stretch">
-        
-        <!-- Slide 1 -->
-        <div class="swiper-slide w-[350px] sm:w-[450px] mx-4 h-auto">
-          <div class="glass-card p-8 rounded-2xl h-full flex flex-col justify-between group hover:border-mirai-cyan transition-colors">
-            <div>
-              <div class="mb-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all">
-                <svg height="24" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">Google</text></svg>
-              </div>
-              <p class="font-body text-white text-lg leading-relaxed mb-8">"The deep tech curriculum at Mirai gave me a massive head start. The AI projects were exactly what Google was looking for during my interview."</p>
-            </div>
-            <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
-              <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" alt="Arjun Mehta" class="w-full h-full object-cover" loading="lazy">
-              </div>
-              <div>
-                <h5 class="font-body font-bold text-white text-sm">Arjun Mehta</h5>
-                <p class="font-body text-xs text-mirai-muted">Machine Learning Engineer</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="swiper-slide w-[350px] sm:w-[450px] mx-4 h-auto">
-          <div class="glass-card p-8 rounded-2xl h-full flex flex-col justify-between group hover:border-mirai-purple transition-colors">
-            <div>
-              <div class="mb-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all">
-                <svg height="24" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">Tesla</text></svg>
-              </div>
-              <p class="font-body text-white text-lg leading-relaxed mb-8">"The robotics lab at Mirai is world-class. Having 24/7 access to industrial robotic arms prepared me for the rigorous engineering challenges at Tesla."</p>
-            </div>
-            <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
-              <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="Priya Sharma" class="w-full h-full object-cover" loading="lazy">
-              </div>
-              <div>
-                <h5 class="font-body font-bold text-white text-sm">Priya Sharma</h5>
-                <p class="font-body text-xs text-mirai-muted">Robotics Systems Engineer</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="swiper-slide w-[350px] sm:w-[450px] mx-4 h-auto">
-          <div class="glass-card p-8 rounded-2xl h-full flex flex-col justify-between group hover:border-mirai-blue transition-colors">
-            <div>
-              <div class="mb-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all">
-                <svg height="24" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">NVIDIA</text></svg>
-              </div>
-              <p class="font-body text-white text-lg leading-relaxed mb-8">"Mirai's focus on foundational computer science and modern hardware acceleration architecture made my transition into the GPU division completely seamless."</p>
-            </div>
-            <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
-              <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="David Chen" class="w-full h-full object-cover" loading="lazy">
-              </div>
-              <div>
-                <h5 class="font-body font-bold text-white text-sm">David Chen</h5>
-                <p class="font-body text-xs text-mirai-muted">Hardware Architect</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="swiper-slide w-[350px] sm:w-[450px] mx-4 h-auto">
-          <div class="glass-card p-8 rounded-2xl h-full flex flex-col justify-between group hover:border-mirai-success transition-colors">
-            <div>
-              <div class="mb-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all">
-                <svg height="24" viewBox="0 0 100 30" fill="white"><text x="0" y="20" font-size="20" font-family="Arial" font-weight="bold">Microsoft</text></svg>
-              </div>
-              <p class="font-body text-white text-lg leading-relaxed mb-8">"The placement support team was phenomenal. They didn't just help me get a job; they helped me negotiate a career path that matched my exact ambitions."</p>
-            </div>
-            <div class="flex items-center gap-4 pt-6 border-t border-mirai-border">
-              <div class="w-12 h-12 rounded-full overflow-hidden bg-mirai-bg">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Sneha Rao" class="w-full h-full object-cover" loading="lazy">
-              </div>
-              <div>
-                <h5 class="font-body font-bold text-white text-sm">Sneha Rao</h5>
-                <p class="font-body text-xs text-mirai-muted">Cloud Solutions Architect</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. ENGINEERING DOMAINS -->
-  <section class="py-24 lg:py-32 px-6 lg:px-12 bg-mirai-bg relative">
-    <div class="max-w-[1600px] mx-auto text-center mb-16 reveal-up">
-      <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4">Engineering Domains</h2>
-      <p class="font-body text-mirai-muted max-w-2xl mx-auto">Master the technologies that are actively redefining the future of human capability.</p>
-    </div>
-
-    <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      
-      <!-- Domain 1 -->
-      <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up">
-        <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop" alt="AI" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
-        <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
-          <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Artificial Intelligence</h3>
-          <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
-            Neural Networks • Deep Learning • NLP
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 2 -->
-      <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.1s;">
-        <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&auto=format&fit=crop" alt="Robotics" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
-        <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
-          <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Robotics & Automation</h3>
-          <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
-            Kinematics • Control Systems • ROS
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 3 -->
-      <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.2s;">
-        <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop" alt="Cyber Security" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
-        <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
-          <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Cyber Security</h3>
-          <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
-            Ethical Hacking • Cryptography • SecOps
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 4 -->
-      <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.3s;">
-        <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop" alt="Space Tech" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
-        <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
-          <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Space Technology</h3>
-          <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
-            Astrodynamics • Satellite Comms • Propulsion
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 5 -->
-      <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up">
-        <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="IoT" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
-        <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
-          <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">IoT & Embedded Systems</h3>
-          <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
-            Microcontrollers • Edge Computing • Sensors
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 6 -->
-      <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.1s;">
-        <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Data" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
-        <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
-          <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Data Science</h3>
-          <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
-            Big Data • Predictive Modeling • Viz
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 7 -->
-      <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.2s;">
-        <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=600&auto=format&fit=crop" alt="Renewable" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
-        <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
-          <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Renewable Energy</h3>
-          <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
-            Solar Grid • Battery Tech • Wind Power
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 8 -->
-      <div class="group relative h-64 rounded-xl overflow-hidden glass-card cursor-pointer reveal-up" style="animation-delay: 0.3s;">
-        <div class="absolute inset-0 bg-gradient-to-t from-mirai-card to-transparent z-10"></div>
-        <img src="https://images.unsplash.com/photo-1580894742597-87bc8789db3d?q=80&w=600&auto=format&fit=crop" alt="Cloud" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-30 transition-all duration-700" loading="lazy">
-        <div class="absolute inset-0 z-20 p-6 flex flex-col justify-end">
-          <h3 class="font-display text-xl text-white font-bold mb-2 group-hover:-translate-y-4 transition-transform duration-300">Cloud Computing</h3>
-          <div class="absolute bottom-6 left-6 right-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-mirai-cyan text-xs font-semibold">
-            AWS Architecture • DevOps • Microservices
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 11. CHOOSE YOUR PATH (Forms) -->
-  <section id="apply" class="py-24 lg:py-32 px-6 lg:px-12 bg-mirai-bg relative border-t border-mirai-border">
-    <!-- Glow -->
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-mirai-blue rounded-full blur-[200px] opacity-[0.03] pointer-events-none z-0"></div>
-
-    <div class="max-w-[1600px] mx-auto text-center mb-16 relative z-10 reveal-up">
-      <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4">Choose Your Path</h2>
-      <p class="font-body text-mirai-muted max-w-2xl mx-auto">Select your profile to begin the application or partnership process.</p>
-    </div>
-
-    <div class="max-w-[1600px] mx-auto grid xl:grid-cols-3 gap-8 relative z-10">
-      
-      <!-- Individual Students Form -->
-      <div class="glass-card rounded-2xl p-8 reveal-up relative overflow-hidden group">
-        <div class="absolute inset-0 bg-gradient-to-b from-mirai-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div class="relative z-10">
-          <div class="w-12 h-12 rounded bg-mirai-blue/20 text-mirai-blue flex items-center justify-center mb-6">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <h3 class="font-display text-2xl text-white font-bold mb-2">Individual Students</h3>
-          <p class="font-body text-sm text-mirai-muted mb-8">Start your engineering journey.</p>
-
-          <form class="space-y-4 m-form">
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Full Name *</label>
-                <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors">
-              </div>
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Email *</label>
-                <input type="email" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors">
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Phone *</label>
-                <input type="tel" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors">
-              </div>
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">City *</label>
-                <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors">
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Qualification</label>
-                <select class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors appearance-none">
-                  <option class="bg-mirai-card">12th Grade (High School)</option>
-                  <option class="bg-mirai-card">Undergraduate</option>
-                  <option class="bg-mirai-card">Postgraduate</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Graduation Year</label>
-                <select class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors appearance-none">
-                  <option class="bg-mirai-card">2024</option>
-                  <option class="bg-mirai-card">2025</option>
-                  <option class="bg-mirai-card">2026</option>
-                  <option class="bg-mirai-card">2027</option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Program Interested In *</label>
-              <select required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors appearance-none">
-                <option value="" disabled selected class="bg-mirai-card">Select Program</option>
-                <option class="bg-mirai-card">B.Tech Artificial Intelligence</option>
-                <option class="bg-mirai-card">B.Tech Robotics</option>
-                <option class="bg-mirai-card">M.Tech Data Science</option>
-                <option class="bg-mirai-card">Executive Cyber Security</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Statement of Purpose / Message</label>
-              <textarea rows="2" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-blue transition-colors resize-none"></textarea>
-            </div>
-            <div>
-              <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Resume / CV (Optional)</label>
-              <div class="border border-dashed border-mirai-border rounded px-4 py-3 text-center cursor-pointer hover:border-mirai-blue transition-colors bg-mirai-bg/50">
-                <span class="text-xs text-mirai-muted">Click to upload or drag & drop</span>
-              </div>
-            </div>
-            <button type="submit" class="btn-primary w-full py-4 rounded font-btn font-bold text-sm mt-4">
-              <span>Submit Application</span>
-            </button>
-          </form>
-          
-          <!-- Success State -->
-          <div class="form-success hidden absolute inset-0 bg-mirai-card/95 backdrop-blur z-20 flex-col items-center justify-center p-8 text-center rounded-2xl">
-            <div class="w-16 h-16 rounded-full bg-mirai-success/20 flex items-center justify-center text-mirai-success mb-4">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <h4 class="font-display text-2xl text-white font-bold mb-2">Application Received</h4>
-            <p class="font-body text-sm text-mirai-muted">We have sent a confirmation to your email. Our admissions team will contact you shortly.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Colleges & Universities Form -->
-      <div class="glass-card rounded-2xl p-8 reveal-up relative overflow-hidden group" style="animation-delay: 0.1s;">
-        <div class="absolute inset-0 bg-gradient-to-b from-mirai-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div class="relative z-10">
-          <div class="w-12 h-12 rounded bg-mirai-purple/20 text-mirai-purple flex items-center justify-center mb-6">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
-          </div>
-          <h3 class="font-display text-2xl text-white font-bold mb-2">Colleges & Universities</h3>
-          <p class="font-body text-sm text-mirai-muted mb-8">Partner with Mirai Engineering.</p>
-
-          <form class="space-y-4 m-form">
-            <div>
-              <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Institution Name *</label>
-              <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">College Type</label>
-                <select class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors appearance-none">
-                  <option class="bg-mirai-card">University</option>
-                  <option class="bg-mirai-card">Engineering College</option>
-                  <option class="bg-mirai-card">Research Institute</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Accreditation</label>
-                <input type="text" placeholder="e.g. NAAC A+" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Contact Person *</label>
-                <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
-              </div>
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Designation</label>
-                <input type="text" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Official Email *</label>
-                <input type="email" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
-              </div>
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Phone *</label>
-                <input type="tel" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">No. of Students</label>
-                <input type="number" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors">
-              </div>
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Partnership Interest *</label>
-                <select required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors appearance-none">
-                  <option value="" disabled selected class="bg-mirai-card">Select Interest</option>
-                  <option class="bg-mirai-card">Center of Excellence</option>
-                  <option class="bg-mirai-card">Curriculum Integration</option>
-                  <option class="bg-mirai-card">Faculty Training</option>
-                  <option class="bg-mirai-card">Student Exchange</option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Message</label>
-              <textarea rows="3" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-purple transition-colors resize-none"></textarea>
-            </div>
-            
-            <button type="submit" class="btn-primary w-full py-4 rounded font-btn font-bold text-sm mt-4 !bg-none" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
-              <span>Submit Request</span>
-            </button>
-          </form>
-
-          <!-- Success State -->
-          <div class="form-success hidden absolute inset-0 bg-mirai-card/95 backdrop-blur z-20 flex-col items-center justify-center p-8 text-center rounded-2xl">
-            <div class="w-16 h-16 rounded-full bg-mirai-success/20 flex items-center justify-center text-mirai-success mb-4">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <h4 class="font-display text-2xl text-white font-bold mb-2">Partnership Request Sent</h4>
-            <p class="font-body text-sm text-mirai-muted">Our institutional relations team will connect with you in 1-2 business days.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Organizations Form -->
-      <div class="glass-card rounded-2xl p-8 reveal-up relative overflow-hidden group" style="animation-delay: 0.2s;">
-        <div class="absolute inset-0 bg-gradient-to-b from-mirai-cyan/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div class="relative z-10">
-          <div class="w-12 h-12 rounded bg-mirai-cyan/20 text-mirai-cyan flex items-center justify-center mb-6">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          </div>
-          <h3 class="font-display text-2xl text-white font-bold mb-2">Organizations</h3>
-          <p class="font-body text-sm text-mirai-muted mb-8">Build future talent & upskill teams.</p>
-
-          <form class="space-y-4 m-form">
-            <div>
-              <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Organization Name *</label>
-              <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Industry</label>
-                <input type="text" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
-              </div>
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Contact Person *</label>
-                <input type="text" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Designation</label>
-                <input type="text" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
-              </div>
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Corporate Email *</label>
-                <input type="email" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Phone *</label>
-                <input type="tel" required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
-              </div>
-              <div>
-                <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Hiring Needs</label>
-                <input type="number" placeholder="Est. hires per year" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors">
-              </div>
-            </div>
-            <div>
-              <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Primary Interest *</label>
-              <select required class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors appearance-none">
-                <option value="" disabled selected class="bg-mirai-card">Select Interest</option>
-                <option class="bg-mirai-card">Campus Recruitment</option>
-                <option class="bg-mirai-card">Corporate Training / Upskilling</option>
-                <option class="bg-mirai-card">Internship Opportunities</option>
-                <option class="bg-mirai-card">Sponsored Research</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-[10px] text-mirai-muted uppercase tracking-wider font-bold mb-1">Custom Message</label>
-              <textarea rows="4" class="w-full bg-mirai-bg/50 border border-mirai-border rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-mirai-cyan transition-colors resize-none"></textarea>
-            </div>
-            
-            <button type="submit" class="btn-primary w-full py-4 rounded font-btn font-bold text-sm mt-4 !bg-none" style="background: linear-gradient(135deg, #00D4FF 0%, #3B82F6 100%);">
-              <span>Submit Inquiry</span>
-            </button>
-          </form>
-
-          <!-- Success State -->
-          <div class="form-success hidden absolute inset-0 bg-mirai-card/95 backdrop-blur z-20 flex-col items-center justify-center p-8 text-center rounded-2xl">
-            <div class="w-16 h-16 rounded-full bg-mirai-success/20 flex items-center justify-center text-mirai-success mb-4">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <h4 class="font-display text-2xl text-white font-bold mb-2">Inquiry Received</h4>
-            <p class="font-body text-sm text-mirai-muted">Our corporate relations director will reach out to discuss how we can build your future talent pipeline.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 12 & 13. EVENTS & RESOURCES (Combined block) -->
-
-  <section class="py-24 border-y border-mirai-border bg-mirai-bg2 relative">
-    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16">
-      
-      <!-- Events -->
       <div>
-        <div class="flex items-center justify-between mb-8 reveal-up">
-          <h2 class="font-display text-3xl text-white font-bold">Upcoming Events</h2>
-          <a href="#" class="text-mirai-cyan hover:text-white text-sm font-semibold transition-colors">View Calendar &rarr;</a>
-        </div>
-        
-        <div class="space-y-4">
-          <!-- Event 1 -->
-          <div class="glass-card p-6 rounded-xl flex gap-6 items-center hover:border-mirai-purple transition-colors reveal-up cursor-pointer">
-            <div class="w-16 h-16 rounded bg-mirai-bg border border-mirai-border flex flex-col items-center justify-center text-white font-display font-bold shrink-0">
-              <span class="text-xs text-mirai-muted uppercase font-body font-normal">Oct</span>
-              <span>12</span>
-            </div>
-            <div>
-              <p class="text-xs text-mirai-purple font-semibold uppercase tracking-wider mb-1">Global Hackathon</p>
-              <h4 class="text-white font-bold text-lg mb-1">AI for Climate Change Hackathon</h4>
-              <p class="text-xs text-mirai-muted">Virtual • Open to all enrolled students</p>
-            </div>
-          </div>
-          
-          <!-- Event 2 -->
-          <div class="glass-card p-6 rounded-xl flex gap-6 items-center hover:border-mirai-cyan transition-colors reveal-up cursor-pointer" style="animation-delay: 0.1s;">
-            <div class="w-16 h-16 rounded bg-mirai-bg border border-mirai-border flex flex-col items-center justify-center text-white font-display font-bold shrink-0">
-              <span class="text-xs text-mirai-muted uppercase font-body font-normal">Nov</span>
-              <span>05</span>
-            </div>
-            <div>
-              <p class="text-xs text-mirai-cyan font-semibold uppercase tracking-wider mb-1">Industry Webinar</p>
-              <h4 class="text-white font-bold text-lg mb-1">The Future of Space Tech with ISRO</h4>
-              <p class="text-xs text-mirai-muted">Bangalore Campus & Virtual</p>
-            </div>
-          </div>
-        </div>
+       <p class="text-xs text-mirai-purple font-semibold uppercase tracking-wider mb-1">Global Hackathon</p>
+       <h4 class="text-white font-bold text-lg mb-1">AI for Climate Change Hackathon</h4>
+       <p class="text-xs text-mirai-muted">Virtual • Open to all enrolled students</p>
       </div>
-
-      <!-- Resources -->
+     </div>
+     
+     <!-- Event 2 -->
+     <div class="glass-card p-6 rounded-xl flex gap-6 items-center hover:border-mirai-cyan transition-colors reveal-up cursor-pointer" style="animation-delay: 0.1s;">
+      <div class="w-16 h-16 rounded bg-mirai-bg border border-mirai-border flex flex-col items-center justify-center text-white font-display font-bold shrink-0">
+       <span class="text-xs text-mirai-muted uppercase font-body font-normal">Nov</span>
+       <span>05</span>
+      </div>
       <div>
-        <div class="flex items-center justify-between mb-8 reveal-up">
-          <h2 class="font-display text-3xl text-white font-bold">Latest Resources</h2>
-          <a href="#" class="text-mirai-cyan hover:text-white text-sm font-semibold transition-colors">View Library &rarr;</a>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-4">
-          <!-- Resource 1 -->
-          <div class="glass-card rounded-xl overflow-hidden hover:border-mirai-blue transition-colors group cursor-pointer reveal-up">
-            <div class="h-32 overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=400&auto=format&fit=crop" alt="Code" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500" loading="lazy">
-            </div>
-            <div class="p-5">
-              <span class="text-[10px] text-mirai-blue font-bold uppercase tracking-wider block mb-2">Research Paper</span>
-              <h4 class="text-white font-semibold text-sm mb-2 group-hover:text-mirai-blue transition-colors">Quantum Computing Algorithms for Optimization</h4>
-              <span class="text-xs text-mirai-muted">By Dr. S. Raman • 5 min read</span>
-            </div>
-          </div>
-
-          <!-- Resource 2 -->
-          <div class="glass-card rounded-xl overflow-hidden hover:border-mirai-blue transition-colors group cursor-pointer reveal-up" style="animation-delay: 0.1s;">
-            <div class="h-32 overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&auto=format&fit=crop" alt="Setup" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500" loading="lazy">
-            </div>
-            <div class="p-5">
-              <span class="text-[10px] text-mirai-success font-bold uppercase tracking-wider block mb-2">Career Guide</span>
-              <h4 class="text-white font-semibold text-sm mb-2 group-hover:text-mirai-success transition-colors">How to Ace Technical Interviews at FAANG</h4>
-              <span class="text-xs text-mirai-muted">By Career Cell • PDF Download</span>
-            </div>
-          </div>
-        </div>
+       <p class="text-xs text-mirai-cyan font-semibold uppercase tracking-wider mb-1">Industry Webinar</p>
+       <h4 class="text-white font-bold text-lg mb-1">The Future of Space Tech with ISRO</h4>
+       <p class="text-xs text-mirai-muted">Bangalore Campus & Virtual</p>
       </div>
-
+     </div>
     </div>
-  </section>
+   </div>
 
-  <!-- 14. ADMISSIONS CTA -->
-  <section class="py-24 px-6 lg:px-12 bg-mirai-bg relative">
-    <div class="max-w-[1400px] mx-auto bg-gradient-to-r from-mirai-card to-mirai-bg2 border border-mirai-border rounded-3xl overflow-hidden relative reveal-up flex flex-col md:flex-row items-center">
-      
-      <!-- Content -->
-      <div class="p-12 lg:p-20 relative z-10 md:w-1/2">
-        <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-6 text-balance">Ready to Build Your Future?</h2>
-        <p class="font-body text-mirai-muted mb-10 text-lg">Join the ecosystem that is actively engineering tomorrow. Applications for the 2027 intake are now open.</p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#apply" class="btn-primary font-btn font-semibold px-8 py-4 rounded-md text-center text-base"><span>Apply Today</span></a>
-          <a href="#contact" class="btn-secondary font-btn font-semibold px-8 py-4 rounded-md text-center text-base border-mirai-cyan/30 text-mirai-cyan hover:bg-mirai-cyan/10">Schedule Counselling</a>
-        </div>
-      </div>
-
-      <!-- Robotic Hand Graphic -->
-      <div class="md:w-1/2 h-64 md:h-full relative overflow-hidden min-h-[400px] w-full">
-        <!-- Blueprint lines -->
-        <div class="absolute inset-0 opacity-30" style="background-image: linear-gradient(#3B82F6 1px, transparent 1px), linear-gradient(90deg, #3B82F6 1px, transparent 1px); background-size: 40px 40px;"></div>
-        <!-- Abstract robotic hand / AI node image -->
-        <img src="https://images.unsplash.com/photo-1614729939124-03290b5609ce?q=80&w=800&auto=format&fit=crop" alt="AI Core" class="absolute inset-0 w-full h-full object-cover mix-blend-screen opacity-60" loading="lazy">
-        <!-- Overlay gradient to blend -->
-        <div class="absolute inset-0 bg-gradient-to-r from-mirai-card to-transparent md:w-1/2"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-mirai-bg2 to-transparent md:hidden"></div>
-      </div>
+   <!-- Resources -->
+   <div>
+    <div class="flex items-center justify-between mb-8 reveal-up">
+     <h2 class="font-display text-3xl text-white font-bold">Latest Resources</h2>
+     <a href="#" class="text-mirai-cyan hover:text-white text-sm font-semibold transition-colors">View Library &rarr;</a>
     </div>
-  </section>
 
-  <!-- 15. NEWSLETTER & 16. PREMIUM FOOTER -->
-  <footer class="bg-mirai-bg2 pt-24 pb-8 px-6 lg:px-12 relative overflow-hidden border-t border-mirai-border">
-    <div class="max-w-[1600px] mx-auto relative z-10">
-      
-      <!-- Newsletter Section -->
-      <div class="grid lg:grid-cols-2 gap-12 items-center border-b border-mirai-border pb-20 mb-20">
-        <div>
-          <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4">Stay Ahead of Engineering Innovation.</h2>
-          <p class="font-body text-mirai-muted max-w-md">Get engineering news, research breakthroughs, program updates, and exclusive scholarship alerts straight to your inbox.</p>
-        </div>
-        <form class="flex w-full max-w-md lg:ml-auto group" onsubmit="event.preventDefault(); alert('Subscribed to Mirai Engineering!');">
-          <input type="email" placeholder="Enter your email address" required class="flex-1 bg-mirai-card border border-mirai-border rounded-l px-6 py-4 text-white focus:outline-none focus:border-mirai-blue transition-colors placeholder:text-mirai-muted text-sm">
-          <button type="submit" class="bg-mirai-blue text-white font-btn font-bold px-8 py-4 rounded-r hover:bg-mirai-cyan transition-colors">Subscribe</button>
-        </form>
+    <div class="grid sm:grid-cols-2 gap-4">
+     <!-- Resource 1 -->
+     <div class="glass-card rounded-xl overflow-hidden hover:border-mirai-blue transition-colors group cursor-pointer reveal-up">
+      <div class="h-32 overflow-hidden relative">
+       <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=400&auto=format&fit=crop" alt="Code" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500" loading="lazy">
       </div>
-
-      <!-- Links Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 mb-20">
-        <div class="col-span-2">
-          <a href="/" class="flex items-center gap-3 mb-6">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 28V4L16 16L28 4V28" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4 16L16 28L28 16" stroke="#00D4FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-            </svg>
-            <span class="font-display text-xl tracking-tight text-white font-bold">MIRAI <span class="font-normal opacity-80">ENGINEERING</span></span>
-          </a>
-          <p class="font-body text-sm text-mirai-muted mb-8 max-w-sm">Engineering Tomorrow. Building Global Careers.</p>
-          <div class="flex gap-4">
-            <a href="#" class="w-10 h-10 rounded-full border border-mirai-border flex items-center justify-center text-mirai-muted hover:text-white hover:border-mirai-blue transition-colors" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" class="w-10 h-10 rounded-full border border-mirai-border flex items-center justify-center text-mirai-muted hover:text-white hover:border-mirai-blue transition-colors" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5 5 9.5 5 9.5s1.5.5 2.5.2C4.5 8 5 3 5 3c1.5 1 3 1.5 5 1.5-1.5-4 5-7 8-3 1.5-.5 3-1.5 3-1.5z"/></svg></a>
-            <a href="#" class="w-10 h-10 rounded-full border border-mirai-border flex items-center justify-center text-mirai-muted hover:text-white hover:border-mirai-blue transition-colors" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
-          </div>
-        </div>
-
-        <div>
-          <h5 class="font-body font-bold text-xs uppercase tracking-wider text-white mb-6">Programs</h5>
-          <ul class="space-y-4 font-body text-sm text-mirai-muted">
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">B.Tech Specializations</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">M.Tech Masters</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Executive MBA Tech</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Corporate Training</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 class="font-body font-bold text-xs uppercase tracking-wider text-white mb-6">Admissions</h5>
-          <ul class="space-y-4 font-body text-sm text-mirai-muted">
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Apply Now</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Eligibility</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Scholarships</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">International Students</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 class="font-body font-bold text-xs uppercase tracking-wider text-white mb-6">Company</h5>
-          <ul class="space-y-4 font-body text-sm text-mirai-muted">
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">About Us</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Careers</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Campus Tour</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Contact</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 class="font-body font-bold text-xs uppercase tracking-wider text-white mb-6">Resources</h5>
-          <ul class="space-y-4 font-body text-sm text-mirai-muted">
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Blog</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Research Papers</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Student Portal</a></li>
-            <li><a href="#" class="hover:text-mirai-cyan transition-colors">Alumni Network</a></li>
-          </ul>
-        </div>
+      <div class="p-5">
+       <span class="text-[10px] text-mirai-blue font-bold uppercase tracking-wider block mb-2">Research Paper</span>
+       <h4 class="text-white font-semibold text-sm mb-2 group-hover:text-mirai-blue transition-colors">Quantum Computing Algorithms for Optimization</h4>
+       <span class="text-xs text-mirai-muted">By Dr. S. Raman • 5 min read</span>
       </div>
+     </div>
 
-      <!-- Bottom Bar with SZX Ventures Logo -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-mirai-border pt-8">
-        
-        <!-- SZX Ventures Branding -->
-        <div class="flex items-center gap-4">
-          <span class="font-display text-sm text-mirai-muted italic">A venture by</span>
-          <div class="flex flex-col items-start border-l border-mirai-border pl-4">
-            <span class="font-display text-xl font-bold tracking-tight leading-none mb-1 text-white">SZX VENTURES</span>
-            <span class="font-body text-[9px] uppercase tracking-wider text-mirai-cyan">Building Purposeful Brands</span>
-          </div>
-        </div>
-
-        <div class="font-body text-xs text-mirai-muted flex flex-wrap justify-center gap-6">
-          <span>&copy; 2026 Mirai Engineering. All rights reserved.</span>
-          <div class="flex gap-4">
-            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" class="hover:text-white transition-colors">Terms</a>
-            <a href="#" class="hover:text-white transition-colors">Sitemap</a>
-          </div>
-        </div>
-
+     <!-- Resource 2 -->
+     <div class="glass-card rounded-xl overflow-hidden hover:border-mirai-blue transition-colors group cursor-pointer reveal-up" style="animation-delay: 0.1s;">
+      <div class="h-32 overflow-hidden relative">
+       <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&auto=format&fit=crop" alt="Setup" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500" loading="lazy">
       </div>
-
+      <div class="p-5">
+       <span class="text-[10px] text-mirai-success font-bold uppercase tracking-wider block mb-2">Career Guide</span>
+       <h4 class="text-white font-semibold text-sm mb-2 group-hover:text-mirai-success transition-colors">How to Ace Technical Interviews at FAANG</h4>
+       <span class="text-xs text-mirai-muted">By Career Cell • PDF Download</span>
+      </div>
+     </div>
     </div>
-  </footer>
+   </div>
 
-  <!-- Scripts -->
-  <script>
-    // Initialize Lenis
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true
-    });
+  </div>
+ </section>
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+ <!-- 14. ADMISSIONS CTA -->
+ <section class="py-24 px-6 lg:px-12 bg-mirai-bg relative">
+  <div class="max-w-[1400px] mx-auto bg-gradient-to-r from-mirai-card to-mirai-bg2 border border-mirai-border rounded-3xl overflow-hidden relative reveal-up flex flex-col md:flex-row items-center">
+   
+   <!-- Content -->
+   <div class="p-12 lg:p-20 relative z-10 md:w-1/2">
+    <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-6 text-balance">Ready to Build Your Future?</h2>
+    <p class="font-body text-mirai-muted mb-10 text-lg">Join the ecosystem that is actively engineering tomorrow. Applications for the 2027 intake are now open.</p>
+    <div class="flex flex-col sm:flex-row gap-4">
+     <a href="#apply" class="btn-primary font-btn font-semibold px-8 py-4 rounded-md text-center text-base"><span>Apply Today</span></a>
+     <a href="#contact" class="btn-secondary font-btn font-semibold px-8 py-4 rounded-md text-center text-base border-mirai-cyan/30 text-mirai-cyan hover:bg-mirai-cyan/10">Schedule Counselling</a>
+    </div>
+   </div>
+
+   <!-- Robotic Hand Graphic -->
+   <div class="md:w-1/2 h-64 md:h-full relative overflow-hidden min-h-[400px] w-full">
+    <!-- Blueprint lines -->
+    <div class="absolute inset-0 opacity-30" style="background-image: linear-gradient(#3B82F6 1px, transparent 1px), linear-gradient(90deg, #3B82F6 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <!-- Abstract robotic hand / AI node image -->
+    <img src="https://images.unsplash.com/photo-1614729939124-03290b5609ce?q=80&w=800&auto=format&fit=crop" alt="AI Core" class="absolute inset-0 w-full h-full object-cover mix-blend-screen opacity-60" loading="lazy">
+    <!-- Overlay gradient to blend -->
+    <div class="absolute inset-0 bg-gradient-to-r from-mirai-card to-transparent md:w-1/2"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-mirai-bg2 to-transparent md:hidden"></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- 15. NEWSLETTER & 16. PREMIUM FOOTER -->
+ <footer class="bg-mirai-bg2 pt-24 pb-8 px-6 lg:px-12 relative overflow-hidden border-t border-mirai-border">
+  <div class="max-w-[1600px] mx-auto relative z-10">
+   
+   <!-- Newsletter Section -->
+   <div class="grid lg:grid-cols-2 gap-12 items-center border-b border-mirai-border pb-20 mb-20">
+    <div>
+     <h2 class="font-display text-4xl lg:text-5xl text-white font-bold mb-4">Stay Ahead of Engineering Innovation.</h2>
+     <p class="font-body text-mirai-muted max-w-md">Get engineering news, research breakthroughs, program updates, and exclusive scholarship alerts straight to your inbox.</p>
+    </div>
+    <form class="m-form flex w-full max-w-md lg:ml-auto group">
+     <input type="email" placeholder="Enter your email address" required class="flex-1 bg-mirai-card border border-mirai-border rounded-l px-6 py-4 text-white focus:outline-none focus:border-mirai-blue transition-colors placeholder:text-mirai-muted text-sm">
+     <button type="submit" class="bg-mirai-blue text-white font-btn font-bold px-8 py-4 rounded-r hover:bg-mirai-cyan transition-colors">Subscribe</button>
+    </form>
+   </div>
+
+   <!-- Links Grid -->
+   <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 mb-20">
+    <div class="col-span-2">
+     <a href="/" class="flex items-center gap-3 mb-6">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M4 28V4L16 16L28 4V28" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+       <path d="M4 16L16 28L28 16" stroke="#00D4FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+      </svg>
+      <span class="font-display text-xl tracking-tight text-white font-bold">MIRAI <span class="font-normal opacity-80">ENGINEERING</span></span>
+     </a>
+     <p class="font-body text-sm text-mirai-muted mb-8 max-w-sm">Engineering Tomorrow. Building Global Careers.</p>
+     <div class="flex gap-4">
+      <a href="#" class="w-10 h-10 rounded-full border border-mirai-border flex items-center justify-center text-mirai-muted hover:text-white hover:border-mirai-blue transition-colors" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="#" class="w-10 h-10 rounded-full border border-mirai-border flex items-center justify-center text-mirai-muted hover:text-white hover:border-mirai-blue transition-colors" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5 5 9.5 5 9.5s1.5.5 2.5.2C4.5 8 5 3 5 3c1.5 1 3 1.5 5 1.5-1.5-4 5-7 8-3 1.5-.5 3-1.5 3-1.5z"/></svg></a>
+      <a href="#" class="w-10 h-10 rounded-full border border-mirai-border flex items-center justify-center text-mirai-muted hover:text-white hover:border-mirai-blue transition-colors" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+     </div>
+    </div>
+
+    <div>
+     <h5 class="font-body font-bold text-xs uppercase tracking-wider text-white mb-6">Programs</h5>
+     <ul class="space-y-4 font-body text-sm text-mirai-muted">
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">B.Tech Specializations</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">M.Tech Masters</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Executive MBA Tech</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Corporate Training</a></li>
+     </ul>
+    </div>
+
+    <div>
+     <h5 class="font-body font-bold text-xs uppercase tracking-wider text-white mb-6">Admissions</h5>
+     <ul class="space-y-4 font-body text-sm text-mirai-muted">
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Apply Now</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Eligibility</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Scholarships</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">International Students</a></li>
+     </ul>
+    </div>
+
+    <div>
+     <h5 class="font-body font-bold text-xs uppercase tracking-wider text-white mb-6">Company</h5>
+     <ul class="space-y-4 font-body text-sm text-mirai-muted">
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">About Us</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Careers</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Campus Tour</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Contact</a></li>
+     </ul>
+    </div>
+
+    <div>
+     <h5 class="font-body font-bold text-xs uppercase tracking-wider text-white mb-6">Resources</h5>
+     <ul class="space-y-4 font-body text-sm text-mirai-muted">
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Blog</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Research Papers</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Student Portal</a></li>
+      <li><a href="#" class="hover:text-mirai-cyan transition-colors">Alumni Network</a></li>
+     </ul>
+    </div>
+   </div>
+
+   <!-- Bottom Bar with SZ Ventures Logo -->
+   <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-mirai-border pt-8">
+    
+    <!-- SZ Ventures Branding -->
+    <div class="flex items-center gap-4">
+     <span class="font-display text-sm text-mirai-muted italic">A venture by</span>
+     <div class="flex flex-col items-start border-l border-mirai-border pl-4">
+      <span class="font-display text-xl font-bold tracking-tight leading-none mb-1 text-white">SZ VENTURES</span>
+      <span class="font-body text-[9px] uppercase tracking-wider text-mirai-cyan">Building Purposeful Brands</span>
+     </div>
+    </div>
+
+    <div class="font-body text-xs text-mirai-muted flex flex-wrap justify-center gap-6">
+     <span>&copy; 2026 Mirai Engineering. All rights reserved.</span>
+     <div class="flex gap-4">
+      <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+      <a href="#" class="hover:text-white transition-colors">Terms</a>
+      <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+     </div>
+    </div>
+
+   </div>
+
+  </div>
+ </footer>
+
+ <!-- Scripts -->
+ <script>
+  // Initialize Lenis
+  const lenis = new Lenis({
+   duration: 1.2,
+   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+   smoothWheel: true
+  });
+
+  function raf(time) {
+   lenis.raf(time);
+   requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // GSAP ScrollTrigger Integration
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero Animations
+  const tl = gsap.timeline();
+  tl.from("#hero-content > *", { y: 30, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out" })
+   .from("#hero-image", { y: 50, opacity: 0, duration: 1.5, ease: "power3.out" }, "-=0.8")
+   .from(".hero-float-1", { x: -30, opacity: 0, duration: 1, ease: "back.out(1.5)" }, "-=1")
+   .from(".hero-float-2", { x: 30, opacity: 0, duration: 1, ease: "back.out(1.5)" }, "-=0.8");
+
+  // Float animations loop
+  gsap.to(".hero-float-1", { y: -10, duration: 2.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
+  gsap.to(".hero-float-2", { y: 15, duration: 3, ease: "sine.inOut", yoyo: true, repeat: -1 });
+
+  // Scroll Reveals
+  const revealElements = document.querySelectorAll('.reveal-up');
+  revealElements.forEach((el, index) => {
+   gsap.fromTo(el, 
+    { y: 40, opacity: 0 },
+    {
+     scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+      toggleActions: "play none none reverse"
+     },
+     y: 0,
+     opacity: 1,
+     duration: 0.8,
+     ease: "power3.out"
     }
-    requestAnimationFrame(raf);
+   );
+  });
 
-    // GSAP ScrollTrigger Integration
-    gsap.registerPlugin(ScrollTrigger);
+  // Navbar Hide on Scroll Down
+  let lastScrollY = window.scrollY;
+  const nav = document.getElementById('main-nav');
+  const annBar = document.querySelector('.bg-gradient-to-r'); // The announcement bar
 
-    // Hero Animations
-    const tl = gsap.timeline();
-    tl.from("#hero-content > *", { y: 30, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out" })
-      .from("#hero-image", { y: 50, opacity: 0, duration: 1.5, ease: "power3.out" }, "-=0.8")
-      .from(".hero-float-1", { x: -30, opacity: 0, duration: 1, ease: "back.out(1.5)" }, "-=1")
-      .from(".hero-float-2", { x: 30, opacity: 0, duration: 1, ease: "back.out(1.5)" }, "-=0.8");
+  lenis.on('scroll', (e) => {
+   const scrollY = window.scrollY;
+   const annHeight = annBar.offsetHeight;
+   
+   if (scrollY > annHeight) {
+    nav.classList.add('fixed', 'top-0');
+    nav.classList.remove('top-auto');
+   } else {
+    nav.classList.remove('fixed', 'top-0');
+    nav.classList.add('top-auto');
+   }
 
-    // Float animations loop
-    gsap.to(".hero-float-1", { y: -10, duration: 2.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
-    gsap.to(".hero-float-2", { y: 15, duration: 3, ease: "sine.inOut", yoyo: true, repeat: -1 });
+   if (scrollY > 200) {
+    if (scrollY > lastScrollY) {
+     nav.style.transform = 'translateY(-100%)';
+    } else {
+     nav.style.transform = 'translateY(0)';
+    }
+   }
+   lastScrollY = scrollY;
+  });
 
-    // Scroll Reveals
-    const revealElements = document.querySelectorAll('.reveal-up');
-    revealElements.forEach((el, index) => {
-      gsap.fromTo(el, 
-        { y: 40, opacity: 0 },
-        {
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
-          },
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out"
-        }
-      );
-    });
+  // Timeline Animation
+  gsap.to('.timeline-progress', {
+   scrollTrigger: {
+    trigger: '.timeline-container',
+    start: 'top center',
+    end: 'bottom center',
+    scrub: 1
+   },
+   scaleX: 1
+  });
 
-    // Navbar Hide on Scroll Down
-    let lastScrollY = window.scrollY;
-    const nav = document.getElementById('main-nav');
-    const annBar = document.querySelector('.bg-gradient-to-r'); // The announcement bar
+  gsap.from('.timeline-step', {
+   scrollTrigger: {
+    trigger: '.timeline-container',
+    start: 'top 80%'
+   },
+   y: 30,
+   opacity: 0,
+   stagger: 0.2,
+   duration: 0.8,
+   ease: "back.out(1.5)"
+  });
 
-    lenis.on('scroll', (e) => {
-      const scrollY = window.scrollY;
-      const annHeight = annBar.offsetHeight;
-      
-      if (scrollY > annHeight) {
-        nav.classList.add('fixed', 'top-0');
-        nav.classList.remove('top-auto');
+  // Counters Animation
+  const counters = document.querySelectorAll('.counter');
+  let countersAnimated = false;
+  
+  ScrollTrigger.create({
+   trigger: '#stats-section',
+   start: 'top 90%',
+   onEnter: () => {
+    if (countersAnimated) return;
+    countersAnimated = true;
+    counters.forEach(counter => {
+     const target = +counter.getAttribute('data-target');
+     let count = 0;
+     const duration = 2000; // ms
+     const increment = target / (duration / 16); // 60fps
+
+     const updateCount = () => {
+      count += increment;
+      if (count < target) {
+       counter.innerText = Math.ceil(count);
+       requestAnimationFrame(updateCount);
       } else {
-        nav.classList.remove('fixed', 'top-0');
-        nav.classList.add('top-auto');
+       counter.innerText = target;
       }
-
-      if (scrollY > 200) {
-        if (scrollY > lastScrollY) {
-          nav.style.transform = 'translateY(-100%)';
-        } else {
-          nav.style.transform = 'translateY(0)';
-        }
-      }
-      lastScrollY = scrollY;
+     };
+     updateCount();
     });
+   }
+  });
 
-    // Timeline Animation
-    gsap.to('.timeline-progress', {
-      scrollTrigger: {
-        trigger: '.timeline-container',
-        start: 'top center',
-        end: 'bottom center',
-        scrub: 1
-      },
-      scaleX: 1
-    });
+  // Add Tailwind custom animation to style
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = `
+   @keyframes scan {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(400px); }
+    100% { transform: translateY(0); }
+   }
+  `;
+  document.head.appendChild(styleSheet);
 
-    gsap.from('.timeline-step', {
-      scrollTrigger: {
-        trigger: '.timeline-container',
-        start: 'top 80%'
-      },
-      y: 30,
-      opacity: 0,
-      stagger: 0.2,
-      duration: 0.8,
-      ease: "back.out(1.5)"
-    });
+  // Initialize Swiper for Success Stories
+  const successSwiper = new Swiper('.success-swiper', {
+   slidesPerView: 'auto',
+   spaceBetween: 0,
+   loop: true,
+   centeredSlides: false,
+   speed: 800,
+   navigation: {
+    nextEl: '.swiper-button-next-custom',
+    prevEl: '.swiper-button-prev-custom',
+   },
+   grabCursor: true
+  });
 
-    // Counters Animation
-    const counters = document.querySelectorAll('.counter');
-    let countersAnimated = false;
+  // Form Submission Simulation
+  document.querySelectorAll('.m-form').forEach(form => {
+   form.addEventListener('submit', (e) => {
+    e.preventDefault();
     
-    ScrollTrigger.create({
-      trigger: '#stats-section',
-      start: 'top 90%',
-      onEnter: () => {
-        if (countersAnimated) return;
-        countersAnimated = true;
-        counters.forEach(counter => {
-          const target = +counter.getAttribute('data-target');
-          let count = 0;
-          const duration = 2000; // ms
-          const increment = target / (duration / 16); // 60fps
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    const successState = form.nextElementSibling;
+    
+    // Loading state
+    btn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing...</span>';
+    
+    // Actual API call
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    data.source = 'mirai_engineering_form';
 
-          const updateCount = () => {
-            count += increment;
-            if (count < target) {
-              counter.innerText = Math.ceil(count);
-              requestAnimationFrame(updateCount);
-            } else {
-              counter.innerText = target;
-            }
-          };
-          updateCount();
-        });
+    fetch('/api/submit', {
+     method: 'POST',
+     headers: { 'Content-Type': 'application/json' },
+     body: JSON.stringify(data)
+    })
+    .then(res => {
+     if (!res.ok) throw new Error('Submission failed');
+     return res.json();
+    })
+    .then(result => {
+     form.style.opacity = '0';
+     form.style.pointerEvents = 'none';
+     
+     if (successState && successState.classList.contains('form-success')) {
+      successState.classList.remove('hidden');
+      successState.classList.add('flex');
+      
+      // Add ID to success message if it exists
+      const idElement = successState.querySelector('.reference-id');
+      if (idElement && result.id) {
+        idElement.innerText = `Ref: ${result.id}`;
       }
-    });
 
-    // Add Tailwind custom animation to style
-    const styleSheet = document.createElement("style");
-    styleSheet.textContent = `
-      @keyframes scan {
-        0% { transform: translateY(0); }
-        50% { transform: translateY(400px); }
-        100% { transform: translateY(0); }
-      }
-    `;
-    document.head.appendChild(styleSheet);
-
-    // Initialize Swiper for Success Stories
-    const successSwiper = new Swiper('.success-swiper', {
-      slidesPerView: 'auto',
-      spaceBetween: 0,
-      loop: true,
-      centeredSlides: false,
-      speed: 800,
-      navigation: {
-        nextEl: '.swiper-button-next-custom',
-        prevEl: '.swiper-button-prev-custom',
-      },
-      grabCursor: true
-    });
-
-    // Form Submission Simulation
-    document.querySelectorAll('.m-form').forEach(form => {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const btn = form.querySelector('button[type="submit"]');
-        const originalText = btn.innerHTML;
-        const successState = form.nextElementSibling;
-        
-        // Loading state
-        btn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing...</span>';
-        
-        // Simulate API call
-        setTimeout(() => {
-          form.style.opacity = '0';
-          form.style.pointerEvents = 'none';
-          
-          if (successState && successState.classList.contains('form-success')) {
-            successState.classList.remove('hidden');
-            successState.classList.add('flex');
-            
-            // GSAP pop animation
-            gsap.from(successState.children, {
-              y: 20,
-              opacity: 0,
-              stagger: 0.1,
-              ease: 'back.out(1.5)',
-              duration: 0.5
-            });
-          }
-          
-          btn.innerHTML = originalText;
-        }, 1500);
+      // GSAP pop animation
+      gsap.from(successState.children, {
+       y: 20,
+       opacity: 0,
+       stagger: 0.1,
+       ease: 'back.out(1.5)',
+       duration: 0.5
       });
+     }
+    })
+    .catch(err => {
+     console.error(err);
+     alert('Submission failed. Please try again.');
+    })
+    .finally(() => {
+     btn.innerHTML = originalText;
     });
-  </script>
+   });
+  });
+ </script>
+
+<!-- Preloader Fail-Safe -->
+<script>
+  setTimeout(function() {
+    var pre = document.getElementById('preloader');
+    if (pre && !pre.classList.contains('is-done')) {
+      pre.classList.add('is-done');
+      document.body.classList.remove('is-loading');
+      console.warn('Preloader fail-safe triggered. A critical asset may have failed to load.');
+    }
+  }, 4000);
+</script>
 </body>
 </html>

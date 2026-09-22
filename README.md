@@ -54,8 +54,8 @@ No build step is required. Simply serve the project root over HTTP:
 ### Option A — Python (zero install)
 ```bash
 # Python 3
-python -m http.server 8000
-# Open → http://localhost:8000
+python -m http.server 3000
+# Open → http://localhost:3000
 ```
 
 ### Option B — Node (npx serve)
@@ -186,10 +186,8 @@ szx-ventures/
 ├── philosophy.html
 ├── achievements.html
 ├── contact.html
-├── snapops.html                # Portfolio company pages
 ├── bowl-sip.html
 ├── creator-house.html
-├── mirai.html
 ├── sz-manufacturing.html
 ├── team.html
 ├── insights.html

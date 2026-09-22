@@ -1,5 +1,5 @@
 /* =====================================================================
-   SZX VENTURES — main.js
+   SZ VENTURES — main.js
    Global init for AOS · Lenis · Tippy.js · Swup, plus the premium
    interaction layer (preloader, custom cursor, magnetic buttons,
    scroll progress, animated counters, nav). Framework-agnostic,
@@ -79,7 +79,7 @@
     };
 
     window.AOS.init(aosInit);
-    cleanupFns.push(() => window.AOS.destroy());
+    // AOS has no destroy API; native document navigation releases its listeners.
   }
 
   // ==== Tippy.js ==========================================================
@@ -99,23 +99,9 @@
 
   // ==== Swup Page Transitions ==============================================
   function initSwup() {
-    if (typeof window.Swup === 'undefined') return null;
-
-    const swup = new window.Swup({
-      animationSelector: '[class*="transition-"]',
-      linkSelector: 'a[href^="' + location.origin + '"], a[href^="/"]',
-    });
-
-    // Re‑initialize interactions after each navigation
-    swup.hooks?.on('page:view', () => {
-      if (window.AOS) window.AOS.refreshHard();
-      initTippy();
-      bindMagnetics();
-      if (typeof initQueryPrefill === 'function') initQueryPrefill();
-    });
-
-    cleanupFns.push(() => swup.destroy());
-    return swup;
+    // Pages use different document shells and page-specific scripts.
+    // Keep native navigation so the full head, body and scripts load together.
+    return null;
   }
 
   // ==== Custom Cursor ======================================================
@@ -344,7 +330,7 @@
     const roleConfigs = {
       company: {
         role: 'Company / Enterprise',
-        venture: 'SZ Manufacturing / SZX Ventures',
+        venture: 'SZ Manufacturing / SZ Ventures',
         dynamicLabel: 'Company Name & Industry',
         dynamicPlaceholder: 'e.g. Acme Corp (Textiles & Retail)',
         detailsLabel: 'Describe your corporate requirement or operational challenge'
@@ -365,14 +351,14 @@
       },
       ngo: {
         role: 'NGO / Social Impact Organization',
-        venture: 'SZ Manufacturing / SZX Ventures',
+        venture: 'SZ Manufacturing / SZ Ventures',
         dynamicLabel: 'Organization Name & Focus Area',
         dynamicPlaceholder: 'e.g. Women Empowerment Initiative',
         detailsLabel: 'Tell us how we can collaborate on social impact initiatives'
       },
       investor: {
         role: 'Investor / Capital Partner',
-        venture: 'SZX Ventures',
+        venture: 'SZ Ventures',
         dynamicLabel: 'Fund / Entity Name',
         dynamicPlaceholder: 'e.g. Apex Horizon Capital',
         detailsLabel: 'What stage or venture category aligns with your investment thesis?'
@@ -386,14 +372,14 @@
       },
       tech: {
         role: 'Technology Partner',
-        venture: 'SnapOps / SZX Ventures',
+        venture: 'SnapOps / SZ Ventures',
         dynamicLabel: 'Platform / Technology Expertise',
         dynamicPlaceholder: 'e.g. WhatsApp API / Robotics Autonomy Stack',
         detailsLabel: 'Describe your technology capabilities and integration interest'
       },
       opportunity: {
         role: 'Business Opportunity / Founder',
-        venture: 'SZX Ventures',
+        venture: 'SZ Ventures',
         dynamicLabel: 'Venture Concept or Market Opportunity',
         dynamicPlaceholder: 'e.g. B2B Operations Automation for Logistics',
         detailsLabel: 'Share a high-level overview of the problem, market opportunity & execution needs'
@@ -453,8 +439,66 @@
     }
   }
 
+  // ==== Partner Form Submission ===========================================
+  function initPartnerForm() {
+    const form = document.getElementById('partnerForm');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>Submitting...</span>';
+      btn.disabled = true;
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      data.source = 'partner_inquiry';
+
+      try {
+        const response = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          alert('Thank you for reaching out to SZ Ventures. Your inquiry has been logged successfully.');
+          form.reset();
+        } else {
+          alert('Something went wrong. Please try again or email us directly.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Unable to connect to the server. Please try again.');
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    });
+  }
+
   // ==== Boot ==============================================================
+  function initReveals() {
+    const elements = $$('[data-reveal]');
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      elements.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    elements.forEach(el => observer.observe(el));
+  }
+
   function boot() {
+    initReveals();
     initLenis();
     initAOS();
     initTippy();
@@ -467,15 +511,48 @@
     initAnchors();
     initRoleSwitcher();
     initQueryPrefill();
+    initPartnerForm();
     // Ensure AOS is refreshed after all resources are loaded
     window.addEventListener('load', () => window.AOS && window.AOS.refresh());
   }
+
+  /**
+   * Universal backend submission handler with Idempotency Key support.
+   */
+  window.submitData = async function(payload, existingIdempotencyKey = null) {
+    // Try to use Edge Function if configured, fallback to local python server
+    const endpoint = window.env?.SUPABASE_URL ? `${window.env.SUPABASE_URL}/functions/v1/submit-handler` : '/api/submit';
+    const idempotencyKey = existingIdempotencyKey || crypto.randomUUID();
+    
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Idempotency-Key': idempotencyKey,
+        ...(window.env?.SUPABASE_ANON_KEY ? {'Authorization': `Bearer ${window.env.SUPABASE_ANON_KEY}`} : {})
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      throw new Error('Submission failed');
+    }
+    
+    const result = await response.json();
+    result.idempotencyKey = idempotencyKey; // return the key so the caller can retry with it
+    return result;
+  };
 
   // ==== Run ===============================================================
   initPreloader(boot);
 
   // ==== Cleanup on Unload =================================================
-  window.addEventListener('beforeunload', () => {
-    cleanupFns.forEach((fn) => fn());
+  window.addEventListener('pageshow', () => {
+    document.body.classList.remove('menu-open');
+    const toggle = $('#navToggle');
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    }
   });
 })();

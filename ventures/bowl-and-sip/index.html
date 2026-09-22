@@ -1,1119 +1,1153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Bowl & Sip Co. | Nutrition That Moves With You</title>
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+ <title>Bowl & Sip Co. | Nutrition That Moves With You</title>
+ 
+ <!-- Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+ <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
 
-  <!-- GSAP & Lenis -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-            borderRadius: { 'xl': '24px', '2xl': '24px', 'lg': '16px' },
-          colors: {
-            brand: {
-              bg: '#080808',
-              surface: '#111111',
-              card: '#161616',
-              accent: '#2BB673',
-              gold: '#C7A15B',
-              text: '#F8F8F8',
-              muted: '#9A9A9A',
-              border: 'rgba(255, 255, 255, 0.08)'
-            }
-          },
-          fontFamily: {
-            display: ['"Cormorant Garamond"', 'serif'],
-            body: ['"Inter"', 'sans-serif'],
-            btn: ['"Satoshi"', 'sans-serif']
-          }
-        }
+ <!-- GSAP & Lenis -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+ <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+ 
+ <!-- Tailwind CSS -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+  tailwind.config = {
+   theme: {
+    extend: {
+      borderRadius: { 'xl': '24px', '2xl': '24px', 'lg': '16px' },
+     colors: {
+      brand: {
+       bg: '#080808',
+       surface: '#111111',
+       card: '#161616',
+       accent: '#2BB673',
+       gold: '#C7A15B',
+       text: '#F8F8F8',
+       muted: '#9A9A9A',
+       border: 'rgba(255, 255, 255, 0.08)'
       }
+     },
+     fontFamily: {
+      display: ['"Cormorant Garamond"', 'serif'],
+      body: ['"Inter"', 'sans-serif'],
+      btn: ['"Satoshi"', 'sans-serif']
+     }
     }
-  </script>
+   }
+  }
+ </script>
 
-  <style>
-    :root {
-      color-scheme: dark;
-    }
-    
-    body {
-      background-color: #080808;
-      color: #F8F8F8;
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+ <style>
+  :root {
+   color-scheme: dark;
+  }
+  
+  body {
+   background-color: #080808;
+   color: #F8F8F8;
+   font-family: 'Inter', sans-serif;
+   overflow-x: hidden;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+  }
 
-    /* Lenis Smooth Scroll */
-    html.lenis, html.lenis body {
-      height: auto;
-    }
-    .lenis.lenis-smooth {
-      scroll-behavior: auto !important;
-    }
-    .lenis.lenis-smooth [data-lenis-prevent] {
-      overscroll-behavior: contain;
-    }
-    .lenis.lenis-stopped {
-      overflow: hidden;
-    }
-    .lenis.lenis-scrolling iframe {
-      pointer-events: none;
-    }
+  /* Lenis Smooth Scroll */
+  html.lenis, html.lenis body {
+   height: auto;
+  }
+  .lenis.lenis-smooth {
+   scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+   overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+   overflow: hidden;
+  }
+  .lenis.lenis-scrolling iframe {
+   pointer-events: none;
+  }
 
-    /* Glass Effects */
-    .glass-nav {
-      background: rgba(8, 8, 8, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
+  /* Glass Effects */
+  .glass-nav {
+   background: rgba(8, 8, 8, 0.6);
+   backdrop-filter: blur(20px);
+   -webkit-backdrop-filter: blur(20px);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
 
-    .glass-card {
-      background: rgba(22, 22, 22, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .glass-card:hover {
-      background: rgba(22, 22, 22, 0.9);
-      border-color: rgba(255, 255, 255, 0.15);
-      transform: translateY(-4px);
-    }
+  .glass-card {
+   background: rgba(22, 22, 22, 0.6);
+   backdrop-filter: blur(12px);
+   -webkit-backdrop-filter: blur(12px);
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card:hover {
+   background: rgba(22, 22, 22, 0.9);
+   border-color: rgba(255, 255, 255, 0.15);
+   transform: translateY(-4px);
+  }
 
-    /* Custom Utilities */
-    .text-balance {
-      text-wrap: balance;
-    }
-    
-    .btn-magnetic {
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-magnetic::after {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 150%; height: 150%;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-magnetic:hover::after {
-      transform: translate(-50%, -50%) scale(1);
-    }
+  /* Custom Utilities */
+  .text-balance {
+   text-wrap: balance;
+  }
+  
+  .btn-magnetic {
+   position: relative;
+   overflow: hidden;
+  }
+  .btn-magnetic::after {
+   content: '';
+   position: absolute;
+   top: 50%; left: 50%;
+   width: 150%; height: 150%;
+   background: rgba(255,255,255,0.1);
+   border-radius: 50%;
+   transform: translate(-50%, -50%) scale(0);
+   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-magnetic:hover::after {
+   transform: translate(-50%, -50%) scale(1);
+  }
 
-    /* Hero Grain Texture */
-    .hero-grain {
-      position: absolute;
-      inset: 0;
-      z-index: 10;
-      opacity: 0.04;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-    
-    /* Reveal Utilities */
-    .reveal-up {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    
-    /* Accessibility & Focus Rings */
-    *:focus-visible {
-      outline: 2px solid #2BB673 !important;
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
+  /* Hero Grain Texture */
+  .hero-grain {
+   position: absolute;
+   inset: 0;
+   z-index: 10;
+   opacity: 0.04;
+   pointer-events: none;
+   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+  
+  /* Reveal Utilities */
+  .reveal-up {
+   opacity: 0;
+   transform: translateY(40px);
+  }
+  
+  /* Accessibility & Focus Rings */
+  *:focus-visible {
+   outline: 2px solid #2BB673 !important;
+   outline-offset: 4px;
+   border-radius: 4px;
+  }
 
-    /* Ripple Effect */
-    .ripple-effect {
-      position: absolute;
-      border-radius: 50%;
-      transform: scale(0);
-      animation: ripple 0.6s linear;
-      background-color: rgba(255, 255, 255, 0.3);
-      pointer-events: none;
-    }
-    @keyframes ripple {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-  </style>
+  /* Ripple Effect */
+  .ripple-effect {
+   position: absolute;
+   border-radius: 50%;
+   transform: scale(0);
+   animation: ripple 0.6s linear;
+   background-color: rgba(255, 255, 255, 0.3);
+   pointer-events: none;
+  }
+  @keyframes ripple {
+   to {
+    transform: scale(4);
+    opacity: 0;
+   }
+  }
+ </style>
 </head>
 <body class="selection:bg-brand-accent selection:text-white">
 
-  <!-- SUCCESS CONFETTI CANVASES -->
-  <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-[200]"></canvas>
+ <!-- SUCCESS CONFETTI CANVASES -->
+ <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-[200]"></canvas>
 
-  <!-- MULTI-STEP CHECKOUT MODAL (Hidden by default) -->
-  <div id="checkout-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[120] opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
-    <div id="checkout-modal" class="bg-brand-card border border-brand-border rounded-3xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col transform scale-95 transition-transform duration-500 shadow-2xl">
-      
-      <!-- Modal Header -->
-      <div class="px-8 py-6 border-b border-brand-border flex items-center justify-between bg-brand-surface">
-        <h3 class="font-display text-2xl text-brand-text flex items-center gap-3">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          Secure Checkout
-        </h3>
-        <button id="close-checkout-btn" class="w-10 h-10 rounded-full hover:bg-brand-border flex items-center justify-center transition-colors relative overflow-hidden" aria-label="Close Checkout">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
+ <!-- MULTI-STEP CHECKOUT MODAL (Hidden by default) -->
+ <div id="checkout-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[120] opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+  <div id="checkout-modal" class="bg-brand-card border border-brand-border rounded-3xl w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col transform scale-95 transition-transform duration-500 shadow-2xl">
+   
+   <!-- Modal Header -->
+   <div class="px-8 py-6 border-b border-brand-border flex items-center justify-between bg-brand-surface">
+    <h3 class="font-display text-2xl text-brand-text flex items-center gap-3">
+     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+     Secure Checkout
+    </h3>
+    <button id="close-checkout-btn" class="w-10 h-10 rounded-full hover:bg-brand-border flex items-center justify-center transition-colors relative overflow-hidden" aria-label="Close Checkout">
+     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+   </div>
+
+   <!-- Modal Body (Steps) -->
+   <form class="flex-1 overflow-y-auto p-8 relative" id="checkout-steps-container">
+    
+    <!-- Step 1: Delivery Details -->
+    <div class="checkout-step" id="step-1">
+     <h4 class="font-btn text-brand-gold text-sm font-bold tracking-[0.1em] uppercase mb-6">Step 1: Delivery Details</h4>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+       <label class="block text-xs font-bold text-brand-muted mb-2 uppercase">Full Name</label>
+       <input type="text" id="chk-name" class="w-full bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text focus:outline-none focus:border-brand-accent transition-colors" placeholder="Alex Fitness" required>
       </div>
-
-      <!-- Modal Body (Steps) -->
-      <form class="flex-1 overflow-y-auto p-8 relative" id="checkout-steps-container">
-        
-        <!-- Step 1: Delivery Details -->
-        <div class="checkout-step" id="step-1">
-          <h4 class="font-btn text-brand-gold text-sm font-bold tracking-[0.1em] uppercase mb-6">Step 1: Delivery Details</h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-xs font-bold text-brand-muted mb-2 uppercase">Full Name</label>
-              <input type="text" id="chk-name" class="w-full bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text focus:outline-none focus:border-brand-accent transition-colors" placeholder="Alex Fitness" required>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-brand-muted mb-2 uppercase">Phone Number</label>
-              <input type="tel" id="chk-phone" class="w-full bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text focus:outline-none focus:border-brand-accent transition-colors" placeholder="+91 98765 43210" required>
-            </div>
-            <div class="md:col-span-2">
-              <label class="block text-xs font-bold text-brand-muted mb-2 uppercase">Delivery Address</label>
-              <textarea id="chk-address" class="w-full bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text focus:outline-none focus:border-brand-accent transition-colors h-24 resize-none" placeholder="123 Fitness Ave, Block C..." required></textarea>
-            </div>
-          </div>
-          <button type="button" class="mt-8 w-full btn-magnetic bg-brand-surface text-brand-text border border-brand-border font-btn font-bold py-4 rounded-xl hover:bg-brand-text hover:text-brand-bg transition-colors" onclick="window.appStore.nextCheckoutStep(2)">Continue to Schedule</button>
-        </div>
-
-        <!-- Step 2: Delivery Time -->
-        <div class="checkout-step hidden" id="step-2">
-          <h4 class="font-btn text-brand-gold text-sm font-bold tracking-[0.1em] uppercase mb-6">Step 2: Delivery Schedule</h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <label class="cursor-pointer">
-              <input type="radio" name="schedule" value="asap" class="peer hidden" checked>
-              <div class="p-6 rounded-2xl border border-brand-border bg-brand-bg peer-checked:border-brand-accent peer-checked:bg-brand-accent/5 transition-all text-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto mb-3 text-brand-accent"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                <h5 class="font-display font-bold text-lg text-brand-text">ASAP</h5>
-                <p class="text-xs text-brand-muted mt-1">Delivery in ~30-45 mins</p>
-              </div>
-            </label>
-            <label class="cursor-pointer">
-              <input type="radio" name="schedule" value="schedule" class="peer hidden">
-              <div class="p-6 rounded-2xl border border-brand-border bg-brand-bg peer-checked:border-brand-accent peer-checked:bg-brand-accent/5 transition-all text-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto mb-3 text-brand-gold"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <h5 class="font-display font-bold text-lg text-brand-text">Schedule</h5>
-                <p class="text-xs text-brand-muted mt-1">Pick a time later</p>
-              </div>
-            </label>
-          </div>
-          <div class="flex gap-4 mt-8">
-            <button type="button" class="w-1/3 border border-brand-border rounded-xl font-btn font-bold py-4 hover:bg-brand-surface transition-colors" onclick="window.appStore.nextCheckoutStep(1)">Back</button>
-            <button type="button" class="w-2/3 btn-magnetic bg-brand-surface text-brand-text border border-brand-border font-btn font-bold py-4 rounded-xl hover:bg-brand-text hover:text-brand-bg transition-colors" onclick="window.appStore.nextCheckoutStep(3)">Continue to Payment</button>
-          </div>
-        </div>
-
-        <!-- Step 3: Payment -->
-        <div class="checkout-step hidden" id="step-3">
-          <h4 class="font-btn text-brand-gold text-sm font-bold tracking-[0.1em] uppercase mb-6">Step 3: Payment Method</h4>
-          <div class="space-y-4">
-            <label class="flex items-center gap-4 p-4 rounded-xl border border-brand-border bg-brand-bg cursor-pointer hover:border-brand-accent transition-colors">
-              <input type="radio" name="payment" value="upi" checked class="text-brand-accent focus:ring-brand-accent">
-              <span class="font-bold font-btn">UPI (GPay, PhonePe, Paytm)</span>
-            </label>
-            <label class="flex items-center gap-4 p-4 rounded-xl border border-brand-border bg-brand-bg cursor-pointer hover:border-brand-accent transition-colors">
-              <input type="radio" name="payment" value="card" class="text-brand-accent focus:ring-brand-accent">
-              <span class="font-bold font-btn">Credit / Debit Card</span>
-            </label>
-            <label class="flex items-center gap-4 p-4 rounded-xl border border-brand-border bg-brand-bg cursor-pointer hover:border-brand-accent transition-colors">
-              <input type="radio" name="payment" value="cod" class="text-brand-accent focus:ring-brand-accent">
-              <span class="font-bold font-btn">Cash on Delivery</span>
-            </label>
-          </div>
-          <div class="flex gap-4 mt-8">
-            <button type="button" class="w-1/3 border border-brand-border rounded-xl font-btn font-bold py-4 hover:bg-brand-surface transition-colors" onclick="window.appStore.nextCheckoutStep(2)">Back</button>
-            <button type="button" class="w-2/3 btn-magnetic bg-brand-surface text-brand-text border border-brand-border font-btn font-bold py-4 rounded-xl hover:bg-brand-text hover:text-brand-bg transition-colors" onclick="window.appStore.nextCheckoutStep(4)">Review Order</button>
-          </div>
-        </div>
-
-        <!-- Step 4: Review -->
-        <div class="checkout-step hidden" id="step-4">
-          <h4 class="font-btn text-brand-gold text-sm font-bold tracking-[0.1em] uppercase mb-6">Step 4: Review & Place Order</h4>
-          
-          <div class="bg-brand-bg rounded-xl border border-brand-border p-6 mb-8">
-            <div id="checkout-summary-items" class="space-y-3 border-b border-brand-border pb-4 mb-4">
-              <!-- Rendered via JS -->
-            </div>
-            <div class="space-y-2 text-sm font-body text-brand-muted">
-              <div class="flex justify-between"><span>Subtotal</span><span id="chk-subtotal">₹0</span></div>
-              <div class="flex justify-between"><span>Taxes (5%)</span><span id="chk-tax">₹0</span></div>
-              <div class="flex justify-between"><span>Delivery</span><span id="chk-delivery">₹49</span></div>
-            </div>
-            <div class="flex justify-between font-display text-2xl font-bold text-brand-text mt-4 pt-4 border-t border-brand-border">
-              <span>Total</span><span id="chk-grand-total">₹0</span>
-            </div>
-          </div>
-
-          <div id="checkout-loading" class="hidden flex-col items-center justify-center py-8">
-            <div class="w-10 h-10 border-4 border-brand-surface border-t-brand-accent rounded-full animate-spin mb-4"></div>
-            <p class="font-btn text-brand-muted">Processing your order securely...</p>
-          </div>
-
-          <div class="flex gap-4" id="checkout-actions">
-            <button type="button" class="w-1/3 border border-brand-border rounded-xl font-btn font-bold py-4 hover:bg-brand-surface transition-colors relative overflow-hidden" onclick="window.appStore.nextCheckoutStep(3)">Back</button>
-            <button type="submit" class="w-2/3 btn-magnetic bg-brand-accent text-white font-btn font-bold py-4 rounded-xl hover:bg-green-500 transition-colors">Place Order Securely</button>
-          </div>
-        </div>
-
-        <!-- Success State -->
-        <div class="checkout-step hidden text-center py-12" id="step-success">
-          <div class="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 text-green-500">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h2 class="font-display text-4xl text-brand-text mb-4">Order Confirmed!</h2>
-          <p class="font-body text-brand-muted mb-8 max-w-sm mx-auto">Your fresh fuel is being prepared. It will arrive shortly.</p>
-          <div class="bg-brand-surface border border-brand-border rounded-xl p-4 inline-block mb-8">
-            <span class="block text-xs font-bold text-brand-muted uppercase mb-1">Order Number</span>
-            <span class="font-btn font-bold text-brand-gold text-lg" id="success-order-id">#BSC-0000</span>
-          </div>
-          <button class="block w-full btn-magnetic bg-brand-surface text-brand-text border border-brand-border font-btn font-bold py-4 rounded-xl hover:bg-brand-text hover:text-brand-bg transition-colors" onclick="window.location.reload()">Continue Exploring</button>
-        </div>
-
-      </form>
+      <div>
+       <label class="block text-xs font-bold text-brand-muted mb-2 uppercase">Phone Number</label>
+       <input type="tel" id="chk-phone" class="w-full bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text focus:outline-none focus:border-brand-accent transition-colors" placeholder="+91 98765 43210" required>
+      </div>
+      <div class="md:col-span-2">
+       <label class="block text-xs font-bold text-brand-muted mb-2 uppercase">Delivery Address</label>
+       <textarea id="chk-address" class="w-full bg-brand-bg border border-brand-border rounded-xl px-4 py-3 text-brand-text focus:outline-none focus:border-brand-accent transition-colors h-24 resize-none" placeholder="123 Fitness Ave, Block C..." required></textarea>
+      </div>
+     </div>
+     <button type="button" class="mt-8 w-full btn-magnetic bg-brand-surface text-brand-text border border-brand-border font-btn font-bold py-4 rounded-xl hover:bg-brand-text hover:text-brand-bg transition-colors" onclick="window.appStore.nextCheckoutStep(2)">Continue to Schedule</button>
     </div>
+
+    <!-- Step 2: Delivery Time -->
+    <div class="checkout-step hidden" id="step-2">
+     <h4 class="font-btn text-brand-gold text-sm font-bold tracking-[0.1em] uppercase mb-6">Step 2: Delivery Schedule</h4>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <label class="cursor-pointer">
+       <input type="radio" name="schedule" value="asap" class="peer hidden" checked>
+       <div class="p-6 rounded-2xl border border-brand-border bg-brand-bg peer-checked:border-brand-accent peer-checked:bg-brand-accent/5 transition-all text-center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto mb-3 text-brand-accent"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <h5 class="font-display font-bold text-lg text-brand-text">ASAP</h5>
+        <p class="text-xs text-brand-muted mt-1">Delivery in ~30-45 mins</p>
+       </div>
+      </label>
+      <label class="cursor-pointer">
+       <input type="radio" name="schedule" value="schedule" class="peer hidden">
+       <div class="p-6 rounded-2xl border border-brand-border bg-brand-bg peer-checked:border-brand-accent peer-checked:bg-brand-accent/5 transition-all text-center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto mb-3 text-brand-gold"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h5 class="font-display font-bold text-lg text-brand-text">Schedule</h5>
+        <p class="text-xs text-brand-muted mt-1">Pick a time later</p>
+       </div>
+      </label>
+     </div>
+     <div class="flex gap-4 mt-8">
+      <button type="button" class="w-1/3 border border-brand-border rounded-xl font-btn font-bold py-4 hover:bg-brand-surface transition-colors" onclick="window.appStore.nextCheckoutStep(1)">Back</button>
+      <button type="button" class="w-2/3 btn-magnetic bg-brand-surface text-brand-text border border-brand-border font-btn font-bold py-4 rounded-xl hover:bg-brand-text hover:text-brand-bg transition-colors" onclick="window.appStore.nextCheckoutStep(3)">Continue to Payment</button>
+     </div>
+    </div>
+
+    <!-- Step 3: Payment -->
+    <div class="checkout-step hidden" id="step-3">
+     <h4 class="font-btn text-brand-gold text-sm font-bold tracking-[0.1em] uppercase mb-6">Step 3: Payment Method</h4>
+     <div class="space-y-4">
+      <label class="flex items-center gap-4 p-4 rounded-xl border border-brand-border bg-brand-bg cursor-pointer hover:border-brand-accent transition-colors">
+       <input type="radio" name="payment" value="upi" checked class="text-brand-accent focus:ring-brand-accent">
+       <span class="font-bold font-btn">UPI (GPay, PhonePe, Paytm)</span>
+      </label>
+      <label class="flex items-center gap-4 p-4 rounded-xl border border-brand-border bg-brand-bg cursor-pointer hover:border-brand-accent transition-colors">
+       <input type="radio" name="payment" value="card" class="text-brand-accent focus:ring-brand-accent">
+       <span class="font-bold font-btn">Credit / Debit Card</span>
+      </label>
+      <label class="flex items-center gap-4 p-4 rounded-xl border border-brand-border bg-brand-bg cursor-pointer hover:border-brand-accent transition-colors">
+       <input type="radio" name="payment" value="cod" class="text-brand-accent focus:ring-brand-accent">
+       <span class="font-bold font-btn">Cash on Delivery</span>
+      </label>
+     </div>
+     <div class="flex gap-4 mt-8">
+      <button type="button" class="w-1/3 border border-brand-border rounded-xl font-btn font-bold py-4 hover:bg-brand-surface transition-colors" onclick="window.appStore.nextCheckoutStep(2)">Back</button>
+      <button type="button" class="w-2/3 btn-magnetic bg-brand-surface text-brand-text border border-brand-border font-btn font-bold py-4 rounded-xl hover:bg-brand-text hover:text-brand-bg transition-colors" onclick="window.appStore.nextCheckoutStep(4)">Review Order</button>
+     </div>
+    </div>
+
+    <!-- Step 4: Review -->
+    <div class="checkout-step hidden" id="step-4">
+     <h4 class="font-btn text-brand-gold text-sm font-bold tracking-[0.1em] uppercase mb-6">Step 4: Review & Place Order</h4>
+     
+     <div class="bg-brand-bg rounded-xl border border-brand-border p-6 mb-8">
+      <div id="checkout-summary-items" class="space-y-3 border-b border-brand-border pb-4 mb-4">
+       <!-- Rendered via JS -->
+      </div>
+      <div class="space-y-2 text-sm font-body text-brand-muted">
+       <div class="flex justify-between"><span>Subtotal</span><span id="chk-subtotal">₹0</span></div>
+       <div class="flex justify-between"><span>Taxes (5%)</span><span id="chk-tax">₹0</span></div>
+       <div class="flex justify-between"><span>Delivery</span><span id="chk-delivery">₹49</span></div>
+      </div>
+      <div class="flex justify-between font-display text-2xl font-bold text-brand-text mt-4 pt-4 border-t border-brand-border">
+       <span>Total</span><span id="chk-grand-total">₹0</span>
+      </div>
+     </div>
+
+     <div id="checkout-loading" class="hidden flex-col items-center justify-center py-8">
+      <div class="w-10 h-10 border-4 border-brand-surface border-t-brand-accent rounded-full animate-spin mb-4"></div>
+      <p class="font-btn text-brand-muted">Processing your order securely...</p>
+     </div>
+
+     <div class="flex gap-4" id="checkout-actions">
+      <button type="button" class="w-1/3 border border-brand-border rounded-xl font-btn font-bold py-4 hover:bg-brand-surface transition-colors relative overflow-hidden" onclick="window.appStore.nextCheckoutStep(3)">Back</button>
+      <button type="submit" class="w-2/3 btn-magnetic bg-brand-accent text-white font-btn font-bold py-4 rounded-xl hover:bg-green-500 transition-colors">Place Order Securely</button>
+     </div>
+    </div>
+
+    <!-- Success State -->
+    <div class="checkout-step hidden text-center py-12" id="step-success">
+     <div class="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 text-green-500">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+     </div>
+     <h2 class="font-display text-4xl text-brand-text mb-4">Order Confirmed!</h2>
+     <p class="font-body text-brand-muted mb-8 max-w-sm mx-auto">Your fresh fuel is being prepared. It will arrive shortly.</p>
+     <div class="bg-brand-surface border border-brand-border rounded-xl p-4 inline-block mb-8">
+      <span class="block text-xs font-bold text-brand-muted uppercase mb-1">Order Number</span>
+      <span class="font-btn font-bold text-brand-gold text-lg" id="success-order-id">#BSC-0000</span>
+     </div>
+     <button class="block w-full btn-magnetic bg-brand-surface text-brand-text border border-brand-border font-btn font-bold py-4 rounded-xl hover:bg-brand-text hover:text-brand-bg transition-colors" onclick="window.location.reload()">Continue Exploring</button>
+    </div>
+
+   </form>
   </div>
+ </div>
 
-  <!-- CART DRAWER (Hidden by default) -->
-  <div id="cart-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] opacity-0 pointer-events-none transition-opacity duration-300"></div>
-  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-brand-card border-l border-brand-border z-[110] transform translate-x-full transition-transform duration-500 flex flex-col shadow-2xl">
-    <!-- Header -->
-    <div class="px-6 py-6 border-b border-brand-border flex items-center justify-between">
-      <h3 class="font-display text-2xl text-brand-text">Your Cart</h3>
-      <button id="close-cart-btn" class="w-10 h-10 rounded-full bg-brand-surface hover:bg-brand-border flex items-center justify-center transition-colors relative overflow-hidden" aria-label="Close Cart">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-    
-    <!-- Items List -->
-    <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-6">
-      <!-- Empty State -->
-      <div id="cart-empty-state" class="h-full flex flex-col items-center justify-center text-center opacity-50">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="mb-4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
-        <p class="font-body text-brand-muted">Your cart is empty.<br>Fuel up!</p>
-      </div>
-      <!-- Items will be rendered here by JS -->
-    </div>
-    
-    <!-- Footer / Checkout -->
-    <div class="p-6 border-t border-brand-border bg-brand-surface">
-      <div class="flex justify-between text-brand-muted mb-2 font-body text-sm">
-        <span>Subtotal</span>
-        <span id="cart-subtotal" class="font-medium">₹0</span>
-      </div>
-      <div class="flex justify-between text-brand-text mb-6 font-display text-xl font-bold">
-        <span>Total</span>
-        <span id="cart-total">₹0</span>
-      </div>
-      <button id="checkout-btn" class="w-full btn-magnetic bg-brand-accent text-white font-btn font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-        Proceed to Checkout
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
-    </div>
-  </aside>
+ <!-- CART DRAWER (Hidden by default) -->
+ <div id="cart-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+ <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-brand-card border-l border-brand-border z-[110] transform translate-x-full transition-transform duration-500 flex flex-col shadow-2xl">
+  <!-- Header -->
+  <div class="px-6 py-6 border-b border-brand-border flex items-center justify-between">
+   <h3 class="font-display text-2xl text-brand-text">Your Cart</h3>
+   <button id="close-cart-btn" class="w-10 h-10 rounded-full bg-brand-surface hover:bg-brand-border flex items-center justify-center transition-colors relative overflow-hidden" aria-label="Close Cart">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+   </button>
+  </div>
+  
+  <!-- Items List -->
+  <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-6">
+   <!-- Empty State -->
+   <div id="cart-empty-state" class="h-full flex flex-col items-center justify-center text-center opacity-50">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="mb-4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+    <p class="font-body text-brand-muted">Your cart is empty.<br>Fuel up!</p>
+   </div>
+   <!-- Items will be rendered here by JS -->
+  </div>
+  
+  <!-- Footer / Checkout -->
+  <div class="p-6 border-t border-brand-border bg-brand-surface">
+   <div class="flex justify-between text-brand-muted mb-2 font-body text-sm">
+    <span>Subtotal</span>
+    <span id="cart-subtotal" class="font-medium">₹0</span>
+   </div>
+   <div class="flex justify-between text-brand-text mb-6 font-display text-xl font-bold">
+    <span>Total</span>
+    <span id="cart-total">₹0</span>
+   </div>
+   <button id="checkout-btn" class="w-full btn-magnetic bg-brand-accent text-white font-btn font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+    Proceed to Checkout
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+   </button>
+  </div>
+ </aside>
 
-  <!-- FLOATING NAVIGATION -->
-    <!-- Header Navigation -->
-  <header class="fixed top-0 left-0 w-full z-[100] glass-nav transition-all duration-300" id="nav">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="/index.html" class="flex items-center gap-3 group" data-cursor data-tippy-content="Return to Parent Ecosystem">
-        <img src="/assets/img/logo.png" alt="SZX Ventures Logo" class="w-6 h-6 object-contain opacity-50 group-hover:opacity-100 transition-opacity" aria-hidden="true">
-        <div class="flex flex-col">
-          <span class="font-display font-bold text-xl text-brand-text tracking-wide leading-none">Bowl & Sip Co.</span>
-          <span class="font-body text-[0.65rem] uppercase tracking-widest text-brand-gold mt-1">A SZX Ventures company</span>
-        </div>
+ <!-- FLOATING NAVIGATION -->
+  <!-- Header Navigation -->
+ <header class="fixed top-0 left-0 w-full z-[100] glass-nav transition-all duration-300" id="nav">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+   <a href="../../index.html" class="flex items-center gap-3 group" data-cursor data-tippy-content="Return to Parent Ecosystem">
+    <img src="../../assets/img/logo.png" alt="SZ Ventures Logo" class="w-6 h-6 object-contain opacity-50 group-hover:opacity-100 transition-opacity" aria-hidden="true">
+    <div class="flex flex-col">
+     <span class="font-display font-bold text-xl text-brand-text tracking-wide leading-none">Bowl & Sip Co.</span>
+     <span class="font-body text-[0.65rem] uppercase tracking-widest text-brand-gold mt-1">A SZ Ventures company</span>
+    </div>
+   </a>
+   <nav class="hidden lg:flex items-center gap-8 font-body font-medium text-sm text-brand-text/80" aria-label="Primary">
+    <a href="../../philosophy.html" class="hover:text-brand-gold transition-colors">About</a>
+    
+    <div class="relative group">
+     <a href="../../portfolio.html" class="flex items-center gap-1 hover:text-brand-gold transition-colors">
+      Ventures
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+     </a>
+     <div class="absolute top-full left-0 mt-2 w-64 bg-brand-surface border border-brand-border rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 flex flex-col">
+      <a href="/ventures/bowl-and-sip/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
+       <strong class="block text-brand-text font-bold">Bowl & Sip Co.</strong>
+       <span class="block text-xs text-brand-muted mt-0.5">Nutrition & Active Lifestyle</span>
       </a>
-      <nav class="hidden lg:flex items-center gap-8 font-body font-medium text-sm text-brand-text/80" aria-label="Primary">
-        <a href="/philosophy.html" class="hover:text-brand-gold transition-colors">About</a>
-        
-        <div class="relative group">
-          <a href="/portfolio.html" class="flex items-center gap-1 hover:text-brand-gold transition-colors">
-            Ventures
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-          </a>
-          <div class="absolute top-full left-0 mt-2 w-64 bg-brand-surface border border-brand-border rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 flex flex-col">
-            <a href="/ventures/bowl-and-sip/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
-              <strong class="block text-brand-text font-bold">Bowl & Sip Co.</strong>
-              <span class="block text-xs text-brand-muted mt-0.5">Nutrition & Active Lifestyle</span>
-            </a>
-            <a href="/ventures/snapops/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
-              <strong class="block text-brand-text font-bold">SnapOps</strong>
-              <span class="block text-xs text-brand-muted mt-0.5">Community & Operations</span>
-            </a>
-            <a href="/ventures/mirai-engineering/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
-              <strong class="block text-brand-text font-bold">Mirai Engineering</strong>
-              <span class="block text-xs text-brand-muted mt-0.5">Global Careers</span>
-            </a>
-            <a href="/ventures/manufacturing/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
-              <strong class="block text-brand-text font-bold">SZ Manufacturing</strong>
-              <span class="block text-xs text-brand-muted mt-0.5">Manufacturing & B2B</span>
-            </a>
-            <a href="/ventures/creator-house/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
-              <strong class="block text-brand-text font-bold">Creator House</strong>
-              <span class="block text-xs text-brand-muted mt-0.5">Premium Production</span>
-            </a>
-          </div>
-        </div>
-        
-        <a href="/insights.html" class="hover:text-brand-gold transition-colors">Insights</a>
-        
-        <div class="relative group">
-          <a href="#" class="flex items-center gap-1 hover:text-brand-gold transition-colors">
-            Company
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-          </a>
-          <div class="absolute top-full left-0 mt-2 w-48 bg-brand-surface border border-brand-border rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 flex flex-col">
-            <a href="/team.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Team</strong></a>
-            <a href="/careers.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Careers</strong></a>
-            <a href="/achievements.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Achievements</strong></a>
-            <a href="/press.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Press</strong></a>
-            <a href="/contact.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Contact</strong></a>
-          </div>
-        </div>
-      </nav>
-      
-      <div class="flex items-center gap-4">
-        <a href="/login/index.html" class="hidden sm:block text-brand-text/80 hover:text-brand-gold font-display font-medium transition-colors">Portal Login</a>
-        <a href="/contact.html" class="btn-magnetic bg-white text-black font-btn font-bold px-5 py-2.5 rounded-full hover:bg-brand-gold hover:text-white transition-colors" data-magnetic data-cursor>Let's Talk →</a>
-        <button class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5" id="navToggle" aria-label="Open menu">
-          <span class="w-6 h-0.5 bg-brand-text block"></span>
-          <span class="w-6 h-0.5 bg-brand-text block"></span>
-        </button>
-      </div>
+      <a href="/ventures/manufacturing/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
+       <strong class="block text-brand-text font-bold">Manufacturing</strong>
+       <span class="block text-xs text-brand-muted mt-0.5">Manufacturing & B2B</span>
+      </a>
+      <a href="/ventures/creator-house/index.html" class="px-4 py-3 hover:bg-brand-bg transition-colors">
+       <strong class="block text-brand-text font-bold">Creator House</strong>
+       <span class="block text-xs text-brand-muted mt-0.5">Premium Production</span>
+      </a>
+     </div>
     </div>
-  </header>
-
-  <main id="smooth-wrapper">
-    <div id="smooth-content">
-      
-      <!-- CINEMATIC HERO -->
-      <section class="relative h-screen min-h-[700px] flex items-center overflow-hidden">
-        <!-- Hero Background Image (Placeholder from reference logic) -->
-        <div class="absolute inset-0 z-0 scale-105 transform origin-center" id="hero-img-wrap">
-          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2500&auto=format&fit=crop" 
-               alt="Healthy Bowl" 
-               class="w-full h-full object-cover object-right-bottom opacity-60" loading="lazy">
-          <div class="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
-          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-bg"></div>
-        </div>
-        
-        <div class="hero-grain"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
-          <div class="max-w-2xl reveal-up" id="hero-content">
-            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-6 text-balance">
-              NUTRITION THAT <br><span class="text-brand-accent italic">MOVES</span> WITH YOU.
-            </h1>
-            <p class="font-body text-brand-muted text-lg md:text-xl mb-10 max-w-md font-light">
-              Prepared for you. Not for a shelf.<br>
-              Fresh, functional fuel for an active lifestyle.
-            </p>
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="#menu" class="btn-magnetic bg-brand-accent text-white font-btn font-bold px-8 py-4 rounded-full flex items-center gap-2 hover:bg-green-500 transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                Explore Menu
-              </a>
-              <button class="font-btn font-medium text-brand-text px-6 py-4 rounded-full border border-brand-border hover:border-brand-text transition-colors">
-                View Meal Plans
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- MENU ARCHITECTURE (Categories) -->
-      <section class="py-32 bg-brand-bg relative z-20 border-t border-brand-border">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-20 reveal-up category-header">
-            <h2 class="font-display text-4xl md:text-5xl text-brand-text mb-4">Menu Architecture</h2>
-            <p class="font-body text-brand-muted">Crafted for performance. Categorised by function.</p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <div class="glass-card p-10 rounded-2xl text-center reveal-up category-card cursor-pointer group">
-              <div class="w-16 h-16 mx-auto mb-6 rounded-full border border-brand-border flex items-center justify-center text-brand-gold group-hover:scale-110 transition-transform">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              </div>
-              <h3 class="font-display text-2xl mb-2">Bowls</h3>
-              <p class="font-body text-sm text-brand-muted">Macro-balanced meals for sustained energy.</p>
-            </div>
-
-            <div class="glass-card p-10 rounded-2xl text-center reveal-up category-card cursor-pointer group">
-              <div class="w-16 h-16 mx-auto mb-6 rounded-full border border-brand-border flex items-center justify-center text-brand-accent group-hover:scale-110 transition-transform">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
-              </div>
-              <h3 class="font-display text-2xl mb-2">Sips</h3>
-              <p class="font-body text-sm text-brand-muted">Nutrient-dense smoothies & functional drinks.</p>
-            </div>
-
-            <div class="glass-card p-10 rounded-2xl text-center reveal-up category-card cursor-pointer group">
-              <div class="w-16 h-16 mx-auto mb-6 rounded-full border border-brand-border flex items-center justify-center text-brand-text group-hover:scale-110 transition-transform">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              </div>
-              <h3 class="font-display text-2xl mb-2">Pre-Workout</h3>
-              <p class="font-body text-sm text-brand-muted">Clean energy to prime your performance.</p>
-            </div>
-
-            <div class="glass-card p-10 rounded-2xl text-center reveal-up category-card cursor-pointer group">
-              <div class="w-16 h-16 mx-auto mb-6 rounded-full border border-brand-border flex items-center justify-center text-brand-text group-hover:scale-110 transition-transform">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <h3 class="font-display text-2xl mb-2">Post-Workout</h3>
-              <p class="font-body text-sm text-brand-muted">Targeted recovery and muscle repair.</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- WHY BOWL & SIP (Split Layout) -->
-      <section class="py-32 bg-brand-surface relative border-y border-brand-border overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          
-          <div class="reveal-up" id="why-text">
-            <h4 class="font-btn text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Clean. Balanced. Delicious.</h4>
-            <h2 class="font-display text-5xl md:text-6xl mb-6">Real Ingredients.<br><span class="text-brand-accent italic">Real Results.</span></h2>
-            <p class="font-body text-brand-muted text-lg mb-12 max-w-md">
-              We believe in simple, whole ingredients that nourish your body and fit seamlessly into your active lifestyle. No shortcuts, no artificial additives.
-            </p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <div class="flex gap-4">
-                <svg class="text-brand-accent shrink-0 mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                <div>
-                  <h5 class="font-display text-xl mb-1">High Protein</h5>
-                  <p class="text-sm text-brand-muted">Supports muscle growth & recovery.</p>
-                </div>
-              </div>
-              <div class="flex gap-4">
-                <svg class="text-brand-gold shrink-0 mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-                <div>
-                  <h5 class="font-display text-xl mb-1">Whole Ingredients</h5>
-                  <p class="text-sm text-brand-muted">No artificial additives. Zero compromises.</p>
-                </div>
-              </div>
-              <div class="flex gap-4">
-                <svg class="text-brand-text shrink-0 mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                <div>
-                  <h5 class="font-display text-xl mb-1">Macro Balanced</h5>
-                  <p class="text-sm text-brand-muted">Right macros. Right portions.</p>
-                </div>
-              </div>
-              <div class="flex gap-4">
-                <svg class="text-brand-text shrink-0 mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <h5 class="font-display text-xl mb-1">Made Fresh Daily</h5>
-                  <p class="text-sm text-brand-muted">Prepared fresh. Delivered on time.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="relative h-[600px] w-full rounded-3xl overflow-hidden reveal-up" id="why-image">
-            <img src="https://images.unsplash.com/photo-1628557044797-f21a177c37ec?q=80&w=1500&auto=format&fit=crop" 
-                 class="w-full h-full object-cover" alt="SZX Ventures Visual" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="bg-brand-bg pt-24 pb-8 border-t border-brand-border">
-      <div class="max-w-7xl mx-auto px-6">
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div class="col-span-1 md:col-span-1">
-              <a href="#" class="font-display text-2xl tracking-wide text-brand-text block mb-6">
-                BOWL & SIP CO.
-              </a>
-              <p class="font-body text-sm text-brand-muted mb-6">
-                Nutrition that moves with you.<br>Fresh, functional fuel for an active lifestyle.
-              </p>
-              <div class="flex gap-4">
-                <a href="#" class="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center hover:bg-brand-surface transition-colors">IG</a>
-                <a href="#" class="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center hover:bg-brand-surface transition-colors">TW</a>
-              </div>
-            </div>
-            
-            <div>
-              <h4 class="font-btn font-bold text-sm text-brand-text mb-6">Company</h4>
-              <ul class="space-y-4 font-body text-sm text-brand-muted">
-                <li><a href="#" class="hover:text-brand-gold transition-colors">Our Story</a></li>
-                <li><a href="#" class="hover:text-brand-gold transition-colors">Careers</a></li>
-                <li><a href="#" class="hover:text-brand-gold transition-colors">Journal</a></li>
-                <li><a href="#" class="hover:text-brand-gold transition-colors">Contact</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="font-btn font-bold text-sm text-brand-text mb-6">Menu</h4>
-              <ul class="space-y-4 font-body text-sm text-brand-muted">
-                <li><a href="#" class="hover:text-brand-accent transition-colors">Bowls</a></li>
-                <li><a href="#" class="hover:text-brand-accent transition-colors">Sips</a></li>
-                <li><a href="#" class="hover:text-brand-accent transition-colors">Pre-Workout</a></li>
-                <li><a href="#" class="hover:text-brand-accent transition-colors">Meal Plans</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="font-btn font-bold text-sm text-brand-text mb-6">Legal</h4>
-              <ul class="space-y-4 font-body text-sm text-brand-muted">
-                <li><a href="#" class="hover:text-white transition-colors">Terms & Conditions</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">Shipping Policy</a></li>
-                <li><a href="#" class="hover:text-white transition-colors">Refund Policy</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-brand-border font-body text-xs text-brand-muted">
-            <p>&copy; 2026 Bowl & Sip Co. All rights reserved.</p>
-            <p>Designed for Performance.</p>
-          </div>
-        </div>
-      </footer>
-
+    
+    <a href="../../insights.html" class="hover:text-brand-gold transition-colors">Insights</a>
+    
+    <div class="relative group">
+     <a href="#" class="flex items-center gap-1 hover:text-brand-gold transition-colors">
+      Company
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+     </a>
+     <div class="absolute top-full left-0 mt-2 w-48 bg-brand-surface border border-brand-border rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 flex flex-col">
+      <a href="../../team.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Team</strong></a>
+      <a href="../../careers.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Careers</strong></a>
+      <a href="../../achievements.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Achievements</strong></a>
+      <a href="../../press.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Press</strong></a>
+      <a href="../../contact.html" class="px-4 py-2 hover:bg-brand-bg text-brand-text transition-colors"><strong>Contact</strong></a>
+     </div>
     </div>
-  </main>
+   </nav>
+   
+   <div class="flex items-center gap-4">
+    <a href="/login/index.html" class="hidden sm:block text-brand-text/80 hover:text-brand-gold font-display font-medium transition-colors">Portal Login</a>
+    <a href="../../contact.html" class="btn-magnetic bg-white text-black font-btn font-bold px-5 py-2.5 rounded-full hover:bg-brand-gold hover:text-white transition-colors" data-magnetic data-cursor>Let's Talk →</a>
+    <button class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5" id="navToggle" aria-label="Open menu">
+     <span class="w-6 h-0.5 bg-brand-text block"></span>
+     <span class="w-6 h-0.5 bg-brand-text block"></span>
+    </button>
+   </div>
+  </div>
+ </header>
 
-  <script type="module">
-    // Initialize Lenis Smooth Scroll
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
-    });
+ <main id="smooth-wrapper">
+  <div id="smooth-content">
+   
+   <!-- CINEMATIC HERO -->
+   <section class="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+    <!-- Hero Background Image (Placeholder from reference logic) -->
+    <div class="absolute inset-0 z-0 scale-105 transform origin-center" id="hero-img-wrap">
+     <img src="/assets/images/verticals/bowl-sip/bowl-sip-hero.webp" 
+        alt="Healthy Bowl" 
+        class="w-full h-full object-cover object-right-bottom opacity-60" loading="lazy">
+     <div class="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
+     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-bg"></div>
+    </div>
+    
+    <div class="hero-grain"></div>
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
+     <div class="max-w-2xl reveal-up" id="hero-content">
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-6 text-balance">
+       NUTRITION THAT <br><span class="text-brand-accent italic">MOVES</span> WITH YOU.
+      </h1>
+      <p class="font-body text-brand-muted text-lg md:text-xl mb-10 max-w-md font-light">
+       Prepared for you. Not for a shelf.<br>
+       Fresh, functional fuel for an active lifestyle.
+      </p>
+      <div class="flex flex-wrap items-center gap-4">
+       <a href="#menu" class="btn-magnetic bg-brand-accent text-white font-btn font-bold px-8 py-4 rounded-full flex items-center gap-2 hover:bg-green-500 transition-colors">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Explore Menu
+       </a>
+       <button class="font-btn font-medium text-brand-text px-6 py-4 rounded-full border border-brand-border hover:border-brand-text transition-colors">
+        View Meal Plans
+       </button>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <!-- MENU ARCHITECTURE (Categories) -->
+   <section class="py-32 bg-brand-bg relative z-20 border-t border-brand-border">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="text-center mb-20 reveal-up category-header">
+      <h2 class="font-display text-4xl md:text-5xl text-brand-text mb-4">Menu Architecture</h2>
+      <p class="font-body text-brand-muted">Crafted for performance. Categorised by function.</p>
+     </div>
+
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <div class="glass-card p-10 rounded-2xl text-center reveal-up category-card cursor-pointer group">
+       <div class="w-16 h-16 mx-auto mb-6 rounded-full border border-brand-border flex items-center justify-center text-brand-gold group-hover:scale-110 transition-transform">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+       </div>
+       <h3 class="font-display text-2xl mb-2">Bowls</h3>
+       <p class="font-body text-sm text-brand-muted">Macro-balanced meals for sustained energy.</p>
+      </div>
+
+      <div class="glass-card p-10 rounded-2xl text-center reveal-up category-card cursor-pointer group">
+       <div class="w-16 h-16 mx-auto mb-6 rounded-full border border-brand-border flex items-center justify-center text-brand-accent group-hover:scale-110 transition-transform">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+       </div>
+       <h3 class="font-display text-2xl mb-2">Sips</h3>
+       <p class="font-body text-sm text-brand-muted">Nutrient-dense smoothies & functional drinks.</p>
+      </div>
+
+      <div class="glass-card p-10 rounded-2xl text-center reveal-up category-card cursor-pointer group">
+       <div class="w-16 h-16 mx-auto mb-6 rounded-full border border-brand-border flex items-center justify-center text-brand-text group-hover:scale-110 transition-transform">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+       </div>
+       <h3 class="font-display text-2xl mb-2">Pre-Workout</h3>
+       <p class="font-body text-sm text-brand-muted">Clean energy to prime your performance.</p>
+      </div>
+
+      <div class="glass-card p-10 rounded-2xl text-center reveal-up category-card cursor-pointer group">
+       <div class="w-16 h-16 mx-auto mb-6 rounded-full border border-brand-border flex items-center justify-center text-brand-text group-hover:scale-110 transition-transform">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+       </div>
+       <h3 class="font-display text-2xl mb-2">Post-Workout</h3>
+       <p class="font-body text-sm text-brand-muted">Targeted recovery and muscle repair.</p>
+      </div>
+
+     </div>
+    </div>
+   </section>
+
+   <!-- WHY BOWL & SIP (Split Layout) -->
+   <section class="py-32 bg-brand-surface relative border-y border-brand-border overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+     
+     <div class="reveal-up" id="why-text">
+      <h4 class="font-btn text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Clean. Balanced. Delicious.</h4>
+      <h2 class="font-display text-5xl md:text-6xl mb-6">Real Ingredients.<br><span class="text-brand-accent italic">Real Results.</span></h2>
+      <p class="font-body text-brand-muted text-lg mb-12 max-w-md">
+       We believe in simple, whole ingredients that nourish your body and fit seamlessly into your active lifestyle. No shortcuts, no artificial additives.
+      </p>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+       <div class="flex gap-4">
+        <svg class="text-brand-accent shrink-0 mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div>
+         <h5 class="font-display text-xl mb-1">High Protein</h5>
+         <p class="text-sm text-brand-muted">Supports muscle growth & recovery.</p>
+        </div>
+       </div>
+       <div class="flex gap-4">
+        <svg class="text-brand-gold shrink-0 mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        <div>
+         <h5 class="font-display text-xl mb-1">Whole Ingredients</h5>
+         <p class="text-sm text-brand-muted">No artificial additives. Zero compromises.</p>
+        </div>
+       </div>
+       <div class="flex gap-4">
+        <svg class="text-brand-text shrink-0 mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <div>
+         <h5 class="font-display text-xl mb-1">Macro Balanced</h5>
+         <p class="text-sm text-brand-muted">Right macros. Right portions.</p>
+        </div>
+       </div>
+       <div class="flex gap-4">
+        <svg class="text-brand-text shrink-0 mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+         <h5 class="font-display text-xl mb-1">Made Fresh Daily</h5>
+         <p class="text-sm text-brand-muted">Prepared fresh. Delivered on time.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <div class="relative h-[600px] w-full rounded-3xl overflow-hidden reveal-up" id="why-image">
+      <img src="https://images.unsplash.com/photo-1628557044797-f21a177c37ec?q=80&w=1500&auto=format&fit=crop" 
+         class="w-full h-full object-cover" alt="SZ Ventures Visual" loading="lazy">
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <footer class="bg-brand-bg pt-24 pb-8 border-t border-brand-border">
+   <div class="max-w-7xl mx-auto px-6">
+     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div class="col-span-1 md:col-span-1">
+       <a href="#" class="font-display text-2xl tracking-wide text-brand-text block mb-6">
+        BOWL & SIP CO.
+       </a>
+       <p class="font-body text-sm text-brand-muted mb-6">
+        Nutrition that moves with you.<br>Fresh, functional fuel for an active lifestyle.
+       </p>
+       <div class="flex gap-4">
+        <a href="#" class="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center hover:bg-brand-surface transition-colors">IG</a>
+        <a href="#" class="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center hover:bg-brand-surface transition-colors">TW</a>
+       </div>
+      </div>
+      
+      <div>
+       <h4 class="font-btn font-bold text-sm text-brand-text mb-6">Company</h4>
+       <ul class="space-y-4 font-body text-sm text-brand-muted">
+        <li><a href="#" class="hover:text-brand-gold transition-colors">Our Story</a></li>
+        <li><a href="#" class="hover:text-brand-gold transition-colors">Careers</a></li>
+        <li><a href="#" class="hover:text-brand-gold transition-colors">Journal</a></li>
+        <li><a href="#" class="hover:text-brand-gold transition-colors">Contact</a></li>
+       </ul>
+      </div>
+
+      <div>
+       <h4 class="font-btn font-bold text-sm text-brand-text mb-6">Menu</h4>
+       <ul class="space-y-4 font-body text-sm text-brand-muted">
+        <li><a href="#" class="hover:text-brand-accent transition-colors">Bowls</a></li>
+        <li><a href="#" class="hover:text-brand-accent transition-colors">Sips</a></li>
+        <li><a href="#" class="hover:text-brand-accent transition-colors">Pre-Workout</a></li>
+        <li><a href="#" class="hover:text-brand-accent transition-colors">Meal Plans</a></li>
+       </ul>
+      </div>
+
+      <div>
+       <h4 class="font-btn font-bold text-sm text-brand-text mb-6">Legal</h4>
+       <ul class="space-y-4 font-body text-sm text-brand-muted">
+        <li><a href="#" class="hover:text-white transition-colors">Terms & Conditions</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Shipping Policy</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Refund Policy</a></li>
+       </ul>
+      </div>
+     </div>
+     
+     <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-brand-border font-body text-xs text-brand-muted">
+      <p>&copy; 2026 Bowl & Sip Co. All rights reserved.</p>
+      <p>Designed for Performance.</p>
+     </div>
+    </div>
+   </footer>
+
+  </div>
+ </main>
+
+ <script type="module">
+  // Initialize Lenis Smooth Scroll
+  const lenis = new Lenis({
+   duration: 1.2,
+   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+   direction: 'vertical',
+   gestureDirection: 'vertical',
+   smooth: true,
+   mouseMultiplier: 1,
+   smoothTouch: false,
+   touchMultiplier: 2,
+   infinite: false,
+  });
+
+  function raf(time) {
+   lenis.raf(time);
+   requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // GSAP ScrollTrigger Integration
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Initial Hero Animation
+  const tl = gsap.timeline();
+  tl.to("#hero-img-wrap", { scale: 1, duration: 2, ease: "power3.out" }, 0)
+   .from("#hero-content h1", { y: 60, opacity: 0, duration: 1.2, ease: "power4.out" }, 0.2)
+   .from("#hero-content p", { y: 30, opacity: 0, duration: 1, ease: "power3.out" }, 0.4)
+   .from("#hero-content a, #hero-content button", { y: 20, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power2.out" }, 0.6);
+
+  // Scroll Reveal Animations
+  const revealElements = document.querySelectorAll('.reveal-up');
+  revealElements.forEach((el) => {
+   gsap.fromTo(el, 
+    { y: 60, opacity: 0 },
+    {
+     scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+      toggleActions: "play none none reverse"
+     },
+     y: 0,
+     opacity: 1,
+     duration: 1,
+     ease: "power3.out"
     }
-    requestAnimationFrame(raf);
+   );
+  });
 
-    // GSAP ScrollTrigger Integration
-    gsap.registerPlugin(ScrollTrigger);
-    
-    // Initial Hero Animation
-    const tl = gsap.timeline();
-    tl.to("#hero-img-wrap", { scale: 1, duration: 2, ease: "power3.out" }, 0)
-      .from("#hero-content h1", { y: 60, opacity: 0, duration: 1.2, ease: "power4.out" }, 0.2)
-      .from("#hero-content p", { y: 30, opacity: 0, duration: 1, ease: "power3.out" }, 0.4)
-      .from("#hero-content a, #hero-content button", { y: 20, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power2.out" }, 0.6);
+  // Staggered Category Cards
+  gsap.fromTo(".category-card",
+   { y: 50, opacity: 0 },
+   {
+    scrollTrigger: {
+     trigger: ".category-header",
+     start: "top 70%",
+    },
+    y: 0,
+    opacity: 1,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: "power3.out"
+   }
+  );
 
-    // Scroll Reveal Animations
-    const revealElements = document.querySelectorAll('.reveal-up');
-    revealElements.forEach((el) => {
-      gsap.fromTo(el, 
-        { y: 60, opacity: 0 },
-        {
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
-          },
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out"
-        }
-      );
+  // Navbar Hide on Scroll Down
+  let lastScrollY = window.scrollY;
+  const nav = document.getElementById('main-nav');
+  
+  lenis.on('scroll', (e) => {
+   if (e.scrollY > 100) {
+    if (e.scrollY > lastScrollY) {
+     nav.style.transform = 'translateY(-100%)';
+    } else {
+     nav.style.transform = 'translateY(0)';
+    }
+   }
+   lastScrollY = e.scrollY;
+  });
+
+
+
+  // ==========================================
+  // STATE MANAGEMENT & ORDERING ARCHITECTURE
+  // ==========================================
+
+  const products = [
+   {
+    id: 'p1',
+    title: 'The Athlete Bowl',
+    category: 'bowls',
+    tags: ['protein'],
+    price: 499,
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop',
+    calories: 650,
+    protein: '45g',
+    desc: 'Grilled chicken, quinoa, edamame, roasted sweet potato, house tahini dressing.'
+   },
+   {
+    id: 'p2',
+    title: 'Green Recovery Sip',
+    category: 'sips',
+    tags: [],
+    price: 249,
+    image: 'https://images.unsplash.com/photo-1628557044797-f21a177c37ec?q=80&w=800&auto=format&fit=crop',
+    calories: 210,
+    protein: '12g',
+    desc: 'Spinach, spirulina, banana, almond milk, plant protein.'
+   },
+   {
+    id: 'p3',
+    title: 'Keto Power Bowl',
+    category: 'bowls',
+    tags: ['protein'],
+    price: 549,
+    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop',
+    calories: 520,
+    protein: '38g',
+    desc: 'Cauliflower rice, grilled paneer, avocado, pumpkin seeds, olive oil.'
+   },
+   {
+    id: 'p4',
+    title: 'Pre-Workout Citrus',
+    category: 'sips',
+    tags: [],
+    price: 199,
+    image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=800&auto=format&fit=crop',
+    calories: 140,
+    protein: '2g',
+    desc: 'Fresh orange, ginger, turmeric shot, coconut water.'
+   },
+   {
+    id: 'p5',
+    title: 'Vegan Muscle Builder',
+    category: 'bowls',
+    tags: ['protein'],
+    price: 479,
+    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop',
+    calories: 580,
+    protein: '32g',
+    desc: 'Tempeh, lentils, roasted broccoli, brown rice, peanut sauce.'
+   }
+  ];
+
+  class Store {
+   constructor() {
+    this.cart = JSON.parse(localStorage.getItem('bsc_cart')) || [];
+    this.init();
+   }
+
+   init() {
+    this.renderProducts('all');
+    this.bindEvents();
+    if(this.cart.length > 0) this.updateCartUI();
+   }
+
+   bindEvents() {
+    // Filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+     btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+       b.classList.remove('bg-brand-surface', 'active', 'text-brand-text');
+       b.classList.add('text-brand-muted');
+      });
+      const targetBtn = e.currentTarget;
+      targetBtn.classList.add('bg-brand-surface', 'active', 'text-brand-text');
+      targetBtn.classList.remove('text-brand-muted');
+      this.renderProducts(targetBtn.dataset.filter);
+     });
     });
 
-    // Staggered Category Cards
-    gsap.fromTo(".category-card",
-      { y: 50, opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: ".category-header",
-          start: "top 70%",
-        },
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out"
-      }
-    );
-
-    // Navbar Hide on Scroll Down
-    let lastScrollY = window.scrollY;
-    const nav = document.getElementById('main-nav');
+    // Cart Drawer Toggles
+    document.getElementById('cart-btn').addEventListener('click', () => this.toggleCart());
+    document.getElementById('close-cart-btn').addEventListener('click', () => this.toggleCart());
+    document.getElementById('cart-overlay').addEventListener('click', () => this.toggleCart());
     
-    lenis.on('scroll', (e) => {
-      if (e.scrollY > 100) {
-        if (e.scrollY > lastScrollY) {
-          nav.style.transform = 'translateY(-100%)';
-        } else {
-          nav.style.transform = 'translateY(0)';
-        }
-      }
-      lastScrollY = e.scrollY;
+    // Checkout Event Placeholder
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+     if(this.cart.length > 0) {
+      this.toggleCart(false);
+      this.toggleCheckout(true);
+     }
     });
 
+    document.getElementById('close-checkout-btn').addEventListener('click', () => {
+     this.toggleCheckout(false);
+    });
 
+    // Keyboard Esc to close overlays
+    document.addEventListener('keydown', (e) => {
+     if(e.key === 'Escape') {
+      this.toggleCart(false);
+      this.toggleCheckout(false);
+     }
+    });
 
-    // ==========================================
-    // STATE MANAGEMENT & ORDERING ARCHITECTURE
-    // ==========================================
+    // Form Submit
+    document.getElementById('checkout-steps-container').addEventListener('submit', (e) => {
+     e.preventDefault();
+     this.submitOrder();
+    });
 
-    const products = [
-      {
-        id: 'p1',
-        title: 'The Athlete Bowl',
-        category: 'bowls',
-        tags: ['protein'],
-        price: 499,
-        image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop',
-        calories: 650,
-        protein: '45g',
-        desc: 'Grilled chicken, quinoa, edamame, roasted sweet potato, house tahini dressing.'
-      },
-      {
-        id: 'p2',
-        title: 'Green Recovery Sip',
-        category: 'sips',
-        tags: [],
-        price: 249,
-        image: 'https://images.unsplash.com/photo-1628557044797-f21a177c37ec?q=80&w=800&auto=format&fit=crop',
-        calories: 210,
-        protein: '12g',
-        desc: 'Spinach, spirulina, banana, almond milk, plant protein.'
-      },
-      {
-        id: 'p3',
-        title: 'Keto Power Bowl',
-        category: 'bowls',
-        tags: ['protein'],
-        price: 549,
-        image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop',
-        calories: 520,
-        protein: '38g',
-        desc: 'Cauliflower rice, grilled paneer, avocado, pumpkin seeds, olive oil.'
-      },
-      {
-        id: 'p4',
-        title: 'Pre-Workout Citrus',
-        category: 'sips',
-        tags: [],
-        price: 199,
-        image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=800&auto=format&fit=crop',
-        calories: 140,
-        protein: '2g',
-        desc: 'Fresh orange, ginger, turmeric shot, coconut water.'
-      },
-      {
-        id: 'p5',
-        title: 'Vegan Muscle Builder',
-        category: 'bowls',
-        tags: ['protein'],
-        price: 479,
-        image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop',
-        calories: 580,
-        protein: '32g',
-        desc: 'Tempeh, lentils, roasted broccoli, brown rice, peanut sauce.'
-      }
-    ];
+    // Smooth Scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+     anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      lenis.scrollTo(this.getAttribute('href'), { offset: -80 });
+     });
+    });
 
-    class Store {
-      constructor() {
-        this.cart = JSON.parse(localStorage.getItem('bsc_cart')) || [];
-        this.init();
-      }
+    // Ripple Effect bindings
+    document.addEventListener('click', (e) => {
+     const target = e.target.closest('button');
+     if(target && !target.disabled) {
+      const circle = document.createElement('span');
+      const diameter = Math.max(target.clientWidth, target.clientHeight);
+      const radius = diameter / 2;
+      const rect = target.getBoundingClientRect();
+      
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${e.clientX - rect.left - radius}px`;
+      circle.style.top = `${e.clientY - rect.top - radius}px`;
+      circle.classList.add('ripple-effect');
+      
+      const existing = target.querySelector('.ripple-effect');
+      if(existing) existing.remove();
+      
+      target.appendChild(circle);
+     }
+    });
+   }
 
-      init() {
-        this.renderProducts('all');
-        this.bindEvents();
-        if(this.cart.length > 0) this.updateCartUI();
-      }
+   initMagneticButtons() {
+    const magneticBtns = document.querySelectorAll('.btn-magnetic:not(.magnetic-init)');
+    magneticBtns.forEach(btn => {
+     btn.classList.add('magnetic-init');
+     btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(btn, { x: x * 0.2, y: y * 0.2, duration: 0.3, ease: "power2.out" });
+     });
+     btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+     });
+    });
+   }
 
-      bindEvents() {
-        // Filters
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            document.querySelectorAll('.filter-btn').forEach(b => {
-              b.classList.remove('bg-brand-surface', 'active', 'text-brand-text');
-              b.classList.add('text-brand-muted');
-            });
-            const targetBtn = e.currentTarget;
-            targetBtn.classList.add('bg-brand-surface', 'active', 'text-brand-text');
-            targetBtn.classList.remove('text-brand-muted');
-            this.renderProducts(targetBtn.dataset.filter);
-          });
-        });
+   // ... existing code in renderProducts, addToCart, removeFromCart, updateQuantity ...
 
-        // Cart Drawer Toggles
-        document.getElementById('cart-btn').addEventListener('click', () => this.toggleCart());
-        document.getElementById('close-cart-btn').addEventListener('click', () => this.toggleCart());
-        document.getElementById('cart-overlay').addEventListener('click', () => this.toggleCart());
-        
-        // Checkout Event Placeholder
-        document.getElementById('checkout-btn').addEventListener('click', () => {
-          if(this.cart.length > 0) {
-            this.toggleCart(false);
-            this.toggleCheckout(true);
-          }
-        });
+   renderProducts(filter) {
+    const grid = document.getElementById('product-grid');
+    grid.innerHTML = '';
+    
+    const filtered = products.filter(p => filter === 'all' || p.category === filter || p.tags.includes(filter));
+    
+    filtered.forEach((product, i) => {
+     const card = document.createElement('div');
+     card.className = 'glass-card rounded-2xl overflow-hidden group reveal-up';
+     card.style.animationDelay = `${i * 0.1}s`;
+     
+     card.innerHTML = `
+      <div class="relative h-64 overflow-hidden">
+       <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+       <div class="absolute top-4 right-4 bg-brand-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold font-btn text-brand-gold border border-brand-border">
+        ₹${product.price}
+       </div>
+      </div>
+      <div class="p-6">
+       <div class="flex gap-4 text-xs font-btn text-brand-muted mb-3 font-bold uppercase tracking-wider">
+        <span>${product.calories} CAL</span>
+        <span>${product.protein} PRO</span>
+       </div>
+       <h3 class="font-display text-2xl text-brand-text mb-2">${product.title}</h3>
+       <p class="font-body text-sm text-brand-muted mb-6 h-10 line-clamp-2">${product.desc}</p>
+       
+       <button onclick="window.appStore.addToCart('${product.id}')" class="w-full btn-magnetic bg-brand-surface text-brand-text border border-brand-border font-btn font-bold py-3 rounded-xl hover:bg-brand-text hover:text-brand-bg transition-colors">
+        Add to Cart
+       </button>
+      </div>
+     `;
+     grid.appendChild(card);
+    });
+    
+    // Re-trigger ScrollTrigger for new elements
+    ScrollTrigger.refresh();
+    this.initMagneticButtons();
+   }
 
-        document.getElementById('close-checkout-btn').addEventListener('click', () => {
-          this.toggleCheckout(false);
-        });
+   addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    const existing = this.cart.find(item => item.id === productId);
+    
+    if (existing) {
+     existing.qty++;
+    } else {
+     this.cart.push({ ...product, qty: 1 });
+    }
+    
+    this.updateCartUI();
+    this.toggleCart(true);
+   }
 
-        // Keyboard Esc to close overlays
-        document.addEventListener('keydown', (e) => {
-          if(e.key === 'Escape') {
-            this.toggleCart(false);
-            this.toggleCheckout(false);
-          }
-        });
+   removeFromCart(productId) {
+    this.cart = this.cart.filter(item => item.id !== productId);
+    this.updateCartUI();
+   }
 
-        // Form Submit
-        document.getElementById('checkout-steps-container').addEventListener('submit', (e) => {
-          e.preventDefault();
-          this.submitOrder();
-        });
+   updateQuantity(productId, delta) {
+    const item = this.cart.find(i => i.id === productId);
+    if(item) {
+     item.qty += delta;
+     if(item.qty <= 0) this.removeFromCart(productId);
+     else this.updateCartUI();
+    }
+   }
 
-        // Smooth Scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            lenis.scrollTo(this.getAttribute('href'), { offset: -80 });
-          });
-        });
+   updateCartUI() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const emptyState = document.getElementById('cart-empty-state');
+    const countBadge = document.querySelector('#cart-btn span');
+    const subtotalEl = document.getElementById('cart-subtotal');
+    const totalEl = document.getElementById('cart-total');
+    const checkoutBtn = document.getElementById('checkout-btn');
 
-        // Ripple Effect bindings
-        document.addEventListener('click', (e) => {
-          const target = e.target.closest('button');
-          if(target && !target.disabled) {
-            const circle = document.createElement('span');
-            const diameter = Math.max(target.clientWidth, target.clientHeight);
-            const radius = diameter / 2;
-            const rect = target.getBoundingClientRect();
-            
-            circle.style.width = circle.style.height = `${diameter}px`;
-            circle.style.left = `${e.clientX - rect.left - radius}px`;
-            circle.style.top = `${e.clientY - rect.top - radius}px`;
-            circle.classList.add('ripple-effect');
-            
-            const existing = target.querySelector('.ripple-effect');
-            if(existing) existing.remove();
-            
-            target.appendChild(circle);
-          }
-        });
-      }
+    let count = 0;
+    let total = 0;
 
-      initMagneticButtons() {
-        const magneticBtns = document.querySelectorAll('.btn-magnetic:not(.magnetic-init)');
-        magneticBtns.forEach(btn => {
-          btn.classList.add('magnetic-init');
-          btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            gsap.to(btn, { x: x * 0.2, y: y * 0.2, duration: 0.3, ease: "power2.out" });
-          });
-          btn.addEventListener('mouseleave', () => {
-            gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
-          });
-        });
-      }
+    cartItemsContainer.innerHTML = '';
 
-      // ... existing code in renderProducts, addToCart, removeFromCart, updateQuantity ...
-
-      renderProducts(filter) {
-        const grid = document.getElementById('product-grid');
-        grid.innerHTML = '';
-        
-        const filtered = products.filter(p => filter === 'all' || p.category === filter || p.tags.includes(filter));
-        
-        filtered.forEach((product, i) => {
-          const card = document.createElement('div');
-          card.className = 'glass-card rounded-2xl overflow-hidden group reveal-up';
-          card.style.animationDelay = `${i * 0.1}s`;
-          
-          card.innerHTML = `
-            <div class="relative h-64 overflow-hidden">
-              <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
-              <div class="absolute top-4 right-4 bg-brand-bg/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold font-btn text-brand-gold border border-brand-border">
-                ₹${product.price}
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex gap-4 text-xs font-btn text-brand-muted mb-3 font-bold uppercase tracking-wider">
-                <span>${product.calories} CAL</span>
-                <span>${product.protein} PRO</span>
-              </div>
-              <h3 class="font-display text-2xl text-brand-text mb-2">${product.title}</h3>
-              <p class="font-body text-sm text-brand-muted mb-6 h-10 line-clamp-2">${product.desc}</p>
-              
-              <button onclick="window.appStore.addToCart('${product.id}')" class="w-full btn-magnetic bg-brand-surface text-brand-text border border-brand-border font-btn font-bold py-3 rounded-xl hover:bg-brand-text hover:text-brand-bg transition-colors">
-                Add to Cart
-              </button>
-            </div>
-          `;
-          grid.appendChild(card);
-        });
-        
-        // Re-trigger ScrollTrigger for new elements
-        ScrollTrigger.refresh();
-        this.initMagneticButtons();
-      }
-
-      addToCart(productId) {
-        const product = products.find(p => p.id === productId);
-        const existing = this.cart.find(item => item.id === productId);
-        
-        if (existing) {
-          existing.qty++;
-        } else {
-          this.cart.push({ ...product, qty: 1 });
-        }
-        
-        this.updateCartUI();
-        this.toggleCart(true);
-      }
-
-      removeFromCart(productId) {
-        this.cart = this.cart.filter(item => item.id !== productId);
-        this.updateCartUI();
-      }
-
-      updateQuantity(productId, delta) {
-        const item = this.cart.find(i => i.id === productId);
-        if(item) {
-          item.qty += delta;
-          if(item.qty <= 0) this.removeFromCart(productId);
-          else this.updateCartUI();
-        }
-      }
-
-      updateCartUI() {
-        const cartItemsContainer = document.getElementById('cart-items');
-        const emptyState = document.getElementById('cart-empty-state');
-        const countBadge = document.querySelector('#cart-btn span');
-        const subtotalEl = document.getElementById('cart-subtotal');
-        const totalEl = document.getElementById('cart-total');
-        const checkoutBtn = document.getElementById('checkout-btn');
-
-        let count = 0;
-        let total = 0;
-
-        cartItemsContainer.innerHTML = '';
-
-        if (this.cart.length === 0) {
-          emptyState.style.display = 'flex';
-          cartItemsContainer.appendChild(emptyState);
-          checkoutBtn.disabled = true;
-        } else {
-          emptyState.style.display = 'none';
-          checkoutBtn.disabled = false;
-          
-          this.cart.forEach(item => {
-            count += item.qty;
-            total += item.price * item.qty;
-            
-            const el = document.createElement('div');
-            el.className = 'flex gap-4 p-4 rounded-xl bg-brand-surface border border-brand-border';
-            el.innerHTML = `
-              <img src="${item.image}" alt="${item.title}" class="w-20 h-20 rounded-lg object-cover" loading="lazy">
-              <div class="flex-1 flex flex-col justify-between">
-                <div>
-                  <h4 class="font-display font-bold text-lg text-brand-text leading-tight">${item.title}</h4>
-                  <p class="font-btn text-brand-gold font-bold text-sm">₹${item.price}</p>
-                </div>
-                <div class="flex items-center gap-4 mt-2">
-                  <div class="flex items-center bg-brand-bg rounded-lg border border-brand-border">
-                    <button onclick="window.appStore.updateQuantity('${item.id}', -1)" class="w-8 h-8 flex items-center justify-center hover:text-brand-accent">-</button>
-                    <span class="font-btn text-sm font-bold w-4 text-center">${item.qty}</span>
-                    <button onclick="window.appStore.updateQuantity('${item.id}', 1)" class="w-8 h-8 flex items-center justify-center hover:text-brand-accent">+</button>
-                  </div>
-                  <button onclick="window.appStore.removeFromCart('${item.id}')" class="text-xs font-btn font-bold text-red-400 hover:text-red-300 transition-colors uppercase tracking-wider">Remove</button>
-                </div>
-              </div>
-            `;
-            cartItemsContainer.appendChild(el);
-          });
-        }
-
-        countBadge.innerText = count;
-        subtotalEl.innerText = `₹${total}`;
-        totalEl.innerText = `₹${total}`;
-        
-        // Simple scale bump animation on badge
-        gsap.fromTo(countBadge, { scale: 1.5 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' });
-        
-        // Persist Cart
-        localStorage.setItem('bsc_cart', JSON.stringify(this.cart));
-      }
-
-      toggleCart(forceOpen = null) {
-        const drawer = document.getElementById('cart-drawer');
-        const overlay = document.getElementById('cart-overlay');
-        const isOpen = !drawer.classList.contains('translate-x-full');
-        
-        if (forceOpen === true || (forceOpen === null && !isOpen)) {
-          drawer.classList.remove('translate-x-full');
-          overlay.classList.remove('opacity-0', 'pointer-events-none');
-          lenis.stop(); 
-        } else {
-          drawer.classList.add('translate-x-full');
-          overlay.classList.add('opacity-0', 'pointer-events-none');
-          lenis.start();
-        }
-      }
-
-      // Checkout Logic
-      toggleCheckout(forceOpen = null) {
-        const modal = document.getElementById('checkout-modal');
-        const overlay = document.getElementById('checkout-overlay');
-        const isOpen = !overlay.classList.contains('opacity-0');
-        
-        if (forceOpen === true || (forceOpen === null && !isOpen)) {
-          overlay.classList.remove('opacity-0', 'pointer-events-none');
-          modal.classList.remove('scale-95');
-          this.nextCheckoutStep(1); // Reset to step 1
-          this.renderCheckoutSummary();
-          lenis.stop();
-        } else {
-          overlay.classList.add('opacity-0', 'pointer-events-none');
-          modal.classList.add('scale-95');
-          lenis.start();
-        }
-      }
-
-      nextCheckoutStep(stepIndex) {
-        if(typeof stepIndex === 'number' && stepIndex > 1) {
-          const currentStep = document.querySelector('.checkout-step:not(.hidden)');
-          if(currentStep) {
-            const inputs = currentStep.querySelectorAll('input, textarea, select');
-            let valid = true;
-            inputs.forEach(input => {
-              if(!input.checkValidity()) {
-                input.reportValidity();
-                valid = false;
-              }
-            });
-            if(!valid) return;
-          }
-        }
-
-        document.querySelectorAll('.checkout-step').forEach(el => el.classList.add('hidden'));
-        document.getElementById(`step-${stepIndex}`).classList.remove('hidden');
-      }
-
-      renderCheckoutSummary() {
-        const summaryContainer = document.getElementById('checkout-summary-items');
-        summaryContainer.innerHTML = '';
-        
-        let subtotal = 0;
-        this.cart.forEach(item => {
-          subtotal += item.price * item.qty;
-          const el = document.createElement('div');
-          el.className = 'flex justify-between font-btn text-sm text-brand-text';
-          el.innerHTML = `<span>${item.qty}x ${item.title}</span><span>₹${item.price * item.qty}</span>`;
-          summaryContainer.appendChild(el);
-        });
-
-        const tax = Math.round(subtotal * 0.05);
-        const delivery = 49;
-        const grandTotal = subtotal + tax + delivery;
-
-        document.getElementById('chk-subtotal').innerText = `₹${subtotal}`;
-        document.getElementById('chk-tax').innerText = `₹${tax}`;
-        document.getElementById('chk-grand-total').innerText = `₹${grandTotal}`;
-      }
-
-      async submitOrder() {
-        document.getElementById('checkout-actions').classList.add('hidden');
-        document.getElementById('checkout-loading').classList.remove('hidden');
-        document.getElementById('checkout-loading').classList.add('flex');
-
-        // Mock API Call (Simulate POST /api/orders)
-        try {
-          // A real fetch would go here
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          
-          // Generate Mock Order ID
-          const orderId = '#BSC-' + Math.floor(1000 + Math.random() * 9000);
-          document.getElementById('success-order-id').innerText = orderId;
-          
-          // Show Success Step
-          document.getElementById('checkout-loading').classList.add('hidden');
-          document.getElementById('checkout-loading').classList.remove('flex');
-          this.nextCheckoutStep('success');
-          
-          // Fire Confetti (using a basic JS interval approach since we don't have canvas-confetti loaded)
-          this.fireConfetti();
-          
-          // Clear cart
-          this.cart = [];
-          this.updateCartUI();
-
-        } catch (error) {
-          alert('Order submission failed. Please try again.');
-          document.getElementById('checkout-actions').classList.remove('hidden');
-          document.getElementById('checkout-loading').classList.add('hidden');
-        }
-      }
-
-      fireConfetti() {
-        // Fallback simple CSS confetti if no external library
-        const colors = ['#2BB673', '#C7A15B', '#ffffff'];
-        for(let i=0; i<50; i++) {
-          const el = document.createElement('div');
-          el.className = 'fixed z-[300] w-2 h-2 rounded-sm';
-          el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-          el.style.left = Math.random() * 100 + 'vw';
-          el.style.top = -10 + 'px';
-          document.body.appendChild(el);
-          
-          gsap.to(el, {
-            y: window.innerHeight + 100,
-            x: "+=" + (Math.random() * 200 - 100),
-            rotation: Math.random() * 360,
-            duration: 1.5 + Math.random() * 2,
-            ease: "power1.in",
-            onComplete: () => el.remove()
-          });
-        }
-      }
+    if (this.cart.length === 0) {
+     emptyState.style.display = 'flex';
+     cartItemsContainer.appendChild(emptyState);
+     checkoutBtn.disabled = true;
+    } else {
+     emptyState.style.display = 'none';
+     checkoutBtn.disabled = false;
+     
+     this.cart.forEach(item => {
+      count += item.qty;
+      total += item.price * item.qty;
+      
+      const el = document.createElement('div');
+      el.className = 'flex gap-4 p-4 rounded-xl bg-brand-surface border border-brand-border';
+      el.innerHTML = `
+       <img src="${item.image}" alt="${item.title}" class="w-20 h-20 rounded-lg object-cover" loading="lazy">
+       <div class="flex-1 flex flex-col justify-between">
+        <div>
+         <h4 class="font-display font-bold text-lg text-brand-text leading-tight">${item.title}</h4>
+         <p class="font-btn text-brand-gold font-bold text-sm">₹${item.price}</p>
+        </div>
+        <div class="flex items-center gap-4 mt-2">
+         <div class="flex items-center bg-brand-bg rounded-lg border border-brand-border">
+          <button onclick="window.appStore.updateQuantity('${item.id}', -1)" class="w-8 h-8 flex items-center justify-center hover:text-brand-accent">-</button>
+          <span class="font-btn text-sm font-bold w-4 text-center">${item.qty}</span>
+          <button onclick="window.appStore.updateQuantity('${item.id}', 1)" class="w-8 h-8 flex items-center justify-center hover:text-brand-accent">+</button>
+         </div>
+         <button onclick="window.appStore.removeFromCart('${item.id}')" class="text-xs font-btn font-bold text-red-400 hover:text-red-300 transition-colors uppercase tracking-wider">Remove</button>
+        </div>
+       </div>
+      `;
+      cartItemsContainer.appendChild(el);
+     });
     }
 
-    // Initialize Store
-    window.appStore = new Store();
+    countBadge.innerText = count;
+    subtotalEl.innerText = `₹${total}`;
+    totalEl.innerText = `₹${total}`;
+    
+    // Simple scale bump animation on badge
+    gsap.fromTo(countBadge, { scale: 1.5 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' });
+    
+    // Persist Cart
+    localStorage.setItem('bsc_cart', JSON.stringify(this.cart));
+   }
 
-  </script>
+   toggleCart(forceOpen = null) {
+    const drawer = document.getElementById('cart-drawer');
+    const overlay = document.getElementById('cart-overlay');
+    const isOpen = !drawer.classList.contains('translate-x-full');
+    
+    if (forceOpen === true || (forceOpen === null && !isOpen)) {
+     drawer.classList.remove('translate-x-full');
+     overlay.classList.remove('opacity-0', 'pointer-events-none');
+     lenis.stop(); 
+    } else {
+     drawer.classList.add('translate-x-full');
+     overlay.classList.add('opacity-0', 'pointer-events-none');
+     lenis.start();
+    }
+   }
 
+   // Checkout Logic
+   toggleCheckout(forceOpen = null) {
+    const modal = document.getElementById('checkout-modal');
+    const overlay = document.getElementById('checkout-overlay');
+    const isOpen = !overlay.classList.contains('opacity-0');
+    
+    if (forceOpen === true || (forceOpen === null && !isOpen)) {
+     overlay.classList.remove('opacity-0', 'pointer-events-none');
+     modal.classList.remove('scale-95');
+     this.nextCheckoutStep(1); // Reset to step 1
+     this.renderCheckoutSummary();
+     lenis.stop();
+    } else {
+     overlay.classList.add('opacity-0', 'pointer-events-none');
+     modal.classList.add('scale-95');
+     lenis.start();
+    }
+   }
+
+   nextCheckoutStep(stepIndex) {
+    if(typeof stepIndex === 'number' && stepIndex > 1) {
+     const currentStep = document.querySelector('.checkout-step:not(.hidden)');
+     if(currentStep) {
+      const inputs = currentStep.querySelectorAll('input, textarea, select');
+      let valid = true;
+      inputs.forEach(input => {
+       if(!input.checkValidity()) {
+        input.reportValidity();
+        valid = false;
+       }
+      });
+      if(!valid) return;
+     }
+    }
+
+    document.querySelectorAll('.checkout-step').forEach(el => el.classList.add('hidden'));
+    document.getElementById(`step-${stepIndex}`).classList.remove('hidden');
+   }
+
+   renderCheckoutSummary() {
+    const summaryContainer = document.getElementById('checkout-summary-items');
+    summaryContainer.innerHTML = '';
+    
+    let subtotal = 0;
+    this.cart.forEach(item => {
+     subtotal += item.price * item.qty;
+     const el = document.createElement('div');
+     el.className = 'flex justify-between font-btn text-sm text-brand-text';
+     el.innerHTML = `<span>${item.qty}x ${item.title}</span><span>₹${item.price * item.qty}</span>`;
+     summaryContainer.appendChild(el);
+    });
+
+    const tax = Math.round(subtotal * 0.05);
+    const delivery = 49;
+    const grandTotal = subtotal + tax + delivery;
+
+    document.getElementById('chk-subtotal').innerText = `₹${subtotal}`;
+    document.getElementById('chk-tax').innerText = `₹${tax}`;
+    document.getElementById('chk-grand-total').innerText = `₹${grandTotal}`;
+   }
+
+   async submitOrder() {
+    document.getElementById('checkout-actions').classList.add('hidden');
+    document.getElementById('checkout-loading').classList.remove('hidden');
+    document.getElementById('checkout-loading').classList.add('flex');
+
+    try {
+     const name = document.getElementById('chk-name').value;
+     const phone = document.getElementById('chk-phone').value;
+     const address = document.getElementById('chk-address').value;
+     const schedule = document.querySelector('input[name="schedule"]:checked').value;
+     const payment = document.querySelector('input[name="payment"]:checked').value;
+
+     // Integration Boundary: In a production environment, payment processing would occur here.
+     // Since no payment provider is configured, we bypass payment and directly submit the order.
+
+     const orderData = {
+      source: 'bowl_and_sip_order',
+      customer: { name, phone, address },
+      schedule,
+      paymentMethod: payment,
+      items: this.cart,
+      subtotal: parseInt(document.getElementById('chk-subtotal').innerText.replace('₹', '')),
+      tax: parseInt(document.getElementById('chk-tax').innerText.replace('₹', '')),
+      total: parseInt(document.getElementById('chk-grand-total').innerText.replace('₹', ''))
+     };
+
+     const response = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+     });
+
+     if (!response.ok) {
+      throw new Error('Server error');
+     }
+
+     const result = await response.json();
+
+     // Use Display Order ID from backend
+     const orderId = '#BSC-' + (result.id || Math.floor(1000 + Math.random() * 9000));
+     document.getElementById('success-order-id').innerText = orderId;
+     
+     // Show Success Step
+     document.getElementById('checkout-loading').classList.add('hidden');
+     document.getElementById('checkout-loading').classList.remove('flex');
+     this.nextCheckoutStep('success');
+     
+     // Fire Confetti
+     this.fireConfetti();
+     
+     // Clear cart
+     this.cart = [];
+     this.updateCartUI();
+
+    } catch (error) {
+     console.error(error);
+     alert('Order submission failed. Please try again.');
+     document.getElementById('checkout-actions').classList.remove('hidden');
+     document.getElementById('checkout-loading').classList.add('hidden');
+     document.getElementById('checkout-loading').classList.remove('flex');
+    }
+   }
+
+   fireConfetti() {
+    // Fallback simple CSS confetti if no external library
+    const colors = ['#2BB673', '#C7A15B', '#ffffff'];
+    for(let i=0; i<50; i++) {
+     const el = document.createElement('div');
+     el.className = 'fixed z-[300] w-2 h-2 rounded-sm';
+     el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+     el.style.left = Math.random() * 100 + 'vw';
+     el.style.top = -10 + 'px';
+     document.body.appendChild(el);
+     
+     gsap.to(el, {
+      y: window.innerHeight + 100,
+      x: "+=" + (Math.random() * 200 - 100),
+      rotation: Math.random() * 360,
+      duration: 1.5 + Math.random() * 2,
+      ease: "power1.in",
+      onComplete: () => el.remove()
+     });
+    }
+   }
+  }
+
+  // Initialize Store
+  window.appStore = new Store();
+
+ </script>
+
+
+<!-- Preloader Fail-Safe -->
+<script>
+  setTimeout(function() {
+    var pre = document.getElementById('preloader');
+    if (pre && !pre.classList.contains('is-done')) {
+      pre.classList.add('is-done');
+      document.body.classList.remove('is-loading');
+      console.warn('Preloader fail-safe triggered. A critical asset may have failed to load.');
+    }
+  }, 4000);
+</script>
 </body>
 </html>

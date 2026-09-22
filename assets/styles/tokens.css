@@ -1,9 +1,17 @@
 /* =====================================================================
-   SZX VENTURES — DESIGN TOKENS
+   SZ VENTURES — DESIGN TOKENS
    Luxury Dark Glass Canvas with Warm Gold & Brown Accents
    ===================================================================== */
 
 :root {
+
+  /* Premium Motion Refinement Tokens */
+  --motion-fast: 200ms;
+  --motion-medium: 350ms;
+  --motion-reveal: 650ms;
+  --motion-image: 850ms;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+
   /* ---- Core Palette (Dark Obsidian / Warm Charcoal Canvas) ---- */
   --paper:         #050505;   /* Deep obsidian page canvas */
   --paper-2:       #0d0d0f;   /* Slightly raised surface */
@@ -83,6 +91,9 @@
   /* ---- Motion ---- */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur:  0.6s;
+  --dur-fast: 0.2s;
+  --dur-std: 0.35s;
+  --dur-img: 0.5s;
 
   /* ---- Theme Header ---- */
   color-scheme: dark;

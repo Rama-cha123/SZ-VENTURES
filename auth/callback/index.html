@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Authenticating...</title>
+ <style>
+  body {
+   background: #0a0a0b;
+   color: #fff;
+   font-family: sans-serif;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   margin: 0;
+  }
+ </style>
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+ <div>Authenticating, please wait...</div>
+
+ <script src="../../assets/js/supabase-config.generated.js"></script>
+ <script>
+  async function processCallback() {
+   // 1. Get code from URL
+   const urlParams = new URLSearchParams(window.location.search);
+   const code = urlParams.get('code');
+   
+   if (code) {
+    try {
+     // 2. Exchange code for session (PKCE)
+     const { data, error } = await window.supabaseClient.auth.exchangeCodeForSession(code);
+     if (error) {
+      // If detectSessionInUrl is true, Supabase may have already exchanged it.
+      // Check if we actually have a session before failing.
+      const { data: sessionData } = await window.supabaseClient.auth.getSession();
+      if (!sessionData.session) {
+       console.error('Error exchanging code:', error.message);
+       document.body.innerHTML = '<div>Error during authentication: ' + error.message + '</div>';
+       return;
+      }
+     }
+    } catch (err) {
+     console.error('Auth callback failed', err);
+    }
+   }
+   
+   // 3. Remove OAuth parameters from the URL
+   if (window.history && window.history.replaceState) {
+    const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+    window.history.replaceState({}, document.title, cleanUrl);
+   }
+   
+   // 4. Redirect to portal
+   window.location.href = '/portal/';
+  }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+   // Small timeout to let supabase-js pick up hash if detectSessionInUrl kicks in first
+   setTimeout(processCallback, 100);
+  });
+ </script>
+
+<!-- Preloader Fail-Safe -->
+<script>
+  setTimeout(function() {
+    var pre = document.getElementById('preloader');
+    if (pre && !pre.classList.contains('is-done')) {
+      pre.classList.add('is-done');
+      document.body.classList.remove('is-loading');
+      console.warn('Preloader fail-safe triggered. A critical asset may have failed to load.');
+    }
+  }, 4000);
+</script>
+</body>
+</html>

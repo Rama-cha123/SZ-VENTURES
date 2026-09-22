@@ -1,0 +1,17 @@
+[
+    {
+        "source": "creator_house_form",
+        "consent": true,
+        "category": "fashion",
+        "city": "Bengaluru",
+        "intent": "creator_membership",
+        "name": "Test User",
+        "portfolio_link": "https://instagram.com/test",
+        "message": "Testing the form",
+        "phone": "1234567890",
+        "email": "test@example.com",
+        "timestamp": "2026-09-19T13:23:20.047303",
+        "id": "063684CC",
+        "idempotency_key": "8826fddd-2c76-4b15-9de3-d922bfbed8c7"
+    }
+]

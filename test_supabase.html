@@ -1,0 +1,13 @@
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/assets/js/supabase-config.generated.js"></script>
+<script>
+setTimeout(async () => {
+ console.log('Testing...');
+ try {
+  const res = await window.supabaseClient.auth.signInWithPassword({ email: 'test@example.com', password: 'password123' });
+  console.log(res);
+ } catch (e) {
+  console.error(e);
+ }
+}, 1000);
+</script>

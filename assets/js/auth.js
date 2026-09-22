@@ -1,5 +1,5 @@
 /* =====================================================================
-   SZX VENTURES — Secure Auth & RBAC Logic
+   SZ VENTURES — Secure Auth & RBAC Logic
    Handles Supabase authentication, session state, and Role-Based Access.
    ===================================================================== */
 
@@ -39,8 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         requireSupabase();
-        const { error } = await window.supabaseClient.auth.signInWithPassword({ email, password });
+        const { data, error } = await window.supabaseClient.auth.signInWithPassword({ email, password });
         if (error) throw error;
+        if (!data.session) throw new Error('Please verify your email address before signing in.');
         window.location.href = '/portal/index.html';
       } catch (err) {
         showMessage('loginMessage', err.message, true);
@@ -121,12 +122,52 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       try {
         requireSupabase();
-        await window.supabaseClient.auth.signInWithOAuth({ provider: 'google' });
+        await window.supabaseClient.auth.signInWithOAuth({ 
+          provider: 'google',
+          options: {
+            redirectTo: window.location.origin + '/auth/callback/'
+          }
+        });
       } catch (err) {
         alert(err.message);
       }
     });
   }
+
+  // Redirect if already logged in on login page
+  const isLoginRoute = window.location.pathname.includes('/login');
+  if (isLoginRoute) {
+    const checkLoginSession = async () => {
+      try {
+        if (window.supabaseClient) {
+          const { data: { session } } = await window.supabaseClient.auth.getSession();
+          if (session) {
+            window.location.href = '/portal/index.html';
+          }
+        }
+      } catch (e) { console.error(e); }
+    };
+    checkLoginSession();
+  }
+
+  // Update header links for authenticated users
+  const updateHeaderLinks = async () => {
+    try {
+      if (window.supabaseClient) {
+        const { data: { session } } = await window.supabaseClient.auth.getSession();
+        if (session) {
+           const portalLinks = document.querySelectorAll('a[href*="/login"]');
+           portalLinks.forEach(link => {
+              link.href = '/portal/index.html';
+              if (link.textContent.trim().toLowerCase().includes('login')) {
+                  link.textContent = 'Dashboard';
+              }
+           });
+        }
+      }
+    } catch(e) {}
+  };
+  updateHeaderLinks();
 
   // Session check and RBAC on portal
   const isPortalRoute = window.location.pathname.includes('/portal');
@@ -157,6 +198,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (error || !session) {
           window.location.href = '/login/index.html';
           return;
+        }
+
+        // Check for password recovery hash
+        if (window.location.hash.includes('type=recovery') || window.location.hash.includes('access_token=')) {
+          const updateModal = document.getElementById('passwordUpdateModal');
+          const updateForm = document.getElementById('updatePasswordForm');
+          if (updateModal && updateForm) {
+            updateModal.style.display = 'flex';
+            updateForm.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const newPassword = document.getElementById('newPassword').value;
+              const btn = updateForm.querySelector('button');
+              const originalText = btn.innerHTML;
+              btn.innerHTML = 'Updating...';
+              btn.disabled = true;
+
+              try {
+                const { error: updateError } = await window.supabaseClient.auth.updateUser({ password: newPassword });
+                if (updateError) throw updateError;
+                showMessage('updatePwdMsg', 'Password updated successfully! You can now use the portal.', false);
+                setTimeout(() => {
+                  updateModal.style.display = 'none';
+                  window.location.hash = ''; // clear hash
+                }, 2000);
+              } catch (err) {
+                showMessage('updatePwdMsg', err.message, true);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+              }
+            });
+          }
         }
 
         // Display user email
