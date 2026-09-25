@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>404 — Wrong Room | Creator House | SZ Ventures</title>
+  <meta name="theme-color" content="#070709">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/creator-house/creator-house.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <style>
+    .ch-404-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      background: radial-gradient(circle at center, rgba(139, 92, 246, 0.12) 0%, rgba(200, 255, 0, 0.04) 40%, #070709 70%);
+    }
+    .ch-404-number {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 15vw, 11rem);
+      font-weight: 800;
+      line-height: 0.9;
+      color: var(--ch-border);
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .ch-404-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .ch-404-desc {
+      font-size: 1.15rem;
+      color: var(--ch-text-secondary);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+    .ch-404-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="ch-grain" aria-hidden="true"></div>
+
+  <main class="ch-404-container">
+    <div class="ch-badge-index" style="margin-bottom: 0.5rem;">
+      <span class="num">ERROR 404</span> // STAGE NOT FOUND
+    </div>
+    <div class="ch-404-number">404</div>
+    <h1 class="ch-404-title">WRONG ROOM.</h1>
+    <p class="ch-404-desc">
+      Looks like this space doesn't exist or has been relocated to another production stage.
+    </p>
+    <div class="ch-404-actions">
+      <a href="/creator-house/" class="ch-btn ch-btn--lime">
+        BACK TO CREATOR HOUSE →
+      </a>
+      <a href="/creator-house/#spaces" class="ch-btn ch-btn--outline">
+        EXPLORE SPACES →
+      </a>
+    </div>
+  </main>
+</body>
+</html>

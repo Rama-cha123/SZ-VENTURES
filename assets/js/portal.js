@@ -160,7 +160,31 @@ document.addEventListener('DOMContentLoaded', () => {
             
         if (error) throw error;
 
-        let html = `<h2>Team Directory</h2><div class="panel"><table class="data-table"><thead><tr><th>User ID</th><th>Venture</th><th>Role</th></tr></thead><tbody>`;
+        let html = `<h2>Team Directory</h2>`;
+        
+        // Invite mock form
+        html += `
+            <div class="panel" style="padding: 1.5rem; margin-bottom: 2rem;">
+                <h3 style="margin-top:0;">Invite Team Member (Mock)</h3>
+                <form id="inviteTeamForm" style="display:flex; gap:1rem; align-items:flex-end;">
+                    <div style="flex:1;">
+                        <label class="stat-label">Email Address</label>
+                        <input type="email" id="inviteEmail" required style="width:100%; padding:0.5rem; background:rgba(255,255,255,0.05); border:1px solid var(--line); color:var(--ink);">
+                    </div>
+                    <div style="flex:1;">
+                        <label class="stat-label">Role</label>
+                        <select id="inviteRole" style="width:100%; padding:0.5rem; background:var(--paper-2); border:1px solid var(--line); color:var(--ink);">
+                            <option value="TEAM_MEMBER">Team Member</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn--accent" style="padding:0.6rem 1.2rem;">Send Invite</button>
+                </form>
+                <div id="inviteMsg" style="margin-top: 1rem; color: #4dff88;"></div>
+            </div>
+        `;
+
+        html += `<div class="panel"><table class="data-table"><thead><tr><th>User ID</th><th>Venture</th><th>Role</th></tr></thead><tbody>`;
         
         if (!members || members.length === 0) {
             html += `<tr><td colspan="3">No team members found.</td></tr>`;
@@ -176,6 +200,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         html += `</tbody></table></div>`;
         mainContent.innerHTML = html;
+
+        // Bind Invite form
+        const form = document.getElementById('inviteTeamForm');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                document.getElementById('inviteMsg').innerText = "Mock Invite Sent to " + document.getElementById('inviteEmail').value;
+            });
+        }
     };
 
     const renderProjects = async () => {
@@ -217,7 +250,13 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <tr>
                                     <td><strong>${p.title}</strong></td>
                                     <td>${p.ventures ? p.ventures.name : 'Unknown'}</td>
-                                    <td>${p.status}</td>
+                                    <td>
+                                        <select onchange="toggleProjectStatus('${p.id}', this.value)" style="background:var(--paper-2); color:var(--ink); border:1px solid var(--line); padding:0.25rem;">
+                                            <option value="active" ${p.status === 'active' ? 'selected' : ''}>Active</option>
+                                            <option value="pending" ${p.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                            <option value="archived" ${p.status === 'archived' ? 'selected' : ''}>Archived</option>
+                                        </select>
+                                    </td>
                                     <td>
                                         <button onclick="archiveProject('${p.id}')" style="background:none; border:none; color:#ff4d4d; cursor:pointer;">Archive</button>
                                     </td>
@@ -254,6 +293,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("Failed to archive: " + updateError.message);
             } else {
                 renderProjects(); // Refresh
+            }
+        };
+
+        // Bind Status Toggle
+        window.toggleProjectStatus = async (id, newStatus) => {
+            const { error: updateError } = await window.supabaseClient.from('projects').update({ status: newStatus }).eq('id', id);
+            if (updateError) {
+                alert("Failed to update status: " + updateError.message);
+                renderProjects(); // revert visually
             }
         };
     };

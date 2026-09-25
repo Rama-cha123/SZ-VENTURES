@@ -7,3 +7,5 @@ dist/
 .DS_Store
 *.log
 npm-debug.log*
+tmp_chrome_profile/
+diff.txt

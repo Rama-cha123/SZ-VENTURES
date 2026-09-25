@@ -76,6 +76,23 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             return True
             
+        # Special case canonical routes
+        clean_path = parsed.path.rstrip('/')
+        if clean_path == '/creator-house':
+            self.path = '/creator-house/index.html'
+            return False
+        if clean_path == '/snapops':
+            self.path = '/ventures/snapops/index.html'
+            return False
+        if clean_path == '/about':
+            self.path = '/about/index.html'
+            return False
+        if clean_path == '/ventures':
+            self.path = '/ventures/index.html'
+            return False
+        if clean_path == '/portfolio':
+            self.path = '/portfolio.html'
+            return False
         local_path = self.translate_path(parsed.path)
         if not os.path.exists(local_path) and not os.path.splitext(local_path)[1]:
             if os.path.isfile(local_path + '.html'):

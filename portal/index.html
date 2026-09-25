@@ -67,8 +67,12 @@
    .mobile-toggle { display: none; }
   }
  </style>
+ <link rel="stylesheet" href="/assets/styles/ambient.css">
 </head>
 <body>
+<canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+<div class="sz-bokeh" aria-hidden="true"></div>
+
  
  <aside class="sidebar" id="sidebar">
   <a href="/" class="sidebar-header">
@@ -179,5 +183,6 @@
     }
   }, 4000);
 </script>
+<script src="/assets/js/ambient.js" defer></script>
 </body>
 </html>

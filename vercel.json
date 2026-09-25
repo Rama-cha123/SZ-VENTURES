@@ -99,8 +99,20 @@
       "destination": "/ventures/bowl-and-sip/index.html"
     },
     {
+      "source": "/about",
+      "destination": "/about/index.html"
+    },
+    {
       "source": "/creator-house",
-      "destination": "/ventures/creator-house/index.html"
+      "destination": "/creator-house/index.html"
+    },
+    {
+      "source": "/snapops",
+      "destination": "/ventures/snapops/index.html"
+    },
+    {
+      "source": "/ventures",
+      "destination": "/ventures/index.html"
     },
     {
       "source": "/sz-manufacturing",

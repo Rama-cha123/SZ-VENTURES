@@ -38,5 +38,15 @@
         "timestamp": "2026-09-17T23:01:15.414914",
         "id": "09744F71",
         "idempotency_key": "test-uuid-same-2"
+    },
+    {
+        "source": "partnership_inquiry",
+        "full_name": "Verification Bot",
+        "email": "verify@szventures.com",
+        "phone": "+91 98765 43210",
+        "message": "Automated verification test of API submission endpoint.",
+        "timestamp": "2026-09-23T20:08:49.627836",
+        "id": "95E5F45E",
+        "idempotency_key": "verify-1197690914252834061"
     }
 ]

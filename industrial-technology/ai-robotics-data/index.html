@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+  <title>AI &amp; Robotics Data | SZ Ventures</title>
+  <meta name="description" content="SZ Ventures acquires, organises and prepares real-world visual, environmental and human-activity data for machine-learning and robotics applications.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="canonical" href="https://szventures.com/industrial-technology/ai-robotics-data/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta name="twitter:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta property="og:title" content="AI &amp; Robotics Data — SZ Ventures">
+  <meta property="og:description" content="Real-world data acquisition, annotation and quality control for AI and robotics systems.">
+  <meta property="og:url" content="https://szventures.com/industrial-technology/ai-robotics-data/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css?v=3">
+  <link rel="stylesheet" href="/assets/styles/layout.css">
+  <link rel="stylesheet" href="/assets/styles/libs.bundle.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/styles/ambient.css">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       AI & ROBOTICS DATA — PAGE-SPECIFIC STYLES
+       ═══════════════════════════════════════════════════════════════ */
+
+    /* ── Immersive Section ────────────────────────────────────────── */
+    .imm {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .imm__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .imm__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(0.35) contrast(1.15) brightness(0.55);
+      transition: transform 12s linear;
+    }
+    .imm:hover .imm__bg img {
+      transform: scale(1.06);
+    }
+    /* Dark gradient overlays to melt the image into the page */
+    .imm__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, #050505 0%, transparent 25%, transparent 70%, #050505 100%),
+        linear-gradient(90deg, rgba(5,5,5,0.85) 0%, transparent 50%, rgba(5,5,5,0.6) 100%);
+      z-index: 1;
+    }
+    .imm__content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      padding: 6rem 0;
+    }
+    .imm--right .imm__content {
+      margin-left: auto;
+    }
+
+    /* Eyebrow */
+    .imm__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      color: var(--gold, #dcb46e);
+      text-transform: uppercase;
+      font-family: var(--font-body, 'Inter', sans-serif);
+      margin-bottom: 1.5rem;
+    }
+    .imm__eyebrow::before {
+      content: '';
+      width: 2.5rem;
+      height: 1px;
+      background: var(--gold, #dcb46e);
+    }
+    .imm__heading {
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+    }
+    .imm__body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Feature Tags */
+    .imm__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .imm__tags li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+    .imm__tags li:hover {
+      background: rgba(220, 180, 110, 0.12);
+      border-color: rgba(220, 180, 110, 0.3);
+      transform: translateY(-2px);
+    }
+    .imm__tags li .ico {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* ── Section Divider ─────────────────────────────────────────── */
+    .divider-line {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(220, 180, 110, 0.25), transparent);
+      margin: 0;
+    }
+
+    /* ── Stats Ticker ────────────────────────────────────────────── */
+    .stats-band {
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .stats-band::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(220, 180, 110, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .stat {
+      text-align: center;
+      padding: 2rem 1rem;
+      position: relative;
+    }
+    .stat + .stat::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    .stat__number {
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--gold, #dcb46e);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .stat__label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+    }
+
+    /* ── Capabilities Ticker ─────────────────────────────────────── */
+    .ticker-wrap {
+      overflow: hidden;
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .ticker {
+      display: flex;
+      gap: 3rem;
+      animation: ticker-scroll 30s linear infinite;
+      width: max-content;
+    }
+    .ticker__item {
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      font-weight: 500;
+      color: rgba(255,255,255,0.12);
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: color 0.4s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .ticker__item .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold, #dcb46e);
+      opacity: 0.4;
+      flex-shrink: 0;
+    }
+    .ticker__item:hover {
+      color: rgba(255,255,255,0.5);
+    }
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Process Steps ───────────────────────────────────────────── */
+    .process-section {
+      padding: 7rem 0;
+    }
+    .process-section__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .process-section__eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold, #dcb46e);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .process-section__title {
+      font-family: var(--font-serif, 'Fraunces', serif);
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 400;
+      font-style: italic;
+      color: #fff;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .process-card {
+      padding: 3rem 2.5rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      transition: background 0.5s ease, border-color 0.5s ease;
+    }
+    .process-card:hover {
+      background: rgba(220, 180, 110, 0.03);
+      border-color: rgba(220, 180, 110, 0.12);
+    }
+    .process-card__step {
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.04em;
+      transition: color 0.5s ease;
+    }
+    .process-card:hover .process-card__step {
+      color: rgba(220, 180, 110, 0.15);
+    }
+    .process-card__icon {
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .process-card__title {
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .process-card__desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── CTA Band ────────────────────────────────────────────────── */
+    .cta-band {
+      padding: 8rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center bottom, rgba(220,180,110,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-band__eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    .cta-band__heading {
+      font-family: var(--font-serif, 'Fraunces', serif);
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-weight: 400;
+      font-style: italic;
+      color: #fff;
+      margin-bottom: 2.5rem;
+    }
+    .cta-band__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2.5rem;
+      background: var(--gold, #dcb46e);
+      color: #0a0a0b;
+      font-family: var(--font-body, 'Inter', sans-serif);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cta-band__btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(220, 180, 110, 0.3);
+    }
+    .cta-band__btn .arrow {
+      transition: transform 0.3s ease;
+    }
+    .cta-band__btn:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .imm { min-height: 80vh; }
+      .imm__content { padding: 4rem 0; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat + .stat::before { display: none; }
+      .process-grid { grid-template-columns: 1fr; }
+      .imm--right .imm__content { margin-left: 0; }
+    }
+    @media (max-width: 500px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .imm__tags { gap: 0.4rem; }
+      .imm__tags li { font-size: 0.7rem; padding: 0.4rem 0.8rem; }
+    }
+  </style>
+</head>
+<body class="is-loading">
+<canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+<div class="sz-bokeh" aria-hidden="true"></div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__mark">SZ Ventures</div>
+    <div class="preloader__count" id="preCount">0</div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
+  </div>
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true"> SZ Ventures
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/industrial-technology.html" class="nav__link nav__link--active">Industries</a>
+        <a href="/ventures/" class="nav__link">Ventures</a>
+        <a href="/creator-house/" class="nav__link">Creator House</a>
+        <a href="/capabilities.html" class="nav__link">Capabilities</a>
+        <a href="/about/" class="nav__link">About</a>
+        <a href="/insights.html" class="nav__link">Insights</a>
+        <a href="/contact.html" class="nav__link">Contact</a>
+      </nav>
+      <div class="nav__right">
+        <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right:0.5rem;font-weight:500;font-family:var(--font-display);">Portal Login</a>
+        <a href="/contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Start a Conversation →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="menu" id="menu">
+    <a href="/industrial-technology.html" data-menu-link>Industries <span>01</span></a>
+    <a href="/ventures/" data-menu-link>Ventures <span>02</span></a>
+    <a href="/creator-house/" data-menu-link>Creator House <span>★</span></a>
+    <a href="/capabilities.html" data-menu-link>Capabilities <span>03</span></a>
+    <a href="/about/" data-menu-link>About <span>04</span></a>
+    <a href="/insights.html" data-menu-link>Insights <span>05</span></a>
+    <a href="/contact.html" data-menu-link>Contact <span>06</span></a>
+    <a href="/login/index.html" data-no-swup data-menu-link style="color:var(--gold-bright);">Portal Login <span>07</span></a>
+    <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
+  </div>
+  <main id="swup" class="transition-fade">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO — Full-bleed immersive
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
+      <canvas id="sz-wave-canvas" aria-hidden="true"></canvas>
+      <div class="hero__inner container">
+        <div class="hero__meta" data-aos="fade"><span class="pill">AI &amp; ROBOTICS DATA</span></div>
+        <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900" style="font-size:clamp(2.5rem,5.5vw,3.75rem);">
+          <span class="line">REAL-WORLD DATA FOR</span>
+          <span class="line"><em class="serif-accent">INTELLIGENT MACHINES.</em></span>
+        </h1>
+        <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+          We build the operational capability to acquire, organise and prepare physical-world data — turning field operations and sensor infrastructure into reliable, ML-ready datasets.
+        </p>
+        <div data-aos="fade-up" data-aos-delay="250" style="margin-top:2rem;">
+          <a href="/industrial-technology.html" style="font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;letter-spacing:0.06em;">← All Industries</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         TICKER — Horizontal scrolling capabilities
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker">
+        <span class="ticker__item"><span class="dot"></span>LiDAR Surveys</span>
+        <span class="ticker__item"><span class="dot"></span>Computer Vision</span>
+        <span class="ticker__item"><span class="dot"></span>Sensor Fusion</span>
+        <span class="ticker__item"><span class="dot"></span>Geospatial Mapping</span>
+        <span class="ticker__item"><span class="dot"></span>Human Activity Recognition</span>
+        <span class="ticker__item"><span class="dot"></span>Data Annotation</span>
+        <span class="ticker__item"><span class="dot"></span>Edge-Case Coverage</span>
+        <span class="ticker__item"><span class="dot"></span>Quality Assurance</span>
+        <span class="ticker__item"><span class="dot"></span>Dataset Validation</span>
+        <span class="ticker__item"><span class="dot"></span>Privacy Compliance</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker__item"><span class="dot"></span>LiDAR Surveys</span>
+        <span class="ticker__item"><span class="dot"></span>Computer Vision</span>
+        <span class="ticker__item"><span class="dot"></span>Sensor Fusion</span>
+        <span class="ticker__item"><span class="dot"></span>Geospatial Mapping</span>
+        <span class="ticker__item"><span class="dot"></span>Human Activity Recognition</span>
+        <span class="ticker__item"><span class="dot"></span>Data Annotation</span>
+        <span class="ticker__item"><span class="dot"></span>Edge-Case Coverage</span>
+        <span class="ticker__item"><span class="dot"></span>Quality Assurance</span>
+        <span class="ticker__item"><span class="dot"></span>Dataset Validation</span>
+        <span class="ticker__item"><span class="dot"></span>Privacy Compliance</span>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SECTION 1 — Capturing the Physical World (text left)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="imm" id="data-acquisition">
+      <div class="imm__bg">
+        <img src="/assets/images/verticals/ai-robotics-data/ai-robotics-lidar-survey.jpg"
+             alt="Field data specialist operating a LiDAR scanner at an industrial site"
+             loading="lazy">
+      </div>
+      <div class="container imm__content" data-aos="fade-up" data-aos-duration="900">
+        <span class="imm__eyebrow">Real-World Data Acquisition</span>
+        <h2 class="imm__heading">Capturing the<br>Physical World.</h2>
+        <p class="imm__body">
+          High-quality AI begins with representative data. We coordinate collection programmes using cameras, LiDAR, and sensor arrays across real operating environments — designed around environmental conditions, geographic coverage, and operational safety.
+        </p>
+        <ul class="imm__tags">
+          <li><span class="ico">⌖</span> Field Data Collection</li>
+          <li><span class="ico">🌍</span> Geospatial Mapping</li>
+          <li><span class="ico">📡</span> Sensor-Based Capture</li>
+          <li><span class="ico">🌐</span> Multi-Location Ops</li>
+          <li><span class="ico">📋</span> Structured Protocols</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider-line">
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         STATS — Key numbers
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="stats-band" data-aos="fade-up">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat__number" data-count="50">50+</div>
+            <div class="stat__label">Field Deployments</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number" data-count="12">12M</div>
+            <div class="stat__label">Frames Annotated</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number" data-count="99">99.4%</div>
+            <div class="stat__label">Annotation Accuracy</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number" data-count="8">8+</div>
+            <div class="stat__label">Sensor Modalities</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider-line">
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SECTION 2 — Real Operating Environments (text right)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="imm imm--right" id="industrial-capture">
+      <div class="imm__bg">
+        <img src="/assets/images/verticals/ai-robotics-data/ai-robotics-sensor-array.jpg"
+             alt="Multi-camera industrial data-capture inside a large warehouse facility"
+             loading="lazy">
+      </div>
+      <div class="container imm__content" data-aos="fade-up" data-aos-duration="900">
+        <span class="imm__eyebrow">Industrial &amp; Human-Activity Capture</span>
+        <h2 class="imm__heading">Data from Real<br>Operating Environments.</h2>
+        <p class="imm__body">
+          Robotics and computer-vision systems must understand how people, objects and environments behave outside controlled labs. We organise capture programmes around specific actions, workflows and edge cases required by the intended AI application.
+        </p>
+        <ul class="imm__tags">
+          <li><span class="ico">🏭</span> Industrial Footage</li>
+          <li><span class="ico">👥</span> Human-Activity Data</li>
+          <li><span class="ico">📦</span> Object Recognition</li>
+          <li><span class="ico">👁️</span> Computer Vision</li>
+          <li><span class="ico">⚡</span> Edge-Case Coverage</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider-line">
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SECTION 3 — Process Steps (3-column grid)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="process-section" id="dataset-preparation">
+      <div class="container">
+        <div class="process-section__header" data-aos="fade-up">
+          <p class="process-section__eyebrow">Dataset Preparation &amp; Quality Control</p>
+          <h2 class="process-section__title">From Raw Capture to Usable Data.</h2>
+        </div>
+        <div class="process-grid">
+          <div class="process-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="process-card__step">01</div>
+            <span class="process-card__icon">🗂️</span>
+            <h3 class="process-card__title">Organise &amp; Index</h3>
+            <p class="process-card__desc">Raw footage is catalogued, tagged by location, sensor type, and capture session. Metadata is structured for full traceability back to the source.</p>
+          </div>
+          <div class="process-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="process-card__step">02</div>
+            <span class="process-card__icon">🎯</span>
+            <h3 class="process-card__title">Annotate &amp; Label</h3>
+            <p class="process-card__desc">Bounding boxes, segmentation masks, keypoints and semantic labels are applied by trained annotators following project-specific guidelines.</p>
+          </div>
+          <div class="process-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="process-card__step">03</div>
+            <span class="process-card__icon">🛡️</span>
+            <h3 class="process-card__title">Validate &amp; Deliver</h3>
+            <p class="process-card__desc">Multi-pass quality checks, edge-case audits and automated consistency validation ensure every delivered dataset meets production-grade standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SECTION 4 — Annotation workstation (text left)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="imm" id="annotation">
+      <div class="imm__bg">
+        <img src="/assets/images/verticals/ai-robotics-data/ai-robotics-data-annotation.jpg"
+             alt="Dataset annotation workstation with multiple monitors displaying bounding-box labels"
+             loading="lazy">
+      </div>
+      <div class="container imm__content" data-aos="fade-up" data-aos-duration="900">
+        <span class="imm__eyebrow">Annotation Operations</span>
+        <h2 class="imm__heading">Production-Grade<br>Data Quality.</h2>
+        <p class="imm__body">
+          Our data operations focus on traceability, annotation coordination, multi-pass quality checks and delivery readiness — while respecting project-specific privacy and handling requirements at every stage.
+        </p>
+        <ul class="imm__tags">
+          <li><span class="ico">✓</span> Quality Assurance</li>
+          <li><span class="ico">🔒</span> Privacy Compliance</li>
+          <li><span class="ico">📊</span> Consistency Checks</li>
+          <li><span class="ico">🚀</span> Delivery-Ready</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider-line">
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CTA — Final call to action
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="cta-band">
+      <div class="container">
+        <p class="cta-band__eyebrow" data-aos="fade-up">Ready to Build Your Dataset?</p>
+        <h2 class="cta-band__heading" data-aos="fade-up" data-aos-delay="100">
+          Let's discuss your<br>data requirements.
+        </h2>
+        <a href="/contact.html" class="cta-band__btn" data-magnetic data-cursor data-aos="fade-up" data-aos-delay="200">
+          <span>Start a Conversation</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+<footer class="footer" role="contentinfo">
+   <div class="container">
+    <div class="footer-grid">
+     <div class="footer-brand">
+      <a href="/index.html" class="footer-logo" aria-label="SZ Ventures home">
+       <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
+       <span>SZ Ventures</span>
+      </a>
+      <p class="footer-tagline">Building Businesses Across Industry & the New Economy.</p>
+      <div class="footer-social">
+       <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+       <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+       <a href="#" class="social-link" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+      </div>
+     </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-nav-col">
+         <h4>Industries</h4>
+         <ul>
+          <li><a href="/industrial-technology.html">Industrial Technology</a></li>
+          <li><a href="/industrial-technology.html#ai-robotics-data">AI &amp; Robotics Data</a></li>
+          <li><a href="/industrial-technology.html#industrial-ai">Industrial AI</a></li>
+          <li><a href="/industrial-technology.html#manufacturing">Manufacturing</a></li>
+          <li><a href="/new-economy.html">New Economy</a></li>
+         </ul>
+        </div>
+        <div class="footer-nav-col">
+         <h4>Ventures</h4>
+         <ul>
+          <li><a href="/ventures/bowl-and-sip/index.html">Bowl &amp; Sip Co.</a></li>
+          <li><a href="/creator-house/">Creator House</a></li>
+          <li><a href="/snapops/">SnapOps</a></li>
+         </ul>
+        </div>
+        <div class="footer-nav-col">
+         <h4>Company</h4>
+         <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/ventures/">Ventures</a></li>
+          <li><a href="/capabilities.html">Capabilities</a></li>
+          <li><a href="/insights.html">Insights</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+         </ul>
+        </div>
+       </nav>
+    </div>
+    <div class="footer-bottom">
+     <p>&copy; 2026 SZ Ventures Private Limited. All rights reserved.</p>
+    </div>
+   </div>
+  </footer>
+  <script src="/assets/js/libs.bundle.js" defer></script>
+  <script src="/main.js" defer></script>
+  <script>setTimeout(function(){var p=document.getElementById('preloader');if(p&&!p.classList.contains('is-done')){p.classList.add('is-done');document.body.classList.remove('is-loading');}},4000);</script>
+  <script src="/assets/js/ambient.js" defer></script>
+
+  <!-- Animated stat counters -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observed = false;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !observed) {
+            observed = true;
+            document.querySelectorAll('.stat__number').forEach(function(el) {
+              var target = parseInt(el.getAttribute('data-count'), 10);
+              var suffix = el.textContent.replace(/[\d]/g, '').trim();
+              var current = 0;
+              var step = Math.max(1, Math.floor(target / 40));
+              var interval = setInterval(function() {
+                current += step;
+                if (current >= target) {
+                  current = target;
+                  clearInterval(interval);
+                }
+                el.textContent = current + suffix;
+              }, 35);
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+      var statsSection = document.querySelector('.stats-band');
+      if (statsSection) observer.observe(statsSection);
+    });
+  </script>
+</body>
+</html>

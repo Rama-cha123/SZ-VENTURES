@@ -16,8 +16,12 @@
   }
  </style>
  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+ <link rel="stylesheet" href="/assets/styles/ambient.css">
 </head>
 <body>
+<canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+<div class="sz-bokeh" aria-hidden="true"></div>
+
  <div>Authenticating, please wait...</div>
 
  <script src="../../assets/js/supabase-config.generated.js"></script>
@@ -73,5 +77,6 @@
     }
   }, 4000);
 </script>
+<script src="/assets/js/ambient.js" defer></script>
 </body>
 </html>

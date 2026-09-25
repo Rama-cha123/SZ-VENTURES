@@ -1,583 +1,569 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js scroll-smooth">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
- <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
- <title>SZ Ventures | About</title>
- <meta name="description" content="Learn about SZ Ventures, our structure, and our venture-building philosophy.">
- <meta name="theme-color" content="#0a0a0b">
- <link rel="canonical" href="https://szventures.com/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+  
+  <title>Creator House — Premium Creator Production & Studio Ecosystem | SZ Ventures</title>
+  <meta name="description" content="Creator House is a premium production ecosystem for creators, podcasters, filmmakers, brands and modern content teams. Powered by SZ Ventures.">
+  <meta name="theme-color" content="#070709">
+  
+  <link rel="canonical" href="https://szventures.com/creator-house/">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Creator House — Premium Creator Production & Studio Ecosystem">
+  <meta property="og:description" content="Everything a modern creator needs to turn ideas into content. Professional studios, cine gear, and community.">
+  <meta property="og:url" content="https://szventures.com/creator-house/">
+  <meta property="og:image" content="/assets/images/creator-house/creator-house-hero.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Creator House — Premium Creator Production Ecosystem">
+  <meta name="twitter:description" content="Studio-ready spaces, cine gear, and creator community in Bengaluru.">
+  <meta name="twitter:image" content="/assets/images/creator-house/creator-house-hero.webp">
 
- <meta property="og:type" content="website">
- <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
- <meta name="twitter:image" content="https://szventures.com/assets/img/og-image.jpg">
- <meta property="og:title" content="SZ Ventures — Venture Studio">
- <meta property="og:description" content="Building Ventures That Solve Real-World Problems.">
- <meta property="og:url" content="https://szventures.com/">
- <meta name="twitter:card" content="summary_large_image">
-
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
- <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
-
- <!-- Project styles -->
- <link rel="stylesheet" href="../assets/styles/tokens.css">
- <link rel="stylesheet" href="../assets/styles/base.css">
- <link rel="stylesheet" href="../assets/styles/components.css">
- <link rel="stylesheet" href="../assets/styles/layout.css">
- <link rel="stylesheet" href="../assets/styles/libs.bundle.css">
-
- <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <!-- Typography: Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/creator-house/creator-house.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 </head>
-<body class="is-loading">
 
- <div class="grain" aria-hidden="true"></div>
- <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
- <div class="progress" aria-hidden="true"><span></span></div>
+<body>
 
- <!-- Preloader -->
- <div class="preloader" id="preloader" aria-hidden="true">
- <div class="preloader__mark">SZ Ventures</div>
- <div class="preloader__count" id="preCount">0</div>
- <div class="preloader__bar"><i id="preBar"></i></div>
- </div>
+  <!-- Cinematic Texture & Custom Desktop Cursor -->
+  <div class="ch-grain" aria-hidden="true"></div>
+  <div class="ch-mobile-progress" id="mobileProgress" aria-hidden="true"></div>
+  <div class="ch-cursor-dot" id="chCursorDot" aria-hidden="true"></div>
+  <div class="ch-cursor-ring" id="chCursorRing" aria-hidden="true"><span></span></div>
 
- <!-- Header Navigation -->
- <!-- Header Navigation -->
- <header class="nav glass" id="nav">
- <div class="nav__inner">
- <a href="../index.html" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
- <img src="../assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
- SZ Ventures
- </a>
- 
- <nav class="nav__links" aria-label="Primary">
- <a href="../industrial-technology.html" class="nav__link">Industries</a>
- <a href="../ventures/" class="nav__link">Ventures</a>
- <a href="../capabilities.html" class="nav__link">Capabilities</a>
- <a href="../about/" class="nav__link">About</a>
- <a href="../insights.html" class="nav__link">Insights</a>
- <a href="../contact.html" class="nav__link">Contact</a>
- </nav>
- <div class="nav__right">
- <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
- <a href="../contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Start a Conversation →</span></a>
- <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
- <span></span><span></span><span></span>
- </button>
- </div>
+  <!-- Desktop Vertical Section Progress Bar -->
+  <nav class="ch-scroll-progress-nav" aria-label="Section Navigation">
+    <a href="#hero" class="ch-progress-item active" data-section="hero" aria-label="Go to Hero">
+      <span class="ch-progress-num">01</span>
+      <span class="ch-progress-line"></span>
+    </a>
+    <a href="#why" class="ch-progress-item" data-section="why" aria-label="Go to Why Creator House">
+      <span class="ch-progress-num">02</span>
+      <span class="ch-progress-line"></span>
+    </a>
+    <a href="#journey" class="ch-progress-item" data-section="journey" aria-label="Go to Creator Journey">
+      <span class="ch-progress-num">03</span>
+      <span class="ch-progress-line"></span>
+    </a>
+    <a href="#spaces" class="ch-progress-item" data-section="spaces" aria-label="Go to Spaces Showcase">
+      <span class="ch-progress-num">04</span>
+      <span class="ch-progress-line"></span>
+    </a>
+    <a href="#statementMoment" class="ch-progress-item" data-section="statementMoment" aria-label="Go to Statement">
+      <span class="ch-progress-num">05</span>
+      <span class="ch-progress-line"></span>
+    </a>
+    <a href="#membership" class="ch-progress-item" data-section="membership" aria-label="Go to Membership">
+      <span class="ch-progress-num">06</span>
+      <span class="ch-progress-line"></span>
+    </a>
+  </nav>
 
- </div>
- </header>
+  <!-- =========================================================================
+       1. NAVIGATION (MONOCHROME + ELECTRIC LIME ACCENTS)
+       ========================================================================= -->
+  <header class="ch-nav" id="chNav">
+    <div class="ch-container ch-nav__inner">
+      <a href="/" class="ch-nav__brand">
+        <img src="/assets/img/logo.png" alt="SZ Ventures" class="ch-nav__logo-img">
+        <span class="ch-nav__brand-title">CREATOR HOUSE</span>
+      </a>
 
- <!-- Mobile Drawer Menu -->
- <!-- Mobile Drawer Menu -->
- 
- <div class="menu" id="menu">
- <a href="../industrial-technology.html" data-menu-link>Industries <span>01</span></a>
- <a href="../ventures/" data-menu-link>Ventures <span>02</span></a>
- <a href="../capabilities.html" data-menu-link>Capabilities <span>03</span></a>
- <a href="../about/" data-menu-link>About <span>04</span></a>
- <a href="../insights.html" data-menu-link>Insights <span>05</span></a>
- <a href="../contact.html" data-menu-link>Contact <span>06</span></a>
- <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
- <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
- </div>
+      <nav aria-label="Main Navigation">
+        <ul class="ch-nav__links">
+          <li><a href="/ventures/" class="ch-nav__link">Ventures</a></li>
+          <li><a href="/creator-house/" class="ch-nav__link active">Creator House</a></li>
+          <li><a href="#spaces" class="ch-nav__link ch-smooth-scroll">Spaces</a></li>
+          <li><a href="#membership" class="ch-nav__link ch-smooth-scroll">Membership</a></li>
+          <li><a href="#journey" class="ch-nav__link ch-smooth-scroll">How It Works</a></li>
+          <li><a href="/contact.html" class="ch-nav__link">Contact</a></li>
+        </ul>
+      </nav>
 
- <!-- Swup Main Container -->
- 
-<main id="swup" class="transition-fade">
-
- <!-- Config for dynamic text -->
- <script>
-  window.CreatorHouseConfig = {
-   foundingMessage: "Launching in Bengaluru. Limited founding memberships.",
-   foundingAvailability: "Launching in Bengaluru with a limited group of founding members."
-  };
- </script>
-
- <!-- 1. HERO SECTION -->
- <section class="section section--hero" style="padding-top: 15vh; padding-bottom: 5vh; min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center;">
-  <div class="container">
-   <div class="hero__content" style="max-width: 800px; margin: 0 auto;">
-    <div class="eyebrow" data-aos="fade-up" style="color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Creator House</div>
-    <h1 class="heading-display" data-aos="fade-up" data-aos-delay="100" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem;">
-     Your Content. Your Space.<br>Your Production Engine.
-    </h1>
-    <p class="body-large" data-aos="fade-up" data-aos-delay="200" style="font-size: 1.25rem; color: var(--ink-light); margin-bottom: 2rem;">
-     A premium production ecosystem built for creators, models, influencers, UGC creators and digital-first talent—providing the space, infrastructure and production support required to create consistently.
-    </p>
-    <div class="hero__ctas" data-aos="fade-up" data-aos-delay="300" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-     <button class="btn btn--accent ch-modal-trigger" data-intent="creator_membership" data-cursor><span>JOIN THE CREATOR HOUSE</span></button>
-     <button class="btn btn--outline ch-modal-trigger" data-intent="production_day_booking" data-cursor><span>BOOK A PRODUCTION DAY</span></button>
-    </div>
-    <p class="body-small ch-founding-msg" data-aos="fade-up" data-aos-delay="400" style="margin-top: 2rem; color: var(--gold-muted); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;"></p>
-   </div>
-  </div>
- </section>
-
- <!-- 2. THE PROBLEM -->
- <section class="section" style="padding: 5rem 0; background: var(--paper-dark);">
-  <div class="container">
-   <div style="max-width: 700px; margin-bottom: 4rem;">
-    <h2 class="heading-lg" data-aos="fade-up" style="margin-bottom: 1rem;">CREATING CONTENT SHOULDN’T BE THIS COMPLICATED.</h2>
-    <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.1rem; color: var(--ink-light);">
-     Creators today have to coordinate studios, photographers, lighting, locations, editors, equipment, props and production teams separately.<br><br>
-     Creator House brings the essential production ecosystem together in one place.
-    </p>
-   </div>
-   
-   <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem;">
-    <!-- Visual Benefit Cards -->
-    <div class="card" data-aos="fade-up" data-aos-delay="100" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); margin-bottom: 0.5rem; font-family: var(--font-display);">Professional Photography</h3>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="150" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); margin-bottom: 0.5rem; font-family: var(--font-display);">Reels & Video Production</h3>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="200" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); margin-bottom: 0.5rem; font-family: var(--font-display);">Flexible Content Spaces</h3>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="250" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); margin-bottom: 0.5rem; font-family: var(--font-display);">Lighting & Production Setup</h3>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="300" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); margin-bottom: 0.5rem; font-family: var(--font-display);">Props & Styling Resources</h3>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="350" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); margin-bottom: 0.5rem; font-family: var(--font-display);">Creator Collaborations</h3>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="400" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); margin-bottom: 0.5rem; font-family: var(--font-display);">Brand Opportunities</h3>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="450" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); margin-bottom: 0.5rem; font-family: var(--font-display);">Professional Production Support</h3>
-    </div>
-   </div>
-  </div>
- </section>
-
- <!-- 3. WHAT IS CREATOR HOUSE? -->
- <section class="section" style="padding: 5rem 0;">
-  <div class="container">
-   <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <h2 class="heading-lg" data-aos="fade-up" style="margin-bottom: 1.5rem;">MORE THAN A STUDIO.</h2>
-    <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.1rem; color: var(--ink-light); margin-bottom: 2rem; line-height: 1.6;">
-     Creator House is being built as a recurring production ecosystem for India’s creator economy.<br><br>
-     Members receive access to professional production infrastructure designed around how modern creators actually work—from Instagram reels and professional photography to long-form video, podcasts, UGC, brand content and personal-brand building.
-    </p>
-    <div data-aos="fade-up" data-aos-delay="200" style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-     <h3 style="color: var(--gold); font-family: var(--font-display); margin-bottom: 0.5rem;">The goal is simple:</h3>
-     <p style="font-size: 1.2rem;">Make professional content production easier, faster and more accessible.</p>
-    </div>
-   </div>
-  </div>
- </section>
-
- <!-- 4. MEMBERSHIP -->
- <section class="section" style="padding: 5rem 0; background: var(--paper-dark);">
-  <div class="container">
-   <div style="text-align: center; margin-bottom: 4rem;">
-    <h2 class="heading-lg" data-aos="fade-up">THE CREATOR PRODUCTION MEMBERSHIP</h2>
-   </div>
-   <div style="max-width: 900px; margin: 0 auto; border: 1px solid var(--gold); border-radius: 4px; padding: 3rem; background: rgba(198, 168, 125, 0.03);" data-aos="fade-up" data-aos-delay="100">
-    <div style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 2rem; margin-bottom: 2rem;">
-     <div style="font-size: 3rem; font-family: var(--font-display); color: var(--gold); line-height: 1;">₹3,499 <span style="font-size: 1.5rem;">/ MONTH</span></div>
-     <div style="font-size: 0.875rem; color: var(--ink-light); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">+ applicable taxes</div>
-    </div>
-    
-    <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem; text-align: center;">
-     <div>
-      <div style="font-size: 2.5rem; color: var(--gold); font-family: var(--font-display);">12</div>
-      <div style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-light);">Professionally Edited<br>Photos / Month</div>
-     </div>
-     <div>
-      <div style="font-size: 2.5rem; color: var(--gold); font-family: var(--font-display);">3</div>
-      <div style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-light);">Short-Form Videos /<br>Reels / Month</div>
-     </div>
-     <div>
-      <div style="font-size: 2.5rem; color: var(--gold); font-family: var(--font-display);">1</div>
-      <div style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-light);">Long-Form Video<br>Up to 10–12 Minutes</div>
-     </div>
-     <div>
-      <div style="font-size: 2.5rem; color: var(--gold); font-family: var(--font-display);">2</div>
-      <div style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-light);">Creator House<br>Access Days / Month</div>
-     </div>
-    </div>
-    
-    <div style="margin-bottom: 3rem;">
-     <h4 style="color: var(--gold); margin-bottom: 1rem; font-family: var(--font-display); text-transform: uppercase;">Additional Benefits</h4>
-     <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.75rem; color: var(--ink-light); list-style-type: none; padding-left: 0;">
-      <li>• Professional production environment</li>
-      <li>• Photography support</li>
-      <li>• Flexible content setups</li>
-      <li>• Lighting infrastructure</li>
-      <li>• Props and content resources</li>
-      <li>• Lifestyle and content zones</li>
-      <li>• Kitchen and food-content capability</li>
-      <li>• Podcast and interview capability</li>
-      <li>• Creator collaboration opportunities</li>
-      <li>• Access to selected creator and brand opportunities</li>
-     </ul>
-    </div>
-    
-    <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-left: 3px solid var(--gold); margin-bottom: 3rem; font-size: 0.9rem; color: var(--ink-light);">
-     All production sessions and Creator House access are subject to advance booking, slot availability, production guidelines and applicable membership terms.
-    </div>
-    
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-     <button class="btn btn--accent ch-modal-trigger" data-intent="creator_membership" data-cursor><span>BECOME A MEMBER</span></button>
-     <button class="btn btn--outline ch-modal-trigger" data-intent="membership_details" data-cursor><span>REQUEST MEMBERSHIP DETAILS</span></button>
-    </div>
-   </div>
-  </div>
- </section>
-
- <!-- 5. HOW IT WORKS -->
- <section class="section" style="padding: 5rem 0;">
-  <div class="container">
-   <h2 class="heading-lg" data-aos="fade-up" style="text-align: center; margin-bottom: 4rem;">FROM IDEA TO PUBLISHED CONTENT.</h2>
-   
-   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
-    <div data-aos="fade-up" data-aos-delay="100">
-     <div style="color: var(--gold); font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">01 — BOOK</div>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Choose your production slot through the Creator House booking system.</p>
-    </div>
-    <div data-aos="fade-up" data-aos-delay="150">
-     <div style="color: var(--gold); font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">02 — CREATE</div>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Arrive with your concept, wardrobe and ideas.</p>
-    </div>
-    <div data-aos="fade-up" data-aos-delay="200">
-     <div style="color: var(--gold); font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">03 — SHOOT</div>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">The production team handles photography or video capture and prepares the production environment.</p>
-    </div>
-    <div data-aos="fade-up" data-aos-delay="250">
-     <div style="color: var(--gold); font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">04 — EDIT</div>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Post-production is completed through a centralized professional editing workflow.</p>
-    </div>
-    <div data-aos="fade-up" data-aos-delay="300">
-     <div style="color: var(--gold); font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">05 — RECEIVE</div>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Final content is delivered digitally within the defined turnaround window.</p>
-    </div>
-   </div>
-   
-   <div style="text-align: center;" data-aos="fade-up">
-    <button class="btn btn--accent ch-modal-trigger" data-intent="creator_membership" data-cursor><span>START CREATING</span></button>
-   </div>
-  </div>
- </section>
-
- <!-- 6. CREATOR HOUSE ENVIRONMENT -->
- <section class="section" style="padding: 5rem 0; background: var(--paper-dark);">
-  <div class="container">
-   <h2 class="heading-lg" data-aos="fade-up" style="text-align: center; margin-bottom: 3rem;">BUILT FOR DIFFERENT TYPES OF CREATORS.</h2>
-   
-   <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
-    <div class="card" data-aos="fade-up" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); font-family: var(--font-display); margin-bottom: 1rem;">FASHION</h3>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Lifestyle shoots, fashion content, lookbooks and personal branding.</p>
-    </div>
-    <div class="card" data-aos="fade-up" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); font-family: var(--font-display); margin-bottom: 1rem;">BEAUTY</h3>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Content for beauty creators, makeup artists, skincare creators and product campaigns.</p>
-    </div>
-    <div class="card" data-aos="fade-up" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); font-family: var(--font-display); margin-bottom: 1rem;">FITNESS</h3>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Workout, wellness, transformation and instructional content.</p>
-    </div>
-    <div class="card" data-aos="fade-up" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); font-family: var(--font-display); margin-bottom: 1rem;">FOOD</h3>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Recipe videos, product demonstrations, food photography and kitchen-based content.</p>
-    </div>
-    <div class="card" data-aos="fade-up" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); font-family: var(--font-display); margin-bottom: 1rem;">UGC</h3>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Authentic product demonstrations, reviews, testimonials and performance-marketing content.</p>
-    </div>
-    <div class="card" data-aos="fade-up" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); font-family: var(--font-display); margin-bottom: 1rem;">PODCASTS & INTERVIEWS</h3>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Professional conversations, video podcasts, interviews and thought-leadership content.</p>
-    </div>
-    <div class="card" data-aos="fade-up" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); font-family: var(--font-display); margin-bottom: 1rem;">PERSONAL BRANDING</h3>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Founder content, professional portraits, educational content and authority-building media.</p>
-    </div>
-    <div class="card" data-aos="fade-up" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
-     <h3 style="color: var(--gold); font-family: var(--font-display); margin-bottom: 1rem;">PRODUCT & BRAND</h3>
-     <p style="color: var(--ink-light); font-size: 0.95rem;">Campaign assets, product photography, advertisements and social-first branded content.</p>
-    </div>
-   </div>
-  </div>
- </section>
-
- <!-- 7. WHO IT IS FOR -->
- <section class="section" style="padding: 5rem 0;">
-  <div class="container">
-   <h2 class="heading-lg" data-aos="fade-up" style="text-align: center; margin-bottom: 3rem;">BUILT FOR THE PEOPLE SHAPING DIGITAL CULTURE.</h2>
-   
-   <div style="max-width: 800px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;" data-aos="fade-up" data-aos-delay="100">
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Content creators</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Models</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Influencers</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">UGC creators</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Personal brands</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Coaches and educators</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Founders</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Podcasters</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Fitness professionals</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Beauty professionals</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Food creators</span>
-    <span style="padding: 0.75rem 1.5rem; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-display);">Emerging digital talent</span>
-   </div>
-  </div>
- </section>
-
- <!-- 8. FOUNDING MEMBERSHIP SECTION -->
- <section class="section" style="padding: 5rem 0; background: var(--paper-dark);">
-  <div class="container">
-   <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <h2 class="heading-lg" data-aos="fade-up" style="margin-bottom: 1.5rem;">BECOME A FOUNDING MEMBER.</h2>
-    <p class="ch-founding-availability" data-aos="fade-up" data-aos-delay="100" style="font-size: 1.1rem; color: var(--gold); margin-bottom: 1.5rem; font-family: var(--font-display);"></p>
-    <p data-aos="fade-up" data-aos-delay="150" style="color: var(--ink-light); margin-bottom: 3rem; line-height: 1.6;">
-     Founding members will be among the first creators to access the production environment, participate in the early creator community and help shape the Creator House experience.
-    </p>
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" data-aos="fade-up" data-aos-delay="200">
-     <button class="btn btn--accent ch-modal-trigger" data-intent="founding_membership" data-cursor><span>APPLY FOR FOUNDING MEMBERSHIP</span></button>
-     <button class="btn btn--outline ch-modal-trigger" data-intent="creator_house_information" data-cursor><span>REQUEST MORE INFORMATION</span></button>
-    </div>
-   </div>
-  </div>
- </section>
-
- <!-- 9. LONG-TERM VISION -->
- <section class="section" style="padding: 5rem 0;">
-  <div class="container">
-   <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <h2 class="heading-lg" data-aos="fade-up" style="margin-bottom: 1.5rem;">BUILDING CREATOR INFRASTRUCTURE ACROSS INDIA.</h2>
-    <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.1rem; color: var(--ink-light); line-height: 1.6;">
-     Creator House begins in Bengaluru, but the vision extends further.<br><br>
-     SZ Ventures intends to develop a network of Creator Houses across major Indian cities—giving creators access to consistent production infrastructure, professional support and a broader creator-and-brand ecosystem.
-    </p>
-   </div>
-  </div>
- </section>
-
- <!-- 10. FINAL CTA -->
- <section class="section" style="padding: 5rem 0; background: var(--paper-dark); text-align: center;">
-  <div class="container">
-   <h2 class="heading-lg" data-aos="fade-up" style="margin-bottom: 1rem;">BUILD YOUR CONTENT ENGINE.</h2>
-   <p data-aos="fade-up" data-aos-delay="100" style="color: var(--ink-light); margin-bottom: 3rem; font-size: 1.1rem;">
-    Create consistently with the space, infrastructure and production support designed for modern creators.
-   </p>
-   <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" data-aos="fade-up" data-aos-delay="200">
-    <button class="btn btn--accent ch-modal-trigger" data-intent="creator_membership" data-cursor><span>JOIN THE CREATOR HOUSE</span></button>
-    <button class="btn btn--outline ch-modal-trigger" data-intent="production_day_booking" data-cursor><span>BOOK A PRODUCTION DAY</span></button>
-   </div>
-  </div>
- </section>
-
- <!-- INTAKE MODAL FOR CREATOR HOUSE -->
- <div id="ch-modal" class="modal" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; overflow-y: auto; padding: 2rem;">
-  <div class="modal__content" style="background: var(--paper); border: 1px solid rgba(255,255,255,0.1); padding: 3rem; border-radius: 4px; max-width: 600px; width: 100%; position: relative;">
-   <button class="modal__close" id="ch-modal-close" style="position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; color: var(--gold); border:none; background:transparent; cursor:pointer;">&times;</button>
-   
-   <h3 style="color: var(--gold); font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1.5rem;" id="ch-modal-title">Creator House Request</h3>
-   
-   <form id="ch-form" class="form">
-    <input type="hidden" id="ch_intent" name="intent" value="">
-    
-    <div style="display: grid; gap: 1.5rem;">
-     <div>
-      <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--ink-light);">Full Name *</label>
-      <input type="text" id="ch_name" required style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-     </div>
-     
-     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-      <div>
-       <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--ink-light);">Email *</label>
-       <input type="email" id="ch_email" required style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+      <div class="ch-nav__actions">
+        <button class="ch-btn ch-btn--lime open-reserve-modal" data-discipline="Early Access">
+          CLAIM EARLY ACCESS →
+        </button>
+        <button class="ch-nav__toggle" id="chNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <div>
-       <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--ink-light);">Phone Number *</label>
-       <input type="tel" id="ch_phone" required style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-      </div>
-     </div>
-     
-     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-      <div>
-       <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--ink-light);">City *</label>
-       <input type="text" id="ch_city" required style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-      </div>
-      <div>
-       <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--ink-light);">Creator Category *</label>
-       <select id="ch_category" required style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-        <option value="" disabled selected>Select Category</option>
-        <option value="fashion">Fashion</option>
-        <option value="beauty">Beauty</option>
-        <option value="fitness">Fitness</option>
-        <option value="food">Food</option>
-        <option value="ugc">UGC</option>
-        <option value="podcast">Podcasts & Interviews</option>
-        <option value="personal_brand">Personal Branding</option>
-        <option value="product">Product & Brand</option>
-        <option value="other">Other</option>
-       </select>
-      </div>
-     </div>
-     
-     <div>
-      <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--ink-light);">Instagram, YouTube or Portfolio Link *</label>
-      <input type="url" id="ch_link" required style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-     </div>
-     
-     <div>
-      <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--ink-light);">Message or Production Requirement</label>
-      <textarea id="ch_message" rows="4" style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;"></textarea>
-     </div>
-     
-     <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
-      <input type="checkbox" id="ch_consent" required style="margin-top: 0.25rem;">
-      <label for="ch_consent" style="font-size: 0.8rem; color: var(--ink-light);">I consent to SZ Ventures processing my information to evaluate my application and contact me regarding Creator House. I understand this does not guarantee membership.</label>
-     </div>
-     
-     <button type="submit" class="btn btn--accent" id="ch_submit_btn"><span>Submit Request</span></button>
-     
-     <div id="ch_form_msg" style="margin-top: 1rem; font-size: 0.9rem; text-align: center;"></div>
     </div>
-   </form>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="ch-mobile-drawer" id="chMobileDrawer" aria-hidden="true">
+    <ul class="ch-mobile-nav">
+      <li><a href="/ventures/">Ventures</a></li>
+      <li><a href="/creator-house/" class="active">Creator House</a></li>
+      <li><a href="#spaces" class="ch-smooth-scroll">Spaces</a></li>
+      <li><a href="#membership" class="ch-smooth-scroll">Membership</a></li>
+      <li><a href="#journey" class="ch-smooth-scroll">How It Works</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li style="margin-top: 1.5rem;">
+        <button class="ch-btn ch-btn--lime open-reserve-modal ch-btn--block-mobile" data-discipline="Early Access">
+          CLAIM EARLY ACCESS →
+        </button>
+      </li>
+    </ul>
   </div>
- </div>
 
- <script>
-  // Safe initialization avoiding redeclaration
-  if (typeof window.chModalInitialized === 'undefined') {
-   window.chModalInitialized = true;
-   
-   document.addEventListener('DOMContentLoaded', () => {
-    // Hydrate config text
-    if (window.CreatorHouseConfig) {
-     document.querySelectorAll('.ch-founding-msg').forEach(el => el.textContent = window.CreatorHouseConfig.foundingMessage);
-     document.querySelectorAll('.ch-founding-availability').forEach(el => el.textContent = window.CreatorHouseConfig.foundingAvailability);
-    }
+  <main id="mainContent">
 
-    // Modal logic
-    const modal = document.getElementById('ch-modal');
-    const closeBtn = document.getElementById('ch-modal-close');
-    const intentInput = document.getElementById('ch_intent');
-    const title = document.getElementById('ch-modal-title');
-    const form = document.getElementById('ch-form');
-    const msgBox = document.getElementById('ch_form_msg');
-    const submitBtn = document.getElementById('ch_submit_btn');
+    <!-- =========================================================================
+         2. HERO SCROLL EXPERIENCE (PHASES 1, 2, 3)
+         ========================================================================= -->
+    <section class="ch-hero" id="hero">
+      <div class="ch-container ch-hero__grid" id="heroGrid">
+        
+        <!-- Left Hero Content -->
+        <div class="ch-hero__left" id="heroLeftContent">
+          <div class="ch-hero__pill">
+            <span class="ch-hero__pill-dot"></span>
+            <span>FOUNDING CREATOR DROP</span>
+          </div>
 
-    document.querySelectorAll('.ch-modal-trigger').forEach(btn => {
-     btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const intent = btn.getAttribute('data-intent');
-      intentInput.value = intent;
-      
-      // Customize title based on intent
-      const titles = {
-       'creator_membership': 'Join Creator House',
-       'production_day_booking': 'Book a Production Day',
-       'membership_details': 'Request Membership Details',
-       'founding_membership': 'Apply for Founding Membership',
-       'creator_house_information': 'Request More Information'
-      };
-      title.textContent = titles[intent] || 'Creator House Request';
-      
-      msgBox.textContent = '';
-      msgBox.style.color = 'inherit';
-      modal.style.display = 'flex';
-     });
-    });
+          <h1 class="ch-hero__title" id="heroHeadline">
+            YOUR<br>
+            CONTENT.<br>
+            YOUR SPACE.<br>
+            <span class="text-violet">YOUR</span><br>
+            <span class="text-violet">PRODUCTION</span><br>
+            <span class="text-lime">ENGINE.</span>
+          </h1>
 
-    if (closeBtn) {
-     closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-     });
-    }
+          <p class="ch-hero__lead">
+            A premium production ecosystem built for creators, podcasters, filmmakers, brands and modern content teams.
+          </p>
 
-    window.addEventListener('click', (e) => {
-     if (e.target === modal) modal.style.display = 'none';
-    });
+          <div class="ch-hero__actions">
+            <button class="ch-btn ch-btn--lime open-reserve-modal ch-btn--block-mobile" data-discipline="Founding Membership">
+              <span>CLAIM EARLY ACCESS</span>
+              <span class="ch-arrow-icon">→</span>
+            </button>
+            <a href="#spaces" class="ch-btn ch-btn--outline ch-btn--block-mobile ch-smooth-scroll">
+              <span>EXPLORE THE SPACE</span>
+              <span class="ch-arrow-icon">→</span>
+            </a>
+          </div>
 
-    if (form) {
-     form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const payload = {
-       form_type: 'creator_house',
-       intent: intentInput.value,
-       name: document.getElementById('ch_name').value,
-       email: document.getElementById('ch_email').value,
-       phone: document.getElementById('ch_phone').value,
-       city: document.getElementById('ch_city').value,
-       category: document.getElementById('ch_category').value,
-       portfolio_link: document.getElementById('ch_link').value,
-       message: document.getElementById('ch_message').value,
-       consent: document.getElementById('ch_consent').checked
-      };
+          <div class="ch-hero__sub-bar">
+            <div class="ch-hero__community">
+              <div class="ch-avatars">
+                <span class="ch-avatar" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80');"></span>
+                <span class="ch-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80');"></span>
+                <span class="ch-avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80');"></span>
+                <span class="ch-avatar" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80');"></span>
+              </div>
+              <span class="ch-community-text">Join a community of ambitious creators.</span>
+            </div>
 
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Submitting...</span>';
-      msgBox.textContent = '';
+            <button class="ch-hero__showreel-btn open-showreel-modal">
+              <span class="ch-play-circle">▶</span>
+              <span>PLAY SHOWREEL</span>
+            </button>
+          </div>
+        </div>
 
-      try {
-       let success = false;
-       if (typeof window.submitData === 'function') {
-        await window.submitData(payload);
-        success = true;
-       } else {
-        // Fallback
-        const response = await fetch('/api/submit', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify(payload)
-        });
-        if (response.ok) { success = true; }
-       }
-       
-       if (success) {
-        msgBox.style.color = '#4ade80';
-        msgBox.textContent = 'Request submitted successfully. We will be in touch.';
-        form.reset();
-       } else {
-        throw new Error('Failed via fallback');
-       }
-      } catch (err) {
-       msgBox.style.color = '#ef4444';
-       msgBox.textContent = 'An error occurred. Please try again.';
-       console.error(err);
-      } finally {
-       submitBtn.disabled = false;
-       submitBtn.innerHTML = '<span>Submit Request</span>';
-      }
-     });
-    }
-   });
-  }
- </script>
+        <!-- Right Hero Stage Visual with Floating Micro-Elements -->
+        <div class="ch-hero__stage" id="heroStage">
+          <img src="/assets/images/creator-house/creator-house-hero.webp" alt="Creator House Studio Stage" class="ch-hero__stage-bg" id="heroStageBg">
+          <div class="ch-hero__stage-overlay"></div>
 
-</main>
+          <!-- Top Right REC pill -->
+          <div class="ch-stage__rec" id="stageRecPill">
+            <span class="ch-stage__rec-dot"></span>
+            <span>REC</span>
+          </div>
 
+          <!-- Floating Vertical Micro-Nodes with Drift -->
+          <div class="ch-stage__nodes" id="heroFloatingNodes">
+            <div class="ch-stage__node-pill" data-speed="1.2" data-space-id="studio-a">
+              <span class="ch-stage__node-icon">📷</span>
+              <span>STUDIO</span>
+            </div>
+            <div class="ch-stage__node-pill" data-speed="0.8" data-space-id="the-pod">
+              <span class="ch-stage__node-icon">🎙</span>
+              <span>PODCAST</span>
+            </div>
+            <div class="ch-stage__node-pill" data-speed="1.5" data-space-id="reels-lab">
+              <span class="ch-stage__node-icon">📱</span>
+              <span>REELS</span>
+            </div>
+            <div class="ch-stage__node-pill" data-speed="1.1" data-space-id="studio-b">
+              <span class="ch-stage__node-icon">📹</span>
+              <span>UGC</span>
+            </div>
+            <div class="ch-stage__node-pill" data-speed="0.7" data-space-id="edit-suite">
+              <span class="ch-stage__node-icon">💻</span>
+              <span>EDIT</span>
+            </div>
+            <div class="ch-stage__node-pill" data-speed="1.4" data-space-id="creator-lounge">
+              <span class="ch-stage__node-icon">🚀</span>
+              <span>PUBLISH</span>
+            </div>
+          </div>
 
- <!-- Scripts -->
- <script src="../assets/js/libs.bundle.js" defer></script>
- <script src="../main.js" defer></script>
- <script src="../assets/js/intake.js" defer></script>
+          <!-- Bottom Right Creator Mode ON -->
+          <div class="ch-stage__creator-mode" id="stageCreatorMode">
+            <span class="ch-stage__creator-mode-icon">⚡</span>
+            <span class="ch-stage__creator-mode-text">CREATOR MODE <span>ON</span></span>
+          </div>
+        </div>
 
-<!-- Preloader Fail-Safe -->
-<script>
-  setTimeout(function() {
-    var pre = document.getElementById('preloader');
-    if (pre && !pre.classList.contains('is-done')) {
-      pre.classList.add('is-done');
-      document.body.classList.remove('is-loading');
-      console.warn('Preloader fail-safe triggered. A critical asset may have failed to load.');
-    }
-  }, 4000);
-</script>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. DYNAMIC VELOCITY-RESPONSIVE MARQUEE
+         ========================================================================= -->
+    <div class="ch-marquee" id="marqueeSection" aria-hidden="true">
+      <div class="ch-marquee__track" id="marqueeTrack">
+        <!-- Populated via JS with alternating Lime/Violet/Blue/Coral bullets -->
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         4. SECTION 01: WHY CREATOR HOUSE & SCROLL SPLIT
+         ========================================================================= -->
+    <section class="ch-section" id="why">
+      <div class="ch-container">
+        <div class="ch-badge-index">
+          <span class="num">01</span>
+          <span>WHY CREATOR HOUSE</span>
+        </div>
+
+        <div class="ch-why-header" id="whyHeader">
+          <div>
+            <h2 class="ch-why-title">
+              Everything<br>
+              between <span class="ch-split-word-idea" id="splitIdea">idea</span><br>
+              and <span class="ch-split-word-publish" id="splitPublish">publish.</span>
+            </h2>
+            <span class="ch-split-timeline-line" id="splitTimelineLine"></span>
+          </div>
+
+          <p class="ch-why-desc">
+            Creator House removes the operational friction of content creation. Walk in with an idea. Walk out with high-quality content.
+          </p>
+
+          <div class="ch-why-preview open-showreel-modal">
+            <img src="/assets/images/creator-house/creator-house-production.webp" alt="Creator House Production Tour">
+            <div class="ch-why-preview__btn">
+              <span>▶</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ch-why-cards" id="featuresGrid">
+          <!-- 4 Cards with staggered spring reveal -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. SECTION 02: THE CREATOR JOURNEY (PROGRESS EXTENDING LINE)
+         ========================================================================= -->
+    <section class="ch-section" id="journey" style="background: var(--ch-bg-secondary);">
+      <div class="ch-container">
+        <div class="ch-badge-index">
+          <span class="num">02</span>
+          <span>THE CREATOR JOURNEY</span>
+        </div>
+
+        <div class="ch-journey-header">
+          <h2 class="ch-journey-title">
+            From <span class="text-lime">idea</span> to <span class="text-lime">published.</span>
+          </h2>
+          <p class="ch-journey-desc">
+            A seamless workflow designed for modern creators.
+          </p>
+        </div>
+
+        <div class="ch-journey-pipeline" id="journeyPipeline">
+          <!-- 5 Steps connected with continuous dynamic line -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. SECTION 03: HORIZONTAL SPACE SHOWCASE (GALLERY)
+         ========================================================================= -->
+    <section class="ch-section ch-horizontal-space-section" id="spaces">
+      <div class="ch-container">
+        <div class="ch-badge-index">
+          <span class="num">03</span>
+          <span>EXPLORE THE HOUSE</span>
+        </div>
+
+        <div class="ch-spaces-header-wrap">
+          <div>
+            <h2 class="ch-spaces-title">Spaces designed for every creator.</h2>
+            <p class="ch-spaces-desc">Professional environments tailored for different content formats.</p>
+          </div>
+          <div class="ch-spaces-arrows">
+            <button class="ch-arrow-btn" id="spacesPrevBtn" aria-label="Previous spaces">←</button>
+            <button class="ch-arrow-btn" id="spacesNextBtn" aria-label="Next spaces">→</button>
+          </div>
+        </div>
+
+        <!-- Horizontal Track Container -->
+        <div class="ch-horizontal-track-container" id="horizontalTrackContainer">
+          <div class="ch-horizontal-track" id="spacesGrid">
+            <!-- Space Cards populated via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. SECTION 04: BUILT FOR CREATORS LIKE YOU (INTERACTIVE)
+         ========================================================================= -->
+    <section class="ch-section" id="creators" style="background: var(--ch-bg-secondary);">
+      <div class="ch-container">
+        <div class="ch-badge-index">
+          <span class="num">04</span>
+          <span>BUILT FOR CREATORS LIKE YOU</span>
+        </div>
+
+        <div class="ch-creators-header">
+          <h2 class="ch-creators-title">Built for the way creators actually work.</h2>
+          <p class="ch-creators-desc">
+            Whether you shoot, speak, create or build — Creator House gives you the space, tools and support to do it better.
+          </p>
+        </div>
+
+        <div class="ch-creators-interactive-wrap">
+          <!-- 6 Category Selector Cards -->
+          <div class="ch-creators-grid-6" id="creatorsGrid">
+            <!-- 6 Use-case boxes rendered horizontally -->
+          </div>
+
+          <!-- Dynamic Live Context Preview Panel -->
+          <div class="ch-creator-preview-panel" id="creatorPreviewPanel">
+            <div>
+              <div class="ch-badge-index" style="margin-bottom: 0.5rem;">
+                <span class="num" id="previewCategoryBadge">FILMMAKERS</span> // WORKFLOW
+              </div>
+              <h3 style="font-family: var(--font-display); font-size: 1.85rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.75rem;" id="previewCategoryTitle">
+                Precision lighting, silence, and cine-grade optics.
+              </h3>
+              <p style="color: var(--ch-text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;" id="previewCategoryDesc">
+                Eliminate the logistical nightmare of renting bare halls and hauling grip trucks. Studio A gives you an Aputure-rigged cyclorama and cinema-line cameras ready to roll in minutes.
+              </p>
+              <button class="ch-btn ch-btn--lime open-reserve-modal" id="previewCategoryBtn" data-discipline="Production">
+                Book a Session →
+              </button>
+            </div>
+            <div class="ch-creator-preview-img-wrap">
+              <img src="/assets/images/creator-house/creator-house-production.webp" id="previewCategoryImg" alt="Selected Workflow Studio">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. SECTION 05: "MORE THAN A STUDIO" DRAMATIC STATEMENT
+         ========================================================================= -->
+    <section class="ch-dramatic-statement" id="statementMoment">
+      <div class="ch-dramatic-statement__bg"></div>
+      <div class="ch-container" style="position: relative; z-index: 2;">
+        <div class="ch-statement-pre" id="statementPre">MORE THAN A STUDIO</div>
+        <h2 class="ch-statement-hero-text" id="statementHeroText">
+          YOU DON'T NEED ANOTHER ROOM.<br>
+          YOU NEED <span class="text-lime">AN ENGINE.</span>
+        </h2>
+        <p class="ch-statement-sub-engine">
+          Creator House is not simply a studio rental. It is an infrastructure layer for modern creators — integrating acoustic engineering, cinema optics, high-throughput editing pipelines, and direct brand relationships.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. SECTION 06: MEMBERSHIP & ODOMETER REVEAL
+         ========================================================================= -->
+    <section class="ch-section ch-membership-section" id="membership">
+      <div class="ch-container">
+        <div class="ch-badge-index">
+          <span class="num">06</span>
+          <span>MEMBERSHIP</span>
+        </div>
+
+        <h2 class="ch-membership-title">Lock in your space.</h2>
+
+        <div class="ch-membership-3col">
+          
+          <!-- Column 1: Benefits Checklist -->
+          <div class="ch-membership-col-left">
+            <p class="ch-membership-col-left__lead">
+              Founding membership for creators who are serious about what they make.
+            </p>
+            <ul class="ch-membership-check-list" id="membershipCheckList">
+              <li class="ch-membership-check-item"><span class="ch-check-icon">✓</span> Studio access</li>
+              <li class="ch-membership-check-item"><span class="ch-check-icon">✓</span> Production-ready setups</li>
+              <li class="ch-membership-check-item"><span class="ch-check-icon">✓</span> Equipment access</li>
+              <li class="ch-membership-check-item"><span class="ch-check-icon">✓</span> Creator community</li>
+              <li class="ch-membership-check-item"><span class="ch-check-icon">✓</span> Podcast / recording access</li>
+              <li class="ch-membership-check-item"><span class="ch-check-icon">✓</span> Editing support</li>
+              <li class="ch-membership-check-item"><span class="ch-check-icon">✓</span> Member-only opportunities</li>
+            </ul>
+          </div>
+
+          <!-- Column 2: Center Pricing Card with Odometer Counter -->
+          <div class="ch-membership-pricing-card" id="pricingCard">
+            <div class="ch-pricing-drop-badge">FOUNDING CREATOR DROP</div>
+            <div class="ch-pricing-strike">₹4,999 + taxes / month</div>
+            <div class="ch-pricing-amount" id="odometerPrice">₹3,499</div>
+            <div class="ch-pricing-sub">+ TAXES / MONTH • BILLED MONTHLY</div>
+            <button class="ch-btn ch-btn--lime open-reserve-modal" data-discipline="Founding Drop" style="width: 100%; padding: 1.1rem; font-size: 0.85rem;">
+              CLAIM EARLY-BIRD MEMBERSHIP →
+            </button>
+            <div class="ch-pricing-limit">Limited to first 300 members only</div>
+          </div>
+
+          <!-- Column 3: Visual Creator Image -->
+          <div class="ch-membership-col-right">
+            <img src="/assets/images/creator-house/creator-house-community.webp" alt="Creator House Member in Studio">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         10. SECTION 07: FINAL CALL TO ACTION (CINEMATIC QUIET TO IMPACT)
+         ========================================================================= -->
+    <section class="ch-final-cta-ref" id="final-cta">
+      <img src="/assets/images/creator-house/creator-house-hero.webp" alt="Creator House Atmosphere" class="ch-final-cta-ref__bg" id="finalCtaBg">
+      <div class="ch-final-cta-ref__overlay"></div>
+
+      <div class="ch-container ch-final-cta-ref__content">
+        <div class="ch-final-cta-ref__badge">CREATOR HOUSE</div>
+        <h2 class="ch-final-cta-ref__title">
+          MAKE SOMETHING<br>
+          <span class="text-violet">WORTH</span> <span class="text-lime">WATCHING.</span>
+        </h2>
+        <p class="ch-final-cta-ref__desc">
+          Your next idea deserves more than a camera and a blank room.<br>
+          Join a community built for creators who make an impact.
+        </p>
+        <div class="ch-final-cta-ref__actions">
+          <button class="ch-btn ch-btn--lime open-reserve-modal ch-btn--block-mobile" data-discipline="Final CTA">
+            <span>JOIN CREATOR HOUSE</span>
+            <span class="ch-arrow-icon">→</span>
+          </button>
+          <a href="#membership" class="ch-btn ch-btn--outline ch-btn--block-mobile ch-smooth-scroll">
+            <span>EXPLORE MEMBERSHIP</span>
+            <span class="ch-arrow-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       11. FOOTER
+       ========================================================================= -->
+  <footer class="ch-footer-ref" role="contentinfo">
+    <div class="ch-container">
+      <div class="ch-footer-ref__grid">
+        <div class="ch-footer-ref__brand">
+          <div class="ch-footer-ref__brand-row">
+            <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="ch-nav__logo-img">
+            <span class="ch-nav__brand-title">CREATOR HOUSE</span>
+          </div>
+          <p class="ch-footer-ref__desc">
+            A premium creator production ecosystem by SZ Ventures.
+          </p>
+          <div class="ch-footer-ref__socials">
+            <a href="https://www.instagram.com/szventures" target="_blank" rel="noopener noreferrer" class="ch-footer-ref__social-link" aria-label="Instagram">📸</a>
+            <a href="https://www.youtube.com/@szventures" target="_blank" rel="noopener noreferrer" class="ch-footer-ref__social-link" aria-label="YouTube">▶</a>
+            <a href="https://www.linkedin.com/company/sz-ventures" target="_blank" rel="noopener noreferrer" class="ch-footer-ref__social-link" aria-label="LinkedIn">💼</a>
+            <a href="https://x.com/szventures" target="_blank" rel="noopener noreferrer" class="ch-footer-ref__social-link" aria-label="X">𝕏</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="ch-footer-ref__col-title">CREATOR HOUSE</h4>
+          <ul class="ch-footer-ref__links">
+            <li><a href="/about/" class="ch-footer-ref__link">About</a></li>
+            <li><a href="#spaces" class="ch-footer-ref__link ch-smooth-scroll">Spaces</a></li>
+            <li><a href="#membership" class="ch-footer-ref__link ch-smooth-scroll">Membership</a></li>
+            <li><a href="#journey" class="ch-footer-ref__link ch-smooth-scroll">How It Works</a></li>
+            <li><a href="/contact.html" class="ch-footer-ref__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="ch-footer-ref__col-title">VENTURES</h4>
+          <ul class="ch-footer-ref__links">
+            <li><a href="/ventures/snapops/" class="ch-footer-ref__link">SnapOps</a></li>
+            <li><a href="/creator-house/" class="ch-footer-ref__link">Creator House</a></li>
+            <li><a href="/ventures/bowl-and-sip/" class="ch-footer-ref__link">Bowl & Sip Co.</a></li>
+            <li><a href="/ventures/mirai-engineering/" class="ch-footer-ref__link">Mirai Engineering</a></li>
+            <li><a href="/ventures/manufacturing/" class="ch-footer-ref__link">SZ Manufacturing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="ch-footer-ref__col-title">COMPANY</h4>
+          <ul class="ch-footer-ref__links">
+            <li><a href="/" class="ch-footer-ref__link">SZ Ventures</a></li>
+            <li><a href="/ventures/" class="ch-footer-ref__link">Ventures</a></li>
+            <li><a href="/capabilities.html" class="ch-footer-ref__link">Capabilities</a></li>
+            <li><a href="/insights.html" class="ch-footer-ref__link">Projects</a></li>
+            <li><a href="/contact.html" class="ch-footer-ref__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="ch-footer-ref__col-title">LEGAL</h4>
+          <ul class="ch-footer-ref__links">
+            <li><a href="/privacy.html" class="ch-footer-ref__link">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="ch-footer-ref__link">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ch-footer-ref__bottom">
+        <div>
+          &copy; 2026 SZ Ventures. All rights reserved.
+        </div>
+        <div class="ch-footer-ref__legal">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       12. INTERACTIVE MODALS
+       ========================================================================= -->
+  <div class="ch-modal-backdrop" id="chModalBackdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="ch-modal-dialog">
+      <button class="ch-modal-close" id="chModalClose" aria-label="Close dialog">✕</button>
+      <div id="chModalContent">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/creator-house/creator-house-routes.js"></script>
+  <script src="/creator-house/creator-house-data.js"></script>
+  <script src="/creator-house/creator-house.js"></script>
 </body>
 </html>

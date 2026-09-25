@@ -31,8 +31,12 @@
  <link rel="stylesheet" href="assets/styles/libs.bundle.css">
 
  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+ <link rel="stylesheet" href="/assets/styles/ambient.css">
 </head>
 <body class="is-loading">
+<canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+<div class="sz-bokeh" aria-hidden="true"></div>
+
 
  <div class="grain" aria-hidden="true"></div>
  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
@@ -58,7 +62,8 @@
  <a href="/industrial-technology.html" class="nav__link">Industries</a>
  <a href="/ventures/" class="nav__link">Ventures</a>
   <a href="/creator-house/" class="nav__link">Creator House</a>
- <a href="/capabilities.html" class="nav__link">Capabilities</a>
+
+<a href="/capabilities.html" class="nav__link">Capabilities</a>
  <a href="/about/" class="nav__link">About</a>
  <a href="/insights.html" class="nav__link">Insights</a>
  <a href="/contact.html" class="nav__link">Contact</a>
@@ -95,6 +100,7 @@
  <main id="swup" class="transition-fade">
  <section class="hero" id="top">
  <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
+<canvas id="sz-wave-canvas" aria-hidden="true"></canvas>
  <div class="hero__inner container">
  <div class="hero__meta" data-aos="fade"><span class="pill">THE NEW ECONOMY</span></div>
  <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900" style="font-size: clamp(3rem, 6vw, 4rem);">
@@ -115,42 +121,6 @@
     <h2 data-aos="fade-up">A PORTFOLIO BUILT FOR WHAT'S NEXT.</h2>
    </div>
    <div class="portfolio__list">
-  <!-- 01 AI & Robotics Data -->
-  <a class="company" href="/industrial-technology.html#ai-robotics-data" data-aos="fade-up" data-cursor data-tippy-content="Explore AI & Robotics Data">
-  <div>
-  <div class="company__name">AI & Robotics Data</div>
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">INTELLIGENCE FROM THE REAL WORLD.</div>
-  </div>
-  <div class="company__thesis">Real-world data acquisition and operational infrastructure supporting AI and robotics training.</div>
-  <div class="company__sector">Industrial Technology</div>
-  <div class="company__metric"><span class="status-badge status-badge--active">Active</span></div>
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore Industrial Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </a>
-
-  <!-- 02 Industrial AI -->
-  <a class="company" href="/industrial-technology.html#industrial-ai" data-aos="fade-up" data-cursor data-tippy-content="Explore Industrial AI">
-  <div>
-  <div class="company__name">Industrial AI</div>
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">INTELLIGENT SYSTEMS.</div>
-  </div>
-  <div class="company__thesis">Applied AI and intelligent systems for physical and industrial environments.</div>
-  <div class="company__sector">Industrial Technology</div>
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#f5a623;">Developing</span></div>
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore Industrial Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </a>
-
-  <!-- 03 Manufacturing -->
-  <a class="company" href="/industrial-technology.html#manufacturing" data-aos="fade-up" data-cursor data-tippy-content="Explore Manufacturing">
-  <div>
-  <div class="company__name">Manufacturing</div>
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">PHYSICAL EXECUTION.</div>
-  </div>
-  <div class="company__thesis">Manufacturing and physical-production capabilities serving institutional and commercial requirements.</div>
-  <div class="company__sector">Industrial Technology</div>
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#4ade80; color:#000;">Active / Order-Led</span></div>
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore Industrial Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </a>
-
   <!-- 04 Bowl & Sip Co. -->
   <a class="company" href="/ventures/bowl-and-sip/index.html" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Bowl & Sip Co.">
   <div>
@@ -174,10 +144,114 @@
   <div class="company__metric"><span class="status-badge status-badge--active" style="background:#f5a623;">Building</span></div>
   <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore The Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
   </a>
+  <!-- 06 SnapOps -->
+  <a class="company" href="/snapops/" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore SnapOps">
+  <div>
+  <div class="company__name">SnapOps</div>
+  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">Community Services, Simplified.</div>
+  </div>
+  <div class="company__thesis">A WhatsApp-first concept for connecting communities with nearby services and local businesses.</div>
+  <div class="company__sector">New Economy</div>
+  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#38bdf8; color:#000;">Launching</span></div>
+  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore The Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  </a>
 
    </div>
   </div>
  </section>
+<footer class="footer" role="contentinfo">
+
+
+   <div class="container">
+
+
+    <div class="footer-grid">
+
+
+     <div class="footer-brand">
+
+
+      <a href="/index.html" class="footer-logo" aria-label="SZ Ventures home">
+
+
+       <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
+
+
+       <span>SZ Ventures</span>
+
+
+      </a>
+
+
+      <p class="footer-tagline">Building Businesses Across Industry & the New Economy.</p>
+
+
+      <div class="footer-social">
+
+
+       <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+
+
+       <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+
+
+       <a href="#" class="social-link" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+
+
+      </div>
+
+
+     </div>
+
+
+          <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-nav-col">
+         <h4>Industries</h4>
+         <ul>
+          <li><a href="/industrial-technology.html">Industrial Technology</a></li>
+          <li><a href="/industrial-technology.html#ai-robotics-data">AI &amp; Robotics Data</a></li>
+          <li><a href="/industrial-technology.html#industrial-ai">Industrial AI</a></li>
+          <li><a href="/industrial-technology.html#manufacturing">Manufacturing</a></li>
+          <li><a href="/new-economy.html">New Economy</a></li>
+         </ul>
+        </div>
+        <div class="footer-nav-col">
+         <h4>Ventures</h4>
+         <ul>
+          <li><a href="/ventures/bowl-and-sip/index.html">Bowl &amp; Sip Co.</a></li>
+          <li><a href="/creator-house/">Creator House</a></li>
+          <li><a href="/snapops/">SnapOps</a></li>
+         </ul>
+        </div>
+        <div class="footer-nav-col">
+         <h4>Company</h4>
+         <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/ventures/">Ventures</a></li>
+          <li><a href="/capabilities.html">Capabilities</a></li>
+          <li><a href="/insights.html">Insights</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+         </ul>
+        </div>
+       </nav>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+
+     <p>&copy; 2026 SZ Ventures Private Limited. All rights reserved.</p>
+
+
+    </div>
+
+
+   </div>
+
+
+  </footer>
 </main>
 
  <!-- Scripts -->
@@ -196,5 +270,6 @@
     }
   }, 4000);
 </script>
+<script src="/assets/js/ambient.js" defer></script>
 </body>
 </html>

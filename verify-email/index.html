@@ -19,8 +19,12 @@
   .auth-text { color: var(--ink-soft); line-height: var(--lh-body); margin-bottom: 2rem; font-size: var(--fs-400); }
   .auth-btn { width: 100%; margin-top: 1rem; padding: 0.9rem; font-weight: 600; }
  </style>
+ <link rel="stylesheet" href="/assets/styles/ambient.css">
 </head>
 <body>
+<canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+<div class="sz-bokeh" aria-hidden="true"></div>
+
  <div class="grain" aria-hidden="true"></div>
  <div class="auth-container">
   <div class="auth-card glass">
@@ -48,5 +52,6 @@
     }
   }, 4000);
 </script>
+<script src="/assets/js/ambient.js" defer></script>
 </body>
 </html>

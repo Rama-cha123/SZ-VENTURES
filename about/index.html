@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
  <meta charset="UTF-8">
@@ -31,8 +31,20 @@
  <link rel="stylesheet" href="../assets/styles/libs.bundle.css">
 
  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<style>
+    @media (max-width: 768px) {
+      .founder-section .container { display: flex; flex-direction: column; gap: 2rem; }
+      .founder__visual { order: -1; margin-bottom: 1rem; }
+    }
+    .founder__name--gold { color: var(--gold); }
+    .founder__cta-wrap--flex { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  </style>
+ <link rel="stylesheet" href="/assets/styles/ambient.css">
 </head>
 <body class="is-loading">
+<canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+<div class="sz-bokeh" aria-hidden="true"></div>
+
 
  <div class="grain" aria-hidden="true"></div>
  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
@@ -95,6 +107,7 @@
  <main id="swup" class="transition-fade">
  <section class="hero" id="top">
  <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
+<canvas id="sz-wave-canvas" aria-hidden="true"></canvas>
  <div class="hero__inner container">
  <div class="hero__meta" data-aos="fade"><span class="pill">ABOUT US</span></div>
  <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900" style="font-size: clamp(3rem, 6vw, 4rem);">
@@ -146,7 +159,7 @@
           <div class="founder__portrait-frame">
             <picture>
               <source srcset="../assets/images/founder/sridhar-chakkravarthy.webp" type="image/webp">
-              <img src="../assets/images/founder/sridhar-chakkravarthy.png" alt="Sridhar Chakkravarthy, Founder of SZ Ventures" class="founder__portrait">
+              <img src="../assets/images/founder/sridhar-chakkravarthy.png" alt="Sridhar Chakkravarthy, Founder of SZ Ventures" class="founder__portrait" width="400" height="400" loading="lazy" decoding="async">
             </picture>
           </div>
         </div>
@@ -163,20 +176,25 @@
           </h2>
 
           <div class="founder__identity" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-            <h3 class="founder__name">Sridhar Chakkravarthy</h3>
+            <h3 class="founder__name founder__name--gold">Sridhar Chakkravarthy</h3>
             <p class="founder__role">Founder — SZ Ventures Private Limited</p>
+
           </div>
 
           <div class="founder__bio" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
-            <p>Sridhar Chakkravarthy is the Founder of SZ Ventures Private Limited, a venture-building company developing businesses across industrial technology and the new economy.</p>
-            <p>His experience spans business leadership, operations, quality management and venture development. Before founding SZ Ventures, he held leadership and operational roles across companies including IppoPay, UPS, InterGlobe Technologies and IBM.</p>
-            <p>He holds an MBA from Warwick Business School and is a certified Six Sigma Master Black Belt.</p>
-            <p>At SZ Ventures, he focuses on identifying practical market opportunities and building the operational, technological and commercial capabilities required to develop sustainable businesses.</p>
-          </div>
+              <p>Sridhar Chakkravarthy is an entrepreneur and the Founder of SZ Ventures Private Limited. His professional journey includes experience with UPS, InterGlobe Technologies (IndiGo), and IBM, where he developed expertise across global operations, aviation, technology, process excellence, and enterprise systems.</p>
+              <p>His international exposure across India, Europe, Singapore, the UAE, the United States, and the United Kingdom has shaped his global perspective on business, culture, and emerging markets.</p>
+              <p>Transitioning from corporate enterprise to venture building, Sridhar now applies this experience to developing practical, technology-led businesses across industrial technology and the new economy. His approach combines operational discipline, market understanding, and long-term company building.</p>
+              <p>He holds an MBA from Warwick Business School and is a certified Six Sigma Master Black Belt.</p>
+            </div>
 
-          <div class="founder__cta-wrap" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
-            <a href="https://www.linkedin.com/in/sridharchakkravarthy/" target="_blank" rel="noopener noreferrer" class="founder__link">
+          <div class="founder__cta-wrap founder__cta-wrap--flex" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
+            <a href="https://www.linkedin.com/in/sridharchakkravarthy/" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn" class="founder__link">
               CONNECT ON LINKEDIN
+              <span class="founder__link-arrow">↗</span>
+            </a>
+            <a href="https://www.instagram.com/theurbanmonk21/" target="_blank" rel="noopener noreferrer" aria-label="Connect on Instagram" class="founder__link">
+              CONNECT ON INSTAGRAM
               <span class="founder__link-arrow">↗</span>
             </a>
           </div>
@@ -190,5 +208,6 @@
  <script src="../assets/js/libs.bundle.js" defer></script>
  <script src="../main.js" defer></script>
  <script src="../assets/js/intake.js" defer></script>
+<script src="/assets/js/ambient.js" defer></script>
 </body>
 </html>

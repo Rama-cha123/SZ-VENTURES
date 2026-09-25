@@ -30,6 +30,14 @@
       if (pre) pre.classList.add('is-done');
       document.body.classList.remove('is-loading');
       done && done();
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'auto', block: 'start' });
+          }, 30);
+        }
+      }
       return;
     }
 
@@ -52,6 +60,15 @@
         if (pre) pre.classList.add('is-done');
         document.body.classList.remove('is-loading');
         done && done();
+        // Restore pending hash scroll now that body scroll is unlocked
+        if (window.location.hash) {
+          const target = document.querySelector(window.location.hash);
+          if (target) {
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'auto', block: 'start' });
+            }, 60);
+          }
+        }
       }, 380);
     }
   }
@@ -311,8 +328,58 @@
           target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
         }
         history.replaceState(null, '', id);
+        window.dispatchEvent(new Event('hashchange'));
       });
     });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+        }
+      }
+    });
+  }
+
+  // ==== Vertical Card Hash Filtering (Industrial Technology) ==============
+  function initVerticalFilter() {
+    const grid = $('.vertical-card-grid');
+    if (!grid) return;
+
+    const cards = $$('.vertical-card', grid);
+    if (cards.length <= 1) return;
+
+    const validHashes = ['ai-robotics-data', 'industrial-ai', 'manufacturing'];
+
+    function applyFilter() {
+      const rawHash = window.location.hash || '';
+      const hash = rawHash.replace(/^#/, '').split('?')[0].split('&')[0].trim().toLowerCase();
+
+      if (validHashes.includes(hash)) {
+        grid.classList.add('is-filtered');
+        cards.forEach((card) => {
+          const cardId = (card.id || card.dataset.vertical || '').toLowerCase();
+          if (cardId === hash) {
+            card.classList.remove('is-hidden');
+            card.style.display = '';
+          } else {
+            card.classList.add('is-hidden');
+            card.style.display = 'none';
+          }
+        });
+      } else {
+        grid.classList.remove('is-filtered');
+        cards.forEach((card) => {
+          card.classList.remove('is-hidden');
+          card.style.display = '';
+        });
+      }
+    }
+
+    applyFilter();
+    window.addEventListener('hashchange', applyFilter);
+    window.addEventListener('popstate', applyFilter);
   }
 
   // ==== Role Switcher (Partnership Intake Engine) =======================
@@ -509,6 +576,7 @@
     initMenu();
     initCounters();
     initAnchors();
+    initVerticalFilter();
     initRoleSwitcher();
     initQueryPrefill();
     initPartnerForm();
@@ -544,6 +612,7 @@
   };
 
   // ==== Run ===============================================================
+  initVerticalFilter();
   initPreloader(boot);
 
   // ==== Cleanup on Unload =================================================

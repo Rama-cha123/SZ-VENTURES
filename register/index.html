@@ -28,8 +28,12 @@
   .back-home { position: absolute; top: 2rem; left: 2rem; color: var(--muted); text-decoration: none; font-size: var(--fs-400); transition: color 0.3s; }
   .back-home:hover { color: var(--gold-bright); }
  </style>
+ <link rel="stylesheet" href="/assets/styles/ambient.css">
 </head>
 <body>
+<canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+<div class="sz-bokeh" aria-hidden="true"></div>
+
  <div class="grain" aria-hidden="true"></div>
  <a href="/" class="back-home">← Return to SZ Ventures</a>
  <div class="auth-container">
@@ -76,5 +80,6 @@
     }
   }, 4000);
 </script>
+<script src="/assets/js/ambient.js" defer></script>
 </body>
 </html>

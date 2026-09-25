@@ -1210,6 +1210,19 @@ body.menu-open .menu {
    ========================================================= */
 
 /* Shared vertical block foundation */
+.vertical-section {
+    scroll-margin-top: calc(var(--nav-height, 5rem) + 1.5rem);
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+#ai-robotics-data,
+#industrial-ai,
+#manufacturing {
+    scroll-margin-top: calc(var(--nav-height, 5rem) + 1.5rem);
+}
+.vertical-section:first-of-type .vertical-block {
+    border-top: none;
+    padding-top: 0;
+}
 .vertical-block {
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -1252,9 +1265,9 @@ body.menu-open .menu {
 .vertical--industrial-ai__visual {
     /* Image on the right */
 }
-.vertical--industrial-ai .vertical-visual--portrait .vertical-visual__frame {
+.vertical--industrial-ai .vertical-visual__frame {
     border-color: rgba(212, 175, 55, 0.2);
-    aspect-ratio: 3/4;
+    aspect-ratio: 3/2;
 }
 @media (hover: hover) and (pointer: fine) {
     .vertical--industrial-ai .vertical-visual__frame:hover {
@@ -1374,5 +1387,552 @@ img[data-reveal], .reveal-image {
         border-color: var(--gold);
         box-shadow: 0 8px 24px rgba(220, 180, 110, 0.08);
         transform: translateY(-2px);
+    }
+}
+
+/* --- Vertical 3-Image Gallery ------------------------------------------ */
+.vertical-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.vertical-gallery__primary {
+    width: 100%;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    line-height: 0;
+}
+.vertical-gallery__secondary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+.vertical-gallery__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.625rem;
+    object-fit: cover;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.vertical-gallery__img--main {
+    border-radius: 0.75rem;
+    max-height: 420px;
+    object-position: center;
+}
+.vertical-gallery__secondary .vertical-gallery__img {
+    max-height: 200px;
+}
+@media (hover: hover) and (pointer: fine) {
+    .vertical-gallery__img:hover {
+        transform: scale(1.015);
+        box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+        z-index: 1;
+        position: relative;
+    }
+}
+.vertical-gallery--ai-robotics .vertical-gallery__img--main {
+    box-shadow: 0 4px 24px rgba(59, 130, 246, 0.18);
+}
+.vertical-gallery--industrial-ai .vertical-gallery__img--main {
+    box-shadow: 0 4px 24px rgba(20, 184, 166, 0.18);
+}
+.vertical-gallery--manufacturing .vertical-gallery__img--main {
+    box-shadow: 0 4px 24px rgba(220, 180, 110, 0.18);
+}
+@media (max-width: 600px) {
+    .vertical-gallery__secondary {
+        grid-template-columns: 1fr;
+    }
+    .vertical-gallery__img--main {
+        max-height: 260px;
+    }
+    .vertical-gallery__secondary .vertical-gallery__img {
+        max-height: 180px;
+    }
+}
+
+/* ==========================================================================
+   Vertical Split Sections (alternating image / content layout)
+   Used by /industrial-technology/ai-robotics-data/, /industrial-ai/, /manufacturing/
+   ========================================================================== */
+
+/* Section wrapper */
+.vsplit-section {
+    padding: 5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.vsplit-section:last-of-type { border-bottom: none; }
+
+/* Overlapping Layout */
+.vsplit {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    position: relative;
+    padding: 5rem 4rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    min-height: 70vh;
+}
+
+/* Reverse: text on right */
+.vsplit--reverse { justify-items: end; }
+.vsplit:not(.vsplit--reverse) { justify-items: start; }
+
+/* Image column */
+.vsplit__image { 
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    border: none;
+    box-shadow: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+                        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    z-index: 0;
+}
+
+.vsplit__image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--gold, #dcb46e);
+    mix-blend-mode: color;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.vsplit__image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)" opacity="0.3"/%3E%3C/svg%3E');
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.vsplit__img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.8s var(--ease-premium, cubic-bezier(.23,1,.32,1)), filter 0.8s ease;
+    filter: grayscale(0.5) contrast(1.1) brightness(0.65);
+}
+.vsplit:hover .vsplit__img { 
+    transform: scale(1.04); 
+    filter: grayscale(0) contrast(1.15) brightness(0.75);
+}
+
+/* Content column */
+.vsplit__content { 
+    position: relative;
+    z-index: 2;
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.5rem; 
+    max-width: 600px;
+    background: rgba(10, 10, 11, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 3rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.vsplit__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: var(--gold, #dcb46e);
+    text-transform: uppercase;
+    font-family: var(--font-body, 'Inter', sans-serif);
+}
+.vsplit__eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold, #dcb46e);
+    flex-shrink: 0;
+}
+
+.vsplit__heading {
+    font-family: var(--font-display, 'Fraunces', serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--white, #fff);
+    margin: 0;
+    letter-spacing: -0.01em;
+    background: linear-gradient(135deg, #fff 40%, rgba(255,255,255,0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.vsplit__body {
+    font-size: var(--fs-400, 1rem);
+    line-height: 1.75;
+    color: rgba(255,255,255,0.72);
+    max-width: 52ch;
+}
+
+.vsplit__points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem 1.5rem;
+}
+.vsplit__points li {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.vsplit__points li span.symbol {
+    color: var(--gold, #dcb46e);
+    font-size: 1rem;
+}
+
+/* Hero sub-text for vertical pages */
+.vertical-hero__sub {
+    font-size: var(--fs-400, 1rem);
+    line-height: 1.8;
+    color: rgba(255,255,255,0.68);
+    max-width: 70ch;
+    margin-top: 1.5rem;
+}
+
+/* CTA strip at bottom of vertical page */
+.vsplit-cta {
+    padding: 5rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+.vsplit-cta__label {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+}
+
+/* Industries hub cards */
+.industries-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+.industry-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 1rem;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.industry-card:hover {
+    border-color: var(--gold, #dcb46e);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+.industry-card__img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+}
+.industry-card__body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; gap: 0.75rem; }
+.industry-card__eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    color: var(--gold, #dcb46e);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.industry-card__heading {
+    font-family: var(--font-display, 'Fraunces', serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--white, #fff);
+    margin: 0;
+    line-height: 1.2;
+}
+.industry-card__desc {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    flex: 1;
+}
+.industry-card__cta {
+    font-size: 0.8rem;
+    color: var(--gold, #dcb46e);
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+/* Mobile */
+@media (max-width: 860px) {
+    .vsplit {
+        min-height: auto;
+        padding: 3rem 1.5rem;
+    }
+    .vsplit--reverse { justify-items: stretch; }
+    .vsplit:not(.vsplit--reverse) { justify-items: stretch; }
+    .vsplit__content { padding: 2rem; }
+    .vsplit__points { grid-template-columns: 1fr; }
+    .industries-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Vertical Card Grid � hub page (industrial-technology.html)
+   Exactly one .vertical-card-grid, exactly three .vertical-card articles.
+   ========================================================================== */
+
+.vertical-card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1.75rem;
+    margin-top: 3.5rem;
+}
+
+.vertical-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--glass-bg, rgba(10, 10, 12, 0.6));
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid var(--line-soft, rgba(255, 255, 255, 0.08));
+    border-radius: 1rem;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s var(--ease-premium, cubic-bezier(.23,1,.32,1));
+    scroll-margin-top: 120px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+.vertical-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.03) 0%, transparent 100%);
+    z-index: 2;
+}
+
+
+/* Filtered state: single centered column when a specific vertical is targeted */
+.vertical-card-grid.is-filtered,
+body:has(#ai-robotics-data:target) .vertical-card-grid,
+body:has(#industrial-ai:target) .vertical-card-grid,
+body:has(#manufacturing:target) .vertical-card-grid {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hide non-matching cards */
+.vertical-card.is-hidden {
+    display: none !important;
+}
+
+body:has(#ai-robotics-data:target) .vertical-card:not(#ai-robotics-data) {
+    display: none !important;
+}
+body:has(#industrial-ai:target) .vertical-card:not(#industrial-ai) {
+    display: none !important;
+}
+body:has(#manufacturing:target) .vertical-card:not(#manufacturing) {
+    display: none !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .vertical-card:hover {
+        border-color: rgba(220, 180, 110, 0.4);
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(220, 180, 110, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+        background: rgba(20, 18, 22, 0.85);
+    }
+    .vertical-card:hover .vertical-card__img {
+        transform: scale(1.04);
+    }
+}
+
+/* Image */
+.vertical-card__image {
+    overflow: hidden;
+    line-height: 0;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    width: 45%;
+    flex-shrink: 0;
+}
+.vertical-card__image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 50%, rgba(10, 10, 12, 0.9) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.vertical-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.55s var(--ease-premium, cubic-bezier(.23,1,.32,1));
+}
+
+/* Body */
+.vertical-card__body {
+    padding: 2.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.vertical-card__label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    color: var(--gold, #dcb46e);
+    text-transform: uppercase;
+    font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.vertical-card__heading {
+    font-family: var(--font-display, "Space Grotesk", sans-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--white, #fff);
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.vertical-card__desc {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+    flex: 1;
+}
+
+.vertical-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--gold, #dcb46e);
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    transition: gap 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .vertical-card:hover .vertical-card__cta {
+        gap: 0.65rem;
+    }
+}
+
+/* Per-card accent on hover border */
+.vertical-card--ai-data:hover  { border-color: hsl(215, 80%, 62%); }
+.vertical-card--industrial-ai:hover { border-color: hsl(165, 70%, 50%); }
+.vertical-card--manufacturing:hover { border-color: var(--gold, #dcb46e); }
+
+/* Responsive */
+@media (max-width: 960px) {
+    .vertical-card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 580px) {
+    .vertical-card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* vertical-card__link: the anchor wrapping image + body inside each article */
+.vertical-card__link {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    align-items: center;
+}
+
+/* Single-card solo layout � used on individual vertical pages */
+.vertical-card-solo {
+    max-width: 780px;
+    margin: 0 auto;
+}
+.vertical-card--solo {
+    border-radius: 1.25rem;
+}
+.vertical-card--solo .vertical-card__image {
+    aspect-ratio: 16 / 9;
+}
+.vertical-card--solo .vertical-card__heading {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+.vertical-card--solo .vertical-card__desc {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+
+/* Fix footer navigation layout */
+.footer-nav { display: contents; }
+
+@media (max-width: 768px) {
+    .vertical-card__link {
+        flex-direction: column;
+    }
+    .vertical-card__image {
+        width: 100%;
+    }
+    .vertical-card__image::after {
+        background: linear-gradient(to top, rgba(10, 10, 12, 0.9) 0%, transparent 50%);
+    }
+    .vertical-card__body {
+        padding: 1.75rem;
     }
 }
