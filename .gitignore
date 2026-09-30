@@ -1,11 +1,32 @@
+# Dependencies & Build
 node_modules/
 dist/
+build/
+.cache/
+
+# Environment & Secrets
 .env
 .env.local
 .env.*.local
+*.pem
+*.key
+
+# Deployment & IDE metadata
+.vercel/
 .vscode/
+.idea/
 .DS_Store
+Thumbs.db
+
+# Logs & Debugging
 *.log
 npm-debug.log*
 tmp_chrome_profile/
 diff.txt
+
+# Audit & Test Artifacts
+audit_*.png
+scripts/*.png
+data/uploads/
+.vercel
+.env*

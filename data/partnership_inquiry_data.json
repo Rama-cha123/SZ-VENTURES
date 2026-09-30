@@ -48,5 +48,55 @@
         "timestamp": "2026-09-23T20:08:49.627836",
         "id": "95E5F45E",
         "idempotency_key": "verify-1197690914252834061"
+    },
+    {
+        "source": "partnership_inquiry",
+        "full_name": "Verification Bot",
+        "email": "verify@szventures.com",
+        "phone": "+91 98765 43210",
+        "message": "Automated verification test of API submission endpoint.",
+        "timestamp": "2026-09-26T19:36:30.605183",
+        "id": "9A7CDABA",
+        "idempotency_key": "verify--5863432966715619149"
+    },
+    {
+        "source": "partnership_inquiry",
+        "full_name": "Verification Bot",
+        "email": "verify@szventures.com",
+        "phone": "+91 98765 43210",
+        "message": "Automated verification test of API submission endpoint.",
+        "timestamp": "2026-09-27T12:38:46.465740",
+        "id": "DA4F710D",
+        "idempotency_key": "verify--6050936299954030164"
+    },
+    {
+        "source": "partnership_inquiry",
+        "full_name": "Verification Bot",
+        "email": "verify@szventures.com",
+        "phone": "+91 98765 43210",
+        "message": "Automated verification test of API submission endpoint.",
+        "timestamp": "2026-09-27T13:41:01.478952",
+        "id": "9DEEED8A",
+        "idempotency_key": "verify-1212981351572762887"
+    },
+    {
+        "source": "partnership_inquiry",
+        "full_name": "Verification Bot",
+        "email": "verify@szventures.com",
+        "phone": "+91 98765 43210",
+        "message": "Automated verification test of API submission endpoint.",
+        "timestamp": "2026-09-27T16:22:40.275102",
+        "id": "4B8784C5",
+        "idempotency_key": "verify--2028770709335141843"
+    },
+    {
+        "source": "partnership_inquiry",
+        "full_name": "Verification Bot",
+        "email": "verify@szventures.com",
+        "phone": "+91 98765 43210",
+        "message": "Automated verification test of API submission endpoint.",
+        "timestamp": "2026-09-30T13:30:03.199069",
+        "id": "185974CB",
+        "idempotency_key": "verify-592013749870435918"
     }
 ]

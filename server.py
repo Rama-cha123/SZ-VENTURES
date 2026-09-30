@@ -111,6 +111,15 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         if clean_path == '/operations/rider-registration':
             self.path = '/operations/rider-registration/index.html'
             return False
+        if clean_path == '/operations/rider-onboarding':
+            self.path = '/operations/rider-registration/index.html'
+            return False
+        if clean_path == '/contributor-onboarding':
+            self.path = '/operations/contributor-onboarding/index.html'
+            return False
+        if clean_path == '/operations/contributor-onboarding':
+            self.path = '/operations/contributor-onboarding/index.html'
+            return False
             
         local_path = self.translate_path(parsed.path)
         if not os.path.exists(local_path) and not os.path.splitext(local_path)[1]:
@@ -123,7 +132,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         return False
 
     def do_POST(self):
-        if self.path in ('/api/submit', '/api/rider-registration'):
+        if self.path in ('/api/submit', '/api/rider-registration', '/api/contributor-onboarding'):
             content_length = int(self.headers.get('Content-Length', 0))
             post_data = self.rfile.read(content_length)
             
@@ -137,6 +146,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     
                 if self.path == '/api/rider-registration':
                     source = 'rider_registration'
+                elif self.path == '/api/contributor-onboarding':
+                    source = 'ai_robotics_contributor'
                 else:
                     source = data.get('source', 'unknown').replace('/', '_').replace('\\', '_')
                 
@@ -302,11 +313,93 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     if consent_acc not in (True, 'true', '1', 1):
                         raise ValueError("You must confirm that the information provided is accurate.")
 
-                    consent_proc = data.get('consent_processing')
+                    consent_proc = data.get('consent_processing') or data.get('consent_privacy')
                     if consent_proc not in (True, 'true', '1', 1):
                         raise ValueError("Consent to collection and processing of details for rider onboarding is required.")
 
+                    consent_cont = data.get('consent_contact')
+                    if consent_cont not in (True, 'true', '1', 1):
+                        raise ValueError("Consent to be contacted regarding rider onboarding and related opportunities is required.")
+
                     # Initial Application Status: Strictly SUBMITTED
+                    data['status'] = 'SUBMITTED'
+
+                # Backend Validation: AI & Robotics Contributor
+                if source == 'ai_robotics_contributor':
+                    import re
+                    # SECTION 1 — ABOUT YOU
+                    full_name = str(data.get('full_name', '')).strip()
+                    if not full_name:
+                        raise ValueError("Full name is required.")
+
+                    mobile = str(data.get('mobile_number', '')).strip()
+                    clean_mob = re.sub(r'[\s\-\+]', '', mobile)
+                    if len(clean_mob) < 8:
+                        raise ValueError("Please provide a valid mobile number.")
+
+                    # Age Eligibility Check: Must be 18 years or older
+                    is_18 = str(data.get('is_18_or_older', '')).strip().lower()
+                    if is_18 in ('no', 'false', '0'):
+                        raise ValueError("Applicants must be at least 18 years of age to participate in the AI & Robotics Contributor program.")
+                    if is_18 not in ('yes', 'true', '1'):
+                        raise ValueError("Please confirm whether you are 18 years or older.")
+
+                    area = str(data.get('area', '')).strip()
+                    if not area:
+                        raise ValueError("Please provide the area where you live or work.")
+
+                    # SECTION 2 — YOUR WORK
+                    work_type = str(data.get('work_type', '')).strip()
+                    if not work_type:
+                        raise ValueError("Please select your type of work.")
+                    if work_type == 'Other' and not str(data.get('work_type_other', '')).strip():
+                        raise ValueError("Please specify your work type.")
+
+                    job_role = str(data.get('job_role', '')).strip()
+                    if not job_role:
+                        raise ValueError("Please enter your job/work role.")
+
+                    work_loc = str(data.get('work_location', '')).strip()
+                    if not work_loc:
+                        raise ValueError("Please select where you normally do this work.")
+                    if work_loc == 'Other' and not str(data.get('work_location_other', '')).strip():
+                        raise ValueError("Please specify your work location.")
+
+                    # SECTION 3 — YOUR WORKPLACE
+                    city = str(data.get('city', '')).strip()
+                    if not city:
+                        raise ValueError("City is required.")
+
+                    owner_aware = str(data.get('owner_aware', '')).strip()
+                    if not owner_aware:
+                        raise ValueError("Please specify whether the owner/manager is aware of your interest.")
+
+                    can_perm = str(data.get('can_get_permission', '')).strip()
+                    if not can_perm:
+                        raise ValueError("Please indicate if you can help obtain permission to record.")
+
+                    # SECTION 5 — PARTICIPATION
+                    int_rec = str(data.get('interested_in_recording', '')).strip()
+                    if not int_rec:
+                        raise ValueError("Please indicate if you are interested in recording your normal work.")
+
+                    comf_guide = str(data.get('comfortable_with_guidelines', '')).strip()
+                    if not comf_guide:
+                        raise ValueError("Please indicate whether you are comfortable following recording instructions and safety guidelines.")
+
+                    # SECTION 6 — MANDATORY CONSENT CHECKBOXES
+                    c_acc = data.get('consent_accuracy')
+                    if c_acc not in (True, 'true', '1', 1):
+                        raise ValueError("You must confirm that the information provided is correct.")
+
+                    c_cont = data.get('consent_contact')
+                    if c_cont not in (True, 'true', '1', 1):
+                        raise ValueError("You must agree to be contacted regarding AI/robotics contributor opportunities.")
+
+                    c_rec = data.get('consent_recording_privacy')
+                    if c_rec not in (True, 'true', '1', 1):
+                        raise ValueError("You must accept the recording and privacy consent terms.")
+
                     data['status'] = 'SUBMITTED'
                 
                 filename = f"{source}_data.json"
@@ -357,6 +450,9 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 if source == 'rider_registration':
                     generated_id = f"SZ-RIDER-{''.join(random.choices('ABCDEFGHJKLMNPQRSTUVWXYZ23456789', k=6))}"
                     data['application_id'] = generated_id
+                elif source == 'ai_robotics_contributor':
+                    generated_id = f"SZ-AIROBOT-{''.join(random.choices('ABCDEFGHJKLMNPQRSTUVWXYZ23456789', k=6))}"
+                    data['application_id'] = generated_id
                 else:
                     generated_id = str(uuid.uuid4())[:8].upper()
 
@@ -367,18 +463,30 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 with open(filepath, 'w') as f:
                     json.dump(file_data, f, indent=4)
 
-                # Parity storage for rider_registrations.json
+                # Parity storage for separate JSON files
                 if source == 'rider_registration':
                     alt_filepath = os.path.join(DATA_DIR, "rider_registrations.json")
+                    with open(alt_filepath, 'w') as af:
+                        json.dump(file_data, af, indent=4)
+                elif source == 'ai_robotics_contributor':
+                    alt_filepath = os.path.join(DATA_DIR, "contributor_applications.json")
                     with open(alt_filepath, 'w') as af:
                         json.dump(file_data, af, indent=4)
                     
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
                 self.end_headers()
+
+                if source == 'ai_robotics_contributor':
+                    succ_msg = "Thank you for your interest in the SZ Ventures AI & Robotics Contributor Program. Our team will contact shortlisted contributors."
+                elif source == 'rider_registration':
+                    succ_msg = "Rider application submitted successfully"
+                else:
+                    succ_msg = "Application submitted successfully"
+
                 self.wfile.write(json.dumps({
                     'status': 'success',
-                    'message': 'Rider application submitted successfully',
+                    'message': succ_msg,
                     'id': generated_id,
                     'application_id': generated_id,
                     'application_status': data.get('status', 'SUBMITTED'),

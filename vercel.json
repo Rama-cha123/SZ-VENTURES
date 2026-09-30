@@ -135,6 +135,18 @@
       "destination": "/operations/rider-registration/index.html"
     },
     {
+      "source": "/operations/rider-onboarding",
+      "destination": "/operations/rider-registration/index.html"
+    },
+    {
+      "source": "/contributor-onboarding",
+      "destination": "/operations/contributor-onboarding/index.html"
+    },
+    {
+      "source": "/operations/contributor-onboarding",
+      "destination": "/operations/contributor-onboarding/index.html"
+    },
+    {
       "source": "/operations/bgv-verification",
       "destination": "/operations/bgv-verification/index.html"
     },

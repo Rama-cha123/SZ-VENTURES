@@ -119,6 +119,21 @@
   status = 200
 
 [[redirects]]
+  from   = "/operations/rider-onboarding"
+  to     = "/operations/rider-registration/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/contributor-onboarding"
+  to     = "/operations/contributor-onboarding/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/operations/contributor-onboarding"
+  to     = "/operations/contributor-onboarding/index.html"
+  status = 200
+
+[[redirects]]
   from   = "/operations/bgv-verification"
   to     = "/operations/bgv-verification/index.html"
   status = 200

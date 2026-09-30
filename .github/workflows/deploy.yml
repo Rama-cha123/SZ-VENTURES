@@ -25,9 +25,17 @@ jobs:
         run: |
           echo "Checking HTML files exist and are non-empty…"
           for f in index.html portfolio.html philosophy.html achievements.html \
-                   contact.html snapops.html bowl-sip.html terramuse.html \
-                   mirai.html sz-manufacturing.html team.html insights.html \
-                   careers.html press.html privacy.html terms.html cookies.html; do
+                   contact.html team.html insights.html careers.html \
+                   press.html privacy.html terms.html cookies.html \
+                   about/index.html how-we-build/index.html creator-house/index.html \
+                   ventures/index.html ventures/snapops/index.html ventures/bowl-and-sip/index.html \
+                   ventures/creator-house/index.html ventures/manufacturing/index.html \
+                   ventures/mirai-engineering/index.html ventures/ai-robotics-data/index.html \
+                   ventures/industrial-ai/index.html operations/index.html \
+                   operations/rider-registration/index.html operations/rider-operations/index.html \
+                   operations/contributor-onboarding/index.html \
+                   operations/bgv-verification/index.html operations/device-asset-recovery/index.html \
+                   operations/field-gig-operations/index.html operations/workforce-deployment/index.html; do
             if [ ! -s "$f" ]; then
               echo "ERROR: $f is missing or empty"
               exit 1

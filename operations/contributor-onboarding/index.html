@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+  <title>AI & Robotics Contributor Onboarding — SZ Ventures</title>
+  <meta name="description" content="Join the SZ Ventures AI & Robotics Contributor Program. Paid opportunities to capture real-world work across manufacturing, workshops, agriculture, and physical trades.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="canonical" href="https://szventures.com/operations/contributor-onboarding">
+
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta property="og:title" content="AI & Robotics Contributor Onboarding — SZ Ventures">
+  <meta property="og:description" content="Help capture real-world work for AI & Robotics. Paid contributor opportunities.">
+  <meta property="og:url" content="https://szventures.com/operations/contributor-onboarding">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css?v=20260927">
+  <link rel="stylesheet" href="/assets/styles/libs.bundle.css">
+  <link rel="stylesheet" href="/assets/styles/ambient.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <style>
+    .reg-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+
+    .disclaimer-card {
+      background: rgba(220, 180, 110, 0.06);
+      border: 1px solid rgba(220, 180, 110, 0.28);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .disclaimer-card__icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .disclaimer-card__text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0;
+    }
+    .disclaimer-card__text strong {
+      color: #fff;
+    }
+
+    /* 6-Step Indicator */
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding: 0 0.5rem;
+    }
+    .step-indicator::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 24px;
+      right: 24px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 1;
+    }
+    .step-indicator__progress {
+      position: absolute;
+      top: 18px;
+      left: 24px;
+      height: 2px;
+      background: var(--gold);
+      z-index: 2;
+      transition: width 0.35s ease;
+      width: 0%;
+    }
+    .step-node {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .step-node__circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--paper-2);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+      color: var(--muted);
+      transition: all 0.3s ease;
+      margin-bottom: 0.5rem;
+    }
+    .step-node.active .step-node__circle {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #0a0a0b;
+      box-shadow: 0 0 16px rgba(220, 180, 110, 0.4);
+    }
+    .step-node.completed .step-node__circle {
+      background: rgba(220, 180, 110, 0.2);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .step-node__label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      text-align: center;
+      max-width: 76px;
+    }
+    .step-node.active .step-node__label {
+      color: var(--gold);
+    }
+
+    .form-card {
+      background: rgba(18, 18, 22, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+    }
+    @media (max-width: 640px) {
+      .form-card {
+        padding: 1.5rem 1.25rem;
+      }
+      .step-node__label {
+        display: none;
+      }
+    }
+
+    .form-step {
+      display: none;
+    }
+    .form-step.active {
+      display: block;
+      animation: fadeInStep 0.3s ease;
+    }
+    @keyframes fadeInStep {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-section-head {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .form-section-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      font-family: var(--font-display);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .form-section-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: #fff;
+      margin: 0 0 0.5rem 0;
+      font-weight: 500;
+    }
+    .form-section-desc {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-grid--full {
+      grid-template-columns: 1fr;
+    }
+    @media (max-width: 600px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .form-group label .req {
+      color: var(--gold);
+      margin-left: 0.25rem;
+    }
+    .form-group label .opt {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      padding: 0.8rem 1rem;
+      font-size: 0.95rem;
+      font-family: var(--font-sans);
+      transition: all 0.2s ease;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-control:focus {
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 0 2px rgba(220, 180, 110, 0.2);
+    }
+    .form-control.is-invalid {
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.05);
+    }
+    .form-control option {
+      background: #18181b;
+      color: #fff;
+    }
+
+    .form-hint {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+    .form-error-msg {
+      font-size: 0.78rem;
+      color: #f87171;
+      margin-top: 0.35rem;
+      display: none;
+    }
+    .form-group.has-error .form-error-msg {
+      display: block;
+    }
+
+    .radio-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.25rem;
+    }
+    .radio-pill {
+      position: relative;
+    }
+    .radio-pill input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .radio-pill label {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.65rem 1.1rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+      margin-bottom: 0;
+    }
+    .radio-pill input[type="radio"]:checked + label {
+      background: rgba(220, 180, 110, 0.15);
+      border-color: var(--gold);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(220, 180, 110, 0.25);
+    }
+    .radio-pill input[type="radio"]:focus-visible + label {
+      outline: 2px solid var(--gold);
+    }
+
+    .check-box-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+    .check-box-wrapper input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+    .check-box-wrapper span {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.8);
+      user-select: none;
+    }
+
+    .consent-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 1.15rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .consent-card:hover {
+      border-color: rgba(220, 180, 110, 0.3);
+    }
+    .consent-card input[type="checkbox"] {
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .consent-card label {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 1rem;
+    }
+
+    .form-alert {
+      display: none;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .form-alert--error {
+      display: block;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+    }
+    .form-alert--warning {
+      display: block;
+      background: rgba(234, 179, 8, 0.1);
+      border: 1px solid rgba(234, 179, 8, 0.35);
+      color: #fde047;
+    }
+
+    /* Success Screen */
+    .success-card {
+      display: none;
+      text-align: center;
+      padding: 3.5rem 2rem;
+      background: rgba(18, 18, 22, 0.95);
+      border: 1px solid rgba(220, 180, 110, 0.3);
+      border-radius: var(--radius);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    }
+    .success-badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(220, 180, 110, 0.12);
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .success-title {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      color: #fff;
+      margin: 0 0 1rem 0;
+    }
+    .app-id-banner {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed rgba(220, 180, 110, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.5rem;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1.5rem 0 2rem;
+    }
+    .app-id-banner__label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .app-id-banner__value {
+      font-family: var(--font-mono, monospace);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body class="is-loading">
+  <canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+  <div class="sz-bokeh" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Global Header -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" width="36" height="36" style="width:36px;height:36px;object-fit:contain;">
+        SZ Ventures
+      </a>
+      <nav class="nav__links">
+        <a href="/ventures" class="nav__link">Ventures</a>
+        <a href="/operations" class="nav__link nav__link--active">Operations</a>
+        <a href="/how-we-build" class="nav__link">How We Build</a>
+        <a href="/about" class="nav__link">About</a>
+        <a href="/contact" class="nav__link">Contact</a>
+      </nav>
+      <div class="nav__right">
+        <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
+        <a href="/contact?intent=operations" class="btn btn--accent"><span>Build With Us →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu Fallback -->
+  <div class="menu" id="menu" style="display: none;">
+    <a href="/ventures" data-menu-link>Ventures <span>01</span></a>
+    <a href="/operations" data-menu-link>Operations <span>02</span></a>
+    <a href="/operations/rider-registration" data-menu-link>Rider Onboarding <span>03</span></a>
+    <a href="/operations/contributor-onboarding" data-menu-link style="color: var(--gold-bright);">AI / Robotics Contributor <span>★</span></a>
+    <a href="/how-we-build" data-menu-link>How We Build <span>04</span></a>
+    <a href="/about" data-menu-link>About <span>05</span></a>
+    <a href="/contact" data-menu-link>Contact <span>06</span></a>
+    <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
+    <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="swup" class="transition-fade">
+
+    <!-- Hero Section -->
+    <section class="hero hero--compact" id="top">
+      <div class="hero__bg"><div class="hero__gridlines"></div></div>
+      <div class="hero__inner container">
+        <div class="hero__meta"><span class="pill">SZ VENTURES — AI / ROBOTICS CONTRIBUTOR</span></div>
+        <h1 class="hero__title display" style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.15;">
+          <span class="line">HELP CAPTURE REAL-WORLD WORK</span>
+          <span class="line"><em class="serif-accent">FOR AI & ROBOTICS.</em></span>
+        </h1>
+        <p class="hero__sub" style="max-width: 68ch;">
+          This is a paid contributor opportunity. You don't need to know AI. We need people who already work in real-world environments. Takes about 2–3 minutes.
+        </p>
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="section section--tight" style="padding-top: 1rem;">
+      <div class="reg-wrapper">
+
+        <!-- Program Overview Card -->
+        <div class="disclaimer-card" role="note" aria-label="Contributor Notice">
+          <svg class="disclaimer-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <p class="disclaimer-card__text">
+            <strong>Contributor Opportunity:</strong> We partner with workers across workshops, factories, kitchens, trades, and agricultural facilities to capture real physical actions. <strong>Submitting this application does not guarantee selection, assignment, or payment.</strong> Shortlisted contributors are contacted by our data operations team based on active recording campaigns.
+          </p>
+        </div>
+
+        <!-- Global Alert Box -->
+        <div id="formAlert" class="form-alert" role="alert" aria-live="polite"></div>
+
+        <!-- Multi-Step Progress Indicator -->
+        <div class="step-indicator" id="stepIndicator" role="tablist" aria-label="Contributor Form Steps">
+          <div class="step-indicator__progress" id="stepProgress"></div>
+
+          <button type="button" class="step-node active" id="stepNode-1" onclick="goToStep(1)">
+            <div class="step-node__circle">1</div>
+            <span class="step-node__label">About You</span>
+          </button>
+
+          <button type="button" class="step-node" id="stepNode-2" onclick="goToStep(2)">
+            <div class="step-node__circle">2</div>
+            <span class="step-node__label">Your Work</span>
+          </button>
+
+          <button type="button" class="step-node" id="stepNode-3" onclick="goToStep(3)">
+            <div class="step-node__circle">3</div>
+            <span class="step-node__label">Workplace</span>
+          </button>
+
+          <button type="button" class="step-node" id="stepNode-4" onclick="goToStep(4)">
+            <div class="step-node__circle">4</div>
+            <span class="step-node__label">Experience</span>
+          </button>
+
+          <button type="button" class="step-node" id="stepNode-5" onclick="goToStep(5)">
+            <div class="step-node__circle">5</div>
+            <span class="step-node__label">Participation</span>
+          </button>
+
+          <button type="button" class="step-node" id="stepNode-6" onclick="goToStep(6)">
+            <div class="step-node__circle">6</div>
+            <span class="step-node__label">Final & Consent</span>
+          </button>
+        </div>
+
+        <!-- Form Card Container -->
+        <div class="form-card" id="formCard">
+          <form id="contributorForm" novalidate onsubmit="handleSubmit(event)">
+
+            <!-- ========================================== -->
+            <!-- SECTION 1 — ABOUT YOU                      -->
+            <!-- ========================================== -->
+            <div class="form-step active" id="step-1" data-step="1">
+              <div class="form-section-head">
+                <span class="form-section-tag">Step 1 of 6</span>
+                <h2 class="form-section-title">SECTION 1 — About You</h2>
+                <p class="form-section-desc">Please share your personal contact details so our coordinator can reach you.</p>
+              </div>
+
+              <!-- 1. Full Name -->
+              <div class="form-group" id="grp-full_name">
+                <label for="full_name">1. Full Name <span class="req">*</span></label>
+                <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Enter your full name" required autocomplete="name">
+                <span class="form-error-msg">Please enter your full name.</span>
+              </div>
+
+              <div class="form-grid">
+                <!-- 2. Mobile Number -->
+                <div class="form-group" id="grp-mobile_number">
+                  <label for="mobile_number">2. Mobile Number <span class="req">*</span></label>
+                  <input type="tel" id="mobile_number" name="mobile_number" class="form-control" placeholder="e.g. 9876543210 or +91 98765 43210" required autocomplete="tel" oninput="handleMobileInput(this)">
+                  <span class="form-hint">Primary calling number.</span>
+                  <span class="form-error-msg">Please enter a valid mobile number.</span>
+                </div>
+
+                <!-- 3. WhatsApp Number -->
+                <div class="form-group" id="grp-whatsapp_number">
+                  <label for="whatsapp_number">3. WhatsApp Number <span class="opt">(Optional)</span></label>
+                  <input type="tel" id="whatsapp_number" name="whatsapp_number" class="form-control" placeholder="WhatsApp number" autocomplete="tel">
+                  <!-- 4. Same as mobile checkbox -->
+                  <label class="check-box-wrapper" style="margin-top: 0.6rem;">
+                    <input type="checkbox" id="same_as_mobile" onchange="toggleSameAsMobile(this)">
+                    <span>Same as mobile number</span>
+                  </label>
+                  <span class="form-error-msg">Please enter a valid WhatsApp number.</span>
+                </div>
+              </div>
+
+              <!-- 5. Are you 18 years or older? -->
+              <div class="form-group" id="grp-is_18_or_older">
+                <label>5. Are you 18 years or older? <span class="req">*</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="age_yes" name="is_18_or_older" value="Yes" onchange="handleAgeCheck(this)">
+                    <label for="age_yes">Yes (18 or older)</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="age_no" name="is_18_or_older" value="No" onchange="handleAgeCheck(this)">
+                    <label for="age_no">No (Under 18)</label>
+                  </div>
+                </div>
+                <div id="ageAlert" class="form-alert form-alert--warning" style="margin-top: 0.75rem; display: none;">
+                  <strong>Eligibility Notice:</strong> Contributor participation requires you to be at least 18 years of age. You will be unable to proceed with this application.
+                </div>
+                <span class="form-error-msg">Please indicate whether you are 18 years or older.</span>
+              </div>
+
+              <!-- 6. Area -->
+              <div class="form-group" id="grp-area">
+                <label for="area">6. Which area do you live / work in? <span class="req">*</span></label>
+                <input type="text" id="area" name="area" class="form-control" placeholder="e.g. Whitefield, Peenya Industrial Area, Andheri East, etc." required>
+                <span class="form-hint">Neighborhood, locality, or industrial cluster.</span>
+                <span class="form-error-msg">Please specify your local area or neighborhood.</span>
+              </div>
+
+              <div class="form-actions" style="justify-content: flex-end;">
+                <button type="button" class="btn btn--accent btn--lg" onclick="validateAndNext(1)">
+                  <span>Continue to Your Work →</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- SECTION 2 — YOUR WORK                      -->
+            <!-- ========================================== -->
+            <div class="form-step" id="step-2" data-step="2">
+              <div class="form-section-head">
+                <span class="form-section-tag">Step 2 of 6</span>
+                <h2 class="form-section-title">SECTION 2 — Your Work</h2>
+                <p class="form-section-desc">Tell us about your industry, practical craft, and day-to-day work environment.</p>
+              </div>
+
+              <!-- 7. What type of work do you do? -->
+              <div class="form-group" id="grp-work_type">
+                <label for="work_type">7. What type of work do you do? <span class="req">*</span></label>
+                <select id="work_type" name="work_type" class="form-control" required onchange="handleWorkTypeChange(this)">
+                  <option value="" disabled selected>— Select your trade or industry —</option>
+                  <option value="Factory / Manufacturing">Factory / Manufacturing</option>
+                  <option value="Auto Repair">Auto Repair</option>
+                  <option value="Metal Work / Fabrication">Metal Work / Fabrication</option>
+                  <option value="Sewing / Garment Work">Sewing / Garment Work</option>
+                  <option value="Kitchen / Restaurant">Kitchen / Restaurant</option>
+                  <option value="Bakery">Bakery</option>
+                  <option value="Warehouse / Logistics">Warehouse / Logistics</option>
+                  <option value="Construction">Construction</option>
+                  <option value="Farm / Agriculture">Farm / Agriculture</option>
+                  <option value="Cattle / Dairy">Cattle / Dairy</option>
+                  <option value="Beauty / Nail Salon">Beauty / Nail Salon</option>
+                  <option value="Electronics / Computer Repair">Electronics / Computer Repair</option>
+                  <option value="Woodworking">Woodworking</option>
+                  <option value="Pharmacy">Pharmacy</option>
+                  <option value="Retail / Store">Retail / Store</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="form-error-msg">Please select your primary type of work.</span>
+              </div>
+
+              <!-- 7b. Conditional Other Field -->
+              <div class="form-group" id="grp-work_type_other" style="display: none;">
+                <label for="work_type_other">Specify your work type <span class="req">*</span></label>
+                <input type="text" id="work_type_other" name="work_type_other" class="form-control" placeholder="Describe your industry or trade">
+                <span class="form-error-msg">Please specify your work type.</span>
+              </div>
+
+              <!-- 8. Job / Work Role -->
+              <div class="form-group" id="grp-job_role">
+                <label for="job_role">8. What is your job/work role? <span class="req">*</span></label>
+                <input type="text" id="job_role" name="job_role" class="form-control" placeholder="e.g. Welder, Mechanic, Tailor, Chef, Farm worker, Nail artist, Warehouse worker" required>
+                <span class="form-hint">Examples: Welder, Mechanic, Tailor, Chef, Farm worker, Nail artist, Warehouse worker</span>
+                <span class="form-error-msg">Please enter your job or work role.</span>
+              </div>
+
+              <!-- 9. Where do you normally do this work? -->
+              <div class="form-group" id="grp-work_location">
+                <label>9. Where do you normally do this work? <span class="req">*</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="loc_own" name="work_location" value="My own business" onchange="handleLocationChange(this)">
+                    <label for="loc_own">My own business</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="loc_family" name="work_location" value="Family business" onchange="handleLocationChange(this)">
+                    <label for="loc_family">Family business</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="loc_employer" name="work_location" value="Employer's workplace" onchange="handleLocationChange(this)">
+                    <label for="loc_employer">Employer's workplace</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="loc_farm" name="work_location" value="Farm" onchange="handleLocationChange(this)">
+                    <label for="loc_farm">Farm</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="loc_workshop" name="work_location" value="Workshop" onchange="handleLocationChange(this)">
+                    <label for="loc_workshop">Workshop</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="loc_factory" name="work_location" value="Factory" onchange="handleLocationChange(this)">
+                    <label for="loc_factory">Factory</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="loc_home" name="work_location" value="Home" onchange="handleLocationChange(this)">
+                    <label for="loc_home">Home</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="loc_other" name="work_location" value="Other" onchange="handleLocationChange(this)">
+                    <label for="loc_other">Other</label>
+                  </div>
+                </div>
+                <span class="form-error-msg">Please select where you normally do this work.</span>
+              </div>
+
+              <!-- 9b. Conditional Other Location -->
+              <div class="form-group" id="grp-work_location_other" style="display: none;">
+                <label for="work_location_other">Specify your work setting <span class="req">*</span></label>
+                <input type="text" id="work_location_other" name="work_location_other" class="form-control" placeholder="Describe the physical location">
+                <span class="form-error-msg">Please specify your work location.</span>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost" onclick="goToStep(1)">
+                  <span>← Back</span>
+                </button>
+                <button type="button" class="btn btn--accent btn--lg" onclick="validateAndNext(2)">
+                  <span>Continue to Workplace →</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- SECTION 3 — YOUR WORKPLACE                 -->
+            <!-- ========================================== -->
+            <div class="form-step" id="step-3" data-step="3">
+              <div class="form-section-head">
+                <span class="form-section-tag">Step 3 of 6</span>
+                <h2 class="form-section-title">SECTION 3 — Your Workplace</h2>
+                <p class="form-section-desc">Details about the site where recording would take place.</p>
+              </div>
+
+              <!-- 10. Workplace Name -->
+              <div class="form-group" id="grp-workplace_name">
+                <label for="workplace_name">10. Name of your workplace / business <span class="opt">(Optional)</span></label>
+                <input type="text" id="workplace_name" name="workplace_name" class="form-control" placeholder="e.g. Apex Engineering Works or leave blank">
+              </div>
+
+              <!-- 11. City -->
+              <div class="form-group" id="grp-city">
+                <label for="city">11. City <span class="req">*</span></label>
+                <input type="text" id="city" name="city" class="form-control" placeholder="e.g. Bengaluru, Pune, Chennai, Mumbai, Hyderabad, etc." required>
+                <span class="form-error-msg">Please enter your city.</span>
+              </div>
+
+              <!-- 12. Does owner/manager know -->
+              <div class="form-group" id="grp-owner_aware">
+                <label>12. Does the owner / manager know that you are interested in this opportunity? <span class="req">*</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="owner_yes" name="owner_aware" value="Yes">
+                    <label for="owner_yes">Yes</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="owner_no" name="owner_aware" value="No">
+                    <label for="owner_no">No</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="owner_self" name="owner_aware" value="I am the owner">
+                    <label for="owner_self">I am the owner</label>
+                  </div>
+                </div>
+                <span class="form-error-msg">Please answer this question.</span>
+              </div>
+
+              <!-- 13. Help get permission -->
+              <div class="form-group" id="grp-can_get_permission">
+                <label>13. Can you help us get permission to record at the workplace? <span class="req">*</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="perm_yes" name="can_get_permission" value="Yes">
+                    <label for="perm_yes">Yes</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="perm_no" name="can_get_permission" value="No">
+                    <label for="perm_no">No</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="perm_unsure" name="can_get_permission" value="Not sure">
+                    <label for="perm_unsure">Not sure</label>
+                  </div>
+                </div>
+                <span class="form-error-msg">Please indicate if you can help obtain workplace recording permission.</span>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost" onclick="goToStep(2)">
+                  <span>← Back</span>
+                </button>
+                <button type="button" class="btn btn--accent btn--lg" onclick="validateAndNext(3)">
+                  <span>Continue to Experience →</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- SECTION 4 — YOUR WORK (EXPERIENCE)         -->
+            <!-- ========================================== -->
+            <div class="form-step" id="step-4" data-step="4">
+              <div class="form-section-head">
+                <span class="form-section-tag">Step 4 of 6</span>
+                <h2 class="form-section-title">SECTION 4 — Your Work & Experience</h2>
+                <p class="form-section-desc">Describe your daily physical tasks and experience level.</p>
+              </div>
+
+              <!-- 14. What work do you normally do? -->
+              <div class="form-group" id="grp-work_description">
+                <label for="work_description">14. What work do you normally do? <span class="opt">(Optional)</span></label>
+                <textarea id="work_description" name="work_description" class="form-control" rows="3" placeholder="Example: I repair cars, I stitch garments, I work in a kitchen, I work with cattle, I weld metal parts."></textarea>
+                <span class="form-hint">Briefly explain what tools, machines, or materials you handle.</span>
+              </div>
+
+              <!-- 15. How long doing this work? -->
+              <div class="form-group" id="grp-experience_duration">
+                <label>15. How long have you been doing this work? <span class="opt">(Optional)</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="exp_lt6m" name="experience_duration" value="Less than 6 months">
+                    <label for="exp_lt6m">Less than 6 months</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="exp_6m1y" name="experience_duration" value="6 months – 1 year">
+                    <label for="exp_6m1y">6 months – 1 year</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="exp_13y" name="experience_duration" value="1–3 years">
+                    <label for="exp_13y">1–3 years</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="exp_35y" name="experience_duration" value="3–5 years">
+                    <label for="exp_35y">3–5 years</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="exp_gt5y" name="experience_duration" value="5+ years">
+                    <label for="exp_gt5y">5+ years</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 16. How often do you do this work? -->
+              <div class="form-group" id="grp-work_frequency">
+                <label>16. How often do you do this work? <span class="opt">(Optional)</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="freq_daily" name="work_frequency" value="Every day">
+                    <label for="freq_daily">Every day</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="freq_several" name="work_frequency" value="Several days a week">
+                    <label for="freq_several">Several days a week</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="freq_few" name="work_frequency" value="A few times a month">
+                    <label for="freq_few">A few times a month</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="freq_occ" name="work_frequency" value="Occasionally">
+                    <label for="freq_occ">Occasionally</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost" onclick="goToStep(3)">
+                  <span>← Back</span>
+                </button>
+                <button type="button" class="btn btn--accent btn--lg" onclick="validateAndNext(4)">
+                  <span>Continue to Participation →</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- SECTION 5 — PARTICIPATION                  -->
+            <!-- ========================================== -->
+            <div class="form-step" id="step-5" data-step="5">
+              <div class="form-section-head">
+                <span class="form-section-tag">Step 5 of 6</span>
+                <h2 class="form-section-title">SECTION 5 — Participation</h2>
+                <p class="form-section-desc">Your availability and interest in participating in recording sessions.</p>
+              </div>
+
+              <!-- 17. Interested in recording -->
+              <div class="form-group" id="grp-interested_in_recording">
+                <label>17. Would you be interested in recording your normal work for an AI/robotics data project? <span class="req">*</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="rec_yes" name="interested_in_recording" value="Yes">
+                    <label for="rec_yes">Yes</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="rec_maybe" name="interested_in_recording" value="Maybe">
+                    <label for="rec_maybe">Maybe</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="rec_no" name="interested_in_recording" value="No">
+                    <label for="rec_no">No</label>
+                  </div>
+                </div>
+                <span class="form-error-msg">Please select an option.</span>
+              </div>
+
+              <!-- 18. When start -->
+              <div class="form-group" id="grp-start_timeline">
+                <label>18. When could you start? <span class="opt">(Optional)</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="start_imm" name="start_timeline" value="Immediately">
+                    <label for="start_imm">Immediately</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="start_7d" name="start_timeline" value="Within 7 days">
+                    <label for="start_7d">Within 7 days</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="start_15d" name="start_timeline" value="Within 15 days">
+                    <label for="start_15d">Within 15 days</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="start_30d" name="start_timeline" value="Within 30 days">
+                    <label for="start_30d">Within 30 days</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 19. Hours per day -->
+              <div class="form-group" id="grp-daily_hours">
+                <label>19. How many hours can you normally participate in a day? <span class="opt">(Optional)</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="hrs_12" name="daily_hours" value="1–2 hours">
+                    <label for="hrs_12">1–2 hours</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="hrs_24" name="daily_hours" value="2–4 hours">
+                    <label for="hrs_24">2–4 hours</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="hrs_45" name="daily_hours" value="4–5 hours">
+                    <label for="hrs_45">4–5 hours</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="hrs_5p" name="daily_hours" value="5+ hours">
+                    <label for="hrs_5p">5+ hours</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 20. Guidelines & Safety -->
+              <div class="form-group" id="grp-comfortable_with_guidelines">
+                <label>20. Are you comfortable following recording instructions and safety guidelines? <span class="req">*</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="guide_yes" name="comfortable_with_guidelines" value="Yes">
+                    <label for="guide_yes">Yes</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="guide_no" name="comfortable_with_guidelines" value="No">
+                    <label for="guide_no">No</label>
+                  </div>
+                </div>
+                <span class="form-error-msg">Please answer whether you are comfortable with guidelines.</span>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost" onclick="goToStep(4)">
+                  <span>← Back</span>
+                </button>
+                <button type="button" class="btn btn--accent btn--lg" onclick="validateAndNext(5)">
+                  <span>Continue to Final Step →</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- SECTION 6 — FINAL & CONSENT                -->
+            <!-- ========================================== -->
+            <div class="form-step" id="step-6" data-step="6">
+              <div class="form-section-head">
+                <span class="form-section-tag">Step 6 of 6</span>
+                <h2 class="form-section-title">SECTION 6 — Final & Consent</h2>
+                <p class="form-section-desc">Review your communication preference and confirm required program consents.</p>
+              </div>
+
+              <!-- 21. Best way to contact you -->
+              <div class="form-group" id="grp-preferred_contact_method">
+                <label>21. What is the best way to contact you? <span class="opt">(Optional)</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="contact_wa" name="preferred_contact_method" value="WhatsApp">
+                    <label for="contact_wa">WhatsApp</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="contact_call" name="preferred_contact_method" value="Phone Call">
+                    <label for="contact_call">Phone Call</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 22. How hear about opportunity -->
+              <div class="form-group" id="grp-how_heard">
+                <label>22. How did you hear about this opportunity? <span class="opt">(Optional)</span></label>
+                <div class="radio-pill-group">
+                  <div class="radio-pill">
+                    <input type="radio" id="hear_ig" name="how_heard" value="Instagram" onchange="handleHowHeardChange(this)">
+                    <label for="hear_ig">Instagram</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="hear_fb" name="how_heard" value="Facebook" onchange="handleHowHeardChange(this)">
+                    <label for="hear_fb">Facebook</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="hear_li" name="how_heard" value="LinkedIn" onchange="handleHowHeardChange(this)">
+                    <label for="hear_li">LinkedIn</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="hear_wa" name="how_heard" value="WhatsApp" onchange="handleHowHeardChange(this)">
+                    <label for="hear_wa">WhatsApp</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="hear_friend" name="how_heard" value="Friend/Referral" onchange="handleHowHeardChange(this)">
+                    <label for="hear_friend">Friend / Referral</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="hear_other" name="how_heard" value="Other" onchange="handleHowHeardChange(this)">
+                    <label for="hear_other">Other</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 23. If other, specify -->
+              <div class="form-group" id="grp-how_heard_other" style="display: none;">
+                <label for="how_heard_other">Specify how you heard about us</label>
+                <input type="text" id="how_heard_other" name="how_heard_other" class="form-control" placeholder="Tell us where you saw this">
+              </div>
+
+              <div style="margin: 2rem 0 1rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem;">
+                <h3 style="font-family: var(--font-display); font-size: 1rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.25rem;">
+                  Mandatory Program Declarations & Consents
+                </h3>
+
+                <!-- 24. Information correct -->
+                <div class="consent-card" id="grp-consent_accuracy" onclick="toggleConsent('consent_accuracy')">
+                  <input type="checkbox" id="consent_accuracy" name="consent_accuracy" required onclick="event.stopPropagation()">
+                  <label for="consent_accuracy">
+                    I confirm that the information provided by me is correct. <span class="req">*</span>
+                  </label>
+                </div>
+                <span class="form-error-msg" id="err-consent_accuracy" style="margin: -0.5rem 0 1rem 0.5rem;">You must confirm that your information is correct.</span>
+
+                <!-- 25. Contact consent -->
+                <div class="consent-card" id="grp-consent_contact" onclick="toggleConsent('consent_contact')">
+                  <input type="checkbox" id="consent_contact" name="consent_contact" required onclick="event.stopPropagation()">
+                  <label for="consent_contact">
+                    I agree that SZ Ventures may contact me regarding AI/robotics contributor opportunities. <span class="req">*</span>
+                  </label>
+                </div>
+                <span class="form-error-msg" id="err-consent_contact" style="margin: -0.5rem 0 1rem 0.5rem;">You must agree to contact regarding contributor opportunities.</span>
+
+                <!-- 26. Recording & privacy consent -->
+                <div class="consent-card" id="grp-consent_recording_privacy" onclick="toggleConsent('consent_recording_privacy')">
+                  <input type="checkbox" id="consent_recording_privacy" name="consent_recording_privacy" required onclick="event.stopPropagation()">
+                  <label for="consent_recording_privacy">
+                    I understand that participation in recording activities is subject to workplace permission, applicable safety requirements, and the project-specific consent process. I understand that submitting this form does not guarantee selection or payment. <span class="req">*</span>
+                  </label>
+                </div>
+                <span class="form-error-msg" id="err-consent_recording_privacy" style="margin: -0.5rem 0 1rem 0.5rem;">You must agree to the recording and privacy terms.</span>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost" onclick="goToStep(5)">
+                  <span>← Back</span>
+                </button>
+                <button type="submit" id="submitBtn" class="btn btn--accent btn--lg">
+                  <span>Submit Contributor Application →</span>
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SUCCESS / CONFIRMATION SCREEN              -->
+        <!-- ========================================== -->
+        <div class="success-card" id="successScreen" role="region" aria-label="Application Submitted Successfully">
+          <div class="success-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="36" height="36">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+
+          <h2 class="success-title">Application Received</h2>
+          <p style="color: rgba(255,255,255,0.85); max-width: 54ch; margin: 0 auto; line-height: 1.6; font-size: 1.05rem;">
+            Thank you for your interest in the SZ Ventures AI & Robotics Contributor Program. Our team will contact shortlisted contributors.
+          </p>
+
+          <div class="app-id-banner">
+            <span class="app-id-banner__label">Application Reference ID</span>
+            <span class="app-id-banner__value" id="displayAppId">SZ-AIROBOT-XXXXXX</span>
+            <span style="font-size: 0.75rem; color: #4ade80; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+              ● STATUS: SUBMITTED
+            </span>
+          </div>
+
+          <div style="max-width: 500px; margin: 0 auto 2.5rem; text-align: left; background: rgba(255,255,255,0.02); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.08);">
+            <strong style="color: #fff; font-size: 0.88rem; display: block; margin-bottom: 0.35rem;">What Happens Next:</strong>
+            <p style="font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0;">
+              Our AI data operations coordinators review trade specialties, locations, and workplace permissions. When a recording session aligns with your craft and area, you will receive a direct WhatsApp message or phone call with session details and compensation specifics.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="/ventures/ai-robotics-data" class="btn btn--accent">
+              <span>← Back to AI & Robotics Data</span>
+            </a>
+            <a href="/" class="btn btn--ghost">
+              <span>Return to SZ Ventures Home</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-v2">
+    <div class="container">
+      <div class="footer-v2__bottom" style="border: none; padding: 0;">
+        <div>© SZ Ventures Private Limited. <a href="/operations" style="color: var(--gold); margin-left: 1rem;">Operations Overview</a></div>
+        <div class="footer-v2__legal"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/contact">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/libs.bundle.js" defer></script>
+  <script src="/main.js" defer></script>
+
+  <script>
+    // State management
+    let currentStep = 1;
+    const totalSteps = 6;
+    let isAgeEligible = true;
+
+    // Form inputs cache to preserve state
+    const formValues = {};
+
+    function updateStepUI() {
+      // Step cards
+      for (let i = 1; i <= totalSteps; i++) {
+        const stepEl = document.getElementById('step-' + i);
+        const nodeEl = document.getElementById('stepNode-' + i);
+        if (stepEl) {
+          stepEl.classList.toggle('active', i === currentStep);
+        }
+        if (nodeEl) {
+          nodeEl.classList.toggle('active', i === currentStep);
+          nodeEl.classList.toggle('completed', i < currentStep);
+        }
+      }
+      // Progress bar
+      const progressPercent = ((currentStep - 1) / (totalSteps - 1)) * 100;
+      const progressEl = document.getElementById('stepProgress');
+      if (progressEl) {
+        progressEl.style.width = progressPercent + '%';
+      }
+      // Scroll to top of card smoothly
+      const topTarget = document.getElementById('stepIndicator');
+      if (topTarget) {
+        topTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function goToStep(step) {
+      if (step < currentStep) {
+        currentStep = step;
+        updateStepUI();
+      } else if (step > currentStep) {
+        if (validateStep(currentStep)) {
+          currentStep = step;
+          updateStepUI();
+        }
+      }
+    }
+
+    function validateAndNext(step) {
+      if (validateStep(step)) {
+        currentStep = step + 1;
+        updateStepUI();
+      }
+    }
+
+    function clearErrors() {
+      document.querySelectorAll('.form-group.has-error').forEach(el => el.classList.remove('has-error'));
+      const alert = document.getElementById('formAlert');
+      if (alert) {
+        alert.className = 'form-alert';
+        alert.style.display = 'none';
+        alert.textContent = '';
+      }
+    }
+
+    function showError(fieldId, msg) {
+      const grp = document.getElementById('grp-' + fieldId);
+      if (grp) {
+        grp.classList.add('has-error');
+        const errSpan = grp.querySelector('.form-error-msg');
+        if (errSpan && msg) {
+          errSpan.textContent = msg;
+        }
+      }
+    }
+
+    function handleMobileInput(input) {
+      const sameCheckbox = document.getElementById('same_as_mobile');
+      if (sameCheckbox && sameCheckbox.checked) {
+        const waInput = document.getElementById('whatsapp_number');
+        if (waInput) waInput.value = input.value;
+      }
+    }
+
+    function toggleSameAsMobile(checkbox) {
+      const mob = document.getElementById('mobile_number');
+      const wa = document.getElementById('whatsapp_number');
+      if (checkbox.checked && mob && wa) {
+        wa.value = mob.value;
+      }
+    }
+
+    function handleAgeCheck(radio) {
+      const ageAlert = document.getElementById('ageAlert');
+      if (radio.value === 'No') {
+        isAgeEligible = false;
+        if (ageAlert) ageAlert.style.display = 'block';
+      } else {
+        isAgeEligible = true;
+        if (ageAlert) ageAlert.style.display = 'none';
+      }
+    }
+
+    function handleWorkTypeChange(select) {
+      const otherGrp = document.getElementById('grp-work_type_other');
+      if (otherGrp) {
+        otherGrp.style.display = (select.value === 'Other') ? 'block' : 'none';
+      }
+    }
+
+    function handleLocationChange(radio) {
+      const otherGrp = document.getElementById('grp-work_location_other');
+      if (otherGrp) {
+        otherGrp.style.display = (radio.value === 'Other') ? 'block' : 'none';
+      }
+    }
+
+    function handleHowHeardChange(radio) {
+      const otherGrp = document.getElementById('grp-how_heard_other');
+      if (otherGrp) {
+        otherGrp.style.display = (radio.value === 'Other') ? 'block' : 'none';
+      }
+    }
+
+    function toggleConsent(id) {
+      const cb = document.getElementById(id);
+      if (cb) {
+        cb.checked = !cb.checked;
+      }
+    }
+
+    function validateStep(step) {
+      clearErrors();
+      let isValid = true;
+
+      if (step === 1) {
+        const name = document.getElementById('full_name').value.trim();
+        if (!name) {
+          showError('full_name', 'Full name is required.');
+          isValid = false;
+        }
+
+        const mob = document.getElementById('mobile_number').value.trim();
+        const digits = mob.replace(/\D/g, '');
+        if (!mob || digits.length < 8) {
+          showError('mobile_number', 'Please enter a valid phone number (minimum 8 digits).');
+          isValid = false;
+        }
+
+        const ageSelected = document.querySelector('input[name="is_18_or_older"]:checked');
+        if (!ageSelected) {
+          showError('is_18_or_older', 'Please indicate whether you are 18 years or older.');
+          isValid = false;
+        } else if (ageSelected.value === 'No') {
+          const ageAlert = document.getElementById('ageAlert');
+          if (ageAlert) ageAlert.style.display = 'block';
+          showError('is_18_or_older', 'Applicants must be 18 years or older to participate.');
+          isValid = false;
+        }
+
+        const area = document.getElementById('area').value.trim();
+        if (!area) {
+          showError('area', 'Please specify the area where you live or work.');
+          isValid = false;
+        }
+      }
+
+      if (step === 2) {
+        const wt = document.getElementById('work_type').value;
+        if (!wt) {
+          showError('work_type', 'Please select your work type.');
+          isValid = false;
+        } else if (wt === 'Other') {
+          const wtOther = document.getElementById('work_type_other').value.trim();
+          if (!wtOther) {
+            showError('work_type_other', 'Please specify your work type.');
+            isValid = false;
+          }
+        }
+
+        const role = document.getElementById('job_role').value.trim();
+        if (!role) {
+          showError('job_role', 'Please enter your job role.');
+          isValid = false;
+        }
+
+        const loc = document.querySelector('input[name="work_location"]:checked');
+        if (!loc) {
+          showError('work_location', 'Please select where you normally do this work.');
+          isValid = false;
+        } else if (loc.value === 'Other') {
+          const locOther = document.getElementById('work_location_other').value.trim();
+          if (!locOther) {
+            showError('work_location_other', 'Please specify the location.');
+            isValid = false;
+          }
+        }
+      }
+
+      if (step === 3) {
+        const city = document.getElementById('city').value.trim();
+        if (!city) {
+          showError('city', 'City is required.');
+          isValid = false;
+        }
+
+        const ownerAware = document.querySelector('input[name="owner_aware"]:checked');
+        if (!ownerAware) {
+          showError('owner_aware', 'Please answer this question.');
+          isValid = false;
+        }
+
+        const perm = document.querySelector('input[name="can_get_permission"]:checked');
+        if (!perm) {
+          showError('can_get_permission', 'Please answer this question.');
+          isValid = false;
+        }
+      }
+
+      if (step === 5) {
+        const intRec = document.querySelector('input[name="interested_in_recording"]:checked');
+        if (!intRec) {
+          showError('interested_in_recording', 'Please indicate your interest level.');
+          isValid = false;
+        }
+
+        const guide = document.querySelector('input[name="comfortable_with_guidelines"]:checked');
+        if (!guide) {
+          showError('comfortable_with_guidelines', 'Please select Yes or No.');
+          isValid = false;
+        }
+      }
+
+      if (step === 6) {
+        const c1 = document.getElementById('consent_accuracy');
+        const err1 = document.getElementById('err-consent_accuracy');
+        if (!c1.checked) {
+          err1.style.display = 'block';
+          isValid = false;
+        } else {
+          err1.style.display = 'none';
+        }
+
+        const c2 = document.getElementById('consent_contact');
+        const err2 = document.getElementById('err-consent_contact');
+        if (!c2.checked) {
+          err2.style.display = 'block';
+          isValid = false;
+        } else {
+          err2.style.display = 'none';
+        }
+
+        const c3 = document.getElementById('consent_recording_privacy');
+        const err3 = document.getElementById('err-consent_recording_privacy');
+        if (!c3.checked) {
+          err3.style.display = 'block';
+          isValid = false;
+        } else {
+          err3.style.display = 'none';
+        }
+      }
+
+      return isValid;
+    }
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      if (!validateStep(6)) return;
+
+      const submitBtn = document.getElementById('submitBtn');
+      const alertBox = document.getElementById('formAlert');
+
+      // Double-check age eligibility
+      const ageVal = document.querySelector('input[name="is_18_or_older"]:checked');
+      if (ageVal && ageVal.value === 'No') {
+        alertBox.className = 'form-alert form-alert--warning';
+        alertBox.textContent = 'Eligibility Restriction: Applicants must be 18 years or older to participate as a contributor.';
+        alertBox.style.display = 'block';
+        return;
+      }
+
+      // Collect payload
+      const payload = {
+        source: 'ai_robotics_contributor',
+        full_name: document.getElementById('full_name').value.trim(),
+        mobile_number: document.getElementById('mobile_number').value.trim(),
+        whatsapp_number: document.getElementById('whatsapp_number').value.trim(),
+        same_as_mobile: document.getElementById('same_as_mobile').checked,
+        is_18_or_older: ageVal ? ageVal.value : '',
+        area: document.getElementById('area').value.trim(),
+        work_type: document.getElementById('work_type').value,
+        work_type_other: document.getElementById('work_type_other').value.trim(),
+        job_role: document.getElementById('job_role').value.trim(),
+        work_location: (document.querySelector('input[name="work_location"]:checked') || {}).value || '',
+        work_location_other: document.getElementById('work_location_other').value.trim(),
+        workplace_name: document.getElementById('workplace_name').value.trim(),
+        city: document.getElementById('city').value.trim(),
+        owner_aware: (document.querySelector('input[name="owner_aware"]:checked') || {}).value || '',
+        can_get_permission: (document.querySelector('input[name="can_get_permission"]:checked') || {}).value || '',
+        work_description: document.getElementById('work_description').value.trim(),
+        experience_duration: (document.querySelector('input[name="experience_duration"]:checked') || {}).value || '',
+        work_frequency: (document.querySelector('input[name="work_frequency"]:checked') || {}).value || '',
+        interested_in_recording: (document.querySelector('input[name="interested_in_recording"]:checked') || {}).value || '',
+        start_timeline: (document.querySelector('input[name="start_timeline"]:checked') || {}).value || '',
+        daily_hours: (document.querySelector('input[name="daily_hours"]:checked') || {}).value || '',
+        comfortable_with_guidelines: (document.querySelector('input[name="comfortable_with_guidelines"]:checked') || {}).value || '',
+        preferred_contact_method: (document.querySelector('input[name="preferred_contact_method"]:checked') || {}).value || '',
+        how_heard: (document.querySelector('input[name="how_heard"]:checked') || {}).value || '',
+        how_heard_other: document.getElementById('how_heard_other').value.trim(),
+        consent_accuracy: document.getElementById('consent_accuracy').checked,
+        consent_contact: document.getElementById('consent_contact').checked,
+        consent_recording_privacy: document.getElementById('consent_recording_privacy').checked
+      };
+
+      // Generate idempotency key
+      let idemKey = sessionStorage.getItem('sz_contributor_idem_key');
+      if (!idemKey) {
+        idemKey = 'contributor_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+        sessionStorage.setItem('sz_contributor_idem_key', idemKey);
+      }
+
+      // Disable button
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Submitting Application...</span>';
+      alertBox.style.display = 'none';
+
+      try {
+        const response = await fetch('/api/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Idempotency-Key': idemKey
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.status === 'success') {
+          sessionStorage.removeItem('sz_contributor_idem_key');
+          document.getElementById('formCard').style.display = 'none';
+          document.getElementById('stepIndicator').style.display = 'none';
+          document.getElementById('displayAppId').textContent = result.id || result.application_id || 'SZ-AIROBOT-RECVD';
+          document.getElementById('successScreen').style.display = 'block';
+          document.getElementById('successScreen').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          alertBox.className = 'form-alert form-alert--error';
+          alertBox.textContent = result.message || 'An error occurred while submitting your application. Please check your details and try again.';
+          alertBox.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Submit Contributor Application →</span>';
+        }
+      } catch (err) {
+        alertBox.className = 'form-alert form-alert--error';
+        alertBox.textContent = 'Network or connection error. Please verify your connection and try again.';
+        alertBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Submit Contributor Application →</span>';
+      }
+    }
+  </script>
+</body>
+</html>

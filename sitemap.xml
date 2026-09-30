@@ -18,9 +18,11 @@
   <url><loc>https://szventures.com/creator-house/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://szventures.com/snapops/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
-  <!-- Operations Capabilities -->
+  <!-- Operations Capabilities & Onboarding -->
   <url><loc>https://szventures.com/operations/workforce-deployment</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://szventures.com/operations/rider-operations</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/operations/rider-registration</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/operations/contributor-onboarding</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://szventures.com/operations/bgv-verification</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://szventures.com/operations/field-gig-operations</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://szventures.com/operations/device-asset-recovery</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
