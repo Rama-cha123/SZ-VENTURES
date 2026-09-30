@@ -1,763 +1,380 @@
 <!DOCTYPE html>
-
-
-<html lang="en">
-
-
+<html lang="en" class="no-js">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+  <title>Contact — SZ Ventures | Let's Build Something That Works in the Real World</title>
+  <meta name="description" content="Start a conversation with SZ Ventures. Connect across Partnerships, Workforce & Field Operations, Venture Opportunities, Careers, or General Enquiries.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="canonical" href="https://szventures.com/contact">
 
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta name="twitter:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta property="og:title" content="Contact — SZ Ventures">
+  <meta property="og:description" content="Let's build something that works in the real world. Start a conversation with SZ Ventures.">
+  <meta property="og:url" content="https://szventures.com/contact">
+  <meta name="twitter:card" content="summary_large_image">
 
- <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
 
+  <!-- Project styles -->
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css?v=20260927">
+  <link rel="stylesheet" href="/assets/styles/libs.bundle.css">
+  <link rel="stylesheet" href="/assets/styles/ambient.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 
- <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-
-  <script>document.documentElement.classList.add("js")</script>
-
-
- <title>Partner With Us — SZ Ventures</title>
-
-
- <meta name="description" content="Start a conversation with SZ Ventures. Whether you're a founder, an operator, or an investor, the first move is the same — talk to us.">
-
-
- <meta name="theme-color" content="#0e0e10">
-
-
- <link rel="canonical" href="https://szventures.com/contact">
-
-
-
-
-
- <meta property="og:type" content="website">
-
-
- <meta property="og:title" content="Partner With Us — SZ Ventures">
-
-
- <meta property="og:description" content="Founders, operators, investors — start a conversation.">
-
-
- <meta property="og:url" content="https://szventures.com/contact">
-
-
- <meta property="og:image" content="assets/img/og-image.svg">
-
-
- <meta name="twitter:card" content="summary_large_image">
-
-
-
-
-
- <link rel="preconnect" href="https://fonts.googleapis.com">
-
-
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
- <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
-
-
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-
-
- <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"></noscript>
-
-
-
-
-
- <link rel="stylesheet" href="assets/styles/tokens.css">
-
-
- <link rel="stylesheet" href="assets/styles/base.css">
-
-
- <link rel="stylesheet" href="assets/styles/components.css">
-
-
- <link rel="stylesheet" href="assets/styles/layout.css">
-
-
- <link rel="stylesheet" href="assets/styles/libs.bundle.css">
-
-
- <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-
-
- <link rel="stylesheet" href="/assets/styles/ambient.css">
+  <style>
+    .pathway-selector-btn {
+      padding: 0.75rem 1.25rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+      transition: all 0.2s ease;
+    }
+    .pathway-selector-btn.active, .pathway-selector-btn:hover {
+      background: rgba(210, 169, 87, 0.15);
+      border-color: var(--gold);
+      color: #fff;
+    }
+  </style>
 </head>
+<body class="is-loading">
+  <canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+  <div class="sz-bokeh" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
-
-<body>
-<canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
-<div class="sz-bokeh" aria-hidden="true"></div>
-
-
-
- <a class="visually-hidden" href="#main">Skip to content</a>
-
-
-
-
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__mark">SZ Ventures</div>
+    <div class="preloader__count" id="preCount">0</div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
+  </div>
 
   <!-- Header Navigation -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
+        SZ Ventures
+      </a>
+      
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/ventures" class="nav__link">Ventures</a>
+        <a href="/operations" class="nav__link">Operations</a>
+        <a href="/how-we-build" class="nav__link">How We Build</a>
+        <a href="/about" class="nav__link">About</a>
+        <a href="/contact" class="nav__link nav__link--active">Contact</a>
+        <a href="/insights.html" class="nav__link">Insights</a>
+      </nav>
 
+      <div class="nav__right">
+        <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
+        <a href="/contact" class="btn btn--accent" data-magnetic data-cursor><span>Build With Us →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
- <header class="nav glass" id="nav">
-
-
-  <div class="nav__inner">
-
-
-   <a href="/index.html" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
-
-
-    <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
-
-
-    SZ Ventures
-
-
-   </a>
-
-
-   <nav class="nav__links" aria-label="Primary">
-
-
-    <a href="/industrial-technology.html" class="nav__link">Industries</a>
-
-
-    <a href="/ventures/" class="nav__link">Ventures</a>
-
-
-    <a href="/creator-house/" class="nav__link">Creator House</a>
-
-
-    <a href="/capabilities.html" class="nav__link">Capabilities</a>
-
-
-    <a href="/about/" class="nav__link">About</a>
-
-
-    <a href="/insights.html" class="nav__link">Insights</a>
-
-
-    <a href="/contact.html" class="nav__link">Contact</a>
-
-
-   </nav>
-
-
-   <div class="nav__right">
-
-
-    <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
-
-
-    <a href="/contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Let's Talk →</span></a>
-
-
-    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-
-
-     <span></span><span></span><span></span>
-
-
-    </button>
-
-
-   </div>
-
-
+  <!-- Mobile Drawer Menu -->
+  <div class="menu" id="menu">
+    <a href="/ventures" data-menu-link>Ventures <span>01</span></a>
+    <a href="/operations" data-menu-link>Operations <span>02</span></a>
+    <a href="/how-we-build" data-menu-link>How We Build <span>03</span></a>
+    <a href="/about" data-menu-link>About <span>04</span></a>
+    <a href="/contact" data-menu-link>Contact <span>05</span></a>
+    <a href="/insights.html" data-menu-link>Insights <span>06</span></a>
+    <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
+    <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
   </div>
 
-
- </header>
-
-
-
-
-
- 
-
-
-
-
-
- <div class="menu" id="menu">
-
-
- <a href="/industrial-technology.html" data-menu-link>Industries <span>01</span></a>
-
-
- <a href="/ventures/" data-menu-link>Ventures <span>02</span></a>
-
-
-  <a href="/creator-house/" data-menu-link>Creator House <span>★</span></a>
-
-
- <a href="/capabilities.html" data-menu-link>Capabilities <span>03</span></a>
-
-
- <a href="/about/" data-menu-link>About <span>04</span></a>
-
-
- <a href="/insights.html" data-menu-link>Insights <span>05</span></a>
-
-
- <a href="/contact.html" data-menu-link>Contact <span>06</span></a>
-
-
- <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
-
-
- <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
-
-
- </div>
-
-
- </div>
-
-
-
-
-
- <main id="swup" class="transition-fade">
-
-
-  <section class="page-hero" aria-labelledby="c-title">
-
-
-   <div class="container">
-
-
-    <span class="v-accent-bar" data-reveal style="--v-accent: var(--accent);">Partner With Us</span>
-
-
-    <h1 id="c-title" data-reveal>Let's build something that lasts.</h1>
-
-
-    <p class="lede" data-reveal data-delay="1">
-
-
-     Whatever your angle, the first move is the same: talk to us. Pick the path that fits you and
-
-
-     we'll point you to the right room.
-
-
-    </p>
-
-
-   </div>
-
-
-  </section>
-
-
-
-
-
-  <!-- Interest anchors -->
-
-
-  <section class="section section--tight" aria-label="Choose your path">
-
-
-   <div class="container">
-
-
-    <div class="interest-grid">
-
-
-     <article class="interest-card" id="founders" data-reveal>
-
-
-      <h3>For Founders</h3>
-
-
-      <p>An idea worth building, or a company ready to compound? We co-found, fund, and operate alongside you.</p>
-
-
-      <a href="#contact-form" class="vc-link">Tell us about it <svg class="interest-card__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-
-
-     </article>
-
-
-     <article class="interest-card" id="operators" data-reveal data-delay="1">
-
-
-      <h3>For Operators</h3>
-
-
-      <p>Early-stage operators and builders — join a studio where you own real outcomes across multiple companies.</p>
-
-
-      <a href="#contact-form" class="vc-link">Explore roles <svg class="interest-card__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-
-
-     </article>
-
-
-     <article class="interest-card" id="investors" data-reveal data-delay="2">
-
-
-      <h3>For Investors</h3>
-
-
-      <p>Capital partners seeking durable, conviction-led exposure to a diversified venture portfolio.</p>
-
-
-      <a href="#contact-form" class="vc-link">Talk to the team <svg class="interest-card__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-
-
-     </article>
-
-
-    </div>
-
-
-   </div>
-
-
-  </section>
-
-
-
-
-
-  <!-- Contact form -->
-
-
-  <section class="section" id="contact-form" aria-labelledby="form-title">
-
-
-   <div class="container">
-
-
-    <div class="contact-grid">
-
-
-     <div class="contact-info" data-reveal>
-
-
-      <span class="eyebrow">Get in touch</span>
-
-
-      <h2 id="form-title">Start a conversation.</h2>
-
-
-      <p>Tell us a little about you and what you're building. We read everything and respond within two business days.</p>
-
-
-      <div class="contact-detail">
-
-
-       <div class="cd-label">Email</div>
-
-
-       <a href="mailto:hello@szventures.com">hello@szventures.com</a>
-
-
+  <!-- Swup Main Container -->
+  <main id="swup" class="transition-fade">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
+      <div class="hero__inner container">
+        <div class="hero__meta" data-aos="fade"><span class="pill">START A CONVERSATION</span></div>
+        <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900" style="font-size: clamp(2.8rem, 5.5vw, 4.5rem); line-height: 1.1;">
+          <span class="line">LET'S BUILD SOMETHING</span>
+          <span class="line"><em class="serif-accent">THAT WORKS IN THE REAL WORLD.</em></span>
+        </h1>
+        <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+          Whether you represent an enterprise with real-world field requirements, an industrial partner, a founder, or talent looking to build — select your pathway below.
+        </p>
       </div>
-
-
-      <div class="contact-detail">
-
-
-       <div class="cd-label">Studio</div>
-
-
-       <a href="philosophy.html">Read our philosophy</a>
-
-
-      </div>
-
-
-     </div>
-
-
-
-
-
-     <form class="intake-form" data-reveal data-delay="1" id="contactForm">
-
-
-      <div>
-
-
-       <label for="name">Name</label>
-
-
-       <input id="name" name="name" type="text" autocomplete="name" required>
-
-
-      </div>
-
-
-      <div>
-
-
-       <label for="email">Email</label>
-
-
-       <input id="email" name="email" type="email" autocomplete="email" required>
-
-
-      </div>
-
-
-      <div>
-
-
-       <label for="interest">I'm a…</label>
-
-
-       <select id="interest" name="interest">
-
-
-        <option value="founder">Founder</option>
-
-
-        <option value="operator">Operator</option>
-
-
-        <option value="investor">Investor</option>
-
-
-        <option value="other">Something else</option>
-
-
-       </select>
-
-
-      </div>
-
-
-      <div class="form-group--full">
-
-
-       <label for="message">What are you building?</label>
-
-
-       <textarea id="message" name="message" required rows="4"></textarea>
-
-
-      </div>
-
-
-      <div class="form-group--full">
-
-
-       <button type="submit" class="btn btn-primary btn-block"><span>Send message</span></button>
-
-
-       <p class="form-note" style="margin-top: 1rem; font-size: var(--fs-300); color: var(--muted-2);">This form submits securely. We typically respond within 24 hours.</p>
-
-
-      </div>
-
-
-     </form>
-
-
-    </div>
-
-
-   </div>
-
-
-  </section>
-
-
- </main>
-
-
-
-
-
-  <footer class="footer" role="contentinfo">
-
-
-  <div class="container">
-
-
-   <div class="footer-grid">
-
-
-    <div class="footer-brand">
-
-
-     <a href="/index.html" class="footer-logo" aria-label="SZ Ventures home">
-
-
-      <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
-
-
-      <span>SZ Ventures</span>
-
-
-     </a>
-
-
-     <p class="footer-tagline">A venture studio building companies that matter.</p>
-
-
-     <div class="footer-social">
-
-
-      <a href="https://www.linkedin.com/company/szventures/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" fill="none"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" fill="currentColor"/></svg></a>
-
-
-      <a href="https://www.instagram.com/szventures" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" fill="none"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2" fill="none"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-
-
-      <a href="mailto:hello@szventures.com" class="social-link" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
-
-
-     </div>
-
-
-    </div>
-
-
-         <nav class="footer-nav" aria-label="Footer">
-        <div class="footer-nav-col">
-         <h4>Industries</h4>
-         <ul>
-          <li><a href="/industrial-technology.html">Industrial Technology</a></li>
-          <li><a href="/industrial-technology.html#ai-robotics-data">AI &amp; Robotics Data</a></li>
-          <li><a href="/industrial-technology.html#industrial-ai">Industrial AI</a></li>
-          <li><a href="/industrial-technology.html#manufacturing">Manufacturing</a></li>
-          <li><a href="/new-economy.html">New Economy</a></li>
-         </ul>
+    </section>
+
+    <!-- CONTACT PATHWAYS (SECTION 17) -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">CHOOSE YOUR PATHWAY</span>
+          <h2 data-aos="fade-up">ENGAGEMENT CHANNELS</h2>
         </div>
-        <div class="footer-nav-col">
-         <h4>Ventures</h4>
-         <ul>
-          <li><a href="/ventures/bowl-and-sip/index.html">Bowl &amp; Sip Co.</a></li>
-          <li><a href="/creator-house/">Creator House</a></li>
-          <li><a href="/snapops/">SnapOps</a></li>
-         </ul>
+
+        <div class="pathways-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          
+          <div class="pathway-card pathway-card--selectable" data-pathway="general" onclick="selectPathway('general')" style="cursor: pointer;">
+            <h3 class="pathway-card__title">General</h3>
+            <p class="pathway-card__desc">For general enquiries, studio questions, and media relations.</p>
+            <div class="pathway-card__action"><span>Select Pathway →</span></div>
+          </div>
+
+          <div class="pathway-card pathway-card--selectable" data-pathway="partnerships" onclick="selectPathway('partnerships')" style="cursor: pointer;">
+            <h3 class="pathway-card__title">Partnerships</h3>
+            <p class="pathway-card__desc">For strategic collaborations, platform alignments, and corporate ventures.</p>
+            <div class="pathway-card__action"><span>Select Pathway →</span></div>
+          </div>
+
+          <div class="pathway-card pathway-card--selectable" data-pathway="operations" onclick="selectPathway('operations')" style="cursor: pointer;">
+            <h3 class="pathway-card__title">Workforce & Operations</h3>
+            <p class="pathway-card__desc">For organisations with ground execution, verification, or rider needs.</p>
+            <div class="pathway-card__action"><span>Select Pathway →</span></div>
+          </div>
+
+          <div class="pathway-card pathway-card--selectable" data-pathway="ventures" onclick="selectPathway('ventures')" style="cursor: pointer;">
+            <h3 class="pathway-card__title">Venture Opportunities</h3>
+            <p class="pathway-card__desc">For founders, operators and opportunities aligned with SZ Ventures.</p>
+            <div class="pathway-card__action"><span>Select Pathway →</span></div>
+          </div>
+
+          <div class="pathway-card pathway-card--selectable" data-pathway="careers" onclick="selectPathway('careers')" style="cursor: pointer;">
+            <h3 class="pathway-card__title">Careers</h3>
+            <p class="pathway-card__desc">For people who want to build and operate with SZ Ventures.</p>
+            <div class="pathway-card__action"><span>Select Pathway →</span></div>
+          </div>
+
         </div>
-        <div class="footer-nav-col">
-         <h4>Company</h4>
-         <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/ventures/">Ventures</a></li>
-          <li><a href="/capabilities.html">Capabilities</a></li>
-          <li><a href="/insights.html">Insights</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-         </ul>
+      </div>
+    </section>
+
+    <!-- INTAKE FORM -->
+    <section class="section" id="form-section">
+      <div class="container" style="max-width: 860px;">
+        <div style="background: rgba(18, 18, 22, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 1.5rem; padding: clamp(2rem, 5vw, 3.5rem); backdrop-filter: blur(12px);">
+          
+          <div style="margin-bottom: 2rem;">
+            <span class="eyebrow" id="activePathwayBadge">PATHWAY: GENERAL</span>
+            <h2 style="font-family: var(--font-display); font-size: 1.8rem; color: #fff; margin-top: 0.5rem;">Start a Conversation</h2>
+            <p style="font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-top: 0.5rem;">
+              Fill in your details and project context. Our team reviews all submissions directly.
+            </p>
+          </div>
+
+          <!-- Alert Container -->
+          <div id="formAlert" style="display: none; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem; font-size: 0.95rem;"></div>
+
+          <form id="contactForm" onsubmit="handleFormSubmit(event)">
+            <input type="hidden" id="selectedPathway" name="pathway" value="general">
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+              <div>
+                <label for="fullName" style="display: block; font-family: var(--font-display); font-size: 0.85rem; color: #fff; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Full Name *</label>
+                <input type="text" id="fullName" name="full_name" required placeholder="Your full name" style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 0.5rem; color: #fff; font-size: 0.95rem; font-family: inherit;">
+              </div>
+
+              <div>
+                <label for="email" style="display: block; font-family: var(--font-display); font-size: 0.85rem; color: #fff; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Work Email *</label>
+                <input type="email" id="email" name="email" required placeholder="you@company.com" style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 0.5rem; color: #fff; font-size: 0.95rem; font-family: inherit;">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+              <div>
+                <label for="phone" style="display: block; font-family: var(--font-display); font-size: 0.85rem; color: #fff; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+91 ..." style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 0.5rem; color: #fff; font-size: 0.95rem; font-family: inherit;">
+              </div>
+
+              <div>
+                <label for="organization" style="display: block; font-family: var(--font-display); font-size: 0.85rem; color: #fff; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Company / Organization</label>
+                <input type="text" id="organization" name="organization" placeholder="Organization name" style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 0.5rem; color: #fff; font-size: 0.95rem; font-family: inherit;">
+              </div>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+              <label for="message" style="display: block; font-family: var(--font-display); font-size: 0.85rem; color: #fff; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Message / Opportunity Context *</label>
+              <textarea id="message" name="message" required rows="5" placeholder="Describe the opportunity, operational requirements, or question..." style="width: 100%; padding: 0.85rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 0.5rem; color: #fff; font-size: 0.95rem; font-family: inherit; resize: vertical;"></textarea>
+            </div>
+
+            <div>
+              <button type="submit" id="submitBtn" class="btn btn--accent btn--lg" style="width: 100%; justify-content: center;">
+                <span>Submit Conversation Request →</span>
+              </button>
+            </div>
+          </form>
+
         </div>
-       </nav>
-
-
-   </div>
-
-
-   <div class="footer-bottom">
-
-
-    <p>&copy; 2026 SZ Ventures. All rights reserved.</p>
-
-
-    <p>Crafted with conviction.</p>
-
-
-   </div>
-
-
-  </div>
-
-
- </footer>
-
-
-
-
-
- <script src="assets/js/libs.bundle.js" defer></script>
-
-
- <script src="main.js" defer></script>
-
-
- <script>
-
-
-  document.addEventListener('DOMContentLoaded', () => {
-
-
-   const contactForm = document.getElementById('contactForm');
-
-
-   if (contactForm) {
-
-
-    contactForm.addEventListener('submit', (e) => {
-
-
-     e.preventDefault();
-
-
-     const btn = contactForm.querySelector('button[type="submit"]');
-
-
-     const originalText = btn.innerHTML;
-
-
-     btn.innerHTML = '<span>Sending...</span>';
-
-
-     btn.disabled = true;
-
-
-     
-
-
-     const formData = new FormData(contactForm);
-
-
-     const data = Object.fromEntries(formData.entries());
-
-
-     data.source = 'contact_form';
-
-
-
-
-
-     fetch('/api/submit', {
-
-
-      method: 'POST',
-
-
-      headers: { 'Content-Type': 'application/json' },
-
-
-      body: JSON.stringify(data)
-
-
-     })
-
-
-     .then(res => {
-
-
-      if(!res.ok) throw new Error('Submission failed');
-
-
-      return res.json();
-
-
-     })
-
-
-     .then(res => {
-
-
-      btn.innerHTML = `<span>Sent! Ref: ${res.id}</span>`;
-
-
-      contactForm.reset();
-
-
-      setTimeout(() => {
-
-
-       btn.innerHTML = originalText;
-
-
-       btn.disabled = false;
-
-
-      }, 3000);
-
-
-     })
-
-
-     .catch(err => {
-
-
-      console.error(err);
-
-
-      alert('Failed to send message. Please try again.');
-
-
-      btn.innerHTML = originalText;
-
-
-      btn.disabled = false;
-
-
-     });
-
-
-    });
-
-
-   }
-
-
-  });
-
-
- </script>
-
-
- <script src="/assets/js/intake.js" defer></script>
-
-
-
-
-
-<!-- Preloader Fail-Safe -->
-
-
-<script>
-
-
-  setTimeout(function() {
-
-
-    var pre = document.getElementById('preloader');
-
-
-    if (pre && !pre.classList.contains('is-done')) {
-
-
-      pre.classList.add('is-done');
-
-
-      document.body.classList.remove('is-loading');
-
-
-      console.warn('Preloader fail-safe triggered. A critical asset may have failed to load.');
-
-
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer-v2">
+    <div class="container">
+      <div class="footer-v2__grid">
+        <div class="footer-v2__brand-col">
+          <div class="footer-v2__brand-title">SZ VENTURES</div>
+          <div class="footer-v2__tagline">Building businesses. Powering real-world work.</div>
+          <p class="footer-v2__statement">
+            SZ Ventures builds and operates businesses across technology, industry, consumer markets and distributed workforce infrastructure.
+          </p>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Navigation</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures">Ventures</a></li>
+            <li><a href="/operations">Operations</a></li>
+            <li><a href="/how-we-build">How We Build</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Ventures</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures/ai-robotics-data">AI & Robotics Data</a></li>
+            <li><a href="/ventures/manufacturing">Manufacturing</a></li>
+            <li><a href="/ventures/industrial-ai">Industrial AI</a></li>
+            <li><a href="/ventures/bowl-and-sip">Bowl & Sip Co.</a></li>
+            <li><a href="/ventures/snapops">SnapOps</a></li>
+            <li><a href="/ventures/creator-house">Creator House</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Operations</div>
+          <ul class="footer-v2__links">
+            <li><a href="/operations/workforce-deployment">Workforce Deployment</a></li>
+            <li><a href="/operations/rider-operations">Rider Operations</a></li>
+            <li><a href="/operations/rider-registration">Register as a Rider</a></li>
+            <li><a href="/operations/bgv-verification">BGV & Verification</a></li>
+            <li><a href="/operations/field-gig-operations">Field Gig Operations</a></li>
+            <li><a href="/operations/device-asset-recovery">Device & Asset Recovery</a></li>
+            <li><a href="/operations#on-demand-field-teams">On-Demand Field Teams</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-v2__bottom">
+        <div>© SZ Ventures Private Limited. All rights reserved.</div>
+        <div class="footer-v2__legal">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/libs.bundle.js" defer></script>
+  <script src="/main.js" defer></script>
+
+  <script>
+    // Pathway selector logic
+    function selectPathway(slug) {
+      document.getElementById('selectedPathway').value = slug;
+      var badge = document.getElementById('activePathwayBadge');
+      if (badge) {
+        badge.textContent = 'PATHWAY: ' + slug.toUpperCase().replace('-', ' & ');
+      }
+      var cards = document.querySelectorAll('.pathway-card--selectable');
+      cards.forEach(function(card) {
+        if (card.getAttribute('data-pathway') === slug) {
+          card.style.borderColor = 'var(--gold)';
+          card.style.background = 'rgba(210, 169, 87, 0.12)';
+        } else {
+          card.style.borderColor = 'rgba(255,255,255,0.08)';
+          card.style.background = 'rgba(18, 18, 22, 0.65)';
+        }
+      });
+      var formSec = document.getElementById('form-section');
+      if (formSec) {
+        formSec.scrollIntoView({ behavior: 'smooth' });
+      }
     }
 
+    // Auto-detect URL parameter
+    document.addEventListener('DOMContentLoaded', function() {
+      var params = new URLSearchParams(window.location.search);
+      var intent = params.get('intent') || params.get('pathway');
+      if (intent) {
+        selectPathway(intent);
+      }
+    });
 
-  }, 4000);
+    // Form submission with Idempotency Key
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      var btn = document.getElementById('submitBtn');
+      var alertBox = document.getElementById('formAlert');
+      btn.disabled = true;
+      btn.innerHTML = '<span>Transmitting Request...</span>';
+      alertBox.style.display = 'none';
 
+      var payload = {
+        source: 'partnership_inquiry',
+        full_name: document.getElementById('fullName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        organization: document.getElementById('organization').value.trim(),
+        pathway: document.getElementById('selectedPathway').value,
+        message: document.getElementById('message').value.trim()
+      };
 
-</script>
+      var idemKey = 'pi-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
 
+      try {
+        var response = await fetch('/api/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Idempotency-Key': idemKey
+          },
+          body: JSON.stringify(payload)
+        });
 
-<script src="/assets/js/ambient.js" defer></script>
+        var data = await response.json();
+        if (response.ok && data.status === 'success') {
+          alertBox.style.display = 'block';
+          alertBox.style.background = 'rgba(52, 211, 153, 0.15)';
+          alertBox.style.border = '1px solid rgba(52, 211, 153, 0.4)';
+          alertBox.style.color = '#6ee7b7';
+          alertBox.innerHTML = '<strong>Request Received (Ref #' + (data.id || 'CONFIRMED') + ').</strong> Thank you for reaching out. An SZ Ventures director will review your submission and respond within two business days.';
+          document.getElementById('contactForm').reset();
+        } else {
+          throw new Error(data.message || 'Submission failed.');
+        }
+      } catch (err) {
+        alertBox.style.display = 'block';
+        alertBox.style.background = 'rgba(239, 68, 68, 0.15)';
+        alertBox.style.border = '1px solid rgba(239, 68, 68, 0.4)';
+        alertBox.style.color = '#fca5a5';
+        alertBox.innerHTML = '<strong>Error:</strong> ' + err.message;
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<span>Submit Conversation Request →</span>';
+      }
+    }
+  </script>
 </body>
-
-
 </html>
-
-

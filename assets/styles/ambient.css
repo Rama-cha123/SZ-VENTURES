@@ -164,3 +164,8 @@ main, #swup {
     display: none;
   }
 }
+
+/* Card & Section Visibility Failsafe — eliminates accidental hidden content */
+.company, .venture-card, .ops-card, .pathway-card, .build-stage-card, .current-engagement-card {
+  opacity: 1 !important;
+}

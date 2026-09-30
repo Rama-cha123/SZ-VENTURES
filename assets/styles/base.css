@@ -6,6 +6,12 @@
 
 * { margin: 0; padding: 0; }
 
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
@@ -34,6 +40,17 @@ body {
   overflow-x: hidden;
 }
 
+/* Animation failsafe: prevents elements from remaining permanently invisible at opacity: 0 */
+@keyframes aosFallbackReveal {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+[data-aos]:not(.aos-animate) {
+  animation: aosFallbackReveal 0.3s ease 0.9s forwards;
+}
+
 /* Global Focus States for A11y */
 *:focus-visible {
   outline: 2px solid var(--gold);
@@ -45,11 +62,33 @@ body.is-loading {
   overflow: hidden;
 }
 
-img, svg, canvas { display: block; max-width: 100%; }
+img, svg, canvas { display: block; max-width: 100%; height: auto; }
+
+img.nav-logo-img, .nav-logo-img, .nav__brand img, .footer-logo-img {
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
 
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; background: none; border: none; }
-ul { list-style: none; }
+ul, ol { list-style: none; padding: 0; margin: 0; }
+
+/* Animation failsafe: ensure content is never stuck at opacity:0 if scroll library is delayed */
+@keyframes aosFailsafe {
+  to {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+}
+html:not(.no-js) [data-aos] {
+  animation: aosFailsafe 0.1s 1.2s forwards;
+}
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);

@@ -1,214 +1,296 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
- <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
- <title>SZ Ventures | Our Ventures</title>
- <meta name="description" content="Explore the SZ Ventures portfolio across industrial technology and the new economy.">
- <meta name="theme-color" content="#0a0a0b">
- <link rel="canonical" href="https://szventures.com/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+  <title>Ventures — SZ Ventures | Building Businesses Around Real-World Opportunities</title>
+  <meta name="description" content="SZ Ventures develops businesses across industrial technology, manufacturing and emerging consumer markets. Every venture is at a different stage. We make that stage visible.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="canonical" href="https://szventures.com/ventures">
 
- <meta property="og:type" content="website">
- <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
- <meta name="twitter:image" content="https://szventures.com/assets/img/og-image.jpg">
- <meta property="og:title" content="SZ Ventures — Venture Studio">
- <meta property="og:description" content="Building Ventures That Solve Real-World Problems.">
- <meta property="og:url" content="https://szventures.com/">
- <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta name="twitter:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta property="og:title" content="Ventures — SZ Ventures">
+  <meta property="og:description" content="Building businesses around real-world opportunities across industrial technology, manufacturing and consumer markets.">
+  <meta property="og:url" content="https://szventures.com/ventures">
+  <meta name="twitter:card" content="summary_large_image">
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
- <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
 
- <!-- Project styles -->
- <link rel="stylesheet" href="../assets/styles/tokens.css">
- <link rel="stylesheet" href="../assets/styles/base.css">
- <link rel="stylesheet" href="../assets/styles/components.css">
- <link rel="stylesheet" href="../assets/styles/layout.css">
- <link rel="stylesheet" href="../assets/styles/libs.bundle.css">
-
- <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <!-- Project styles -->
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css?v=20260927">
+  <link rel="stylesheet" href="/assets/styles/libs.bundle.css">
+  <link rel="stylesheet" href="/assets/styles/ambient.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 </head>
 <body class="is-loading">
+  <canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+  <div class="sz-bokeh" aria-hidden="true"></div>
 
- <div class="grain" aria-hidden="true"></div>
- <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
- <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
- <!-- Preloader -->
- <div class="preloader" id="preloader" aria-hidden="true">
- <div class="preloader__mark">SZ Ventures</div>
- <div class="preloader__count" id="preCount">0</div>
- <div class="preloader__bar"><i id="preBar"></i></div>
- </div>
-
- <!-- Header Navigation -->
- <!-- Header Navigation -->
- <header class="nav glass" id="nav">
- <div class="nav__inner">
- <a href="../index.html" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
- <img src="../assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
- SZ Ventures
- </a>
- 
- <nav class="nav__links" aria-label="Primary">
- <a href="../industrial-technology.html" class="nav__link">Industries</a>
- <a href="../ventures/" class="nav__link">Ventures</a>
-  <a href="/creator-house/" class="nav__link">Creator House</a>
-
-<a href="../capabilities.html" class="nav__link">Capabilities</a>
- <a href="../about/" class="nav__link">About</a>
- <a href="../insights.html" class="nav__link">Insights</a>
- <a href="../contact.html" class="nav__link">Contact</a>
- </nav>
- <div class="nav__right">
- <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
- <a href="../contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Start a Conversation →</span></a>
- <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
- <span></span><span></span><span></span>
- </button>
- </div>
-
- </div>
- </header>
-
- <!-- Mobile Drawer Menu -->
- <!-- Mobile Drawer Menu -->
- 
- <div class="menu" id="menu">
- <a href="../industrial-technology.html" data-menu-link>Industries <span>01</span></a>
- <a href="../ventures/" data-menu-link>Ventures <span>02</span></a>
-  <a href="/creator-house/" data-menu-link>Creator House <span>★</span></a>
- <a href="../capabilities.html" data-menu-link>Capabilities <span>03</span></a>
- <a href="../about/" data-menu-link>About <span>04</span></a>
- <a href="../insights.html" data-menu-link>Insights <span>05</span></a>
- <a href="../contact.html" data-menu-link>Contact <span>06</span></a>
- <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
- <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
- </div>
-</div>
- </div>
-
- <!-- Swup Main Container -->
- <main id="swup" class="transition-fade">
- <section class="hero" id="top">
- <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
- <div class="hero__inner container">
- <div class="hero__meta" data-aos="fade"><span class="pill">VENTURES</span></div>
- <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900" style="font-size: clamp(3rem, 6vw, 4rem);">
- <span class="line">BUILDING ACROSS</span>
- <span class="line"><em class="serif-accent">TWO ECONOMIES.</em></span>
- </h1>
- <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
- Our portfolio represents active operations across industrial technology, manufacturing and the new economy.
- </p>
- </div>
- </section>
-
-  <section class="section portfolio">
-  <div class="container">
-   <div class="sec-head">
-    <span class="eyebrow" data-aos="fade">OUR VENTURES</span>
-    <h2 data-aos="fade-up">A PORTFOLIO BUILT FOR WHAT'S NEXT.</h2>
-   </div>
-   <div class="portfolio__list">
-  <!-- 01 AI & Robotics Data -->
-  <a class="company" href="/industrial-technology.html#ai-robotics-data" data-aos="fade-up" data-cursor data-tippy-content="Explore AI & Robotics Data">
-  <div class="company__bg" style="background-image: url(\'/assets/images/cards/ai-robotics-card.jpg\');"></div>
-  <div>
-  <div class="company__name">AI & Robotics Data</div>
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">INTELLIGENCE FROM THE REAL WORLD.</div>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__mark">SZ Ventures</div>
+    <div class="preloader__count" id="preCount">0</div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
   </div>
-  <div class="company__thesis">Real-world data acquisition and operational infrastructure supporting AI and robotics training.</div>
-  <div class="company__sector">Industrial Technology</div>
-  <div class="company__metric"><span class="status-badge status-badge--active">Active</span></div>
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore Industrial Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </a>
 
-  <!-- 02 Industrial AI -->
-  <a class="company" href="/industrial-technology.html#industrial-ai" data-aos="fade-up" data-cursor data-tippy-content="Explore Industrial AI">
-  <div class="company__bg" style="background-image: url(\'/assets/images/cards/industrial-ai-card.jpg\');"></div>
-  <div>
-  <div class="company__name">Industrial AI</div>
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">INTELLIGENT SYSTEMS.</div>
+  <!-- Header Navigation -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" width="36" height="36" style="width: 36px; height: 36px; object-fit: contain;" aria-hidden="true">
+        SZ Ventures
+      </a>
+      
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/ventures" class="nav__link nav__link--active">Ventures</a>
+        <a href="/operations" class="nav__link">Operations</a>
+        <a href="/how-we-build" class="nav__link">How We Build</a>
+        <a href="/about" class="nav__link">About</a>
+        <a href="/contact" class="nav__link">Contact</a>
+        <a href="/insights.html" class="nav__link">Insights</a>
+      </nav>
+
+      <div class="nav__right">
+        <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
+        <a href="/contact" class="btn btn--accent" data-magnetic data-cursor><span>Build With Us →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="menu" id="menu" aria-hidden="true" style="display: none;">
+    <a href="/ventures" data-menu-link>Ventures <span>01</span></a>
+    <a href="/operations" data-menu-link>Operations <span>02</span></a>
+    <a href="/how-we-build" data-menu-link>How We Build <span>03</span></a>
+    <a href="/about" data-menu-link>About <span>04</span></a>
+    <a href="/contact" data-menu-link>Contact <span>05</span></a>
+    <a href="/insights.html" data-menu-link>Insights <span>06</span></a>
+    <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
+    <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
   </div>
-  <div class="company__thesis">Applied AI and intelligent systems for physical and industrial environments.</div>
-  <div class="company__sector">Industrial Technology</div>
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#f5a623;">Developing</span></div>
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore Industrial Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </a>
 
-  <!-- 03 Manufacturing -->
-  <a class="company" href="/industrial-technology.html#manufacturing" data-aos="fade-up" data-cursor data-tippy-content="Explore Manufacturing">
-  <div class="company__bg" style="background-image: url(\'/assets/images/cards/manufacturing-card.jpg\');"></div>
-  <div>
-  <div class="company__name">Manufacturing</div>
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">PHYSICAL EXECUTION.</div>
-  </div>
-  <div class="company__thesis">Manufacturing and physical-production capabilities serving institutional and commercial requirements.</div>
-  <div class="company__sector">Industrial Technology</div>
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#4ade80; color:#000;">Active / Order-Led</span></div>
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore Industrial Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </a>
+  <!-- Swup Main Container -->
+  <main id="swup" class="transition-fade">
 
-  <!-- 04 Bowl & Sip Co. -->
-  <a class="company" href="/ventures/bowl-and-sip/index.html" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Bowl & Sip Co.">
-  <div>
-  <div class="company__name">Bowl & Sip Co.</div>
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">Food. Fitness. Convenience.</div>
-  </div>
-  <div class="company__thesis">A health-conscious food and lifestyle venture.</div>
-  <div class="company__sector">New Economy</div>
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#f5a623;">Building</span></div>
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore The Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </a>
+    <!-- HERO -->
+    <section class="hero hero--compact" id="top">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
+      <div class="hero__inner container">
+        <div class="hero__meta" data-aos="fade"><span class="pill">PORTFOLIO & VENTURES</span></div>
+        <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900">
+          <span class="line">BUILDING BUSINESSES</span>
+          <span class="line"><em class="serif-accent">AROUND REAL-WORLD OPPORTUNITIES.</em></span>
+        </h1>
+        <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+          SZ Ventures develops businesses across industrial technology, manufacturing and emerging consumer markets. Every venture is at a different stage. We make that stage visible rather than treating every business as equally mature.
+        </p>
+      </div>
+    </section>
 
-  <!-- 05 Creator House -->
-  <a class="company" href="/creator-house/" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Creator House">
-  <div>
-  <div class="company__name">Creator House</div>
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">Where Creators Build.</div>
-  </div>
-  <div class="company__thesis">A creator-first production and ecosystem venture.</div>
-  <div class="company__sector">New Economy</div>
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#f5a623;">Building</span></div>
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore The Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </a>
-  <!-- 06 SnapOps -->
-  <a class="company" href="/snapops/" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore SnapOps">
-  <div>
-  <div class="company__name">SnapOps</div>
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">Community Services, Simplified.</div>
-  </div>
-  <div class="company__thesis">A WhatsApp-first concept for connecting communities with nearby services and local businesses.</div>
-  <div class="company__sector">New Economy</div>
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#38bdf8; color:#000;">Launching</span></div>
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore The Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </a>
+    <!-- VENTURES GRID -->
+    <section class="section portfolio">
+      <div class="container">
+        
+        <div class="sec-head sec-head--row" style="margin-bottom: 2.5rem;">
+          <div>
+            <span class="eyebrow" data-aos="fade">STATUS ARCHITECTURE</span>
+            <h2 data-aos="fade-up">VENTURE DIRECTORY</h2>
+          </div>
+          <div data-aos="fade" style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <span class="status-badge status-badge--active">Active</span>
+            <span class="status-badge status-badge--developing">Developing</span>
+            <span class="status-badge status-badge--building">Building</span>
+            <span class="status-badge status-badge--onboarding">Onboarding</span>
+          </div>
+        </div>
 
-   </div>
-  </div>
- </section>
-</main>
+        <div class="portfolio__list">
 
- <!-- Scripts -->
- <script src="../assets/js/libs.bundle.js" defer></script>
- <script src="../main.js" defer></script>
- <script src="../assets/js/intake.js" defer></script>
+          <!-- 01 ACTIVE: AI & ROBOTICS DATA -->
+          <a class="company" href="/ventures/ai-robotics-data" data-aos="fade-up" data-cursor data-tippy-content="Explore AI & Robotics Data">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/ai-robotics-card.jpg');"></div>
+            <div>
+              <div class="company__name">AI & Robotics Data</div>
+              <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">REAL-WORLD DATA FOR INTELLIGENT MACHINES.</div>
+            </div>
+            <div class="company__thesis">Real-world data operations for the next generation of AI and robotics.</div>
+            <div class="company__sector">Industrial Technology</div>
+            <div class="company__metric"><span class="status-badge status-badge--active">Active</span></div>
+            <div class="company__cta">Explore Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
 
-<!-- Preloader Fail-Safe -->
-<script>
-  setTimeout(function() {
-    var pre = document.getElementById('preloader');
-    if (pre && !pre.classList.contains('is-done')) {
-      pre.classList.add('is-done');
-      document.body.classList.remove('is-loading');
-      console.warn('Preloader fail-safe triggered. A critical asset may have failed to load.');
-    }
-  }, 4000);
-</script>
+          <!-- 02 ACTIVE: MANUFACTURING -->
+          <a class="company" href="/ventures/manufacturing" data-aos="fade-up" data-cursor data-tippy-content="Explore Manufacturing">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/manufacturing-card.jpg');"></div>
+            <div>
+              <div class="company__name">Manufacturing</div>
+              <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">FROM PHYSICAL CAPABILITY TO INDUSTRIAL EXECUTION.</div>
+            </div>
+            <div class="company__thesis">Industrial manufacturing and physical production capabilities built for real-world demand.</div>
+            <div class="company__sector">Industrial Technology</div>
+            <div class="company__metric"><span class="status-badge status-badge--active">Active</span></div>
+            <div class="company__cta">Explore Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 03 DEVELOPING: INDUSTRIAL AI -->
+          <a class="company" href="/ventures/industrial-ai" data-aos="fade-up" data-cursor data-tippy-content="Explore Industrial AI">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/industrial-ai-card.jpg');"></div>
+            <div>
+              <div class="company__name">Industrial AI</div>
+              <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">INTELLIGENCE FOR THE PHYSICAL WORLD.</div>
+            </div>
+            <div class="company__thesis">Building intelligent systems for physical and industrial environments.</div>
+            <div class="company__sector">Industrial Technology</div>
+            <div class="company__metric"><span class="status-badge status-badge--developing">Developing</span></div>
+            <div class="company__cta">Explore Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 04 ACTIVE: MIRAI ENGINEERING -->
+          <a class="company" href="/ventures/mirai-engineering" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Mirai Engineering">
+            <div class="company__bg" style="background-image: url('/assets/images/verticals/ai-robotics-data/ai-robotics-lidar-survey.jpg');"></div>
+            <div>
+              <div class="company__name">Mirai Engineering</div>
+              <div style="font-size: var(--fs-300); color: #818cf8; margin-top: 0.25rem; font-family: var(--font-display);">ENGINEERING TOMORROW. BUILDING GLOBAL CAREERS.</div>
+            </div>
+            <div class="company__thesis">Next-generation engineering and technical education platform developing industry-ready engineers in robotics and advanced manufacturing.</div>
+            <div class="company__sector" style="color: rgba(255,255,255,0.6);">A venture by SZ Ventures</div>
+            <div class="company__metric"><span class="status-badge status-badge--active">Active</span></div>
+            <div class="company__cta">Explore Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 05 BUILDING: BOWL & SIP CO. -->
+          <a class="company" href="/ventures/bowl-and-sip" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Bowl & Sip Co.">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/bowl-and-sip-card.jpg');"></div>
+            <div>
+              <div class="company__name">Bowl & Sip Co.</div>
+              <div style="font-size: var(--fs-300); color: #34d399; margin-top: 0.25rem; font-family: var(--font-display); letter-spacing: 0.05em;">PERFORMANCE NUTRITION. BUILT FOR REAL LIFE.</div>
+            </div>
+            <div class="company__thesis">Performance nutrition designed around real food, functional nutrition and convenient delivery.</div>
+            <div class="company__sector" style="color: rgba(255,255,255,0.6);">A venture by SZ Ventures</div>
+            <div class="company__metric"><span class="status-badge status-badge--building">Building</span></div>
+            <div class="company__cta">Explore Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 05 ONBOARDING: CREATOR HOUSE -->
+          <a class="company" href="/ventures/creator-house/" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Creator House">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/creator-house-card.jpg');"></div>
+            <div>
+              <div class="company__name">Creator House</div>
+              <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">WHERE CREATORS BUILD.</div>
+            </div>
+            <div class="company__thesis">A creator-first production ecosystem connecting creators, production infrastructure and opportunities.</div>
+            <div class="company__sector" style="color: rgba(255,255,255,0.6);">A venture by SZ Ventures</div>
+            <div class="company__metric"><span class="status-badge status-badge--onboarding">Onboarding</span></div>
+            <div class="company__cta">Explore Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 06 BUILDING: SNAPOPS -->
+          <a class="company" href="/ventures/snapops/" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore SnapOps">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/snapops-card.jpg');"></div>
+            <div>
+              <div class="company__name">SnapOps</div>
+              <div style="font-size: var(--fs-300); color: #38bdf8; margin-top: 0.25rem; font-family: var(--font-display);">REAL-WORLD SERVICES. WITHOUT THE FRICTION.</div>
+            </div>
+            <div class="company__thesis">WhatsApp-first community and field services, designed to make everyday services easier to access.</div>
+            <div class="company__sector" style="color: rgba(255,255,255,0.6);">A venture by SZ Ventures</div>
+            <div class="company__metric"><span class="status-badge status-badge--building">Building</span></div>
+            <div class="company__cta">Explore Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer-v2">
+    <div class="container">
+      <div class="footer-v2__grid">
+        <div class="footer-v2__brand-col">
+          <div class="footer-v2__brand-title">SZ VENTURES</div>
+          <div class="footer-v2__tagline">Building businesses. Powering real-world work.</div>
+          <p class="footer-v2__statement">
+            SZ Ventures builds and operates businesses across technology, industry, consumer markets and distributed workforce infrastructure.
+          </p>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Navigation</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures">Ventures</a></li>
+            <li><a href="/operations">Operations</a></li>
+            <li><a href="/how-we-build">How We Build</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Ventures</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures/ai-robotics-data">AI & Robotics Data</a></li>
+            <li><a href="/ventures/manufacturing">Manufacturing</a></li>
+            <li><a href="/ventures/mirai-engineering">Mirai Engineering</a></li>
+            <li><a href="/ventures/industrial-ai">Industrial AI</a></li>
+            <li><a href="/ventures/bowl-and-sip">Bowl & Sip Co.</a></li>
+            <li><a href="/ventures/snapops">SnapOps</a></li>
+            <li><a href="/ventures/creator-house">Creator House</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Operations</div>
+          <ul class="footer-v2__links">
+            <li><a href="/operations/workforce-deployment">Workforce Deployment</a></li>
+            <li><a href="/operations/rider-operations">Rider Operations</a></li>
+            <li><a href="/operations/rider-registration">Register as a Rider</a></li>
+            <li><a href="/operations/bgv-verification">BGV & Verification</a></li>
+            <li><a href="/operations/field-gig-operations">Field Gig Operations</a></li>
+            <li><a href="/operations/device-asset-recovery">Device & Asset Recovery</a></li>
+            <li><a href="/operations#on-demand-field-teams">On-Demand Field Teams</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-v2__bottom">
+        <div>© SZ Ventures Private Limited. All rights reserved.</div>
+        <div class="footer-v2__legal">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/libs.bundle.js" defer></script>
+  <script src="/main.js" defer></script>
+
+  <!-- Preloader Fail-Safe -->
+  <script>
+    setTimeout(function() {
+      var pre = document.getElementById('preloader');
+      if (pre && !pre.classList.contains('is-done')) {
+        pre.classList.add('is-done');
+        document.body.classList.remove('is-loading');
+      }
+    }, 4000);
+  </script>
 </body>
 </html>

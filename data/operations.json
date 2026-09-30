@@ -1,0 +1,156 @@
+{
+  "page_meta": {
+    "title": "Workforce & Field Operations | SZ Ventures",
+    "headline": "THE INFRASTRUCTURE BEHIND DISTRIBUTED WORK.",
+    "description": "SZ Ventures builds and operates distributed workforces for companies that need people on the ground. From recruitment and verification to deployment, execution and quality control."
+  },
+  "capabilities": [
+    {
+      "id": "workforce-deployment",
+      "number": "01",
+      "title": "Workforce Deployment",
+      "headline": "SCALE FIELD CAPACITY WITH VERIFIED OPERATORS.",
+      "short_description": "Recruit, onboard and deploy distributed workers for operational requirements.",
+      "description": "We establish structured field workforces calibrated to client requirements, handling end-to-end recruitment, onboarding, scheduling, and local supervisory coordination.",
+      "url": "/operations/workforce-deployment",
+      "use_cases": [
+        "Dedicated workforce",
+        "Field contributors",
+        "Temporary deployments",
+        "Operational support",
+        "Workforce replacement"
+      ]
+    },
+    {
+      "id": "rider-operations",
+      "number": "02",
+      "title": "Rider Operations",
+      "headline": "DEDICATED RIDERS. MANAGED BY SZ.",
+      "short_description": "Dedicated delivery workforce for businesses requiring managed rider operations.",
+      "description": "We recruit, onboard and manage delivery riders for businesses requiring dedicated in-house delivery capacity with reliable shifts, vehicle readiness, and active route supervision.",
+      "url": "/operations/rider-operations",
+      "use_cases": [
+        "Rider sourcing",
+        "Onboarding",
+        "Workforce management",
+        "Attendance / deployment",
+        "Replacement",
+        "Operational coordination"
+      ]
+    },
+    {
+      "id": "bgv-verification",
+      "number": "03",
+      "title": "BGV & Field Verification",
+      "headline": "VERIFICATION THAT HAPPENS IN THE REAL WORLD.",
+      "short_description": "Distributed personnel for background verification, address verification and physical verification.",
+      "description": "Distributed field personnel for location-dependent verification requirements, collecting physical documentation, confirming geographic coordinates, and auditing onsite data.",
+      "url": "/operations/bgv-verification",
+      "use_cases": [
+        "Background verification support",
+        "Address verification",
+        "Physical verification",
+        "Document collection",
+        "Field validation",
+        "Site verification"
+      ]
+    },
+    {
+      "id": "field-gig-operations",
+      "number": "04",
+      "title": "Field Gig Operations",
+      "headline": "PEOPLE ON THE GROUND. WHEN THE WORK NEEDS THEM.",
+      "short_description": "Deployable field workforce for physical, location-dependent tasks.",
+      "description": "Rapidly deployable field contributors for physical tasks that cannot be completed remotely, executed according to strict standard operating procedures and geotagged audits.",
+      "url": "/operations/field-gig-operations",
+      "use_cases": [
+        "Surveys & questionnaires",
+        "Retail & inventory audits",
+        "Physical inspections",
+        "Data collection",
+        "Mystery audits",
+        "AI / robotics data collection"
+      ]
+    },
+    {
+      "id": "device-asset-recovery",
+      "number": "05",
+      "title": "Device & Asset Recovery",
+      "headline": "RELIABLE ASSET RETRIEVAL AND REVERSE LOGISTICS.",
+      "short_description": "Field personnel for device collection, asset pickup, recovery and related operational tasks.",
+      "description": "Trained field personnel for collecting, recovering, transferring, and validating physical enterprise hardware and leased assets across distributed geographic locations.",
+      "url": "/operations/device-asset-recovery",
+      "use_cases": [
+        "Hardware collection",
+        "Asset pickup & receipt",
+        "Physical inspection",
+        "Chain-of-custody transfer",
+        "Reverse logistics support"
+      ]
+    },
+    {
+      "id": "on-demand-field-teams",
+      "number": "06",
+      "title": "On-Demand Field Teams",
+      "headline": "DYNAMIC PHYSICAL EXECUTION ACROSS LOCATIONS.",
+      "short_description": "Flexible distributed teams for surveys, audits, inspections, data collection and other field requirements.",
+      "description": "Flexible, multi-disciplinary distributed teams mobilized for enterprise initiatives requiring burst capacity, geographic spread, and high-fidelity real-world data collection.",
+      "url": "/operations/#on-demand-field-teams",
+      "use_cases": [
+        "Market research",
+        "Physical surveys",
+        "Operational audits",
+        "Data collection",
+        "Site visits",
+        "Asset operations"
+      ]
+    }
+  ],
+  "process": [
+    {
+      "step": "01",
+      "name": "Requirement",
+      "description": "Client defines the task scope, location parameters, and SLAs."
+    },
+    {
+      "step": "02",
+      "name": "Workforce",
+      "description": "SZ sources suitable personnel aligned with task complexity."
+    },
+    {
+      "step": "03",
+      "name": "Verification",
+      "description": "Personnel are onboarded, trained, and verified for the assignment."
+    },
+    {
+      "step": "04",
+      "name": "Deployment",
+      "description": "Workers are assigned to territories, rosters, and specific routes."
+    },
+    {
+      "step": "05",
+      "name": "Execution",
+      "description": "Work is performed according to defined SOPs and protocols."
+    },
+    {
+      "step": "06",
+      "name": "Quality Control",
+      "description": "Evidence, geotags, timestamps, and outputs are systematically reviewed."
+    },
+    {
+      "step": "07",
+      "name": "Delivery",
+      "description": "Validated outputs and real-time operational reports are delivered."
+    }
+  ],
+  "sectors_served": [
+    "Logistics & Delivery",
+    "Fintech & Financial Services",
+    "AI & Robotics",
+    "Retail & Consumer",
+    "Insurance",
+    "Enterprise Operations",
+    "Research & Data",
+    "Manufacturing"
+  ]
+}

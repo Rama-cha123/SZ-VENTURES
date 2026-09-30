@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+  <title>Operations — Workforce & Field Operations | SZ Ventures</title>
+  <meta name="description" content="SZ Ventures builds and operates distributed workforces for companies that need people on the ground. From recruitment and verification to deployment, execution and quality control.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="canonical" href="https://szventures.com/operations">
+
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta name="twitter:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta property="og:title" content="Workforce & Field Operations — SZ Ventures">
+  <meta property="og:description" content="The infrastructure behind distributed work. Recruitment, verification, deployment, execution, and quality control on the ground.">
+  <meta property="og:url" content="https://szventures.com/operations">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+
+  <!-- Project styles -->
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css?v=20260927">
+  <link rel="stylesheet" href="/assets/styles/libs.bundle.css">
+  <link rel="stylesheet" href="/assets/styles/ambient.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+</head>
+<body class="is-loading">
+  <canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+  <div class="sz-bokeh" aria-hidden="true"></div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__mark">SZ Ventures</div>
+    <div class="preloader__count" id="preCount">0</div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
+        SZ Ventures
+      </a>
+      
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/ventures" class="nav__link">Ventures</a>
+        <a href="/operations" class="nav__link nav__link--active">Operations</a>
+        <a href="/how-we-build" class="nav__link">How We Build</a>
+        <a href="/about" class="nav__link">About</a>
+        <a href="/contact" class="nav__link">Contact</a>
+        <a href="/insights.html" class="nav__link">Insights</a>
+      </nav>
+
+      <div class="nav__right">
+        <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
+        <a href="/contact?intent=operations" class="btn btn--accent" data-magnetic data-cursor><span>Build With Us →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="menu" id="menu">
+    <a href="/ventures" data-menu-link>Ventures <span>01</span></a>
+    <a href="/operations" data-menu-link>Operations <span>02</span></a>
+    <a href="/how-we-build" data-menu-link>How We Build <span>03</span></a>
+    <a href="/about" data-menu-link>About <span>04</span></a>
+    <a href="/contact" data-menu-link>Contact <span>05</span></a>
+    <a href="/insights.html" data-menu-link>Insights <span>06</span></a>
+    <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
+    <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
+  </div>
+
+  <!-- Swup Main Container -->
+  <main id="swup" class="transition-fade">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
+      <div class="hero__inner container">
+        <div class="hero__meta" data-aos="fade"><span class="pill">WORKFORCE & FIELD OPERATIONS</span></div>
+        <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900" style="font-size: clamp(2.8rem, 5.5vw, 4.25rem); line-height: 1.1;">
+          <span class="line">THE INFRASTRUCTURE BEHIND</span>
+          <span class="line"><em class="serif-accent">DISTRIBUTED WORK.</em></span>
+        </h1>
+        <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+          SZ Ventures builds and operates distributed workforces for companies that need people on the ground. From recruitment and verification to deployment, execution and quality control.
+        </p>
+        <div class="hero__actions" data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
+          <a href="#capabilities" class="btn btn--accent" data-cursor><span>Explore Capabilities</span><span class="btn__arrow">↓</span></a>
+          <a href="/contact?intent=operations" class="btn btn--ghost" data-cursor><span>Talk to Operations Team</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES SECTION -->
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">CORE CAPABILITIES</span>
+          <h2 data-aos="fade-up">DEPLOYABLE FIELD INFRASTRUCTURE</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="max-width: 65ch; margin-top: 1rem; color: rgba(255,255,255,0.7); font-size: var(--fs-400);">
+            Structured, managed operational units engineered for high compliance, reliable attendance, and real-time execution reporting.
+          </p>
+        </div>
+
+        <div class="ops-grid">
+
+          <!-- CAPABILITY 01 -->
+          <div class="ops-card" data-aos="fade-up">
+            <div class="ops-card__top">
+              <span class="ops-card__num">01</span>
+              <a href="/operations/workforce-deployment" style="font-size: 0.8rem; color: var(--gold); text-decoration: none;">Deep Dive ↗</a>
+            </div>
+            <h3 class="ops-card__title">Workforce Deployment</h3>
+            <p class="ops-card__desc">
+              Recruit, onboard and deploy distributed workers for operational requirements across cities and territories.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Dedicated workforce</span>
+              <span class="ops-tag">Field contributors</span>
+              <span class="ops-tag">Temporary deployments</span>
+              <span class="ops-tag">Operational support</span>
+              <span class="ops-tag">Workforce replacement</span>
+            </div>
+          </div>
+
+          <!-- CAPABILITY 02 -->
+          <div class="ops-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="ops-card__top">
+              <span class="ops-card__num">02</span>
+              <a href="/operations/rider-operations" style="font-size: 0.8rem; color: var(--gold); text-decoration: none;">Deep Dive ↗</a>
+            </div>
+            <h3 class="ops-card__title">Rider Operations</h3>
+            <p style="font-size: 0.85rem; color: var(--gold-light); font-family: var(--font-display); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+              Dedicated riders. Managed by SZ.
+            </p>
+            <p class="ops-card__desc">
+              We recruit, onboard and manage delivery riders for businesses requiring dedicated in-house delivery capacity.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Rider sourcing</span>
+              <span class="ops-tag">Onboarding</span>
+              <span class="ops-tag">Workforce management</span>
+              <span class="ops-tag">Attendance / deployment</span>
+              <span class="ops-tag">Replacement</span>
+              <span class="ops-tag">Operational coordination</span>
+            </div>
+            <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center;">
+              <a href="/operations/rider-operations" style="font-size: 0.8rem; color: var(--muted); text-decoration: none;">Fleet Overview →</a>
+              <a href="/operations/rider-registration" style="font-size: 0.8rem; color: var(--gold-bright); font-weight: 600; text-decoration: none;">REGISTER AS A RIDER ↗</a>
+            </div>
+          </div>
+
+          <!-- CAPABILITY 03 -->
+          <div class="ops-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="ops-card__top">
+              <span class="ops-card__num">03</span>
+              <a href="/operations/bgv-verification" style="font-size: 0.8rem; color: var(--gold); text-decoration: none;">Deep Dive ↗</a>
+            </div>
+            <h3 class="ops-card__title">BGV & Field Verification</h3>
+            <p style="font-size: 0.85rem; color: var(--gold-light); font-family: var(--font-display); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+              Verification that happens in the real world.
+            </p>
+            <p class="ops-card__desc">
+              Distributed field personnel for location-dependent verification requirements with physical check confirmations.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Background verification support</span>
+              <span class="ops-tag">Address verification</span>
+              <span class="ops-tag">Physical verification</span>
+              <span class="ops-tag">Document collection</span>
+              <span class="ops-tag">Field validation</span>
+              <span class="ops-tag">Site verification</span>
+            </div>
+          </div>
+
+          <!-- CAPABILITY 04 -->
+          <div class="ops-card" data-aos="fade-up">
+            <div class="ops-card__top">
+              <span class="ops-card__num">04</span>
+              <a href="/operations/field-gig-operations" style="font-size: 0.8rem; color: var(--gold); text-decoration: none;">Deep Dive ↗</a>
+            </div>
+            <h3 class="ops-card__title">Field Gig Operations</h3>
+            <p style="font-size: 0.85rem; color: var(--gold-light); font-family: var(--font-display); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+              People on the ground. When the work needs them.
+            </p>
+            <p class="ops-card__desc">
+              Deployable field workforce for physical tasks that cannot be completed remotely.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Surveys & audits</span>
+              <span class="ops-tag">Inspections</span>
+              <span class="ops-tag">Data collection</span>
+              <span class="ops-tag">Retail checks</span>
+              <span class="ops-tag">Mystery audits</span>
+              <span class="ops-tag">AI/robotics data</span>
+            </div>
+          </div>
+
+          <!-- CAPABILITY 05 -->
+          <div class="ops-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="ops-card__top">
+              <span class="ops-card__num">05</span>
+              <a href="/operations/device-asset-recovery" style="font-size: 0.8rem; color: var(--gold); text-decoration: none;">Deep Dive ↗</a>
+            </div>
+            <h3 class="ops-card__title">Device & Asset Recovery</h3>
+            <p class="ops-card__desc">
+              Field workforce for collecting, recovering, transferring and validating physical assets across distributed locations.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Device collection</span>
+              <span class="ops-tag">Asset pickup</span>
+              <span class="ops-tag">Asset validation</span>
+              <span class="ops-tag">Custody transfer</span>
+              <span class="ops-tag">Reverse operations</span>
+            </div>
+          </div>
+
+          <!-- CAPABILITY 06 -->
+          <div class="ops-card" id="on-demand-field-teams" data-aos="fade-up" data-aos-delay="200">
+            <div class="ops-card__top">
+              <span class="ops-card__num">06</span>
+              <span class="ops-card__badge">Scalable</span>
+            </div>
+            <h3 class="ops-card__title">On-Demand Field Teams</h3>
+            <p class="ops-card__desc">
+              Deployable teams for organisations requiring distributed physical execution across multiple regional locations.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Market research</span>
+              <span class="ops-tag">Physical surveys</span>
+              <span class="ops-tag">Operational audits</span>
+              <span class="ops-tag">Data collection</span>
+              <span class="ops-tag">Site visits</span>
+              <span class="ops-tag">Asset operations</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: OPERATIONS — HOW IT WORKS -->
+    <section class="section how-it-works-section" style="background: rgba(14, 14, 18, 0.4);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">OPERATING PROCESS</span>
+          <h2 data-aos="fade-up">FROM REQUIREMENT TO FIELD EXECUTION</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="max-width: 60ch; margin-top: 1rem; color: rgba(255,255,255,0.7); font-size: var(--fs-400);">
+            A seven-stage governance and delivery cycle ensuring every field task meets client specifications with verified audit trails.
+          </p>
+        </div>
+
+        <div class="process-steps-grid">
+          <!-- 01 REQUIREMENT -->
+          <div class="process-step-item" data-aos="fade-up">
+            <span class="process-step-item__num">01</span>
+            <div class="process-step-item__name">Requirement</div>
+            <p class="process-step-item__desc">Client defines the task scope, location parameters, and SLAs.</p>
+          </div>
+
+          <!-- 02 WORKFORCE -->
+          <div class="process-step-item" data-aos="fade-up" data-aos-delay="50">
+            <span class="process-step-item__num">02</span>
+            <div class="process-step-item__name">Workforce</div>
+            <p class="process-step-item__desc">SZ sources suitable personnel aligned with task complexity.</p>
+          </div>
+
+          <!-- 03 VERIFICATION -->
+          <div class="process-step-item" data-aos="fade-up" data-aos-delay="100">
+            <span class="process-step-item__num">03</span>
+            <div class="process-step-item__name">Verification</div>
+            <p class="process-step-item__desc">Personnel are onboarded and verified as required for the assignment.</p>
+          </div>
+
+          <!-- 04 DEPLOYMENT -->
+          <div class="process-step-item" data-aos="fade-up" data-aos-delay="150">
+            <span class="process-step-item__num">04</span>
+            <div class="process-step-item__name">Deployment</div>
+            <p class="process-step-item__desc">Workers are assigned to locations, shift rosters, and tasks.</p>
+          </div>
+
+          <!-- 05 EXECUTION -->
+          <div class="process-step-item" data-aos="fade-up" data-aos-delay="200">
+            <span class="process-step-item__num">05</span>
+            <div class="process-step-item__name">Execution</div>
+            <p class="process-step-item__desc">Work is performed according to defined standard operating procedures.</p>
+          </div>
+
+          <!-- 06 QUALITY CONTROL -->
+          <div class="process-step-item" data-aos="fade-up" data-aos-delay="250">
+            <span class="process-step-item__num">06</span>
+            <div class="process-step-item__name">Quality Control</div>
+            <p class="process-step-item__desc">Evidence, geotags, and operational outputs are systematically reviewed.</p>
+          </div>
+
+          <!-- 07 DELIVERY -->
+          <div class="process-step-item" data-aos="fade-up" data-aos-delay="300">
+            <span class="process-step-item__num">07</span>
+            <div class="process-step-item__name">Delivery</div>
+            <p class="process-step-item__desc">Validated results and structured operational data are delivered to the client.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 13: OPERATIONS — WHO WE SERVE -->
+    <section class="section who-we-serve-section">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">SECTOR CAPABILITIES</span>
+          <h2 data-aos="fade-up">BUILT FOR REAL-WORLD OPERATIONS</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="max-width: 65ch; margin-top: 1rem; color: rgba(255,255,255,0.7); font-size: var(--fs-400);">
+            We deploy field personnel and managed workforces across sectors where physical execution and local presence are required:
+          </p>
+        </div>
+
+        <div class="sectors-grid" data-aos="fade-up" data-aos-delay="150">
+          <div class="sector-badge">Logistics & Delivery</div>
+          <div class="sector-badge">Fintech & Financial Services</div>
+          <div class="sector-badge">AI & Robotics</div>
+          <div class="sector-badge">Retail & Consumer</div>
+          <div class="sector-badge">Insurance</div>
+          <div class="sector-badge">Enterprise Operations</div>
+          <div class="sector-badge">Research & Data</div>
+          <div class="sector-badge">Manufacturing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 14: OPERATIONS — CTA -->
+    <section class="section operations-cta-section" style="padding-top: 2rem;">
+      <div class="container">
+        <div class="current-engagement-card" data-aos="fade-up" style="border-color: rgba(210, 169, 87, 0.4);">
+          <div class="current-engagement-card__header">
+            <span class="status-badge status-badge--active">Operations Desk</span>
+          </div>
+          <h3 class="current-engagement-card__headline">HAVE A FIELD OPERATION TO EXECUTE?</h3>
+          <p class="current-engagement-card__copy">
+            Tell us what needs to happen on the ground, where it needs to happen and at what scale. Our operations team can structure a dedicated deployment plan.
+          </p>
+          <div style="margin-top: 2rem;">
+            <a href="/contact?intent=operations" class="btn btn--accent btn--lg" data-magnetic data-cursor>
+              <span>Talk to Our Operations Team →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer-v2">
+    <div class="container">
+      <div class="footer-v2__grid">
+        <div class="footer-v2__brand-col">
+          <div class="footer-v2__brand-title">SZ VENTURES</div>
+          <div class="footer-v2__tagline">Building businesses. Powering real-world work.</div>
+          <p class="footer-v2__statement">
+            SZ Ventures builds and operates businesses across technology, industry, consumer markets and distributed workforce infrastructure.
+          </p>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Navigation</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures">Ventures</a></li>
+            <li><a href="/operations">Operations</a></li>
+            <li><a href="/how-we-build">How We Build</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Ventures</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures/ai-robotics-data">AI & Robotics Data</a></li>
+            <li><a href="/ventures/manufacturing">Manufacturing</a></li>
+            <li><a href="/ventures/industrial-ai">Industrial AI</a></li>
+            <li><a href="/ventures/bowl-and-sip">Bowl & Sip Co.</a></li>
+            <li><a href="/ventures/snapops">SnapOps</a></li>
+            <li><a href="/ventures/creator-house">Creator House</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Operations</div>
+          <ul class="footer-v2__links">
+            <li><a href="/operations/workforce-deployment">Workforce Deployment</a></li>
+            <li><a href="/operations/rider-operations">Rider Operations</a></li>
+            <li><a href="/operations/rider-registration" style="color: var(--gold-bright);">Register as a Rider</a></li>
+            <li><a href="/operations/bgv-verification">BGV & Verification</a></li>
+            <li><a href="/operations/field-gig-operations">Field Gig Operations</a></li>
+            <li><a href="/operations/device-asset-recovery">Device & Asset Recovery</a></li>
+            <li><a href="/operations#on-demand-field-teams">On-Demand Field Teams</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-v2__bottom">
+        <div>© SZ Ventures Private Limited. All rights reserved.</div>
+        <div class="footer-v2__legal">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/libs.bundle.js" defer></script>
+  <script src="/main.js" defer></script>
+
+  <!-- Preloader Fail-Safe -->
+  <script>
+    setTimeout(function() {
+      var pre = document.getElementById('preloader');
+      if (pre && !pre.classList.contains('is-done')) {
+        pre.classList.add('is-done');
+        document.body.classList.remove('is-loading');
+      }
+    }, 4000);
+  </script>
+</body>
+</html>

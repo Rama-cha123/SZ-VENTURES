@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+  <title>How We Build — SZ Ventures | From Opportunity to Operating Business</title>
+  <meta name="description" content="Discover how SZ Ventures builds businesses: Identify, Build, Operate, Scale. Combining people, technology, data, partnerships, operations, and distribution.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="canonical" href="https://szventures.com/how-we-build">
+
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta property="og:title" content="How We Build — SZ Ventures">
+  <meta property="og:description" content="From opportunity to operating business. Identify → Build → Operate → Scale.">
+  <meta property="og:url" content="https://szventures.com/how-we-build">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
+
+  <!-- Project styles -->
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css?v=20260927">
+  <link rel="stylesheet" href="/assets/styles/libs.bundle.css">
+  <link rel="stylesheet" href="/assets/styles/ambient.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+</head>
+<body class="is-loading">
+  <canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+  <div class="sz-bokeh" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__mark">SZ Ventures</div>
+    <div class="preloader__count" id="preCount">0</div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
+        SZ Ventures
+      </a>
+      
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/ventures" class="nav__link">Ventures</a>
+        <a href="/operations" class="nav__link">Operations</a>
+        <a href="/how-we-build" class="nav__link nav__link--active">How We Build</a>
+        <a href="/about" class="nav__link">About</a>
+        <a href="/contact" class="nav__link">Contact</a>
+        <a href="/insights.html" class="nav__link">Insights</a>
+      </nav>
+
+      <div class="nav__right">
+        <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
+        <a href="/contact" class="btn btn--accent" data-magnetic data-cursor><span>Build With Us →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="menu" id="menu">
+    <a href="/ventures" data-menu-link>Ventures <span>01</span></a>
+    <a href="/operations" data-menu-link>Operations <span>02</span></a>
+    <a href="/how-we-build" data-menu-link>How We Build <span>03</span></a>
+    <a href="/about" data-menu-link>About <span>04</span></a>
+    <a href="/contact" data-menu-link>Contact <span>05</span></a>
+    <a href="/insights.html" data-menu-link>Insights <span>06</span></a>
+    <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
+    <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
+  </div>
+
+  <!-- Swup Main Container -->
+  <main id="swup" class="transition-fade">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
+      <div class="hero__inner container">
+        <div class="hero__meta" data-aos="fade"><span class="pill">METHODOLOGY & PHILOSOPHY</span></div>
+        <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900" style="font-size: clamp(2.8rem, 5.5vw, 4.25rem); line-height: 1.1;">
+          <span class="line">FROM OPPORTUNITY</span>
+          <span class="line"><em class="serif-accent">TO OPERATING BUSINESS.</em></span>
+        </h1>
+        <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+          A disciplined, four-stage lifecycle moving from real problems to self-sustaining operating systems across industrial and emerging markets.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOUR STAGES -->
+    <section class="section">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">THE FOUR STAGES</span>
+          <h2 data-aos="fade-up">A DISCIPLINED COMPANY-BUILDING LIFECYCLE</h2>
+        </div>
+
+        <div class="build-stages-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+          <!-- 01 IDENTIFY -->
+          <div class="build-stage-card" data-aos="fade-up">
+            <div class="build-stage-card__num">STAGE 01</div>
+            <h3 class="build-stage-card__title">Identify</h3>
+            <p class="build-stage-card__desc">
+              Find opportunities where real-world problems create room for new businesses. We target spaces where unaddressed friction, fragmented workforce needs, or physical operational hurdles exist.
+            </p>
+          </div>
+
+          <!-- 02 BUILD -->
+          <div class="build-stage-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="build-stage-card__num">STAGE 02</div>
+            <h3 class="build-stage-card__title">Build</h3>
+            <p class="build-stage-card__desc">
+              Develop the people, systems, partnerships and infrastructure required to make the opportunity real. We construct verifiable standard operating procedures, tech tools, and pilot workflows.
+            </p>
+          </div>
+
+          <!-- 03 OPERATE -->
+          <div class="build-stage-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="build-stage-card__num">STAGE 03</div>
+            <h3 class="build-stage-card__title">Operate</h3>
+            <p class="build-stage-card__desc">
+              Put the business into the field and build operational intelligence through execution. True unit economics, frontline challenges, and customer truth are discovered only on the ground.
+            </p>
+          </div>
+
+          <!-- 04 SCALE -->
+          <div class="build-stage-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="build-stage-card__num">STAGE 04</div>
+            <h3 class="build-stage-card__title">Scale</h3>
+            <p class="build-stage-card__desc">
+              Expand what works through distribution, technology, workforce and partnerships. Once an operating model is validated, we expand geographically and systematically.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE OPERATING LAYER (6 PILLARS) -->
+    <section class="section" style="background: rgba(14, 14, 18, 0.4);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">OPERATING BACKBONE</span>
+          <h2 data-aos="fade-up">THE SIX OPERATING PILLARS</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="max-width: 60ch; margin-top: 1rem; color: rgba(255,255,255,0.7); font-size: var(--fs-400);">
+            Across our ventures and operations, we assemble these six essential components to turn opportunities into running enterprises:
+          </p>
+        </div>
+
+        <div class="ops-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <div class="ops-card" data-aos="fade-up">
+            <h3 class="ops-card__title" style="color: var(--gold);">People</h3>
+            <p class="ops-card__desc">Recruited, vetted, and coordinated talent driving execution on the ground with high accountability.</p>
+          </div>
+          <div class="ops-card" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="ops-card__title" style="color: var(--gold);">Technology</h3>
+            <p class="ops-card__desc">Targeted digital systems, communications layers, and operational tools designed for real-world reliability.</p>
+          </div>
+          <div class="ops-card" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="ops-card__title" style="color: var(--gold);">Data</h3>
+            <p class="ops-card__desc">Real-world signals, verification logs, and structured feedback loops that drive quality control.</p>
+          </div>
+          <div class="ops-card" data-aos="fade-up">
+            <h3 class="ops-card__title" style="color: var(--gold);">Partnerships</h3>
+            <p class="ops-card__desc">Collaborations with industry leaders, platforms, and enterprise clients to anchor real demand.</p>
+          </div>
+          <div class="ops-card" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="ops-card__title" style="color: var(--gold);">Operations</h3>
+            <p class="ops-card__desc">Standard operating procedures, governance, shift management, and daily operational discipline.</p>
+          </div>
+          <div class="ops-card" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="ops-card__title" style="color: var(--gold);">Distribution</h3>
+            <p class="ops-card__desc">Direct access to enterprise demand, local communities, and consumer channels that sustain scale.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;" data-aos="fade-up">
+          <a href="/contact" class="btn btn--accent" data-cursor><span>Build With Us →</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer-v2">
+    <div class="container">
+      <div class="footer-v2__grid">
+        <div class="footer-v2__brand-col">
+          <div class="footer-v2__brand-title">SZ VENTURES</div>
+          <div class="footer-v2__tagline">Building businesses. Powering real-world work.</div>
+          <p class="footer-v2__statement">
+            SZ Ventures builds and operates businesses across technology, industry, consumer markets and distributed workforce infrastructure.
+          </p>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Navigation</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures">Ventures</a></li>
+            <li><a href="/operations">Operations</a></li>
+            <li><a href="/how-we-build">How We Build</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Ventures</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures/ai-robotics-data">AI & Robotics Data</a></li>
+            <li><a href="/ventures/manufacturing">Manufacturing</a></li>
+            <li><a href="/ventures/industrial-ai">Industrial AI</a></li>
+            <li><a href="/ventures/bowl-and-sip">Bowl & Sip Co.</a></li>
+            <li><a href="/ventures/snapops">SnapOps</a></li>
+            <li><a href="/ventures/creator-house">Creator House</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Operations</div>
+          <ul class="footer-v2__links">
+            <li><a href="/operations/workforce-deployment">Workforce Deployment</a></li>
+            <li><a href="/operations/rider-operations">Rider Operations</a></li>
+            <li><a href="/operations/bgv-verification">BGV & Verification</a></li>
+            <li><a href="/operations/field-gig-operations">Field Gig Operations</a></li>
+            <li><a href="/operations/device-asset-recovery">Device & Asset Recovery</a></li>
+            <li><a href="/operations#on-demand-field-teams">On-Demand Field Teams</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-v2__bottom">
+        <div>© SZ Ventures Private Limited. All rights reserved.</div>
+        <div class="footer-v2__legal">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/libs.bundle.js" defer></script>
+  <script src="/main.js" defer></script>
+</body>
+</html>

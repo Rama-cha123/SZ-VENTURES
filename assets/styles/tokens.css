@@ -49,35 +49,35 @@
   --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif:   "Fraunces", Georgia, serif;
 
-  --fs-300: 0.70rem;   /* captions */
-  --fs-400: 0.85rem;   /* body */
-  --fs-500: 0.95rem;   /* lead */
-  --fs-600: 1.15rem;   /* h4 */
-  --fs-700: 1.5rem;    /* h3 */
-  --fs-800: 2.1rem;    /* h2 */
-  --fs-900: clamp(2.3rem, 6vw, 4.2rem); /* h1 hero */
+  --fs-300: 0.8125rem; /* captions, pills, tags (~13px) */
+  --fs-400: 0.95rem;   /* body (~15.2px) */
+  --fs-500: 1.075rem;  /* lead body (~17.2px) */
+  --fs-600: 1.25rem;   /* h4 / card titles (~20px) */
+  --fs-700: 1.65rem;   /* h3 (~26.4px) */
+  --fs-800: 2.25rem;   /* h2 section titles (~36px) */
+  --fs-900: clamp(2.25rem, 4.5vw, 3.85rem); /* h1 hero */
 
-  --lh-tight: 1.08;
-  --lh-snug:  1.25;
+  --lh-tight: 1.12;
+  --lh-snug:  1.28;
   --lh-body:  1.65;
 
-  --tracking-tight: -0.035em;
-  --tracking-wide:  0.18em;
+  --tracking-tight: -0.03em;
+  --tracking-wide:  0.15em;
 
-  /* ---- Spacing Scale (8pt) ---- */
+  /* ---- Spacing Scale (Cohesive 8pt) ---- */
   --sp-1: 0.5rem;
   --sp-2: 0.75rem;
   --sp-3: 1rem;
   --sp-4: 1.5rem;
-  --sp-5: 2.25rem;
-  --sp-6: 3rem;
-  --sp-7: 4.5rem;
-  --sp-8: 6.5rem;
-  --sp-9: 9rem;
+  --sp-5: 2rem;
+  --sp-6: 2.75rem;
+  --sp-7: 3.75rem;
+  --sp-8: 5rem;
+  --sp-9: 7rem;
 
   /* ---- Layout ---- */
-  --container: 1180px;
-  --container-narrow: 780px;
+  --container: 1280px;
+  --container-narrow: 840px;
   --radius:    14px;
   --radius-sm: 10px;
   --radius-lg: 22px;
@@ -112,3 +112,23 @@
   --line-soft: #f0efeb;
   --card: #ffffff;
 }
+
+/* Critical Brand Asset Constraints & Navigation Failsafes */
+.nav-logo-img, .footer-logo-img, .so-footer__logo-mark, .ch-nav__logo-img, img.nav-logo-img {
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+.menu {
+  display: none;
+}
+
+body.menu-open .menu {
+  display: flex !important;
+}
+

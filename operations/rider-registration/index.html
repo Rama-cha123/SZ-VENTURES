@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+  <title>Rider Registration & Details Collection — Operations | SZ Ventures</title>
+  <meta name="description" content="Register as a delivery rider partner with SZ Ventures. Submit your details for managed fleet operations and rider onboarding opportunities across key hubs.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="canonical" href="https://szventures.com/operations/rider-registration">
+
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta property="og:title" content="Rider Registration — SZ Ventures">
+  <meta property="og:description" content="Join SZ Ventures' managed delivery fleet network. Submit your rider profile for upcoming operations opportunities.">
+  <meta property="og:url" content="https://szventures.com/operations/rider-registration">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css?v=20260927">
+  <link rel="stylesheet" href="/assets/styles/libs.bundle.css">
+  <link rel="stylesheet" href="/assets/styles/ambient.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <style>
+    /* Rider Registration Dedicated Styles */
+    .reg-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+
+    /* Disclaimer Card */
+    .disclaimer-card {
+      background: rgba(220, 180, 110, 0.06);
+      border: 1px solid rgba(220, 180, 110, 0.28);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .disclaimer-card__icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .disclaimer-card__text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0;
+    }
+    .disclaimer-card__text strong {
+      color: #fff;
+    }
+
+    /* Step Progress Indicator */
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding: 0 0.5rem;
+    }
+    .step-indicator::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 30px;
+      right: 30px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 1;
+    }
+    .step-indicator__progress {
+      position: absolute;
+      top: 18px;
+      left: 30px;
+      height: 2px;
+      background: var(--gold);
+      z-index: 2;
+      transition: width 0.35s ease;
+      width: 0%;
+    }
+    .step-node {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .step-node__circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--paper-2);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+      color: var(--muted);
+      transition: all 0.3s ease;
+      margin-bottom: 0.5rem;
+    }
+    .step-node.active .step-node__circle {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #0a0a0b;
+      box-shadow: 0 0 16px rgba(220, 180, 110, 0.4);
+    }
+    .step-node.completed .step-node__circle {
+      background: rgba(220, 180, 110, 0.2);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .step-node__label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      text-align: center;
+      max-width: 80px;
+    }
+    .step-node.active .step-node__label {
+      color: var(--gold);
+    }
+
+    /* Form Container */
+    .form-card {
+      background: rgba(18, 18, 22, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Section Styling */
+    .form-step {
+      display: none;
+    }
+    .form-step.active {
+      display: block;
+      animation: fadeInStep 0.35s ease;
+    }
+    @keyframes fadeInStep {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-section-head {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .form-section-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      font-family: var(--font-display);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .form-section-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: #fff;
+      margin: 0 0 0.5rem 0;
+      font-weight: 500;
+    }
+    .form-section-desc {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Form Grids */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem 1.5rem;
+    }
+    .form-grid--full {
+      grid-column: 1 / -1;
+    }
+
+    /* Form Fields */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form-label {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .form-label .req {
+      color: var(--gold);
+      margin-left: 0.25rem;
+    }
+    .form-label .opt {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(220, 180, 110, 0.04);
+      box-shadow: 0 0 0 3px rgba(220, 180, 110, 0.15);
+    }
+    .form-input.is-invalid, .form-select.is-invalid {
+      border-color: #ef4444 !important;
+      background: rgba(239, 68, 68, 0.05) !important;
+    }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+    .form-select option {
+      background: #141418;
+      color: #fff;
+    }
+    .form-hint {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.4;
+      margin-top: 0.15rem;
+    }
+    .form-error-msg {
+      font-size: 0.75rem;
+      color: #f87171;
+      display: none;
+      margin-top: 0.2rem;
+    }
+    .form-group.has-error .form-error-msg {
+      display: block;
+    }
+
+    /* Radio Pill Selector */
+    .radio-pill-group {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .radio-pill {
+      position: relative;
+    }
+    .radio-pill input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .radio-pill label {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.65rem 1.25rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .radio-pill input[type="radio"]:checked + label {
+      background: rgba(220, 180, 110, 0.12);
+      border-color: var(--gold);
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+    .radio-pill input[type="radio"]:focus + label {
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+
+    /* File Upload Box */
+    .file-upload-card {
+      border: 1px dashed rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.02);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s;
+    }
+    .file-upload-card:hover {
+      border-color: rgba(220, 180, 110, 0.4);
+    }
+    .file-upload-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .file-upload-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #fff;
+    }
+    .file-upload-status {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .file-upload-status.has-file {
+      background: rgba(52, 211, 153, 0.15);
+      color: #6ee7b7;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    /* Consent Checkboxes */
+    .consent-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .consent-card:hover {
+      background: rgba(255, 255, 255, 0.035);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .consent-card input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 3px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .consent-card label {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      margin: 0;
+    }
+    .consent-card.has-error {
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.04);
+    }
+
+    /* Button Controls */
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .form-actions--end {
+      justify-content: flex-end;
+    }
+
+    /* Success / Confirmation State */
+    .success-card {
+      display: none;
+      background: rgba(18, 18, 22, 0.95);
+      border: 1px solid rgba(220, 180, 110, 0.35);
+      border-radius: var(--radius);
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      animation: fadeInStep 0.4s ease;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    }
+    .success-badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(220, 180, 110, 0.12);
+      border: 2px solid var(--gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .success-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: #fff;
+      margin: 0 0 0.75rem 0;
+    }
+    .app-id-banner {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      padding: 1rem 2rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .app-id-banner__label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .app-id-banner__value {
+      font-family: monospace;
+      font-size: 1.5rem;
+      color: var(--gold-bright);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .next-steps-list {
+      text-align: left;
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .next-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-sm);
+    }
+    .next-step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(220, 180, 110, 0.15);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Global Alert Box */
+    .form-alert {
+      display: none;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .form-alert--error {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .form-card {
+        padding: 1.75rem 1.25rem;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .step-node__label {
+        display: none;
+      }
+      .step-indicator::before {
+        left: 20px;
+        right: 20px;
+      }
+      .step-indicator__progress {
+        left: 20px;
+      }
+      .disclaimer-card {
+        padding: 1rem;
+      }
+      .form-actions {
+        flex-direction: column-reverse;
+        gap: 1rem;
+      }
+      .form-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body class="is-loading">
+  <canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+  <div class="sz-bokeh" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__mark">SZ Ventures</div>
+    <div class="preloader__count" id="preCount">0</div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
+  </div>
+
+  <!-- Global Header -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" width="36" height="36" style="width:36px;height:36px;object-fit:contain;">
+        SZ Ventures
+      </a>
+      <nav class="nav__links">
+        <a href="/ventures" class="nav__link">Ventures</a>
+        <a href="/operations" class="nav__link nav__link--active">Operations</a>
+        <a href="/how-we-build" class="nav__link">How We Build</a>
+        <a href="/about" class="nav__link">About</a>
+        <a href="/contact" class="nav__link">Contact</a>
+      </nav>
+      <div class="nav__right">
+        <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
+        <a href="/contact?intent=operations" class="btn btn--accent"><span>Build With Us →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu Fallback -->
+  <div class="menu" id="menu" style="display: none;">
+    <a href="/ventures" data-menu-link>Ventures <span>01</span></a>
+    <a href="/operations" data-menu-link>Operations <span>02</span></a>
+    <a href="/operations/rider-registration" data-menu-link style="color: var(--gold-bright);">Rider Registration <span>★</span></a>
+    <a href="/how-we-build" data-menu-link>How We Build <span>03</span></a>
+    <a href="/about" data-menu-link>About <span>04</span></a>
+    <a href="/contact" data-menu-link>Contact <span>05</span></a>
+    <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>06</span></a>
+    <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="swup" class="transition-fade">
+
+    <!-- Hero Section -->
+    <section class="hero hero--compact" id="top">
+      <div class="hero__bg"><div class="hero__gridlines"></div></div>
+      <div class="hero__inner container">
+        <div class="hero__meta"><span class="pill">OPERATIONS — FLEET PARTNER ONBOARDING</span></div>
+        <h1 class="hero__title display" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.15;">
+          <span class="line">REGISTER AS A RIDER.</span>
+          <span class="line"><em class="serif-accent">JOIN MANAGED FLEET OPERATIONS.</em></span>
+        </h1>
+        <p class="hero__sub" style="max-width: 68ch;">
+          Submit your personal, vehicle, and availability details for consideration in dedicated delivery and field operations across SZ Ventures hubs.
+        </p>
+      </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="section section--tight" style="padding-top: 1rem;">
+      <div class="reg-wrapper">
+
+        <!-- Onboarding Notice & Disclaimer (Section 1 Requirement) -->
+        <div class="disclaimer-card" role="note" aria-label="Registration disclaimer">
+          <svg class="disclaimer-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <p class="disclaimer-card__text">
+            <strong>Important Notice:</strong> This registration form collects your profile information for rider onboarding and operational partner evaluation. <strong>Submitting this form does not guarantee employment or immediate deployment.</strong> Candidates are shortlisted based on active client hub demand, geographic proximity, and vehicle availability.
+          </p>
+        </div>
+
+        <!-- Global Alert Box -->
+        <div id="formAlert" class="form-alert" role="alert" aria-live="polite"></div>
+
+        <!-- Multi-Step Progress Indicator -->
+        <div class="step-indicator" id="stepIndicator" role="tablist" aria-label="Registration Steps">
+          <div class="step-indicator__progress" id="stepProgress"></div>
+
+          <button type="button" class="step-node active" id="stepNode-1" onclick="goToStep(1)">
+            <div class="step-node__circle">1</div>
+            <span class="step-node__label">Personal</span>
+          </button>
+
+          <button type="button" class="step-node" id="stepNode-2" onclick="goToStep(2)">
+            <div class="step-node__circle">2</div>
+            <span class="step-node__label">Location</span>
+          </button>
+
+          <button type="button" class="step-node" id="stepNode-3" onclick="goToStep(3)">
+            <div class="step-node__circle">3</div>
+            <span class="step-node__label">Vehicle</span>
+          </button>
+
+          <button type="button" class="step-node" id="stepNode-4" onclick="goToStep(4)">
+            <div class="step-node__circle">4</div>
+            <span class="step-node__label">Preferences</span>
+          </button>
+
+          <button type="button" class="step-node" id="stepNode-5" onclick="goToStep(5)">
+            <div class="step-node__circle">5</div>
+            <span class="step-node__label">Verification</span>
+          </button>
+        </div>
+
+        <!-- Form Card Container -->
+        <div class="form-card" id="formCardContainer">
+          <form id="riderRegistrationForm" novalidate onsubmit="handleRiderSubmit(event)">
+
+            <!-- ========================================== -->
+            <!-- STEP 1: SECTION A — PERSONAL INFORMATION   -->
+            <!-- ========================================== -->
+            <div class="form-step active" id="step-1">
+              <div class="form-section-head">
+                <span class="form-section-tag">SECTION A — CANDIDATE PROFILE</span>
+                <h2 class="form-section-title">Personal Information</h2>
+                <p class="form-section-desc">Provide your verified contact and identity details for onboarding communications.</p>
+              </div>
+
+              <div class="form-grid">
+                <!-- Full Name -->
+                <div class="form-group form-grid--full" id="grp-full_name">
+                  <label class="form-label" for="full_name">Full Name (as per official ID) <span class="req">*</span></label>
+                  <input type="text" id="full_name" name="full_name" class="form-input" placeholder="e.g. Rahul Sharma" required autocomplete="name">
+                  <span class="form-error-msg">Please enter your legal full name.</span>
+                </div>
+
+                <!-- Mobile Number -->
+                <div class="form-group" id="grp-mobile_number">
+                  <label class="form-label" for="mobile_number">Mobile Number <span class="req">*</span></label>
+                  <input type="tel" id="mobile_number" name="mobile_number" class="form-input" placeholder="e.g. 9876543210" maxlength="10" required autocomplete="tel">
+                  <span class="form-hint">10-digit Indian mobile number for calls & operational SMS updates.</span>
+                  <span class="form-error-msg">Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9.</span>
+                </div>
+
+                <!-- WhatsApp Number -->
+                <div class="form-group" id="grp-whatsapp_number">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                    <label class="form-label" for="whatsapp_number" style="margin: 0;">WhatsApp Number <span class="opt">(Optional)</span></label>
+                    <label style="font-size: 0.75rem; color: var(--gold); display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+                      <input type="checkbox" id="sameAsMobile" onchange="toggleSameAsMobile()" style="accent-color: var(--gold);">
+                      Same as Mobile
+                    </label>
+                  </div>
+                  <input type="tel" id="whatsapp_number" name="whatsapp_number" class="form-input" placeholder="e.g. 9876543210" maxlength="10">
+                  <span class="form-hint">Used for shift rosters and instant hub briefings.</span>
+                  <span class="form-error-msg">Please enter a valid 10-digit WhatsApp number.</span>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group" id="grp-email">
+                  <label class="form-label" for="email">Email Address <span class="opt">(Optional)</span></label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="e.g. rahul.sharma@example.com" autocomplete="email">
+                  <span class="form-hint">For monthly payout slips and documentation.</span>
+                  <span class="form-error-msg">Please enter a valid email address.</span>
+                </div>
+
+                <!-- Date of Birth (Age >= 18 Eligibility) -->
+                <div class="form-group" id="grp-dob">
+                  <label class="form-label" for="dob">Date of Birth <span class="req">*</span></label>
+                  <input type="date" id="dob" name="dob" class="form-input" required max="2008-01-01">
+                  <span class="form-hint">Must be at least 18 years of age for fleet eligibility.</span>
+                  <span class="form-error-msg">You must be at least 18 years old to register.</span>
+                </div>
+
+                <!-- Preferred Language -->
+                <div class="form-group form-grid--full" id="grp-preferred_language">
+                  <label class="form-label" for="preferred_language">Preferred Communication Language <span class="opt">(Optional)</span></label>
+                  <select id="preferred_language" name="preferred_language" class="form-select">
+                    <option value="">Select language</option>
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Telugu">Telugu</option>
+                    <option value="Kannada">Kannada</option>
+                    <option value="Tamil">Tamil</option>
+                    <option value="Marathi">Marathi</option>
+                    <option value="Malayalam">Malayalam</option>
+                    <option value="Bengali">Bengali</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-actions form-actions--end">
+                <button type="button" class="btn btn--accent" onclick="nextStep(1)">
+                  <span>Continue to Location →</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- STEP 2: SECTION B — LOCATION DETAILS       -->
+            <!-- ========================================== -->
+            <div class="form-step" id="step-2">
+              <div class="form-section-head">
+                <span class="form-section-tag">SECTION B — OPERATIONAL COVERAGE</span>
+                <h2 class="form-section-title">Location & Hub Proximity</h2>
+                <p class="form-section-desc">Specify your residential area and the delivery zones where you are available to operate.</p>
+              </div>
+
+              <div class="form-grid">
+                <!-- State -->
+                <div class="form-group" id="grp-state">
+                  <label class="form-label" for="state">State <span class="req">*</span></label>
+                  <select id="state" name="state" class="form-select" required>
+                    <option value="">Select State</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Delhi NCR">Delhi NCR</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Other">Other State</option>
+                  </select>
+                  <span class="form-error-msg">Please select your state.</span>
+                </div>
+
+                <!-- District -->
+                <div class="form-group" id="grp-district">
+                  <label class="form-label" for="district">District <span class="req">*</span></label>
+                  <input type="text" id="district" name="district" class="form-input" placeholder="e.g. Hyderabad / Bengaluru Urban" required>
+                  <span class="form-error-msg">Please enter your district.</span>
+                </div>
+
+                <!-- City / Town -->
+                <div class="form-group" id="grp-city">
+                  <label class="form-label" for="city">City or Town <span class="req">*</span></label>
+                  <input type="text" id="city" name="city" class="form-input" placeholder="e.g. Hyderabad" required>
+                  <span class="form-error-msg">Please enter your city or town.</span>
+                </div>
+
+                <!-- PIN Code -->
+                <div class="form-group" id="grp-pincode">
+                  <label class="form-label" for="pincode">PIN Code <span class="req">*</span></label>
+                  <input type="text" id="pincode" name="pincode" class="form-input" placeholder="e.g. 500081" maxlength="6" required>
+                  <span class="form-hint">6-digit postal code.</span>
+                  <span class="form-error-msg">Please enter a valid 6-digit PIN code.</span>
+                </div>
+
+                <!-- Preferred Working Location / Hub -->
+                <div class="form-group form-grid--full" id="grp-preferred_location">
+                  <label class="form-label" for="preferred_location">Preferred Working Hub / Cluster <span class="req">*</span></label>
+                  <input type="text" id="preferred_location" name="preferred_location" class="form-input" placeholder="e.g. Hitec City, Gachibowli, Madhapur, or Indiranagar" required>
+                  <span class="form-hint">The primary commercial area or store cluster you want to operate from.</span>
+                  <span class="form-error-msg">Please enter your preferred working location.</span>
+                </div>
+
+                <!-- Willingness to work nearby -->
+                <div class="form-group form-grid--full" id="grp-willing_nearby">
+                  <label class="form-label">Willingness to work in adjacent/nearby locations? <span class="req">*</span></label>
+                  <div class="radio-pill-group">
+                    <div class="radio-pill">
+                      <input type="radio" id="willing_yes" name="willing_nearby" value="yes" checked>
+                      <label for="willing_yes">Yes, within 5–10 km</label>
+                    </div>
+                    <div class="radio-pill">
+                      <input type="radio" id="willing_no" name="willing_nearby" value="no">
+                      <label for="willing_no">No, only preferred hub</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost" onclick="goToStep(1)">
+                  <span>← Back to Personal</span>
+                </button>
+                <button type="button" class="btn btn--accent" onclick="nextStep(2)">
+                  <span>Continue to Vehicle →</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- STEP 3: SECTION C — VEHICLE INFORMATION    -->
+            <!-- ========================================== -->
+            <div class="form-step" id="step-3">
+              <div class="form-section-head">
+                <span class="form-section-tag">SECTION C — VEHICLE & LICENSING</span>
+                <h2 class="form-section-title">Vehicle Information</h2>
+                <p class="form-section-desc">Details regarding your transportation assets and driver licensing.</p>
+              </div>
+
+              <div class="form-grid">
+                <!-- Do you own a vehicle? -->
+                <div class="form-group form-grid--full" id="grp-own_vehicle">
+                  <label class="form-label">Do you own or currently have access to a vehicle? <span class="req">*</span></label>
+                  <div class="radio-pill-group">
+                    <div class="radio-pill">
+                      <input type="radio" id="veh_yes" name="own_vehicle" value="yes" checked onchange="toggleVehicleFields(true)">
+                      <label for="veh_yes">Yes, I have a vehicle</label>
+                    </div>
+                    <div class="radio-pill">
+                      <input type="radio" id="veh_no" name="own_vehicle" value="no" onchange="toggleVehicleFields(false)">
+                      <label for="veh_no">No, I need company-assisted EV / Bicycle</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Conditional Vehicle Block -->
+                <div id="vehicleDetailsBlock" class="form-grid--full" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem 1.5rem; margin-top: 0.5rem;">
+                  <!-- Vehicle Type -->
+                  <div class="form-group" id="grp-vehicle_type">
+                    <label class="form-label" for="vehicle_type">Vehicle Type <span class="req">*</span></label>
+                    <select id="vehicle_type" name="vehicle_type" class="form-select" onchange="handleVehicleTypeChange()">
+                      <option value="Motorcycle">Motorcycle (Petrol)</option>
+                      <option value="Scooter">Scooter (Petrol)</option>
+                      <option value="Electric 2W">Electric 2-Wheeler (EV)</option>
+                      <option value="Bicycle">Bicycle (Non-motorized)</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  <!-- Vehicle Registration Number -->
+                  <div class="form-group" id="grp-vehicle_reg_number">
+                    <label class="form-label" for="vehicle_reg_number">Vehicle Registration Number <span class="req" id="vehRegReq">*</span></label>
+                    <input type="text" id="vehicle_reg_number" name="vehicle_reg_number" class="form-input" placeholder="e.g. TS09AB1234" style="text-transform: uppercase;">
+                    <span class="form-hint">Number plate characters without spaces.</span>
+                    <span class="form-error-msg">Please enter a valid registration number.</span>
+                  </div>
+
+                  <!-- Driving Licence Availability -->
+                  <div class="form-group" id="grp-driving_licence_status">
+                    <label class="form-label" for="driving_licence_status">Driving Licence Availability <span class="req">*</span></label>
+                    <select id="driving_licence_status" name="driving_licence_status" class="form-select">
+                      <option value="yes">Yes, I hold a valid Driving Licence</option>
+                      <option value="learner">Learner's Licence (LLR)</option>
+                      <option value="no">No Licence / In Process</option>
+                      <option value="not_applicable">Not Applicable (Bicycle)</option>
+                    </select>
+                  </div>
+
+                  <!-- Vehicle Availability -->
+                  <div class="form-group" id="grp-vehicle_availability">
+                    <label class="form-label" for="vehicle_availability">Vehicle Availability <span class="req">*</span></label>
+                    <select id="vehicle_availability" name="vehicle_availability" class="form-select">
+                      <option value="full-time">Full-time (Available all shifts)</option>
+                      <option value="part-time">Part-time (Specific hours only)</option>
+                      <option value="flexible">Flexible / Weekend</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Info banner when applicant has no vehicle -->
+                <div id="noVehicleNotice" class="form-grid--full" style="display: none; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-sm); padding: 1rem 1.25rem;">
+                  <p style="font-size: 0.88rem; color: rgba(255,255,255,0.75); margin: 0; line-height: 1.5;">
+                    💡 <strong>No vehicle?</strong> In select metropolitan clusters, SZ Ventures partners with commercial EV fleet leasing providers. Subject to hub capacity, you may be considered for hub-assisted EV or bicycle delivery roles.
+                  </p>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost" onclick="goToStep(2)">
+                  <span>← Back to Location</span>
+                </button>
+                <button type="button" class="btn btn--accent" onclick="nextStep(3)">
+                  <span>Continue to Preferences →</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- STEP 4: SECTION D — WORK PREFERENCES       -->
+            <!-- ========================================== -->
+            <div class="form-step" id="step-4">
+              <div class="form-section-head">
+                <span class="form-section-tag">SECTION D — WORK PREFERENCES & BACKGROUND</span>
+                <h2 class="form-section-title">Preferences & Experience</h2>
+                <p class="form-section-desc">Tell us your shift preferences, availability window, and past delivery experience.</p>
+              </div>
+
+              <div class="form-grid">
+                <!-- Preferred Work Type -->
+                <div class="form-group" id="grp-preferred_work_type">
+                  <label class="form-label" for="preferred_work_type">Preferred Work Type <span class="req">*</span></label>
+                  <select id="preferred_work_type" name="preferred_work_type" class="form-select">
+                    <option value="delivery">Dedicated Delivery (Food / Grocery)</option>
+                    <option value="rider_operations">Rider Operations & Hub Fleet</option>
+                    <option value="field_operations">Field Operations / BGV / Verification</option>
+                    <option value="flexible">Any / Flexible</option>
+                  </select>
+                </div>
+
+                <!-- Work Availability -->
+                <div class="form-group" id="grp-work_availability">
+                  <label class="form-label" for="work_availability">Work Availability <span class="req">*</span></label>
+                  <select id="work_availability" name="work_availability" class="form-select">
+                    <option value="full-time">Full-Time (8–10 Hours / Day)</option>
+                    <option value="part-time">Part-Time (4–5 Hours / Day)</option>
+                    <option value="weekend_only">Weekend Only</option>
+                    <option value="flexible">Flexible</option>
+                  </select>
+                </div>
+
+                <!-- Preferred Shift -->
+                <div class="form-group" id="grp-preferred_shift">
+                  <label class="form-label" for="preferred_shift">Preferred Shift <span class="req">*</span></label>
+                  <select id="preferred_shift" name="preferred_shift" class="form-select">
+                    <option value="morning">Morning Shift (6:00 AM – 2:00 PM)</option>
+                    <option value="afternoon">Afternoon Shift (2:00 PM – 10:00 PM)</option>
+                    <option value="evening_night">Evening / Night Shift (6:00 PM – 2:00 AM)</option>
+                    <option value="flexible">Flexible / Any Shift</option>
+                  </select>
+                </div>
+
+                <!-- Preferred Joining Date -->
+                <div class="form-group" id="grp-joining_date">
+                  <label class="form-label" for="joining_date">Preferred Joining Timeline <span class="opt">(Optional)</span></label>
+                  <select id="joining_date" name="joining_date" class="form-select">
+                    <option value="Immediate">Immediate (Within 24–48 hours)</option>
+                    <option value="1_week">Within 1 Week</option>
+                    <option value="2_weeks">Within 2 Weeks</option>
+                    <option value="next_month">Next Month</option>
+                  </select>
+                </div>
+
+                <!-- Previous Delivery Experience -->
+                <div class="form-group form-grid--full" id="grp-has_experience">
+                  <label class="form-label">Previous delivery or field operations experience? <span class="req">*</span></label>
+                  <div class="radio-pill-group">
+                    <div class="radio-pill">
+                      <input type="radio" id="exp_yes" name="has_experience" value="yes" checked onchange="toggleExperienceFields(true)">
+                      <label for="exp_yes">Yes, I have experience</label>
+                    </div>
+                    <div class="radio-pill">
+                      <input type="radio" id="exp_no" name="has_experience" value="no" onchange="toggleExperienceFields(false)">
+                      <label for="exp_no">No, I am new to delivery</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Conditional Experience Details -->
+                <div id="experienceDetailsBlock" class="form-grid--full" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem 1.5rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="experience_duration">Duration of Experience</label>
+                    <select id="experience_duration" name="experience_duration" class="form-select">
+                      <option value="Less than 6 months">Less than 6 months</option>
+                      <option value="6 - 12 months">6 to 12 months</option>
+                      <option value="1 - 2 years">1 to 2 years</option>
+                      <option value="2+ years">More than 2 years</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="previous_platforms">Previous Companies / Platforms <span class="opt">(Optional)</span></label>
+                    <input type="text" id="previous_platforms" name="previous_platforms" class="form-input" placeholder="e.g. Zomato, Swiggy, Zepto, Blinkit, Shadowfax">
+                  </div>
+
+                  <div class="form-group form-grid--full">
+                    <label class="form-label" for="experience_notes">Relevant Experience Summary <span class="opt">(Optional)</span></label>
+                    <textarea id="experience_notes" name="experience_notes" class="form-textarea" rows="2" maxlength="500" placeholder="Briefly mention any special route knowledge, cash management experience, or ratings..."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost" onclick="goToStep(3)">
+                  <span>← Back to Vehicle</span>
+                </button>
+                <button type="button" class="btn btn--accent" onclick="nextStep(4)">
+                  <span>Continue to Documents & Consent →</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- STEP 5: SECTION E & F — DOCS & CONSENT     -->
+            <!-- ========================================== -->
+            <div class="form-step" id="step-5">
+              <div class="form-section-head">
+                <span class="form-section-tag">SECTION E & F — VERIFICATION & DECLARATION</span>
+                <h2 class="form-section-title">Documents & Final Declaration</h2>
+                <p class="form-section-desc">Document uploads are optional at this stage. You can attach them now for expedited review or bring original physical documents during hub verification.</p>
+              </div>
+
+              <!-- Document Uploads (Section E) -->
+              <h3 style="font-family: var(--font-display); font-size: 1rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">
+                SECTION E — Optional Document Uploads
+              </h3>
+              <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 1.25rem;">
+                Supported file types: JPG, PNG, WEBP, PDF (Maximum file size: 5 MB per document). Files are stored securely and never made public.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+                <!-- Profile Photo -->
+                <div class="file-upload-card" id="card-doc_photo">
+                  <div class="file-upload-info">
+                    <div>
+                      <div class="file-upload-title">1. Profile Photograph <span class="opt">(Optional)</span></div>
+                      <span class="form-hint">Clear front-facing headshot for digital ID badge.</span>
+                    </div>
+                    <span class="file-upload-status" id="status-doc_photo">Not selected</span>
+                  </div>
+                  <input type="file" id="doc_photo" accept="image/jpeg,image/png,image/webp" onchange="handleFileSelect(this, 'doc_photo')" style="font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem;">
+                </div>
+
+                <!-- Driving Licence -->
+                <div class="file-upload-card" id="card-doc_driving_licence">
+                  <div class="file-upload-info">
+                    <div>
+                      <div class="file-upload-title">2. Driving Licence <span class="opt">(Optional)</span></div>
+                      <span class="form-hint">Front side of your physical or digital Driving Licence (PDF or Image).</span>
+                    </div>
+                    <span class="file-upload-status" id="status-doc_driving_licence">Not selected</span>
+                  </div>
+                  <input type="file" id="doc_driving_licence" accept="image/jpeg,image/png,image/webp,application/pdf" onchange="handleFileSelect(this, 'doc_driving_licence')" style="font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem;">
+                </div>
+
+                <!-- Vehicle RC -->
+                <div class="file-upload-card" id="card-doc_rc">
+                  <div class="file-upload-info">
+                    <div>
+                      <div class="file-upload-title">3. Vehicle Registration Certificate (RC) <span class="opt">(Optional)</span></div>
+                      <span class="form-hint">RC card or mParivahan digital certificate.</span>
+                    </div>
+                    <span class="file-upload-status" id="status-doc_rc">Not selected</span>
+                  </div>
+                  <input type="file" id="doc_rc" accept="image/jpeg,image/png,image/webp,application/pdf" onchange="handleFileSelect(this, 'doc_rc')" style="font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem;">
+                </div>
+              </div>
+
+              <!-- Declaration & Consent (Section F) -->
+              <h3 style="font-family: var(--font-display); font-size: 1rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">
+                SECTION F — Mandatory Declarations & Consent
+              </h3>
+
+              <!-- Consent Checkbox 1 (Accuracy) -->
+              <div class="consent-card" id="grp-consent_accuracy" onclick="toggleCheckbox('consent_accuracy')">
+                <input type="checkbox" id="consent_accuracy" name="consent_accuracy" required onclick="event.stopPropagation()">
+                <label for="consent_accuracy">
+                  <strong>Declaration of Accuracy:</strong> I solemnly declare and confirm that all personal, contact, location, and vehicle details submitted in this registration form are true, accurate, and complete to the best of my knowledge. <span class="req">*</span>
+                </label>
+              </div>
+
+              <!-- Consent Checkbox 2 (Processing & Privacy) -->
+              <div class="consent-card" id="grp-consent_processing" onclick="toggleCheckbox('consent_processing')">
+                <input type="checkbox" id="consent_processing" name="consent_processing" required onclick="event.stopPropagation()">
+                <label for="consent_processing">
+                  <strong>Consent for Onboarding & Processing:</strong> I consent to SZ Ventures collecting, storing, and processing the submitted information solely for the purposes of rider registration, fleet partner evaluation, background check verification, and operational deployment communications in accordance with the <a href="/privacy.html" target="_blank" style="color: var(--gold); text-decoration: underline;" onclick="event.stopPropagation()">Privacy Policy</a>. <span class="req">*</span>
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn--ghost" onclick="goToStep(4)">
+                  <span>← Back to Preferences</span>
+                </button>
+                <button type="submit" id="submitBtn" class="btn btn--accent btn--lg">
+                  <span>Submit Rider Application →</span>
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SUCCESS / CONFIRMATION SCREEN (Section 6)  -->
+        <!-- ========================================== -->
+        <div class="success-card" id="successScreen" role="region" aria-label="Application Submitted Successfully">
+          <div class="success-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="36" height="36">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+
+          <h2 class="success-title">Application Submitted Successfully</h2>
+          <p style="color: rgba(255,255,255,0.8); max-width: 52ch; margin: 0 auto; line-height: 1.6;">
+            Thank you for registering with SZ Ventures. Your details have been recorded in our operational onboarding queue.
+          </p>
+
+          <div class="app-id-banner">
+            <span class="app-id-banner__label">Application Reference Number</span>
+            <span class="app-id-banner__value" id="displayAppId">SZ-RIDER-XXXXXX</span>
+            <span style="font-size: 0.75rem; color: #4ade80; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+              ● INITIAL STATUS: SUBMITTED
+            </span>
+          </div>
+
+          <div class="next-steps-list">
+            <h3 style="font-family: var(--font-display); font-size: 0.95rem; color: #fff; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.05em;">
+              What Happens Next:
+            </h3>
+
+            <div class="next-step-item">
+              <div class="next-step-num">1</div>
+              <div>
+                <strong style="color: #fff; font-size: 0.9rem;">Profile Screening & Hub Matching</strong>
+                <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.4;">
+                  Our operations team reviews your location and vehicle availability against active fleet delivery requirements (typically 1–2 business days).
+                </p>
+              </div>
+            </div>
+
+            <div class="next-step-item">
+              <div class="next-step-num">2</div>
+              <div>
+                <strong style="color: #fff; font-size: 0.9rem;">SMS & WhatsApp Outreach</strong>
+                <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.4;">
+                  Shortlisted candidates will receive a direct WhatsApp message or call from the SZ Operations Hub supervisor with slot details.
+                </p>
+              </div>
+            </div>
+
+            <div class="next-step-item">
+              <div class="next-step-num">3</div>
+              <div>
+                <strong style="color: #fff; font-size: 0.9rem;">Hub Verification & Fleet Briefing</strong>
+                <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.4;">
+                  In-person verification of vehicle and documents, bag/asset assignment, and deployment briefing before shift onboarding.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="/operations/rider-operations" class="btn btn--accent">
+              <span>← Back to Rider Operations</span>
+            </a>
+            <a href="/" class="btn btn--ghost">
+              <span>Return to SZ Ventures Home</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer-v2">
+    <div class="container">
+      <div class="footer-v2__grid">
+        <div class="footer-v2__brand-col">
+          <div class="footer-v2__brand-title">SZ VENTURES</div>
+          <div class="footer-v2__tagline">Building businesses. Powering real-world work.</div>
+          <p class="footer-v2__statement">
+            SZ Ventures builds and operates businesses across technology, industry, consumer markets and distributed workforce infrastructure.
+          </p>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Navigation</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures">Ventures</a></li>
+            <li><a href="/operations">Operations</a></li>
+            <li><a href="/how-we-build">How We Build</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Ventures</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures/ai-robotics-data">AI & Robotics Data</a></li>
+            <li><a href="/ventures/manufacturing">Manufacturing</a></li>
+            <li><a href="/ventures/industrial-ai">Industrial AI</a></li>
+            <li><a href="/ventures/bowl-and-sip">Bowl & Sip Co.</a></li>
+            <li><a href="/ventures/snapops">SnapOps</a></li>
+            <li><a href="/ventures/creator-house">Creator House</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Operations</div>
+          <ul class="footer-v2__links">
+            <li><a href="/operations/rider-operations">Rider Operations</a></li>
+            <li><a href="/operations/rider-registration" style="color: var(--gold-bright);">Register as a Rider</a></li>
+            <li><a href="/operations/workforce-deployment">Workforce Deployment</a></li>
+            <li><a href="/operations/bgv-verification">BGV & Verification</a></li>
+            <li><a href="/operations/field-gig-operations">Field Gig Operations</a></li>
+            <li><a href="/operations/device-asset-recovery">Device & Asset Recovery</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-v2__bottom">
+        <div>© SZ Ventures Private Limited. All rights reserved.</div>
+        <div class="footer-v2__legal">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/cookies.html">Cookies</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/libs.bundle.js" defer></script>
+  <script src="/main.js" defer></script>
+
+  <script>
+    // State management
+    var currentStep = 1;
+    var totalSteps = 5;
+    var uploadedDocuments = {
+      doc_photo: null,
+      doc_driving_licence: null,
+      doc_rc: null
+    };
+
+    // Step navigation
+    function updateProgressUI(step) {
+      var progress = ((step - 1) / (totalSteps - 1)) * 100;
+      var bar = document.getElementById('stepProgress');
+      if (bar) bar.style.width = progress + '%';
+
+      for (var i = 1; i <= totalSteps; i++) {
+        var node = document.getElementById('stepNode-' + i);
+        var stepCard = document.getElementById('step-' + i);
+        if (!node || !stepCard) continue;
+
+        if (i < step) {
+          node.className = 'step-node completed';
+          stepCard.className = 'form-step';
+        } else if (i === step) {
+          node.className = 'step-node active';
+          stepCard.className = 'form-step active';
+        } else {
+          node.className = 'step-node';
+          stepCard.className = 'form-step';
+        }
+      }
+      currentStep = step;
+      var wrapper = document.getElementById('formCardContainer');
+      if (wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function goToStep(step) {
+      if (step < currentStep) {
+        updateProgressUI(step);
+      } else if (step > currentStep) {
+        // Validate intermediate steps before jumping forward
+        for (var s = currentStep; s < step; s++) {
+          if (!validateStep(s)) return;
+        }
+        updateProgressUI(step);
+      }
+    }
+
+    function nextStep(fromStep) {
+      if (validateStep(fromStep)) {
+        updateProgressUI(fromStep + 1);
+      }
+    }
+
+    // Step-specific validation
+    function validateStep(step) {
+      hideAlert();
+      var isValid = true;
+
+      if (step === 1) {
+        // Name
+        var nameInput = document.getElementById('full_name');
+        if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
+          showFieldError('grp-full_name');
+          isValid = false;
+        } else {
+          clearFieldError('grp-full_name');
+        }
+
+        // Mobile
+        var mobileInput = document.getElementById('mobile_number');
+        var cleanMobile = mobileInput.value.replace(/[\s\-\+]/g, '');
+        if (cleanMobile.startsWith('91') && cleanMobile.length === 12) cleanMobile = cleanMobile.substring(2);
+        var mobileRegex = /^[6-9]\d{9}$/;
+        if (!mobileRegex.test(cleanMobile)) {
+          showFieldError('grp-mobile_number');
+          isValid = false;
+        } else {
+          clearFieldError('grp-mobile_number');
+        }
+
+        // WhatsApp (optional, but validate if entered)
+        var waInput = document.getElementById('whatsapp_number');
+        if (waInput.value.trim()) {
+          var cleanWa = waInput.value.replace(/[\s\-\+]/g, '');
+          if (cleanWa.startsWith('91') && cleanWa.length === 12) cleanWa = cleanWa.substring(2);
+          if (!mobileRegex.test(cleanWa)) {
+            showFieldError('grp-whatsapp_number');
+            isValid = false;
+          } else {
+            clearFieldError('grp-whatsapp_number');
+          }
+        } else {
+          clearFieldError('grp-whatsapp_number');
+        }
+
+        // Email (optional, validate if entered)
+        var emailInput = document.getElementById('email');
+        if (emailInput.value.trim()) {
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(emailInput.value.trim())) {
+            showFieldError('grp-email');
+            isValid = false;
+          } else {
+            clearFieldError('grp-email');
+          }
+        } else {
+          clearFieldError('grp-email');
+        }
+
+        // DOB (Age >= 18 check)
+        var dobInput = document.getElementById('dob');
+        if (!dobInput.value) {
+          showFieldError('grp-dob');
+          isValid = false;
+        } else {
+          var dobDate = new Date(dobInput.value);
+          var today = new Date();
+          var age = today.getFullYear() - dobDate.getFullYear();
+          var m = today.getMonth() - dobDate.getMonth();
+          if (m < 0 || (m === 0 && today.getDate() < dobDate.getDate())) {
+            age--;
+          }
+          if (isNaN(age) || age < 18 || age > 75) {
+            showFieldError('grp-dob');
+            isValid = false;
+          } else {
+            clearFieldError('grp-dob');
+          }
+        }
+      }
+
+      if (step === 2) {
+        // State
+        var state = document.getElementById('state');
+        if (!state.value) {
+          showFieldError('grp-state');
+          isValid = false;
+        } else {
+          clearFieldError('grp-state');
+        }
+
+        // District
+        var dist = document.getElementById('district');
+        if (!dist.value.trim()) {
+          showFieldError('grp-district');
+          isValid = false;
+        } else {
+          clearFieldError('grp-district');
+        }
+
+        // City
+        var city = document.getElementById('city');
+        if (!city.value.trim()) {
+          showFieldError('grp-city');
+          isValid = false;
+        } else {
+          clearFieldError('grp-city');
+        }
+
+        // PIN code
+        var pin = document.getElementById('pincode');
+        var pinRegex = /^[1-9][0-9]{5}$/;
+        if (!pinRegex.test(pin.value.trim())) {
+          showFieldError('grp-pincode');
+          isValid = false;
+        } else {
+          clearFieldError('grp-pincode');
+        }
+
+        // Preferred location
+        var prefLoc = document.getElementById('preferred_location');
+        if (!prefLoc.value.trim()) {
+          showFieldError('grp-preferred_location');
+          isValid = false;
+        } else {
+          clearFieldError('grp-preferred_location');
+        }
+      }
+
+      if (step === 3) {
+        var ownVeh = document.querySelector('input[name="own_vehicle"]:checked');
+        if (ownVeh && ownVeh.value === 'yes') {
+          var vtype = document.getElementById('vehicle_type').value;
+          if (vtype !== 'Bicycle') {
+            var regNo = document.getElementById('vehicle_reg_number');
+            if (!regNo.value.trim() || regNo.value.trim().length < 4) {
+              showFieldError('grp-vehicle_reg_number');
+              isValid = false;
+            } else {
+              clearFieldError('grp-vehicle_reg_number');
+            }
+          }
+        }
+      }
+
+      if (step === 5) {
+        var acc = document.getElementById('consent_accuracy');
+        var proc = document.getElementById('consent_processing');
+        if (!acc.checked) {
+          document.getElementById('grp-consent_accuracy').classList.add('has-error');
+          showAlert('Please confirm the Declaration of Accuracy to submit your application.');
+          isValid = false;
+        } else {
+          document.getElementById('grp-consent_accuracy').classList.remove('has-error');
+        }
+        if (!proc.checked) {
+          document.getElementById('grp-consent_processing').classList.add('has-error');
+          if (isValid) showAlert('Consent to collection and processing of your details is required for onboarding.');
+          isValid = false;
+        } else {
+          document.getElementById('grp-consent_processing').classList.remove('has-error');
+        }
+      }
+
+      return isValid;
+    }
+
+    function showFieldError(grpId) {
+      var el = document.getElementById(grpId);
+      if (el) {
+        el.classList.add('has-error');
+        var inp = el.querySelector('.form-input, .form-select');
+        if (inp) inp.classList.add('is-invalid');
+      }
+    }
+
+    function clearFieldError(grpId) {
+      var el = document.getElementById(grpId);
+      if (el) {
+        el.classList.remove('has-error');
+        var inp = el.querySelector('.form-input, .form-select');
+        if (inp) inp.classList.remove('is-invalid');
+      }
+    }
+
+    function showAlert(msg) {
+      var alertBox = document.getElementById('formAlert');
+      if (alertBox) {
+        alertBox.textContent = msg;
+        alertBox.className = 'form-alert form-alert--error';
+        alertBox.style.display = 'block';
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function hideAlert() {
+      var alertBox = document.getElementById('formAlert');
+      if (alertBox) alertBox.style.display = 'none';
+    }
+
+    // Interactive Field Handlers
+    function toggleSameAsMobile() {
+      var cb = document.getElementById('sameAsMobile');
+      var mob = document.getElementById('mobile_number');
+      var wa = document.getElementById('whatsapp_number');
+      if (cb.checked) {
+        wa.value = mob.value;
+        wa.readOnly = true;
+      } else {
+        wa.readOnly = false;
+      }
+    }
+
+    function toggleVehicleFields(hasVehicle) {
+      var block = document.getElementById('vehicleDetailsBlock');
+      var notice = document.getElementById('noVehicleNotice');
+      if (hasVehicle) {
+        block.style.display = 'grid';
+        notice.style.display = 'none';
+      } else {
+        block.style.display = 'none';
+        notice.style.display = 'block';
+      }
+    }
+
+    function handleVehicleTypeChange() {
+      var vtype = document.getElementById('vehicle_type').value;
+      var regGrp = document.getElementById('grp-vehicle_reg_number');
+      var reqSpan = document.getElementById('vehRegReq');
+      if (vtype === 'Bicycle') {
+        reqSpan.style.display = 'none';
+        regGrp.style.opacity = '0.5';
+        document.getElementById('vehicle_reg_number').required = false;
+        document.getElementById('driving_licence_status').value = 'not_applicable';
+      } else {
+        reqSpan.style.display = 'inline';
+        regGrp.style.opacity = '1';
+        document.getElementById('vehicle_reg_number').required = true;
+      }
+    }
+
+    function toggleExperienceFields(hasExp) {
+      var block = document.getElementById('experienceDetailsBlock');
+      block.style.display = hasExp ? 'grid' : 'none';
+    }
+
+    function toggleCheckbox(id) {
+      var cb = document.getElementById(id);
+      if (cb) {
+        cb.checked = !cb.checked;
+        var parent = document.getElementById('grp-' + id);
+        if (parent && cb.checked) parent.classList.remove('has-error');
+      }
+    }
+
+    // Document file handling with client-side validation
+    function handleFileSelect(input, docType) {
+      var file = input.files[0];
+      var statusEl = document.getElementById('status-' + docType);
+      if (!file) {
+        uploadedDocuments[docType] = null;
+        if (statusEl) {
+          statusEl.textContent = 'Not selected';
+          statusEl.className = 'file-upload-status';
+        }
+        return;
+      }
+
+      // Check file size (max 5 MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File "' + file.name + '" exceeds the 5 MB maximum size limit. Please select a smaller file.');
+        input.value = '';
+        uploadedDocuments[docType] = null;
+        if (statusEl) {
+          statusEl.textContent = 'Too large (>5MB)';
+          statusEl.className = 'file-upload-status';
+        }
+        return;
+      }
+
+      // Check allowed MIME types
+      var allowed = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
+      if (!allowed.includes(file.type)) {
+        alert('File "' + file.name + '" has unsupported format (' + file.type + '). Please upload JPG, PNG, WEBP, or PDF.');
+        input.value = '';
+        uploadedDocuments[docType] = null;
+        if (statusEl) {
+          statusEl.textContent = 'Unsupported format';
+          statusEl.className = 'file-upload-status';
+        }
+        return;
+      }
+
+      // Read file as base64 data URL
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var base64Data = e.target.result.split(',')[1];
+        uploadedDocuments[docType] = {
+          name: file.name,
+          mime: file.type,
+          size: file.size,
+          data: base64Data
+        };
+        if (statusEl) {
+          statusEl.textContent = '✓ Ready (' + (file.size / 1024).toFixed(0) + ' KB)';
+          statusEl.className = 'file-upload-status has-file';
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Full Form Submission Handler
+    async function handleRiderSubmit(e) {
+      e.preventDefault();
+
+      // Validate all steps from 1 through 5
+      for (var s = 1; s <= 5; s++) {
+        if (!validateStep(s)) {
+          updateProgressUI(s);
+          return;
+        }
+      }
+
+      var submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Submitting Application...</span>';
+      hideAlert();
+
+      var ownVehicleVal = document.querySelector('input[name="own_vehicle"]:checked').value;
+      var willingNearbyVal = document.querySelector('input[name="willing_nearby"]:checked').value;
+      var hasExpVal = document.querySelector('input[name="has_experience"]:checked').value;
+
+      var payload = {
+        source: 'rider_registration',
+        full_name: document.getElementById('full_name').value.trim(),
+        mobile_number: document.getElementById('mobile_number').value.trim(),
+        whatsapp_number: document.getElementById('whatsapp_number').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        dob: document.getElementById('dob').value,
+        preferred_language: document.getElementById('preferred_language').value,
+        state: document.getElementById('state').value,
+        district: document.getElementById('district').value.trim(),
+        city: document.getElementById('city').value.trim(),
+        pincode: document.getElementById('pincode').value.trim(),
+        preferred_location: document.getElementById('preferred_location').value.trim(),
+        willing_nearby: willingNearbyVal,
+        own_vehicle: ownVehicleVal,
+        vehicle_type: ownVehicleVal === 'yes' ? document.getElementById('vehicle_type').value : 'None',
+        vehicle_reg_number: ownVehicleVal === 'yes' ? document.getElementById('vehicle_reg_number').value.trim() : 'N/A',
+        driving_licence_status: document.getElementById('driving_licence_status').value,
+        vehicle_availability: document.getElementById('vehicle_availability').value,
+        preferred_work_type: document.getElementById('preferred_work_type').value,
+        work_availability: document.getElementById('work_availability').value,
+        preferred_shift: document.getElementById('preferred_shift').value,
+        joining_date: document.getElementById('joining_date').value,
+        has_experience: hasExpVal,
+        experience_duration: hasExpVal === 'yes' ? document.getElementById('experience_duration').value : 'None',
+        previous_platforms: document.getElementById('previous_platforms').value.trim(),
+        experience_notes: document.getElementById('experience_notes').value.trim(),
+        doc_photo: uploadedDocuments.doc_photo,
+        doc_driving_licence: uploadedDocuments.doc_driving_licence,
+        doc_rc: uploadedDocuments.doc_rc,
+        consent_accuracy: document.getElementById('consent_accuracy').checked,
+        consent_processing: document.getElementById('consent_processing').checked
+      };
+
+      // Generate Idempotency Key to prevent duplicate submissions
+      var idemKey = 'sz-rider-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
+
+      try {
+        var response = await fetch('/api/rider-registration', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Idempotency-Key': idemKey
+          },
+          body: JSON.stringify(payload)
+        });
+
+        var result = await response.json();
+
+        if (response.ok && result.status === 'success') {
+          // Success State Display
+          document.getElementById('formCardContainer').style.display = 'none';
+          document.getElementById('stepIndicator').style.display = 'none';
+          var succ = document.getElementById('successScreen');
+          succ.style.display = 'block';
+          var appId = result.application_id || result.id || 'SZ-RIDER-CONFIRMED';
+          document.getElementById('displayAppId').textContent = appId;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error(result.message || 'Submission failed. Please check your entries and try again.');
+        }
+      } catch (err) {
+        showAlert('Submission Error: ' + err.message);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Submit Rider Application →</span>';
+      }
+    }
+
+    // Preloader failsafe
+    setTimeout(function() {
+      var pre = document.getElementById('preloader');
+      if (pre && !pre.classList.contains('is-done')) {
+        pre.classList.add('is-done');
+        document.body.classList.remove('is-loading');
+      }
+    }, 2000);
+  </script>
+</body>
+</html>

@@ -2,12 +2,18 @@ import os, re
 
 def check_html():
     findings = []
-    for root, _, files in os.walk('.'):
+    ignored_dirs = {'.git', 'node_modules', 'tmp_chrome_profile', '.vercel', '__pycache__'}
+    for root, dirs, files in os.walk('.'):
+        dirs[:] = [d for d in dirs if d not in ignored_dirs]
         for f in files:
             if f.endswith('.html'):
                 path = os.path.join(root, f)
-                with open(path, 'r', encoding='utf-8') as html_f:
-                    text = html_f.read()
+                try:
+                    with open(path, 'r', encoding='utf-8') as html_f:
+                        text = html_f.read()
+                except UnicodeDecodeError:
+                    with open(path, 'r', encoding='utf-8', errors='ignore') as html_f:
+                        text = html_f.read()
                     
                     # Check images
                     for m in re.finditer(r'<img([^>]+)>', text):

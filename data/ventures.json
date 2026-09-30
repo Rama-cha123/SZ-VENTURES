@@ -1,0 +1,123 @@
+[
+  {
+    "id": "ai-robotics-data",
+    "name": "AI & Robotics Data",
+    "status": "ACTIVE",
+    "sector": "Industrial Technology",
+    "tagline": "REAL-WORLD DATA FOR INTELLIGENT MACHINES.",
+    "short_description": "Real-world data operations for the next generation of AI and robotics.",
+    "full_description": "Building operational capabilities for collecting, structuring and quality-controlling real-world data used in AI and robotics applications.",
+    "url": "/ventures/ai-robotics-data",
+    "card_image": "/assets/images/cards/ai-robotics-card.jpg",
+    "current_engagement": {
+      "title": "Industrial Data Operations",
+      "status": "ACTIVE",
+      "partner": "In collaboration with Awign Enterprises",
+      "description": "SZ Ventures is currently operating an industrial data collection program supporting the development of AI and robotics applications. SZ acts as the operational/data collection partner executing the real-world component."
+    },
+    "sections": [
+      "Industrial Data Operations",
+      "Workforce Deployment",
+      "Data Collection",
+      "Quality Control",
+      "Device Operations",
+      "Current Engagement"
+    ]
+  },
+  {
+    "id": "manufacturing",
+    "name": "Manufacturing",
+    "status": "ACTIVE",
+    "sector": "Industrial Technology",
+    "tagline": "FROM PHYSICAL CAPABILITY TO INDUSTRIAL EXECUTION.",
+    "short_description": "Industrial manufacturing and physical production capabilities built for real-world demand.",
+    "full_description": "Industrial manufacturing and physical production capabilities serving commercial, institutional, and technical requirements with rigorous quality control.",
+    "url": "/ventures/manufacturing",
+    "card_image": "/assets/images/cards/manufacturing-card.jpg",
+    "sections": [
+      "Capabilities",
+      "Production",
+      "Workforce",
+      "Industrial Execution",
+      "Quality",
+      "Current Capabilities"
+    ]
+  },
+  {
+    "id": "industrial-ai",
+    "name": "Industrial AI",
+    "status": "DEVELOPING",
+    "sector": "Industrial Technology",
+    "tagline": "INTELLIGENCE FOR THE PHYSICAL WORLD.",
+    "short_description": "Building intelligent systems for physical and industrial environments.",
+    "full_description": "Developing intelligent systems and applications for physical and industrial environments, connecting sensors, equipment, and workflows.",
+    "url": "/ventures/industrial-ai",
+    "card_image": "/assets/images/cards/industrial-ai-card.jpg",
+    "sections": [
+      "Overview",
+      "Physical Systems Integration",
+      "Operational Intelligence",
+      "Current Focus"
+    ]
+  },
+  {
+    "id": "bowl-and-sip",
+    "name": "Bowl & Sip Co.",
+    "status": "BUILDING",
+    "sector": "New Economy",
+    "tagline": "PERFORMANCE NUTRITION. BUILT FOR REAL LIFE.",
+    "short_description": "Performance nutrition designed around real food, functional nutrition and convenient delivery.",
+    "full_description": "A health-conscious food and lifestyle venture engineered around clean ingredients, macro-balanced nourishment, and fast everyday access.",
+    "url": "/ventures/bowl-and-sip",
+    "card_image": "/assets/images/cards/bowl-and-sip-card.jpg",
+    "independent_brand": true,
+    "brand_note": "A venture by SZ Ventures",
+    "sections": [
+      "The Brand",
+      "Product",
+      "Performance Nutrition",
+      "Menu / Product System",
+      "Current Stage"
+    ]
+  },
+  {
+    "id": "snapops",
+    "name": "SnapOps",
+    "status": "BUILDING",
+    "sector": "New Economy",
+    "tagline": "REAL-WORLD SERVICES. WITHOUT THE FRICTION.",
+    "short_description": "WhatsApp-first community and field services, designed to make everyday services easier to access.",
+    "full_description": "A WhatsApp-first community and field services model designed to make essential local services accessible with zero apps and zero friction.",
+    "url": "/ventures/snapops",
+    "card_image": "/assets/images/cards/snapops-card.jpg",
+    "independent_brand": true,
+    "brand_note": "A venture by SZ Ventures",
+    "sections": [
+      "The Problem",
+      "The Model",
+      "WhatsApp-First",
+      "Field Operations",
+      "Current Stage"
+    ]
+  },
+  {
+    "id": "creator-house",
+    "name": "Creator House",
+    "status": "ONBOARDING",
+    "sector": "New Economy",
+    "tagline": "WHERE CREATORS BUILD.",
+    "short_description": "A creator-first production ecosystem connecting creators, production infrastructure and opportunities.",
+    "full_description": "A creator-first production ecosystem connecting creators with production infrastructure, content opportunities, and a professional creative environment.",
+    "url": "/ventures/creator-house",
+    "card_image": "/assets/images/cards/creator-house-card.jpg",
+    "independent_brand": true,
+    "brand_note": "A venture by SZ Ventures",
+    "sections": [
+      "Overview",
+      "Production Infrastructure",
+      "Studio Suites",
+      "Creator Network",
+      "Onboarding"
+    ]
+  }
+]

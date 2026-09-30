@@ -91,11 +91,14 @@
       mirror: false,
       duration: 800,
       easing: 'ease-out-cubic',
-      offset: 90,
+      offset: 40,
       anchorPlacement: 'top-bottom',
     };
 
     window.AOS.init(aosInit);
+    setTimeout(() => {
+      document.querySelectorAll('[data-aos]').forEach(el => el.classList.add('aos-animate'));
+    }, 400);
     // AOS has no destroy API; native document navigation releases its listeners.
   }
 

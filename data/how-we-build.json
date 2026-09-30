@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "title": "How We Build",
+    "headline": "FROM OPPORTUNITY TO OPERATING BUSINESS.",
+    "description": "SZ Ventures turns real-world problems into functioning businesses through disciplined execution, operational capability, and scalable infrastructure."
+  },
+  "stages": [
+    {
+      "step": "01",
+      "name": "Identify",
+      "headline": "REAL PROBLEMS FIRST.",
+      "description": "Find opportunities where real-world problems create room for new businesses with clear customer need and viable unit economics."
+    },
+    {
+      "step": "02",
+      "name": "Build",
+      "headline": "FOUNDATION & INFRASTRUCTURE.",
+      "description": "Develop the people, systems, partnerships and infrastructure required to make the opportunity real, testable, and operational."
+    },
+    {
+      "step": "03",
+      "name": "Operate",
+      "headline": "FIELD-LEVEL EXECUTION.",
+      "description": "Put the business into the field, deploy real workflows, and build operational intelligence through direct, physical execution."
+    },
+    {
+      "step": "04",
+      "name": "Scale",
+      "headline": "EXPANSION THROUGH PROVEN MECHANICS.",
+      "description": "Expand what works through distribution, technology, workforce capacity, and strategic partnerships."
+    }
+  ],
+  "operating_layer": [
+    {
+      "name": "People",
+      "description": "Recruited, vetted, and coordinated talent driving execution on the ground."
+    },
+    {
+      "name": "Technology",
+      "description": "Targeted digital systems, communications layers, and operational tools."
+    },
+    {
+      "name": "Data",
+      "description": "Real-world signals, verification logs, and structured feedback loops."
+    },
+    {
+      "name": "Partnerships",
+      "description": "Collaborations with industry leaders, platforms, and enterprise clients."
+    },
+    {
+      "name": "Operations",
+      "description": "Standard operating procedures, governance, and daily management."
+    },
+    {
+      "name": "Distribution",
+      "description": "Direct access to enterprise demand, local communities, and consumer channels."
+    }
+  ]
+}

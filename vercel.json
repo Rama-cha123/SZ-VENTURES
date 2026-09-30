@@ -119,6 +119,62 @@
       "destination": "/ventures/manufacturing/index.html"
     },
     {
+      "source": "/operations",
+      "destination": "/operations/index.html"
+    },
+    {
+      "source": "/operations/workforce-deployment",
+      "destination": "/operations/workforce-deployment/index.html"
+    },
+    {
+      "source": "/operations/rider-operations",
+      "destination": "/operations/rider-operations/index.html"
+    },
+    {
+      "source": "/operations/rider-registration",
+      "destination": "/operations/rider-registration/index.html"
+    },
+    {
+      "source": "/operations/bgv-verification",
+      "destination": "/operations/bgv-verification/index.html"
+    },
+    {
+      "source": "/operations/field-gig-operations",
+      "destination": "/operations/field-gig-operations/index.html"
+    },
+    {
+      "source": "/operations/device-asset-recovery",
+      "destination": "/operations/device-asset-recovery/index.html"
+    },
+    {
+      "source": "/how-we-build",
+      "destination": "/how-we-build/index.html"
+    },
+    {
+      "source": "/ventures/ai-robotics-data",
+      "destination": "/ventures/ai-robotics-data/index.html"
+    },
+    {
+      "source": "/ventures/manufacturing",
+      "destination": "/ventures/manufacturing/index.html"
+    },
+    {
+      "source": "/ventures/industrial-ai",
+      "destination": "/ventures/industrial-ai/index.html"
+    },
+    {
+      "source": "/ventures/bowl-and-sip",
+      "destination": "/ventures/bowl-and-sip/index.html"
+    },
+    {
+      "source": "/ventures/snapops",
+      "destination": "/ventures/snapops/index.html"
+    },
+    {
+      "source": "/ventures/creator-house",
+      "destination": "/ventures/creator-house/index.html"
+    },
+    {
       "source": "/team",
       "destination": "/team.html"
     },

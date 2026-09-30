@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Navigation -->
   <url><loc>https://szventures.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://szventures.com/about/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://szventures.com/portfolio.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://szventures.com/ventures/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://szventures.com/creator-house/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://szventures.com/snapops/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/ventures</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://szventures.com/operations</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://szventures.com/how-we-build</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://szxventures.com/ventures/manufacturing/index.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://szxventures.com/team.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://szxventures.com/insights.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://szxventures.com/careers.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://szxventures.com/press.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://szxventures.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://szxventures.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://szxventures.com/cookies.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <!-- Ventures -->
+  <url><loc>https://szventures.com/ventures/ai-robotics-data</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/ventures/manufacturing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/ventures/industrial-ai</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/ventures/bowl-and-sip</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/ventures/snapops</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/ventures/creator-house</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/creator-house/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/snapops/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Operations Capabilities -->
+  <url><loc>https://szventures.com/operations/workforce-deployment</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/operations/rider-operations</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/operations/bgv-verification</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/operations/field-gig-operations</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://szventures.com/operations/device-asset-recovery</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Legal & Supporting -->
+  <url><loc>https://szventures.com/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://szventures.com/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

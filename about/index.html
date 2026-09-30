@@ -1,37 +1,37 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
- <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
- <title>SZ Ventures | About</title>
- <meta name="description" content="Learn about SZ Ventures, our structure, and our venture-building philosophy.">
- <meta name="theme-color" content="#0a0a0b">
- <link rel="canonical" href="https://szventures.com/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+  <title>About — SZ Ventures | Building Businesses. Operating in the Real World.</title>
+  <meta name="description" content="SZ Ventures is a venture-building and operating company focused on businesses where technology, people and physical execution intersect.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="canonical" href="https://szventures.com/about">
 
- <meta property="og:type" content="website">
- <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
- <meta name="twitter:image" content="https://szventures.com/assets/img/og-image.jpg">
- <meta property="og:title" content="SZ Ventures — Venture Studio">
- <meta property="og:description" content="Building Ventures That Solve Real-World Problems.">
- <meta property="og:url" content="https://szventures.com/">
- <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta name="twitter:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta property="og:title" content="About — SZ Ventures">
+  <meta property="og:description" content="Building businesses. Operating in the real world.">
+  <meta property="og:url" content="https://szventures.com/about">
+  <meta name="twitter:card" content="summary_large_image">
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
- <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
 
- <!-- Project styles -->
- <link rel="stylesheet" href="../assets/styles/tokens.css">
- <link rel="stylesheet" href="../assets/styles/base.css">
- <link rel="stylesheet" href="../assets/styles/components.css">
- <link rel="stylesheet" href="../assets/styles/layout.css">
- <link rel="stylesheet" href="../assets/styles/libs.bundle.css">
-
- <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-<style>
+  <!-- Project styles -->
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css?v=20260927">
+  <link rel="stylesheet" href="/assets/styles/libs.bundle.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/styles/ambient.css">
+  <style>
     @media (max-width: 768px) {
       .founder-section .container { display: flex; flex-direction: column; gap: 2rem; }
       .founder__visual { order: -1; margin-bottom: 1rem; }
@@ -39,175 +39,265 @@
     .founder__name--gold { color: var(--gold); }
     .founder__cta-wrap--flex { display: flex; gap: 1.5rem; flex-wrap: wrap; }
   </style>
- <link rel="stylesheet" href="/assets/styles/ambient.css">
 </head>
 <body class="is-loading">
-<canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
-<div class="sz-bokeh" aria-hidden="true"></div>
+  <canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+  <div class="sz-bokeh" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__mark">SZ Ventures</div>
+    <div class="preloader__count" id="preCount">0</div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
+  </div>
 
- <div class="grain" aria-hidden="true"></div>
- <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
- <div class="progress" aria-hidden="true"><span></span></div>
+  <!-- Header Navigation -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
+        SZ Ventures
+      </a>
+      
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/ventures" class="nav__link">Ventures</a>
+        <a href="/operations" class="nav__link">Operations</a>
+        <a href="/how-we-build" class="nav__link">How We Build</a>
+        <a href="/about" class="nav__link nav__link--active">About</a>
+        <a href="/contact" class="nav__link">Contact</a>
+        <a href="/insights.html" class="nav__link">Insights</a>
+      </nav>
 
- <!-- Preloader -->
- <div class="preloader" id="preloader" aria-hidden="true">
- <div class="preloader__mark">SZ Ventures</div>
- <div class="preloader__count" id="preCount">0</div>
- <div class="preloader__bar"><i id="preBar"></i></div>
- </div>
+      <div class="nav__right">
+        <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
+        <a href="/contact" class="btn btn--accent" data-magnetic data-cursor><span>Build With Us →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
- <!-- Header Navigation -->
- <!-- Header Navigation -->
- <header class="nav glass" id="nav">
- <div class="nav__inner">
- <a href="../index.html" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
- <img src="../assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
- SZ Ventures
- </a>
- 
- <nav class="nav__links" aria-label="Primary">
- <a href="../industrial-technology.html" class="nav__link">Industries</a>
- <a href="../ventures/" class="nav__link">Ventures</a>
-  <a href="/creator-house/" class="nav__link">Creator House</a>
- <a href="../capabilities.html" class="nav__link">Capabilities</a>
- <a href="../about/" class="nav__link">About</a>
- <a href="../insights.html" class="nav__link">Insights</a>
- <a href="../contact.html" class="nav__link">Contact</a>
- </nav>
- <div class="nav__right">
- <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
- <a href="../contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Start a Conversation →</span></a>
- <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
- <span></span><span></span><span></span>
- </button>
- </div>
+  <!-- Mobile Drawer Menu -->
+  <div class="menu" id="menu">
+    <a href="/ventures" data-menu-link>Ventures <span>01</span></a>
+    <a href="/operations" data-menu-link>Operations <span>02</span></a>
+    <a href="/how-we-build" data-menu-link>How We Build <span>03</span></a>
+    <a href="/about" data-menu-link>About <span>04</span></a>
+    <a href="/contact" data-menu-link>Contact <span>05</span></a>
+    <a href="/insights.html" data-menu-link>Insights <span>06</span></a>
+    <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
+    <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
+  </div>
 
- </div>
- </header>
+  <!-- Swup Main Container -->
+  <main id="swup" class="transition-fade">
 
- <!-- Mobile Drawer Menu -->
- <!-- Mobile Drawer Menu -->
- 
- <div class="menu" id="menu">
- <a href="../industrial-technology.html" data-menu-link>Industries <span>01</span></a>
- <a href="../ventures/" data-menu-link>Ventures <span>02</span></a>
-  <a href="/creator-house/" data-menu-link>Creator House <span>★</span></a>
- <a href="../capabilities.html" data-menu-link>Capabilities <span>03</span></a>
- <a href="../about/" data-menu-link>About <span>04</span></a>
- <a href="../insights.html" data-menu-link>Insights <span>05</span></a>
- <a href="../contact.html" data-menu-link>Contact <span>06</span></a>
- <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
- <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
- </div>
-</div>
- </div>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
+      <canvas id="sz-wave-canvas" aria-hidden="true"></canvas>
+      <div class="hero__inner container">
+        <div class="hero__meta" data-aos="fade"><span class="pill">SZ VENTURES</span></div>
+        <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900" style="font-size: clamp(2.8rem, 5.5vw, 4.5rem); line-height: 1.1;">
+          <span class="line">BUILDING BUSINESSES.</span>
+          <span class="line"><em class="serif-accent">OPERATING IN THE REAL WORLD.</em></span>
+        </h1>
+        <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+          SZ Ventures is a venture-building and operating company focused on businesses where technology, people and physical execution intersect. We identify opportunities, build the operating infrastructure, put businesses into the field and scale what works.
+        </p>
+      </div>
+    </section>
 
- <!-- Swup Main Container -->
- <main id="swup" class="transition-fade">
- <section class="hero" id="top">
- <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
-<canvas id="sz-wave-canvas" aria-hidden="true"></canvas>
- <div class="hero__inner container">
- <div class="hero__meta" data-aos="fade"><span class="pill">ABOUT US</span></div>
- <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900" style="font-size: clamp(3rem, 6vw, 4rem);">
- <span class="line">WE BUILD WHERE</span>
- <span class="line">OPPORTUNITY MEETS</span>
- <span class="line"><em class="serif-accent">EXECUTION.</em></span>
- </h1>
- <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
- SZ Ventures was founded on a simple premise: a good business is determined by execution, not just ideas.<br>
- We combine capital, capability and operations to build businesses with distinct market positions and clear unit economics.
- </p>
- </div>
- </section>
-
- <section class="section philosophy">
- <div class="container">
-   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
-     
-     <div data-aos="fade-up">
-       <h3 style="font-family: var(--font-display); color: var(--gold); margin-bottom: 1rem;">WHAT WE BELIEVE</h3>
-       <p style="font-size: var(--fs-500); line-height: 1.6;">
-         We believe in building sustainable businesses with real customers.<br>
-         We believe that operational capability is a moat.<br>
-         We believe in focusing on execution rather than noise.
-       </p>
-     </div>
-     
-     <div data-aos="fade-up" data-aos-delay="100">
-       <h3 style="font-family: var(--font-display); color: var(--gold); margin-bottom: 1rem;">OUR STRUCTURE</h3>
-       <p style="font-size: var(--fs-500); line-height: 1.6;">
-         SZ Ventures operates as a centralized holding company and venture builder. We provide the shared infrastructure—technology, operations, brand and capital—that allows our independent ventures to operate efficiently.
-       </p>
-     </div>
-     
-   </div>
- </div>
- </section>
-
-  
-
-
-  <!-- FOUNDER SECTION -->
-  <section class="section founder" id="founder">
-    <div class="container">
-      <div class="founder__grid">
+    <!-- CORE PHILOSOPHY & WHAT WE BELIEVE -->
+    <section class="section philosophy">
+      <div class="container">
         
-        <!-- Visual Column -->
-        <div class="founder__visual" data-aos="fade" data-aos-duration="900" data-aos-easing="ease-out-cubic">
-          <div class="founder__portrait-frame">
-            <picture>
-              <source srcset="../assets/images/founder/sridhar-chakkravarthy.webp" type="image/webp">
-              <img src="../assets/images/founder/sridhar-chakkravarthy.png" alt="Sridhar Chakkravarthy, Founder of SZ Ventures" class="founder__portrait" width="400" height="400" loading="lazy" decoding="async">
-            </picture>
+        <!-- CORE PHILOSOPHY FLOW -->
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">CORE PHILOSOPHY</span>
+          <h2 data-aos="fade-up">IDENTIFY → BUILD → OPERATE → SCALE</h2>
+        </div>
+
+        <div class="build-stages-grid" style="margin-bottom: 4rem;">
+          <div class="build-stage-card" data-aos="fade-up">
+            <div class="build-stage-card__num">01</div>
+            <h3 class="build-stage-card__title">Identify</h3>
+            <p class="build-stage-card__desc">Find opportunities where real-world problems create room for new businesses.</p>
+          </div>
+          <div class="build-stage-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="build-stage-card__num">02</div>
+            <h3 class="build-stage-card__title">Build</h3>
+            <p class="build-stage-card__desc">Develop people, systems, partnerships and infrastructure required to make the opportunity real.</p>
+          </div>
+          <div class="build-stage-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="build-stage-card__num">03</div>
+            <h3 class="build-stage-card__title">Operate</h3>
+            <p class="build-stage-card__desc">Put the business into the field and build operational intelligence through execution.</p>
+          </div>
+          <div class="build-stage-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="build-stage-card__num">04</div>
+            <h3 class="build-stage-card__title">Scale</h3>
+            <p class="build-stage-card__desc">Expand what works through distribution, technology, workforce and partnerships.</p>
           </div>
         </div>
 
-        <!-- Content Column -->
-        <div class="founder__content">
-          <div class="founder__header" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-            <div class="founder__eyebrow">FOUNDER</div>
-            <div class="founder__line"></div>
+        <!-- WHAT WE BELIEVE (SECTION 15) -->
+        <div class="sec-head" style="margin-top: 3rem;">
+          <span class="eyebrow" data-aos="fade">FOUNDATIONAL VALUES</span>
+          <h2 data-aos="fade-up">WHAT WE BELIEVE</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div style="padding: 2rem; background: rgba(18, 18, 22, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem;" data-aos="fade-up">
+            <h3 style="font-family: var(--font-display); color: var(--gold); font-size: 1.25rem; margin-bottom: 0.75rem;">REAL PROBLEMS FIRST</h3>
+            <p style="font-size: 0.95rem; line-height: 1.65; color: rgba(255,255,255,0.75);">
+              We build around problems that exist in the real world. Real customer demand, physical operational challenges, and genuine economic friction take precedence over abstract concepts.
+            </p>
           </div>
+
+          <div style="padding: 2rem; background: rgba(18, 18, 22, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem;" data-aos="fade-up" data-aos-delay="100">
+            <h3 style="font-family: var(--font-display); color: var(--gold); font-size: 1.25rem; margin-bottom: 0.75rem;">EXECUTION MATTERS</h3>
+            <p style="font-size: 0.95rem; line-height: 1.65; color: rgba(255,255,255,0.75);">
+              A business is not built by ideas alone. Enduring competitive moats are constructed through operational competence, field reliability, and disciplined day-to-day execution.
+            </p>
+          </div>
+
+          <div style="padding: 2rem; background: rgba(18, 18, 22, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem;" data-aos="fade-up" data-aos-delay="200">
+            <h3 style="font-family: var(--font-display); color: var(--gold); font-size: 1.25rem; margin-bottom: 0.75rem;">PEOPLE + TECHNOLOGY</h3>
+            <p style="font-size: 0.95rem; line-height: 1.65; color: rgba(255,255,255,0.75);">
+              Technology becomes more powerful when paired with capable people and operational infrastructure. Software coordinates; people execute and deliver value in the physical world.
+            </p>
+          </div>
+
+          <div style="padding: 2rem; background: rgba(18, 18, 22, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem;" data-aos="fade-up" data-aos-delay="300">
+            <h3 style="font-family: var(--font-display); color: var(--gold); font-size: 1.25rem; margin-bottom: 0.75rem;">BUILD TO OPERATE</h3>
+            <p style="font-size: 0.95rem; line-height: 1.65; color: rgba(255,255,255,0.75);">
+              We don't only create concepts. We build systems that can actually run. Every model is engineered for real workflows, clear accountability, and sustainable economics.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOUNDER SECTION -->
+    <section class="section founder" id="founder">
+      <div class="container">
+        <div class="founder__grid">
           
-          <h2 class="founder__heading heading-display" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-            THE FOUNDER BEHIND SZ VENTURES.
-          </h2>
-
-          <div class="founder__identity" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-            <h3 class="founder__name founder__name--gold">Sridhar Chakkravarthy</h3>
-            <p class="founder__role">Founder — SZ Ventures Private Limited</p>
-
+          <!-- Visual Column -->
+          <div class="founder__visual" data-aos="fade" data-aos-duration="900" data-aos-easing="ease-out-cubic">
+            <div class="founder__portrait-frame">
+              <picture>
+                <source srcset="/assets/images/founder/sridhar-chakkravarthy.webp" type="image/webp">
+                <img src="/assets/images/founder/sridhar-chakkravarthy.png" alt="Sridhar Chakkravarthy, Founder of SZ Ventures" class="founder__portrait" width="400" height="400" loading="lazy" decoding="async">
+              </picture>
+            </div>
           </div>
 
-          <div class="founder__bio" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
+          <!-- Content Column -->
+          <div class="founder__content">
+            <div class="founder__header" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+              <div class="founder__eyebrow">FOUNDER</div>
+              <div class="founder__line"></div>
+            </div>
+            
+            <h2 class="founder__heading heading-display" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+              THE FOUNDER BEHIND SZ VENTURES.
+            </h2>
+
+            <div class="founder__identity" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+              <h3 class="founder__name founder__name--gold">Sridhar Chakkravarthy</h3>
+              <p class="founder__role">Founder — SZ Ventures Private Limited</p>
+            </div>
+
+            <div class="founder__bio" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
               <p>Sridhar Chakkravarthy is an entrepreneur and the Founder of SZ Ventures Private Limited. His professional journey includes experience with UPS, InterGlobe Technologies (IndiGo), and IBM, where he developed expertise across global operations, aviation, technology, process excellence, and enterprise systems.</p>
               <p>His international exposure across India, Europe, Singapore, the UAE, the United States, and the United Kingdom has shaped his global perspective on business, culture, and emerging markets.</p>
               <p>Transitioning from corporate enterprise to venture building, Sridhar now applies this experience to developing practical, technology-led businesses across industrial technology and the new economy. His approach combines operational discipline, market understanding, and long-term company building.</p>
               <p>He holds an MBA from Warwick Business School and is a certified Six Sigma Master Black Belt.</p>
             </div>
 
-          <div class="founder__cta-wrap founder__cta-wrap--flex" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
-            <a href="https://www.linkedin.com/in/sridharchakkravarthy/" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn" class="founder__link">
-              CONNECT ON LINKEDIN
-              <span class="founder__link-arrow">↗</span>
-            </a>
-            <a href="https://www.instagram.com/theurbanmonk21/" target="_blank" rel="noopener noreferrer" aria-label="Connect on Instagram" class="founder__link">
-              CONNECT ON INSTAGRAM
-              <span class="founder__link-arrow">↗</span>
-            </a>
+            <div class="founder__cta-wrap founder__cta-wrap--flex" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
+              <a href="https://www.linkedin.com/in/sridharchakkravarthy/" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn" class="founder__link">
+                CONNECT ON LINKEDIN
+                <span class="founder__link-arrow">↗</span>
+              </a>
+              <a href="https://www.instagram.com/theurbanmonk21/" target="_blank" rel="noopener noreferrer" aria-label="Connect on Instagram" class="founder__link">
+                CONNECT ON INSTAGRAM
+                <span class="founder__link-arrow">↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
- <!-- Scripts -->
- <script src="../assets/js/libs.bundle.js" defer></script>
- <script src="../main.js" defer></script>
- <script src="../assets/js/intake.js" defer></script>
-<script src="/assets/js/ambient.js" defer></script>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer-v2">
+    <div class="container">
+      <div class="footer-v2__grid">
+        <div class="footer-v2__brand-col">
+          <div class="footer-v2__brand-title">SZ VENTURES</div>
+          <div class="footer-v2__tagline">Building businesses. Powering real-world work.</div>
+          <p class="footer-v2__statement">
+            SZ Ventures builds and operates businesses across technology, industry, consumer markets and distributed workforce infrastructure.
+          </p>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Navigation</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures">Ventures</a></li>
+            <li><a href="/operations">Operations</a></li>
+            <li><a href="/how-we-build">How We Build</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Ventures</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures/ai-robotics-data">AI & Robotics Data</a></li>
+            <li><a href="/ventures/manufacturing">Manufacturing</a></li>
+            <li><a href="/ventures/industrial-ai">Industrial AI</a></li>
+            <li><a href="/ventures/bowl-and-sip">Bowl & Sip Co.</a></li>
+            <li><a href="/ventures/snapops">SnapOps</a></li>
+            <li><a href="/ventures/creator-house">Creator House</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Operations</div>
+          <ul class="footer-v2__links">
+            <li><a href="/operations/workforce-deployment">Workforce Deployment</a></li>
+            <li><a href="/operations/rider-operations">Rider Operations</a></li>
+            <li><a href="/operations/bgv-verification">BGV & Verification</a></li>
+            <li><a href="/operations/field-gig-operations">Field Gig Operations</a></li>
+            <li><a href="/operations/device-asset-recovery">Device & Asset Recovery</a></li>
+            <li><a href="/operations#on-demand-field-teams">On-Demand Field Teams</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-v2__bottom">
+        <div>© SZ Ventures Private Limited. All rights reserved.</div>
+        <div class="footer-v2__legal">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/libs.bundle.js" defer></script>
+  <script src="/main.js" defer></script>
+  <script src="/assets/js/ambient.js" defer></script>
 </body>
 </html>

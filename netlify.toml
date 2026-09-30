@@ -99,6 +99,76 @@
   status = 200
 
 [[redirects]]
+  from   = "/operations"
+  to     = "/operations/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/operations/workforce-deployment"
+  to     = "/operations/workforce-deployment/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/operations/rider-operations"
+  to     = "/operations/rider-operations/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/operations/rider-registration"
+  to     = "/operations/rider-registration/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/operations/bgv-verification"
+  to     = "/operations/bgv-verification/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/operations/field-gig-operations"
+  to     = "/operations/field-gig-operations/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/operations/device-asset-recovery"
+  to     = "/operations/device-asset-recovery/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/how-we-build"
+  to     = "/how-we-build/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/ventures/ai-robotics-data"
+  to     = "/ventures/ai-robotics-data/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/ventures/manufacturing"
+  to     = "/ventures/manufacturing/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/ventures/industrial-ai"
+  to     = "/ventures/industrial-ai/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/ventures/bowl-and-sip"
+  to     = "/ventures/bowl-and-sip/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/ventures/snapops"
+  to     = "/ventures/snapops/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/ventures/creator-house"
+  to     = "/ventures/creator-house/index.html"
+  status = 200
+
+[[redirects]]
   from   = "/team"
   to     = "/team.html"
   status = 200

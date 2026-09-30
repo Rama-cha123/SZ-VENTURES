@@ -1,1264 +1,658 @@
 <!DOCTYPE html>
-
-
 <html lang="en" class="no-js">
-
-
 <head>
-
-
- <meta charset="UTF-8">
-
-
- <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-
- <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
-
-
- <title>SZ Ventures | Building Businesses Across Industry & the New Economy</title>
-
-
- <meta name="description" content="SZ Ventures is a diversified venture-building company developing businesses across industrial technology, AI, robotics data, manufacturing and the new economy.">
-
-
- <meta name="theme-color" content="#0a0a0b">
-
-
- <link rel="canonical" href="https://szventures.com/">
-
-
-
-
-
- <meta property="og:type" content="website">
-
-
- <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
-
-
- <meta name="twitter:image" content="https://szventures.com/assets/img/og-image.jpg">
-
-
- <meta property="og:title" content="SZ Ventures — Venture Studio">
-
-
- <meta property="og:description" content="Building Ventures That Solve Real-World Problems.">
-
-
- <meta property="og:url" content="https://szventures.com/">
-
-
- <meta name="twitter:card" content="summary_large_image">
-
-
-
-
-
- <link rel="preconnect" href="https://fonts.googleapis.com">
-
-
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
- <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
-
-
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
-
-
- <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
-
-
-
-
-
- <!-- Project styles -->
-
-
- <link rel="stylesheet" href="assets/styles/tokens.css">
-
-
- <link rel="stylesheet" href="assets/styles/base.css">
-
-
- <link rel="stylesheet" href="assets/styles/components.css">
-
-
- <link rel="stylesheet" href="assets/styles/layout.css">
-
-
- <link rel="stylesheet" href="assets/styles/libs.bundle.css">
-
-
-
-
-
- <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-
-
- <link rel="stylesheet" href="/assets/styles/ambient.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+  <title>SZ Ventures | Building Businesses. Powering Real-World Work.</title>
+  <meta name="description" content="SZ Ventures builds and operates businesses across industrial technology, manufacturing, consumer markets and distributed workforce infrastructure.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="canonical" href="https://szventures.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta name="twitter:image" content="https://szventures.com/assets/img/og-image.jpg">
+  <meta property="og:title" content="SZ Ventures — Building Businesses. Powering Real-World Work.">
+  <meta property="og:description" content="Building businesses across industrial technology, manufacturing, consumer markets and distributed workforce infrastructure.">
+  <meta property="og:url" content="https://szventures.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+
+  <!-- Project styles -->
+  <link rel="stylesheet" href="/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/assets/styles/base.css">
+  <link rel="stylesheet" href="/assets/styles/components.css">
+  <link rel="stylesheet" href="/assets/styles/layout.css?v=20260927">
+  <link rel="stylesheet" href="/assets/styles/libs.bundle.css">
+  <link rel="stylesheet" href="/assets/styles/ambient.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 </head>
-
-
 <body class="is-loading">
-<canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
-<div class="sz-bokeh" aria-hidden="true"></div>
-
-
-
-
-
-
- <div class="grain" aria-hidden="true"></div>
-
-
- <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
-
-
- <div class="progress" aria-hidden="true"><span></span></div>
-
-
-
-
-
- <!-- Preloader -->
-
-
- <div class="preloader" id="preloader" aria-hidden="true">
-
-
- <div class="preloader__mark">SZ Ventures</div>
-
-
- <div class="preloader__count" id="preCount">0</div>
-
-
- <div class="preloader__bar"><i id="preBar"></i></div>
-
-
- </div>
-
-
-
-
-
- <!-- Header Navigation -->
-
-
- <!-- Header Navigation -->
-
-
- <header class="nav glass" id="nav">
-
-
- <div class="nav__inner">
-
-
- <a href="/index.html" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
-
-
- <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
-
-
- SZ Ventures
-
-
- </a>
-
-
- 
-
-
- <nav class="nav__links" aria-label="Primary">
-
-
- <a href="/industrial-technology.html" class="nav__link">Industries</a>
-
-
- <a href="/ventures/" class="nav__link">Ventures</a>
-
-
-  <a href="/creator-house/" class="nav__link">Creator House</a>
-
-
-
-
-
-<a href="/capabilities.html" class="nav__link">Capabilities</a>
-
-
- <a href="/about/" class="nav__link">About</a>
-
-
- <a href="/insights.html" class="nav__link">Insights</a>
-
-
- <a href="/contact.html" class="nav__link">Contact</a>
-
-
- </nav>
-
-
- <div class="nav__right">
-
-
- <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
-
-
- <a href="/contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Start a Conversation →</span></a>
-
-
- <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-
-
- <span></span><span></span><span></span>
-
-
- </button>
-
-
- </div>
-
-
-
-
-
- </div>
-
-
- </header>
-
-
-
-
-
- <!-- Mobile Drawer Menu -->
-
-
- <!-- Mobile Drawer Menu -->
-
-
- 
-
-
- <div class="menu" id="menu">
-
-
- <a href="/industrial-technology.html" data-menu-link>Industries <span>01</span></a>
-
-
- <a href="/ventures/" data-menu-link>Ventures <span>02</span></a>
-
-
-  <a href="/creator-house/" data-menu-link>Creator House <span>★</span></a>
-
-
- <a href="/capabilities.html" data-menu-link>Capabilities <span>03</span></a>
-
-
- <a href="/about/" data-menu-link>About <span>04</span></a>
-
-
- <a href="/insights.html" data-menu-link>Insights <span>05</span></a>
-
-
- <a href="/contact.html" data-menu-link>Contact <span>06</span></a>
-
-
- <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
-
-
- <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
-
-
- </div>
-
-
-</div>
-
-
- </div>
-
-
-
-
-
- <!-- Swup Main Container -->
-
-
- <main id="swup" class="transition-fade">
-
-
- <!-- 01 HERO SECTION -->
-
-
- <section class="hero" id="top">
-
-
- <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
-<canvas id="sz-wave-canvas" aria-hidden="true"></canvas>
-
-
- <div class="hero__inner container">
-
-
- <div class="hero__meta" data-aos="fade">
-
-
- <span class="pill">SZ VENTURES</span>
-
-
- </div>
-
-
- <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900" style="font-size: clamp(3rem, 6vw, 5rem);">
-
-
- <span class="line">BUILDING BUSINESSES</span>
-
-
- <span class="line">ACROSS INDUSTRY</span>
-
-
- <span class="line"><em class="serif-accent">& THE NEW ECONOMY.</em></span>
-
-
- </h1>
-
-
- <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
-
-
- SZ Ventures builds, operates and develops businesses at the intersection of industrial technology, AI, manufacturing, consumer markets and the new economy.
-
-
- </p>
-
-
- <div class="hero__actions" data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
-
-
- <a href="/contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Start a Conversation</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-
-
- <a href="#portfolio" class="btn btn--ghost" data-cursor><span>Explore Our Portfolio</span></a>
-
-
- </div>
-
-
- </div>
-
-
- </section>
-
-
-
-
-
- <!-- 02 WHAT WE ARE -->
-
-
- <section class="section philosophy" id="philosophy">
-
-
- <div class="container">
-
-
- <div class="sec-head">
-
-
- <span class="eyebrow" data-aos="fade">WHAT WE ARE</span>
-
-
- <h2 data-aos="fade-up">A VENTURE-BUILDING COMPANY<br>FOR TWO DIFFERENT ECONOMIES.</h2>
-
-
- </div>
-
-
- <p class="philosophy__statement display" data-aos="fade-up" data-aos-duration="900" style="font-size: clamp(1.5rem, 3vw, 2.5rem); margin-bottom: 2rem;">
-
-
- The world is evolving across two very different but increasingly connected economies.
-
-
- </p>
-
-
- <div class="principles" style="grid-template-columns: 1fr;">
-
-
- <p style="font-size: var(--fs-500); max-width: 60ch; line-height: 1.6; margin-bottom: 1rem;" data-aos="fade-up">The industrial economy is becoming more intelligent, automated and data-driven.</p>
-
-
- <p style="font-size: var(--fs-500); max-width: 60ch; line-height: 1.6; margin-bottom: 1rem;" data-aos="fade-up" data-aos-delay="100">The new economy is being shaped by consumers, creators, communities and digital-first businesses.</p>
-
-
- <p style="font-size: var(--fs-500); max-width: 60ch; line-height: 1.6; margin-bottom: 1rem;" data-aos="fade-up" data-aos-delay="200">SZ Ventures operates across both.</p>
-
-
- <p style="font-size: var(--fs-500); max-width: 60ch; line-height: 1.6; margin-bottom: 2rem;" data-aos="fade-up" data-aos-delay="300">We build and develop businesses in Industrial Technology and the New Economy — combining technology, people, operations and execution to turn opportunities into functioning businesses.</p>
-
-
- <div data-aos="fade-up" data-aos-delay="400">
-
-
- <h3 style="font-family: var(--font-display); color: var(--gold); letter-spacing: 0.05em;">Industrial Technology.<br>New Economy.<br>Built for Scale.</h3>
-
-
- </div>
-
-
- </div>
-
-
- </div>
-
-
- </section>
-
-
-
-
-
- <!-- 03 TWO ECONOMIES -->
-
-
- <section class="section portfolio" id="portfolio">
-
-
- <div class="container">
-
-
- <div class="sec-head sec-head--row">
-
-
- <div>
-
-
- <span class="eyebrow" data-aos="fade">OUR PORTFOLIO</span>
-
-
- <h2 data-aos="fade-up">TWO ECONOMIES.<br>ONE VENTURE PLATFORM.</h2>
-
-
- </div>
-
-
- <p data-aos="fade" style="max-width: 40ch;">Our portfolio is intentionally diversified across businesses with different customers, operating models and growth cycles. SZ Ventures provides the strategic, technological and operational foundation behind them.</p>
-
-
- </div>
-
-
- 
-
-
- <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 3rem;">
-
-
-   <div data-aos="fade-up">
-
-
-     <h3 style="font-size: var(--fs-500); color: var(--ink); margin-bottom: 1rem; border-bottom: 1px solid var(--line); padding-bottom: 0.5rem;">INDUSTRIAL TECHNOLOGY</h3>
-
-
-     <p style="color: var(--muted); margin-bottom: 1.5rem;">Building capabilities for the next generation of intelligent industry.</p>
-
-
-     <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0;">
-
-
-       <li style="margin-bottom: 0.5rem; font-weight: 500;">AI & Robotics Data</li>
-
-
-       <li style="margin-bottom: 0.5rem; font-weight: 500;">Industrial AI</li>
-
-
-       <li style="margin-bottom: 0.5rem; font-weight: 500;">Manufacturing</li>
-
-
-     </ul>
-
-
-     <a href="/industrial-technology.html" class="btn btn--ghost">Explore Industrial Technology</a>
-
-
-   </div>
-
-
-   <div data-aos="fade-up" data-aos-delay="100">
-
-
-     <h3 style="font-size: var(--fs-500); color: var(--ink); margin-bottom: 1rem; border-bottom: 1px solid var(--line); padding-bottom: 0.5rem;">NEW ECONOMY</h3>
-
-
-     <p style="color: var(--muted); margin-bottom: 1.5rem;">Building consumer, creator and digital-first businesses for the emerging economy.</p>
-
-
-     <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0;">
-
-
-       <li style="margin-bottom: 0.5rem; font-weight: 500;">Bowl & Sip Co.</li>
-
-
-       <li style="margin-bottom: 0.5rem; font-weight: 500;">Creator House</li>
-       <li style="margin-bottom: 0.5rem; font-weight: 500;">SnapOps</li>
-
-
-     </ul>
-
-
-     <a href="/new-economy.html" class="btn btn--ghost">Explore New Economy Ventures</a>
-
-
-   </div>
-
-
- </div>
-
-
- </div>
-
-
- </section>
-
-
-
-
-
- <!-- 04 CURRENT INDUSTRIAL PROJECT -->
-
-
- <section class="section" id="awign" style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-
-
- <div class="container">
-
-
- <div class="sec-head">
-
-
- <span class="eyebrow" data-aos="fade">CURRENT ENGAGEMENT</span>
-
-
- <h2 data-aos="fade-up">FROM REAL-WORLD ACTIVITY<br>TO MACHINE INTELLIGENCE.</h2>
-
-
- </div>
-
-
- <p style="font-size: var(--fs-500); max-width: 60ch; line-height: 1.6; margin-bottom: 2rem;" data-aos="fade-up">
-
-
- SZ Ventures is currently executing an industrial data-collection engagement with Awign Enterprises.<br><br>
-
-
- The project involves collecting real-world industrial footage and data to support the training of AI systems intended for robotic automation.
-
-
- </p>
-
-
- <a href="/contact.html" class="btn btn--accent" data-aos="fade-up">Discuss an AI Data Requirement →</a>
-
-
- </div>
-
-
- </section>
-
-
-
-
-
- <!-- 05 OUR APPROACH -->
-
-
- <section class="section philosophy" id="approach">
-
-
- <div class="container">
-
-
- <div class="sec-head">
-
-
- <span class="eyebrow" data-aos="fade">OUR APPROACH</span>
-
-
- <h2 data-aos="fade-up">IDEA → BUILD → OPERATE → SCALE</h2>
-
-
- <p data-aos="fade" style="margin-top:1rem; max-width:40ch;">We don't build businesses to launch them. We build them to operate.</p>
-
-
- </div>
-
-
- <div class="principles">
-
-
- <div class="principle" data-aos="fade-up">
-
-
- <div class="principle__num">01</div>
-
-
- <h3>IDENTIFY</h3>
-
-
- <p>We identify opportunities where market demand, technology and execution can create a viable business.</p>
-
-
- </div>
-
-
- <div class="principle" data-aos="fade-up" data-aos-delay="100">
-
-
- <div class="principle__num">02</div>
-
-
- <h3>BUILD</h3>
-
-
- <p>We develop the product, operating model, technology, brand and infrastructure required to launch.</p>
-
-
- </div>
-
-
- <div class="principle" data-aos="fade-up" data-aos-delay="200">
-
-
- <div class="principle__num">03</div>
-
-
- <h3>OPERATE</h3>
-
-
- <p>We put the business into the real world, measure performance and refine the operating model.</p>
-
-
- </div>
-
-
- <div class="principle" data-aos="fade-up" data-aos-delay="300">
-
-
- <div class="principle__num">04</div>
-
-
- <h3>SCALE</h3>
-
-
- <p>Once the model demonstrates traction, we expand distribution, infrastructure, partnerships and capital.</p>
-
-
- </div>
-
-
- </div>
-
-
- </div>
-
-
- </section>
-
-
-
-
-
- <!-- 06 SHARED INFRASTRUCTURE -->
-
-
- <section class="section" id="infrastructure">
-
-
- <div class="container">
-
-
- <div class="sec-head sec-head--row">
-
-
- <div>
-
-
- <span class="eyebrow" data-aos="fade">WHY SZ VENTURES</span>
-
-
- <h2 data-aos="fade-up">DIFFERENT MARKETS.<br>SHARED INFRASTRUCTURE.</h2>
-
-
- </div>
-
-
- <p data-aos="fade" style="max-width: 40ch;">Our businesses operate in different markets, but they benefit from the same underlying capabilities.</p>
-
-
- </div>
-
-
- <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:2rem;" data-aos="fade-up">
-
-
- <span class="pill">Technology</span>
-
-
- <span class="pill">People</span>
-
-
- <span class="pill">Operations</span>
-
-
- <span class="pill">Data</span>
-
-
- <span class="pill">Brand</span>
-
-
- <span class="pill">Distribution</span>
-
-
- <span class="pill">Execution</span>
-
-
- </div>
-
-
- </div>
-
-
- </section>
-
-
-
-
-
- <!-- 07 OUR VENTURES -->
-
-
- <section class="section portfolio" id="ventures" style="background: var(--paper-2); border-top: 1px solid var(--line);">
-
-
- <div class="container">
-
-
- <div class="sec-head">
-
-
- <span class="eyebrow" data-aos="fade">OUR VENTURES</span>
-
-
- <h2 data-aos="fade-up">A PORTFOLIO BUILT FOR WHAT'S NEXT.</h2>
-
-
- </div>
-
-
- 
-
-
- <div class="portfolio__list">
-
-
-  <!-- 01 AI & Robotics Data -->
-
-
-  <a class="company" href="/industrial-technology.html#ai-robotics-data" data-aos="fade-up" data-cursor data-tippy-content="Explore AI & Robotics Data">
-
-
-  <div class="company__bg" style="background-image: url(\'/assets/images/cards/ai-robotics-card.jpg\');"></div>
-
-
-  <div>
-
-
-  <div class="company__name">AI & Robotics Data</div>
-
-
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">INTELLIGENCE FROM THE REAL WORLD.</div>
-
-
+  <canvas id="sz-particles-canvas" aria-hidden="true"></canvas>
+  <div class="sz-bokeh" aria-hidden="true"></div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__mark">SZ Ventures</div>
+    <div class="preloader__count" id="preCount">0</div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
   </div>
 
-
-  <div class="company__thesis">Real-world data acquisition and operational infrastructure supporting AI and robotics training.</div>
-
-
-  <div class="company__sector">Industrial Technology</div>
-
-
-  <div class="company__metric"><span class="status-badge status-badge--active">Active</span></div>
-
-
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore Industrial Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-
-
-  </a>
-
-
-
-
-
-  <!-- 02 Industrial AI -->
-
-
-  <a class="company" href="/industrial-technology.html#industrial-ai" data-aos="fade-up" data-cursor data-tippy-content="Explore Industrial AI">
-
-
-  <div class="company__bg" style="background-image: url(\'/assets/images/cards/industrial-ai-card.jpg\');"></div>
-
-
-  <div>
-
-
-  <div class="company__name">Industrial AI</div>
-
-
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">INTELLIGENT SYSTEMS.</div>
-
-
-  </div>
-
-
-  <div class="company__thesis">Applied AI and intelligent systems for physical and industrial environments.</div>
-
-
-  <div class="company__sector">Industrial Technology</div>
-
-
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#f5a623;">Developing</span></div>
-
-
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore Industrial Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-
-
-  </a>
-
-
-
-
-
-  <!-- 03 Manufacturing -->
-
-
-  <a class="company" href="/industrial-technology.html#manufacturing" data-aos="fade-up" data-cursor data-tippy-content="Explore Manufacturing">
-
-
-  <div class="company__bg" style="background-image: url(\'/assets/images/cards/manufacturing-card.jpg\');"></div>
-
-
-  <div>
-
-
-  <div class="company__name">Manufacturing</div>
-
-
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">PHYSICAL EXECUTION.</div>
-
-
-  </div>
-
-
-  <div class="company__thesis">Manufacturing and physical-production capabilities serving institutional and commercial requirements.</div>
-
-
-  <div class="company__sector">Industrial Technology</div>
-
-
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#4ade80; color:#000;">Active / Order-Led</span></div>
-
-
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore Industrial Technology <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-
-
-  </a>
-
-
-
-
-
-  <!-- 04 Bowl & Sip Co. -->
-
-
-  <a class="company" href="/ventures/bowl-and-sip/index.html" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Bowl & Sip Co.">
-
-
-  <div>
-
-
-  <div class="company__name">Bowl & Sip Co.</div>
-
-
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">Food. Fitness. Convenience.</div>
-
-
-  </div>
-
-
-  <div class="company__thesis">A health-conscious food and lifestyle venture.</div>
-
-
-  <div class="company__sector">New Economy</div>
-
-
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#f5a623;">Building</span></div>
-
-
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore The Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-
-
-  </a>
-
-
-
-
-
-  <!-- 05 Creator House -->
-
-
-  <a class="company" href="/creator-house/" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Creator House">
-
-
-  <div>
-
-
-  <div class="company__name">Creator House</div>
-
-
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">Where Creators Build.</div>
-
-
-  </div>
-
-
-  <div class="company__thesis">A creator-first production and ecosystem venture.</div>
-
-
-  <div class="company__sector">New Economy</div>
-
-
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#f5a623;">Building</span></div>
-
-
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore The Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-
-
-  </a>
-
-
-  <!-- 06 SnapOps -->
-
-
-  <a class="company" href="/snapops/" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore SnapOps">
-
-
-  <div>
-
-
-  <div class="company__name">SnapOps</div>
-
-
-  <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">Community Services, Simplified.</div>
-
-
-  </div>
-
-
-  <div class="company__thesis">A WhatsApp-first concept for connecting communities with nearby services and local businesses.</div>
-
-
-  <div class="company__sector">New Economy</div>
-
-
-  <div class="company__metric"><span class="status-badge status-badge--active" style="background:#38bdf8; color:#000;">Launching</span></div>
-
-
-  <div class="company__cta" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">Explore The Venture <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-
-
-  </a>
-
-
-
-
-
-  </div>
-
-
- </div>
-
-
- </section>
-
-
-
-
-
- <!-- 09 INSIGHTS -->
-
-
- <section class="section" id="insights">
-
-
- <div class="container">
-
-
- <div class="sec-head sec-head--row">
-
-
- <div>
-
-
- <span class="eyebrow" data-aos="fade">THOUGHT LEADERSHIP</span>
-
-
- <h2 data-aos="fade-up">THINKING BEYOND<br>THE NEXT QUARTER.</h2>
-
-
- </div>
-
-
- <p data-aos="fade">Perspectives on technology, industry, AI, entrepreneurship, consumer behaviour and the new economy.</p>
-
-
- </div>
-
-
- <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:2rem;" data-aos="fade-up">
-
-
- <span class="pill">Industrial AI</span><span class="pill">Robotics</span><span class="pill">Manufacturing</span><span class="pill">Business Systems</span><span class="pill">Consumer</span><span class="pill">Creator Economy</span><span class="pill">Venture Building</span>
-
-
- </div>
-
-
- </div>
-
-
- </section>
-
-
-
-
-
- <!-- 10 FINAL CTA -->
-
-
- <section class="section cta" id="contact">
-
-
- <div class="container">
-
-
- <div class="cta__inner">
-
-
- <div>
-
-
- <span class="eyebrow" data-aos="fade">LET'S CONNECT</span>
-
-
- <h2 class="display" data-aos="fade-up" data-aos-duration="900">HAVE AN OPPORTUNITY,<br>REQUIREMENT OR IDEA?</h2>
-
-
- <p data-aos="fade-up" data-aos-delay="150">Tell us what you're building, solving or exploring. If there's a meaningful fit, we'll figure out the next step.</p>
-
-
- <div style="margin-top:2rem" data-aos="fade-up" data-aos-delay="250">
-
-
- <a href="/contact.html" class="btn btn--accent" data-magnetic data-cursor><span>Start a Conversation →</span></a>
-
-
- </div>
-
-
- </div>
-
-
- <div class="cta__side" data-aos="fade-up" data-aos-delay="200">
-
-
- <div class="cta__row"><span>Email</span><a href="mailto:hello@szventures.com" data-tippy-content="We reply within two business days">hello@szventures.com</a></div>
-
-
- </div>
-
-
- </div>
-
-
- </div>
-
-
- </section>
-
-
-
-
-
- <!-- FOOTER -->
-
-
-  <footer class="footer" role="contentinfo">
-
-
-   <div class="container">
-
-
-    <div class="footer-grid">
-
-
-     <div class="footer-brand">
-
-
-      <a href="/index.html" class="footer-logo" aria-label="SZ Ventures home">
-
-
-       <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" aria-hidden="true">
-
-
-       <span>SZ Ventures</span>
-
-
+  <!-- Header Navigation -->
+  <header class="nav glass" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" data-cursor data-tippy-content="SZ Ventures — Venture Studio">
+        <img src="/assets/img/logo.png" alt="SZ Ventures Logo" class="nav-logo-img" width="36" height="36" style="width: 36px; height: 36px; object-fit: contain;" aria-hidden="true">
+        SZ Ventures
       </a>
+      
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/ventures" class="nav__link">Ventures</a>
+        <a href="/operations" class="nav__link">Operations</a>
+        <a href="/how-we-build" class="nav__link">How We Build</a>
+        <a href="/about" class="nav__link">About</a>
+        <a href="/contact" class="nav__link">Contact</a>
+        <a href="/insights.html" class="nav__link">Insights</a>
+      </nav>
 
-
-      <p class="footer-tagline">Building Businesses Across Industry & the New Economy.</p>
-
-
-      <div class="footer-social">
-
-
-       <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-
-
-       <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-
-
-       <a href="#" class="social-link" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
-
-
+      <div class="nav__right">
+        <a href="/login/index.html" data-no-swup class="nav__link" style="margin-right: 0.5rem; font-weight: 500; font-family: var(--font-display);">Portal Login</a>
+        <a href="/contact" class="btn btn--accent" data-magnetic data-cursor><span>Build With Us →</span></a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-
-
-     </div>
-
-
-          <nav class="footer-nav" aria-label="Footer">
-        <div class="footer-nav-col">
-         <h4>Industries</h4>
-         <ul>
-          <li><a href="/industrial-technology.html">Industrial Technology</a></li>
-          <li><a href="/industrial-technology.html#ai-robotics-data">AI &amp; Robotics Data</a></li>
-          <li><a href="/industrial-technology.html#industrial-ai">Industrial AI</a></li>
-          <li><a href="/industrial-technology.html#manufacturing">Manufacturing</a></li>
-          <li><a href="/new-economy.html">New Economy</a></li>
-         </ul>
-        </div>
-        <div class="footer-nav-col">
-         <h4>Ventures</h4>
-         <ul>
-          <li><a href="/ventures/bowl-and-sip/index.html">Bowl &amp; Sip Co.</a></li>
-          <li><a href="/creator-house/">Creator House</a></li>
-          <li><a href="/snapops/">SnapOps</a></li>
-         </ul>
-        </div>
-        <div class="footer-nav-col">
-         <h4>Company</h4>
-         <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/ventures/">Ventures</a></li>
-          <li><a href="/capabilities.html">Capabilities</a></li>
-          <li><a href="/insights.html">Insights</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-         </ul>
-        </div>
-       </nav>
-
-
     </div>
+  </header>
 
+  <!-- Mobile Drawer Menu -->
+  <div class="menu" id="menu" aria-hidden="true" style="display: none;">
+    <a href="/ventures" data-menu-link>Ventures <span>01</span></a>
+    <a href="/operations" data-menu-link>Operations <span>02</span></a>
+    <a href="/how-we-build" data-menu-link>How We Build <span>03</span></a>
+    <a href="/about" data-menu-link>About <span>04</span></a>
+    <a href="/contact" data-menu-link>Contact <span>05</span></a>
+    <a href="/insights.html" data-menu-link>Insights <span>06</span></a>
+    <a href="/login/index.html" data-no-swup data-menu-link style="color: var(--gold-bright);">Portal Login <span>07</span></a>
+    <div class="menu__meta"><span>SZ Ventures</span><span>Est. 2018</span></div>
+  </div>
 
-    <div class="footer-bottom">
+  <!-- Swup Main Container -->
+  <main id="swup" class="transition-fade">
 
+    <!-- 01 HOMEPAGE HERO -->
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__gridlines"></div></div>
+      <canvas id="sz-wave-canvas" aria-hidden="true"></canvas>
 
-     <p>&copy; 2026 SZ Ventures Private Limited. All rights reserved.</p>
+      <div class="hero__inner container">
+        <div class="hero__meta" data-aos="fade">
+          <span class="pill">SZ VENTURES</span>
+        </div>
 
+        <h1 class="hero__title display" data-aos="fade-up" data-aos-duration="900">
+          <span class="line">BUILDING BUSINESSES.</span>
+          <span class="line"><em class="serif-accent">POWERING REAL-WORLD WORK.</em></span>
+        </h1>
 
+        <p class="hero__sub" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+          SZ Ventures builds and operates businesses across industrial technology, manufacturing, consumer markets and distributed workforce infrastructure.
+        </p>
+
+        <div class="hero__actions" data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
+          <a href="#ventures" class="btn btn--accent" data-magnetic data-cursor>
+            <span>Explore Our Ventures</span>
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#operations" class="btn btn--ghost" data-cursor>
+            <span>Explore Our Operations</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 HOMEPAGE — SECTION 2: WHAT WE'RE BUILDING (VENTURES) -->
+    <section class="section portfolio" id="ventures">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">VENTURES</span>
+          <h2 data-aos="fade-up">WHAT WE'RE BUILDING</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="max-width: 65ch; margin-top: 1rem; color: rgba(255,255,255,0.7); font-size: var(--fs-400);">
+            We build businesses around real-world opportunities — combining people, technology, infrastructure and execution to move ideas from opportunity to operation.
+          </p>
+        </div>
+
+        <!-- VENTURES BY STATUS GROUPS -->
+        <div class="portfolio__list">
+
+          <!-- 01 ACTIVE: AI & ROBOTICS DATA -->
+          <a class="company" href="/ventures/ai-robotics-data" data-aos="fade-up" data-cursor data-tippy-content="Explore AI & Robotics Data">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/ai-robotics-card.jpg');"></div>
+            <div>
+              <div class="company__name">AI & Robotics Data</div>
+              <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">REAL-WORLD DATA FOR INTELLIGENT MACHINES.</div>
+            </div>
+            <div class="company__thesis">Real-world data operations for the next generation of AI and robotics.</div>
+            <div class="company__sector">Industrial Technology</div>
+            <div class="company__metric"><span class="status-badge status-badge--active">Active</span></div>
+            <div class="company__cta">Explore <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 02 ACTIVE: MANUFACTURING -->
+          <a class="company" href="/ventures/manufacturing" data-aos="fade-up" data-cursor data-tippy-content="Explore Manufacturing">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/manufacturing-card.jpg');"></div>
+            <div>
+              <div class="company__name">Manufacturing</div>
+              <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">FROM PHYSICAL CAPABILITY TO INDUSTRIAL EXECUTION.</div>
+            </div>
+            <div class="company__thesis">Industrial manufacturing and physical production capabilities built for real-world demand.</div>
+            <div class="company__sector">Industrial Technology</div>
+            <div class="company__metric"><span class="status-badge status-badge--active">Active</span></div>
+            <div class="company__cta">Explore <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 03 DEVELOPING: INDUSTRIAL AI -->
+          <a class="company" href="/ventures/industrial-ai" data-aos="fade-up" data-cursor data-tippy-content="Explore Industrial AI">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/industrial-ai-card.jpg');"></div>
+            <div>
+              <div class="company__name">Industrial AI</div>
+              <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">INTELLIGENCE FOR THE PHYSICAL WORLD.</div>
+            </div>
+            <div class="company__thesis">Building intelligent systems for physical and industrial environments.</div>
+            <div class="company__sector">Industrial Technology</div>
+            <div class="company__metric"><span class="status-badge status-badge--developing">Developing</span></div>
+            <div class="company__cta">Explore <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 04 ACTIVE: MIRAI ENGINEERING -->
+          <a class="company" href="/ventures/mirai-engineering" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Mirai Engineering">
+            <div class="company__bg" style="background-image: url('/assets/images/verticals/ai-robotics-data/ai-robotics-lidar-survey.jpg');"></div>
+            <div>
+              <div class="company__name">Mirai Engineering</div>
+              <div style="font-size: var(--fs-300); color: #818cf8; margin-top: 0.25rem; font-family: var(--font-display);">ENGINEERING TOMORROW. BUILDING GLOBAL CAREERS.</div>
+            </div>
+            <div class="company__thesis">Next-generation engineering and technical education platform developing industry-ready engineers in robotics and advanced manufacturing.</div>
+            <div class="company__sector" style="color: rgba(255,255,255,0.6);">A venture by SZ Ventures</div>
+            <div class="company__metric"><span class="status-badge status-badge--active">Active</span></div>
+            <div class="company__cta">Explore <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 05 BUILDING: BOWL & SIP CO. -->
+          <a class="company" href="/ventures/bowl-and-sip" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Bowl & Sip Co.">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/bowl-and-sip-card.jpg');"></div>
+            <div>
+              <div class="company__name">Bowl & Sip Co.</div>
+              <div style="font-size: var(--fs-300); color: #34d399; margin-top: 0.25rem; font-family: var(--font-display); letter-spacing: 0.05em;">PERFORMANCE NUTRITION. BUILT FOR REAL LIFE.</div>
+            </div>
+            <div class="company__thesis">Performance nutrition designed around real food, functional nutrition and convenient delivery.</div>
+            <div class="company__sector" style="color: rgba(255,255,255,0.6);">A venture by SZ Ventures</div>
+            <div class="company__metric"><span class="status-badge status-badge--building">Building</span></div>
+            <div class="company__cta">Explore <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 05 ONBOARDING: CREATOR HOUSE -->
+          <a class="company" href="/ventures/creator-house/" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore Creator House">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/creator-house-card.jpg');"></div>
+            <div>
+              <div class="company__name">Creator House</div>
+              <div style="font-size: var(--fs-300); color: var(--gold-light); margin-top: 0.25rem; font-family: var(--font-display);">WHERE CREATORS BUILD.</div>
+            </div>
+            <div class="company__thesis">A creator-first production ecosystem connecting creators, production infrastructure and opportunities.</div>
+            <div class="company__sector" style="color: rgba(255,255,255,0.6);">A venture by SZ Ventures</div>
+            <div class="company__metric"><span class="status-badge status-badge--onboarding">Onboarding</span></div>
+            <div class="company__cta">Explore <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+          <!-- 06 BUILDING: SNAPOPS -->
+          <a class="company" href="/ventures/snapops/" data-no-swup data-aos="fade-up" data-cursor data-tippy-content="Explore SnapOps">
+            <div class="company__bg" style="background-image: url('/assets/images/cards/snapops-card.jpg');"></div>
+            <div>
+              <div class="company__name">SnapOps</div>
+              <div style="font-size: var(--fs-300); color: #38bdf8; margin-top: 0.25rem; font-family: var(--font-display);">REAL-WORLD SERVICES. WITHOUT THE FRICTION.</div>
+            </div>
+            <div class="company__thesis">WhatsApp-first community and field services, designed to make everyday services easier to access.</div>
+            <div class="company__sector" style="color: rgba(255,255,255,0.6);">A venture by SZ Ventures</div>
+            <div class="company__metric"><span class="status-badge status-badge--building">Building</span></div>
+            <div class="company__cta">Explore <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+          <a href="/ventures" class="btn btn--ghost" data-cursor><span>View All Ventures & Statuses →</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 HOMEPAGE — SECTION 3: WHAT WE CAN OPERATE (WORKFORCE & FIELD OPERATIONS) -->
+    <section class="section operations-section" id="operations" style="background: rgba(10, 10, 12, 0.4);">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">OPERATIONS</span>
+          <h2 data-aos="fade-up">WHAT WE CAN OPERATE</h2>
+          <p style="color: var(--gold); font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem;" data-aos="fade-up">
+            WORKFORCE & FIELD OPERATIONS
+          </p>
+          <p data-aos="fade-up" data-aos-delay="100" style="max-width: 65ch; margin-top: 1rem; color: rgba(255,255,255,0.7); font-size: var(--fs-400);">
+            We build and operate distributed workforces for real-world tasks — from workforce deployment and verification to field execution and operational support.
+          </p>
+        </div>
+
+        <!-- 6 OPERATIONS CAPABILITIES SNAPSHOT -->
+        <div class="ops-grid">
+
+          <!-- 01 WORKFORCE DEPLOYMENT -->
+          <a href="/operations/workforce-deployment" class="ops-card" data-aos="fade-up">
+            <div class="ops-card__top">
+              <span class="ops-card__num">01</span>
+              <span class="ops-card__badge">Capability</span>
+            </div>
+            <h3 class="ops-card__title">Workforce Deployment</h3>
+            <p class="ops-card__desc">
+              Recruit, onboard and deploy distributed workers for operational requirements.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Dedicated Workforce</span>
+              <span class="ops-tag">Field Contributors</span>
+              <span class="ops-tag">Temporary Deployments</span>
+            </div>
+          </a>
+
+          <!-- 02 RIDER OPERATIONS -->
+          <a href="/operations/rider-operations" class="ops-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="ops-card__top">
+              <span class="ops-card__num">02</span>
+              <span class="ops-card__badge">Managed Fleet</span>
+            </div>
+            <h3 class="ops-card__title">Rider Operations</h3>
+            <p class="ops-card__desc">
+              Dedicated delivery workforce for businesses requiring managed rider operations.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Rider Sourcing</span>
+              <span class="ops-tag">Attendance & Shifts</span>
+              <span class="ops-tag">Route Coordination</span>
+            </div>
+          </a>
+
+          <!-- 03 BGV & FIELD VERIFICATION -->
+          <a href="/operations/bgv-verification" class="ops-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="ops-card__top">
+              <span class="ops-card__num">03</span>
+              <span class="ops-card__badge">Verification</span>
+            </div>
+            <h3 class="ops-card__title">BGV & Field Verification</h3>
+            <p class="ops-card__desc">
+              Distributed personnel for background verification, address verification and physical verification.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Address Check</span>
+              <span class="ops-tag">Physical Audit</span>
+              <span class="ops-tag">Document Collection</span>
+            </div>
+          </a>
+
+          <!-- 04 FIELD GIG OPERATIONS -->
+          <a href="/operations/field-gig-operations" class="ops-card" data-aos="fade-up">
+            <div class="ops-card__top">
+              <span class="ops-card__num">04</span>
+              <span class="ops-card__badge">Task Execution</span>
+            </div>
+            <h3 class="ops-card__title">Field Gig Operations</h3>
+            <p class="ops-card__desc">
+              Deployable field workforce for physical, location-dependent tasks.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Surveys & Audits</span>
+              <span class="ops-tag">Retail Checks</span>
+              <span class="ops-tag">AI/Robotics Data</span>
+            </div>
+          </a>
+
+          <!-- 05 DEVICE & ASSET RECOVERY -->
+          <a href="/operations/device-asset-recovery" class="ops-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="ops-card__top">
+              <span class="ops-card__num">05</span>
+              <span class="ops-card__badge">Logistics</span>
+            </div>
+            <h3 class="ops-card__title">Device & Asset Recovery</h3>
+            <p class="ops-card__desc">
+              Field personnel for device collection, asset pickup, recovery and related operational tasks.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Asset Collection</span>
+              <span class="ops-tag">Physical Receipt</span>
+              <span class="ops-tag">Reverse Logistics</span>
+            </div>
+          </a>
+
+          <!-- 06 ON-DEMAND FIELD TEAMS -->
+          <a href="/operations#on-demand-field-teams" class="ops-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="ops-card__top">
+              <span class="ops-card__num">06</span>
+              <span class="ops-card__badge">Distributed</span>
+            </div>
+            <h3 class="ops-card__title">On-Demand Field Teams</h3>
+            <p class="ops-card__desc">
+              Flexible distributed teams for surveys, audits, inspections, data collection and other field requirements.
+            </p>
+            <div class="ops-card__usecases">
+              <span class="ops-tag">Market Research</span>
+              <span class="ops-tag">Site Visits</span>
+              <span class="ops-tag">Rapid Deployment</span>
+            </div>
+          </a>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+          <a href="/operations" class="btn btn--accent" data-magnetic data-cursor>
+            <span>Explore Operations →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 HOMEPAGE — SECTION 4: EMPOWERING THE GIG ECONOMY -->
+    <section class="section gig-economy-section">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">WORKFORCE INFRASTRUCTURE</span>
+          <h2 data-aos="fade-up">TURNING DISTRIBUTED TALENT<br>INTO DISTRIBUTED INFRASTRUCTURE.</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="max-width: 65ch; margin-top: 1.25rem; font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.75);">
+            The gig economy already has something businesses struggle to build — a distributed network of people with mobility, local knowledge and the ability to execute work on the ground.
+          </p>
+          <p data-aos="fade-up" data-aos-delay="200" style="max-width: 65ch; margin-top: 0.75rem; font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.75);">
+            SZ Ventures builds the operational layer that connects that workforce to real-world opportunities.
+          </p>
+        </div>
+
+        <!-- VISUAL FLOW PIPELINE -->
+        <div class="flow-container" data-aos="fade-up" data-aos-delay="250">
+          <div style="font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; text-align: center;">
+            FIELD EXECUTION PIPELINE
+          </div>
+          <div class="flow-steps">
+            <div class="flow-step">
+              <span class="flow-step__icon">01</span>
+              <span class="flow-step__name">Opportunity</span>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <span class="flow-step__icon">02</span>
+              <span class="flow-step__name">Verification</span>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <span class="flow-step__icon">03</span>
+              <span class="flow-step__name">Deployment</span>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <span class="flow-step__icon">04</span>
+              <span class="flow-step__name">Execution</span>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <span class="flow-step__icon">05</span>
+              <span class="flow-step__name">Quality Control</span>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <span class="flow-step__icon">06</span>
+              <span class="flow-step__name">Enterprise Delivery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 HOMEPAGE — SECTION 5: THE SZ OPERATING LAYER -->
+    <section class="section backbone-section" style="background: rgba(14, 14, 18, 0.4);">
+      <div class="container">
+        <div class="sec-head" style="text-align: center;">
+          <span class="eyebrow" data-aos="fade">OPERATING BACKBONE</span>
+          <h2 data-aos="fade-up">DIFFERENT BUSINESSES.<br>ONE OPERATING BACKBONE.</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="max-width: 60ch; margin: 1.25rem auto 0; font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.75);">
+            Across our ventures and operations, we combine technology, people and execution infrastructure to turn opportunities into operating businesses.
+          </p>
+        </div>
+
+        <!-- VISUAL BACKBONE STACK -->
+        <div class="backbone-grid" data-aos="fade-up" data-aos-delay="200">
+          <div class="backbone-item">People</div>
+          <span class="backbone-plus">+</span>
+          <div class="backbone-item">Technology</div>
+          <span class="backbone-plus">+</span>
+          <div class="backbone-item">Data</div>
+          <span class="backbone-plus">+</span>
+          <div class="backbone-item">Operations</div>
+          <span class="backbone-plus">+</span>
+          <div class="backbone-item">Distribution</div>
+          <span class="backbone-plus">+</span>
+          <div class="backbone-item">Execution</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 HOMEPAGE — SECTION 6: HOW WE BUILD -->
+    <section class="section build-section" id="how-we-build">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">METHODOLOGY</span>
+          <h2 data-aos="fade-up">HOW WE BUILD</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="max-width: 60ch; margin-top: 1rem; color: rgba(255,255,255,0.7); font-size: var(--fs-400);">
+            A disciplined, four-stage lifecycle moving from real problems to self-sustaining operating systems.
+          </p>
+        </div>
+
+        <div class="build-stages-grid">
+          <!-- 01 IDENTIFY -->
+          <div class="build-stage-card" data-aos="fade-up">
+            <div class="build-stage-card__num">01 — IDENTIFY</div>
+            <h3 class="build-stage-card__title">Identify</h3>
+            <p class="build-stage-card__desc">
+              Find opportunities where real-world problems create room for new businesses.
+            </p>
+          </div>
+
+          <!-- 02 BUILD -->
+          <div class="build-stage-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="build-stage-card__num">02 — BUILD</div>
+            <h3 class="build-stage-card__title">Build</h3>
+            <p class="build-stage-card__desc">
+              Develop the people, systems, partnerships and infrastructure required to make the opportunity real.
+            </p>
+          </div>
+
+          <!-- 03 OPERATE -->
+          <div class="build-stage-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="build-stage-card__num">03 — OPERATE</div>
+            <h3 class="build-stage-card__title">Operate</h3>
+            <p class="build-stage-card__desc">
+              Put the business into the field and build operational intelligence through execution.
+            </p>
+          </div>
+
+          <!-- 04 SCALE -->
+          <div class="build-stage-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="build-stage-card__num">04 — SCALE</div>
+            <h3 class="build-stage-card__title">Scale</h3>
+            <p class="build-stage-card__desc">
+              Expand what works through distribution, technology, workforce and partnerships.
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;" data-aos="fade-up">
+          <a href="/how-we-build" class="btn btn--ghost" data-cursor><span>Explore How We Build →</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 HOMEPAGE — SECTION 7: CURRENT ENGAGEMENT -->
+    <section class="section engagement-section" style="padding-top: 2rem;">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">CURRENT ENGAGEMENT</span>
+          <h2 data-aos="fade-up">AI & ROBOTICS DATA</h2>
+        </div>
+
+        <div class="current-engagement-card" data-aos="fade-up">
+          <div class="current-engagement-card__header">
+            <span class="status-badge status-badge--active">Active</span>
+            <span style="font-family: var(--font-display); font-size: 0.85rem; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase;">
+              Field Program
+            </span>
+          </div>
+          <h3 class="current-engagement-card__headline">INDUSTRIAL DATA OPERATIONS</h3>
+          <p class="current-engagement-card__copy">
+            SZ Ventures is currently operating an industrial data collection program supporting the development of AI and robotics applications. We act as the operational and data collection partner executing the real-world physical component.
+          </p>
+          <div class="current-engagement-card__partner">
+            <span>In collaboration with Awign Enterprises</span>
+          </div>
+          <div style="margin-top: 2rem;">
+            <a href="/ventures/ai-robotics-data" class="btn btn--accent" data-cursor><span>Explore Data Operations →</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 HOMEPAGE — SECTION 8: BUILD WITH US -->
+    <section class="section build-with-us-section" id="build-with-us">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" data-aos="fade">GET IN TOUCH</span>
+          <h2 data-aos="fade-up">BUILD WITH US</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="max-width: 65ch; margin-top: 1rem; color: rgba(255,255,255,0.75); font-size: var(--fs-400);">
+            We work with companies, operators, technology partners and organisations looking to turn real-world opportunities into scalable operations.
+          </p>
+        </div>
+
+        <div class="pathways-grid">
+          <!-- PATHWAY 1 -->
+          <a href="/contact?pathway=partnerships" class="pathway-card" data-aos="fade-up">
+            <h3 class="pathway-card__title">Partnerships</h3>
+            <p class="pathway-card__desc">For companies looking to build or operate together across industry and physical workflows.</p>
+            <div class="pathway-card__action">
+              <span>Start Conversation</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <!-- PATHWAY 2 -->
+          <a href="/contact?pathway=operations" class="pathway-card" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="pathway-card__title">Workforce & Field Operations</h3>
+            <p class="pathway-card__desc">For organisations with distributed real-world execution, rider, or field verification requirements.</p>
+            <div class="pathway-card__action">
+              <span>Deploy Field Teams</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <!-- PATHWAY 3 -->
+          <a href="/contact?pathway=ventures" class="pathway-card" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="pathway-card__title">Venture Opportunities</h3>
+            <p class="pathway-card__desc">For founders, operators and opportunities aligned with SZ Ventures' venture-building thesis.</p>
+            <div class="pathway-card__action">
+              <span>Discuss Opportunity</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;" data-aos="fade-up">
+          <a href="/contact" class="btn btn--accent btn--lg" data-magnetic data-cursor>
+            <span>Start a Conversation →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer-v2">
+    <div class="container">
+      <div class="footer-v2__grid">
+        <div class="footer-v2__brand-col">
+          <div class="footer-v2__brand-title">SZ VENTURES</div>
+          <div class="footer-v2__tagline">Building businesses. Powering real-world work.</div>
+          <p class="footer-v2__statement">
+            SZ Ventures builds and operates businesses across technology, industry, consumer markets and distributed workforce infrastructure.
+          </p>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Navigation</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures">Ventures</a></li>
+            <li><a href="/operations">Operations</a></li>
+            <li><a href="/how-we-build">How We Build</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Ventures</div>
+          <ul class="footer-v2__links">
+            <li><a href="/ventures/ai-robotics-data">AI & Robotics Data</a></li>
+            <li><a href="/ventures/manufacturing">Manufacturing</a></li>
+            <li><a href="/ventures/mirai-engineering">Mirai Engineering</a></li>
+            <li><a href="/ventures/industrial-ai">Industrial AI</a></li>
+            <li><a href="/ventures/bowl-and-sip">Bowl & Sip Co.</a></li>
+            <li><a href="/ventures/snapops">SnapOps</a></li>
+            <li><a href="/ventures/creator-house">Creator House</a></li>
+          </ul>
+        </div>
+        <div class="footer-v2__col">
+          <div class="footer-v2__col-title">Operations</div>
+          <ul class="footer-v2__links">
+            <li><a href="/operations/workforce-deployment">Workforce Deployment</a></li>
+            <li><a href="/operations/rider-operations">Rider Operations</a></li>
+            <li><a href="/operations/rider-registration">Register as a Rider</a></li>
+            <li><a href="/operations/bgv-verification">BGV & Verification</a></li>
+            <li><a href="/operations/field-gig-operations">Field Gig Operations</a></li>
+            <li><a href="/operations/device-asset-recovery">Device & Asset Recovery</a></li>
+            <li><a href="/operations#on-demand-field-teams">On-Demand Field Teams</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-v2__bottom">
+        <div>© SZ Ventures Private Limited. All rights reserved.</div>
+        <div class="footer-v2__legal">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
     </div>
-
-
-   </div>
-
-
   </footer>
 
+  <!-- Scripts -->
+  <script src="/assets/js/libs.bundle.js" defer></script>
+  <script src="/main.js" defer></script>
+  <script src="/assets/js/ambient.js" defer></script>
 
-</main>
-
-
-
-
-
- <!-- Scripts -->
-
-
- <script src="assets/js/libs.bundle.js" defer></script>
-
-
- <script src="main.js" defer></script>
-
-
- <script src="/assets/js/intake.js" defer></script>
-
-
-
-
-
-<!-- Preloader Fail-Safe -->
-
-
-<script>
-
-
-  setTimeout(function() {
-
-
-    var pre = document.getElementById('preloader');
-
-
-    if (pre && !pre.classList.contains('is-done')) {
-
-
-      pre.classList.add('is-done');
-
-
-      document.body.classList.remove('is-loading');
-
-
-      console.warn('Preloader fail-safe triggered. A critical asset may have failed to load.');
-
-
-    }
-
-
-  }, 4000);
-
-
-</script>
-
-
-<script src="/assets/js/ambient.js" defer></script>
+  <!-- Preloader Fail-Safe -->
+  <script>
+    setTimeout(function() {
+      var pre = document.getElementById('preloader');
+      if (pre && !pre.classList.contains('is-done')) {
+        pre.classList.add('is-done');
+        document.body.classList.remove('is-loading');
+      }
+    }, 4000);
+  </script>
 </body>
-
-
 </html>

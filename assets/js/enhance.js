@@ -43,17 +43,21 @@
       // Animate only the first time an element enters — cheaper + calmer.
       once: true,
       mirror: false,
-      offset: 80,
-      duration: 600,            // matches --dur (0.6s) in tokens.css
+      offset: 40,
+      duration: 500,            // matches --dur in tokens.css
       easing: 'ease-out-cubic',
       delay: 0,
       anchorPlacement: 'top-bottom',
-      // Let the (future) Lenis smooth-scroll drive refreshes.
-      // startEvent left default; AOS listens to native scroll/resize.
     });
     window.SZ.refreshAOS = function () {
       if (window.AOS) window.AOS.refresh();
     };
+    // Failsafe: guarantee all elements are visible even if scroll events are missed
+    setTimeout(function () {
+      document.querySelectorAll('[data-aos]:not(.aos-animate)').forEach(function (el) {
+        el.classList.add('aos-animate');
+      });
+    }, 1000);
   }
 
   /* ------------------------------------------------------------------
@@ -71,6 +75,9 @@
       duration: 1.1,
     });
     window.SZ.lenis = lenis;
+    lenis.on('scroll', function () {
+      if (window.AOS) window.AOS.refresh();
+    });
     // If async content changes layout, let AOS recompute offsets.
     window.addEventListener('load', function () {
       if (window.SZ && window.SZ.refreshAOS) window.SZ.refreshAOS();
